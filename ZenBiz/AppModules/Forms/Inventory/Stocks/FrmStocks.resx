@@ -1,0 +1,119 @@
+﻿<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <metadata name="toolStrip2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="btnStoreStockAdd.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAwSURBVDhPY6ApCFzk/w+EoVzSwagBJBgAU0gqhmqnggG4
+        ANEKcYFRA6hgAGHAwAAAjat1AX/QTEkAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="btnStoreStockEdit.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADeSURBVDhPzZCxDgFBEECvoOIvNCSiUmmo9To5t3vJRSS+
+        Ye2uTqtEp0JDdYkzQ0PhA7T+A3HDqgSbSMRLttiZeTOTcX5KWUCCdWDIFY6CYJ80YTtIdnWUcQUefLG4
+        cAUDk/oMyVziJJ688xXmqAmTMDPp9zxkmkqPSdw2BGRbAtKm5DUkewqnD/m+OmK9F6ZMyWvoSE+y/nuZ
+        4BL638hNLiDPFBxJji8O1rIrNgUu1iemcXlr0oGxtUwwtZrT1JqGM9fQNmE7PB2VSPQkhLwLRRO2J756
+        1ddQMd9f4jhXGzep94WY+O4AAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="btnStoreStockDelete.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACcSURBVEhLY4CBE75R/if8og8cDQj8sicw5h85GKQXZAbI
+        LKixEHA8ILoTmwZKMMhMsOEg27ApoAYG++REQOR+bJLUwCCzGSgJc0IYZDYDNglq4lELCGL6W3Bt1nyK
+        8H5nv7/I5mFY8OHDB4rwwFuAzdukYIIWUBuPWkAQ094CmhfXoDoUmyQ1MMhsYI1G4yoTBGha6cMAbZot
+        DAwAu2+DYTt/r2AAAAAASUVORK5CYII=
+</value>
+  </data>
+  <metadata name="toolStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <data name="btnWarehouseStockAdd.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAwSURBVDhPY6ApCFzs/w+EoVzSwagBJBgAU0gqhmqnggG4
+        ANEKcYFRA6hgAGHAwAAA92V1Neyv30IAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="btnWarehouseStockEdit.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADfSURBVDhPzZCxDgFBEECvoOIvNCSiUmmofYBKzu1echGJ
+        b1i7q9Mq0anQiOYSZ4aGwgdo/QfihlUJNpGIl2yxM/NmJuP8lLKABOvAkCscBcE+acJ2kOzqKOMKPPhi
+        ceEKBib1GZK5xEk8eecrzFETJmFm0u95yDSVHpO4bQjItgSkTclrSPYUTh/yfXXEei9MmZLX0JGeZP33
+        MsEl9L+Rm1xAnik4khxfHKxlV2wKXKxPTOPy1qQDY2uZYGo1p6k1DWeuoW3Cdng6KpHoSQh5F4ombE98
+        9aqvoWK+v8RxrkiTqg2KJbaXAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="btnWarehouseStockDelete.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACcSURBVEhLY4CBE75R/if8og8cDQj8sjcw5h85GKQXZAbI
+        LKixEHA8ILoTmwZKMMhMsOEg27ApoAYG++REQOR+bJLUwCCzGSgJc0IYZDYDNglq4lELCGL6W3B99gKK
+        8H4X/7/I5mFY8PHjR4rwwFuAzdukYIIWUBuPWkAQ094CmhfXoDoUmyQ1MMhsYI1G4yoTBGha6cMAbZot
+        DAwAnAmF/WJvLsIAAAAASUVORK5CYII=
+</value>
+  </data>
+</root>
