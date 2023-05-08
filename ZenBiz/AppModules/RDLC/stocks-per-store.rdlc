@@ -972,6 +972,8 @@
                 </TablixMember>
               </TablixMembers>
             </TablixRowHierarchy>
+            <RepeatColumnHeaders>true</RepeatColumnHeaders>
+            <KeepTogether>true</KeepTogether>
             <DataSetName>StocksPerStore</DataSetName>
             <Top>0.34078cm</Top>
             <Height>1.90583cm</Height>

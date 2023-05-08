@@ -8,6 +8,8 @@ namespace ZenBiz.AppModules.Interfaces
         DataTable Fetch(int storeId, int itemId);
         DataTable Fetch(int itemId);
         DataTable Fetch(int storeId, string searchText);
+        DataTable FetchItemsGroupByItem(int storesId, int categoriesId);
+        DataTable FetchItemsGroupByItem(int storesId);
         DataTable FetchStocks(int storeId, int itemId);
         Dictionary<string, string> FindByStockId(int stockId);
         decimal StocksLeft(int storeId, int itemId);

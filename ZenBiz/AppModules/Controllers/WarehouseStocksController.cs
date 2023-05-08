@@ -30,6 +30,29 @@ namespace ZenBiz.AppModules.Controllers
             throw new NotImplementedException();
         }
 
+        public DataTable FetchItemsGroupByItem(int warehouseId, int categoriesId)
+        {
+            var parameters = new object[][]
+            {
+                new object[] { "@warehouses_id", DbType.Int32, warehouseId },
+                new object[] { "@categories_id", DbType.Int32, categoriesId },
+            };
+
+            string query = $"SELECT item_id, sku_code, item_name, category_name, unit_name, unit_cost, retail_price, wholesale_price, special_price, min_threshold_stock FROM {viewWarehouseStocks} WHERE warehouses_id = @warehouses_id AND categories_id = @categories_id GROUP BY item_id";
+            return _dbGenericCommands.Fill(query, parameters);
+        }
+
+        public DataTable FetchItemsGroupByItem(int warehouseId)
+        {
+            var parameters = new object[][]
+            {
+                new object[] { "@warehouses_id", DbType.Int32, warehouseId },
+            };
+
+            string query = $"SELECT item_id, sku_code, item_name, category_name, unit_name, unit_cost, retail_price, wholesale_price, special_price, min_threshold_stock FROM {viewWarehouseStocks} WHERE warehouses_id = @warehouses_id GROUP BY item_id";
+            return _dbGenericCommands.Fill(query, parameters);
+        }
+
         public DataTable Fetch(int warehouseId, int itemId)
         {
             var parameters = new object[][]
