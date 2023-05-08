@@ -77,11 +77,11 @@ namespace ZenBiz.AppModules.Forms.Inventory.Items
         {
             dgStoreStocks.Rows.Clear();
             int itemId = (int)dgItems.SelectedCells[0].Value;
-            DataTable dtStores = Factory.StoresController().Fetch();
+            DataTable dtStores = Factory.StoreStocksController().FetchStores(itemId);
             foreach (DataRow item in dtStores.Rows)
             {
-                int storeId = (int)item["id"];
-                string storeName = item["name"].ToString();
+                int storeId = (int)item["stores_id"];
+                string storeName = item["store_name"].ToString();
                 // total stocks + total stock adjusted + total transfer stocks + sold stocks
                 decimal stocksLeft = Factory.StoreStocksController().StocksLeft(storeId, itemId);
                 dgStoreStocks.Rows.Add(storeId, storeName, stocksLeft.ToString("N2"));
@@ -93,11 +93,11 @@ namespace ZenBiz.AppModules.Forms.Inventory.Items
         {
             dgWarehouseStocks.Rows.Clear();
             int itemId = (int)dgItems.SelectedCells[0].Value;
-            DataTable dtWarehouse = Factory.WarehousesController().Fetch();
+            DataTable dtWarehouse = Factory.WarehouseStocksController().FetchWarehouses(itemId);
             foreach (DataRow item in dtWarehouse.Rows)
             {
-                int warehouseId = (int)item["id"];
-                string warehouseName = item["name"].ToString();
+                int warehouseId = (int)item["warehouses_id"];
+                string warehouseName = item["warehouse_name"].ToString();
                 decimal totalStocks = Factory.WarehouseStocksController().SumTotalStocks(warehouseId, itemId);
                 decimal totalStocksAdjusted = Factory.WarehouseStockAdjustmentController().SumStockAdjusted(warehouseId, itemId);
                 decimal stocksLeft = totalStocks + totalStocksAdjusted;

@@ -9,6 +9,7 @@ namespace ZenBiz.AppModules.Interfaces
         DataTable Fetch(int itemId);
         DataTable FetchItemsGroupByItem(int warehouseId, int categoriesId);
         DataTable FetchItemsGroupByItem(int warehouseId);
+        DataTable FetchWarehouses(int itemId);
         Dictionary<string, string> FindByStockId(int stockId);
         decimal SumTotalStocks(int warehouseId, int itemId);
     }

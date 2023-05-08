@@ -88,6 +88,17 @@ namespace ZenBiz.AppModules.Controllers
             return _dbGenericCommands.Fill(query, parameters);
         }
 
+        public DataTable FetchStores(int itemId)
+        {
+            var parameters = new object[][]
+            {
+                new object[] { "@item_id", DbType.String, itemId },
+            };
+
+            string query = $"SELECT DISTINCT stores_id, store_name FROM {viewStoreStocks} WHERE item_id = @item_id";
+            return _dbGenericCommands.Fill(query, parameters);
+        }
+
         public DataTable FetchBySearch(string searchText)
         {
             throw new NotImplementedException();
