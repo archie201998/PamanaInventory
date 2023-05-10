@@ -7,6 +7,7 @@ namespace ZenBiz.AppModules.Interfaces
     {
         bool DeletePerSalesId(int salesId);
         DataTable Fetch(DateTime dateFrom, DateTime dateTo);
+        DataTable Fetch(DateTime dateFrom, DateTime dateTo, int storeId);
         DataTable FetchBySalesId(int salesId);
         DataTable FetchSoldItems(DateTime dateFrom, DateTime dateTo);
         DataTable FetchSoldItems(DateTime dateFrom, DateTime dateTo, int storeId);

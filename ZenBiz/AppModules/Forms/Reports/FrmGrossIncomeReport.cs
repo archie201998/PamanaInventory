@@ -7,6 +7,7 @@ namespace ZenBiz.AppModules.Forms.Reports
     public partial class FrmGrossIncomeReport : Form
     {
         private readonly ReportViewer reportViewer;
+
         public FrmGrossIncomeReport()
         {
             InitializeComponent();
@@ -17,10 +18,33 @@ namespace ZenBiz.AppModules.Forms.Reports
             panel1.Controls.Add(reportViewer);
         }
 
+        private void LoadStores()
+        {
+            Dictionary<int, string> storeDict = new();
+            DataTable dtStores = Factory.StoresController().Fetch();
+            storeDict.Add(0, "All");
+            foreach (DataRow item in dtStores.Rows)
+                storeDict.Add(Convert.ToInt32(item["id"]), item["name"].ToString());
+
+            cmbStores.DataSource = new BindingSource(storeDict, null);
+            cmbStores.DisplayMember = "Value";
+            cmbStores.ValueMember = "key";
+        }
+
+        private void FrmGrossIncomeReport_Load(object sender, EventArgs e)
+        {
+            LoadStores();
+        }
+
         private DataTable DataTableGrossIncome()
         {
+            DataTable dataTableFromDB;
             var dtReport = new DataSet1.GrossIncomeDataTable();
-            DataTable dataTableFromDB = Factory.SalesItemController().Fetch(dtpFrom.Value, dtpTo.Value);
+            int storeId = Convert.ToInt32(cmbStores.SelectedValue);
+            if (storeId == 0)
+                dataTableFromDB = Factory.SalesItemController().Fetch(dtpFrom.Value, dtpTo.Value);
+            else
+                dataTableFromDB = Factory.SalesItemController().Fetch(dtpFrom.Value, dtpTo.Value, storeId);
 
             foreach (DataRow item in dataTableFromDB.Rows)
             {
@@ -56,6 +80,7 @@ namespace ZenBiz.AppModules.Forms.Reports
                     new ReportParameter("paramTIN", dict["tin"]),
                     new ReportParameter("paramDateFrom", dtpFrom.Value.ToString("MMM dd, yyyy")),
                     new ReportParameter("paramDateTo", dtpTo.Value.ToString("MMM dd, yyyy")),
+                    new ReportParameter("paramStoreName", cmbStores.Text),
                 };
 
                 report.ReportPath = $"{Application.StartupPath}\\AppModules\\RDLC\\gross-income.rdlc";

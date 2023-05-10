@@ -30,7 +30,9 @@
         {
             groupBox1 = new GroupBox();
             panel2 = new Panel();
+            label1 = new Label();
             label3 = new Label();
+            cmbStores = new ComboBox();
             dtpTo = new DateTimePicker();
             label2 = new Label();
             dtpFrom = new DateTimePicker();
@@ -46,14 +48,16 @@
             groupBox1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
             groupBox1.Location = new Point(12, 12);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(630, 58);
+            groupBox1.Size = new Size(827, 58);
             groupBox1.TabIndex = 4;
             groupBox1.TabStop = false;
             groupBox1.Text = "Parameters";
             // 
             // panel2
             // 
+            panel2.Controls.Add(label1);
             panel2.Controls.Add(label3);
+            panel2.Controls.Add(cmbStores);
             panel2.Controls.Add(dtpTo);
             panel2.Controls.Add(label2);
             panel2.Controls.Add(dtpFrom);
@@ -62,21 +66,39 @@
             panel2.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             panel2.Location = new Point(3, 19);
             panel2.Name = "panel2";
-            panel2.Size = new Size(624, 36);
+            panel2.Size = new Size(821, 36);
             panel2.TabIndex = 0;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(3, 6);
+            label1.Name = "label1";
+            label1.Size = new Size(34, 15);
+            label1.TabIndex = 12;
+            label1.Text = "Store";
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(264, 6);
+            label3.Location = new Point(463, 7);
             label3.Name = "label3";
             label3.Size = new Size(19, 15);
             label3.TabIndex = 10;
             label3.Text = "To";
             // 
+            // cmbStores
+            // 
+            cmbStores.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbStores.FormattingEnabled = true;
+            cmbStores.Location = new Point(43, 3);
+            cmbStores.Name = "cmbStores";
+            cmbStores.Size = new Size(155, 23);
+            cmbStores.TabIndex = 11;
+            // 
             // dtpTo
             // 
-            dtpTo.Location = new Point(289, 3);
+            dtpTo.Location = new Point(488, 4);
             dtpTo.Name = "dtpTo";
             dtpTo.Size = new Size(200, 23);
             dtpTo.TabIndex = 9;
@@ -84,7 +106,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(3, 6);
+            label2.Location = new Point(217, 7);
             label2.Name = "label2";
             label2.Size = new Size(35, 15);
             label2.TabIndex = 8;
@@ -92,14 +114,14 @@
             // 
             // dtpFrom
             // 
-            dtpFrom.Location = new Point(43, 3);
+            dtpFrom.Location = new Point(257, 4);
             dtpFrom.Name = "dtpFrom";
             dtpFrom.Size = new Size(200, 23);
             dtpFrom.TabIndex = 7;
             // 
             // btnGenerate
             // 
-            btnGenerate.Location = new Point(495, 3);
+            btnGenerate.Location = new Point(694, 4);
             btnGenerate.Name = "btnGenerate";
             btnGenerate.Size = new Size(115, 23);
             btnGenerate.TabIndex = 6;
@@ -124,6 +146,7 @@
             Controls.Add(groupBox1);
             Name = "FrmGrossIncomeReport";
             Text = "Gross Income Report";
+            Load += FrmGrossIncomeReport_Load;
             groupBox1.ResumeLayout(false);
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
@@ -140,5 +163,7 @@
         private DateTimePicker dtpFrom;
         private Button btnGenerate;
         private Panel panel1;
+        private Label label1;
+        private ComboBox cmbStores;
     }
 }
