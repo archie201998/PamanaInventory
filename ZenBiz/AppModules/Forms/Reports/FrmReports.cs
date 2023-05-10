@@ -38,5 +38,10 @@
         {
             ShowMdiForm(new FrmGrossIncomeReport());
         }
+
+        private void soldItemsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ShowMdiForm(new FrmSoldItems());
+        }
     }
 }

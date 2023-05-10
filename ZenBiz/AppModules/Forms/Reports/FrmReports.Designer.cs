@@ -65,16 +65,16 @@
             // grossIncomeToolStripMenuItem
             // 
             grossIncomeToolStripMenuItem.Name = "grossIncomeToolStripMenuItem";
-            grossIncomeToolStripMenuItem.Size = new Size(146, 22);
+            grossIncomeToolStripMenuItem.Size = new Size(180, 22);
             grossIncomeToolStripMenuItem.Text = "Gross Income";
             grossIncomeToolStripMenuItem.Click += grossIncomeToolStripMenuItem_Click;
             // 
             // soldItemsToolStripMenuItem
             // 
-            soldItemsToolStripMenuItem.Enabled = false;
             soldItemsToolStripMenuItem.Name = "soldItemsToolStripMenuItem";
-            soldItemsToolStripMenuItem.Size = new Size(146, 22);
+            soldItemsToolStripMenuItem.Size = new Size(180, 22);
             soldItemsToolStripMenuItem.Text = "Sold Items";
+            soldItemsToolStripMenuItem.Click += soldItemsToolStripMenuItem_Click;
             // 
             // inventoryToolStripMenuItem
             // 

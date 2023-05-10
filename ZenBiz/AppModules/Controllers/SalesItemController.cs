@@ -70,6 +70,31 @@ namespace ZenBiz.AppModules.Controllers
             return _dbGenericCommands.Fill(query, parameters);
         }
 
+
+        string soldItemsColumns = "id, sales_id, trans_no, trans_date, customers_id, customer_name, stores_id, store_name, items_id, sku_code, item_name, category_name, unit_name, sold_unit_cost, sold_price, SUM(sold_quantity) AS sold_quantity, (sold_price * SUM(sold_quantity)) AS gross_sale";
+        public DataTable FetchSoldItems(DateTime dateFrom, DateTime dateTo, int storeId)
+        {
+            var parameters = new object[][]
+            {
+                new object[] { "@date_from", DbType.Date, dateFrom },
+                new object[] { "@date_to", DbType.Date, dateTo },
+                new object[] { "@stores_id", DbType.Int32, storeId },
+            };
+            string querySoldItems = $"SELECT {soldItemsColumns} FROM {viewSalesItem} WHERE stores_id = @stores_id AND (trans_date BETWEEN @date_from AND @date_to) GROUP BY items_id, sold_price";
+            return _dbGenericCommands.Fill(querySoldItems, parameters);
+        }
+
+        public DataTable FetchSoldItems(DateTime dateFrom, DateTime dateTo)
+        {
+            var parameters = new object[][]
+            {
+                new object[] { "@date_from", DbType.Date, dateFrom },
+                new object[] { "@date_to", DbType.Date, dateTo },
+            };
+            string querySoldItems = $"SELECT {soldItemsColumns} FROM {viewSalesItem} WHERE (trans_date BETWEEN @date_from AND @date_to) GROUP BY items_id, sold_price";
+            return _dbGenericCommands.Fill(querySoldItems, parameters);
+        }
+
         public DataTable FetchBySalesId(int salesId)
         {
             var parameters = new object[][]
