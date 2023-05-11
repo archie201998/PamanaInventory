@@ -200,7 +200,6 @@
               </Paragraphs>
               <rd:DefaultName>Textbox7</rd:DefaultName>
               <Top>2.09104cm</Top>
-              <Left>0cm</Left>
               <Height>0.6cm</Height>
               <Width>10.01417cm</Width>
               <ZIndex>3</ZIndex>
@@ -241,7 +240,6 @@
               </Paragraphs>
               <rd:DefaultName>Textbox7</rd:DefaultName>
               <Top>1.49104cm</Top>
-              <Left>0cm</Left>
               <Height>0.6cm</Height>
               <Width>10.01417cm</Width>
               <ZIndex>4</ZIndex>
