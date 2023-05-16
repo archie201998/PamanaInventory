@@ -90,6 +90,7 @@
             ShowInTaskbar = false;
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Add Customer";
+            Load += FrmCustomersAdd_Load;
             flowLayoutPanel1.ResumeLayout(false);
             ResumeLayout(false);
         }

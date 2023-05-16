@@ -1,6 +1,6 @@
 ﻿namespace ZenBiz.AppModules.Forms.Purchases
 {
-    partial class FrmPurchasesAdd
+    partial class FrmPurchasesEdit
     {
         /// <summary>
         /// Required designer variable.
@@ -52,7 +52,7 @@
             flowLayoutPanel1.Name = "flowLayoutPanel1";
             flowLayoutPanel1.RightToLeft = RightToLeft.Yes;
             flowLayoutPanel1.Size = new Size(846, 30);
-            flowLayoutPanel1.TabIndex = 8;
+            flowLayoutPanel1.TabIndex = 9;
             // 
             // btnCancel
             // 
@@ -72,7 +72,7 @@
             btnSave.Text = "Save";
             btnSave.UseVisualStyleBackColor = true;
             // 
-            // FrmPurchasesAdd
+            // FrmPurchaseEdit
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -82,10 +82,10 @@
             FormBorderStyle = FormBorderStyle.FixedToolWindow;
             MaximizeBox = false;
             MinimizeBox = false;
-            Name = "FrmPurchasesAdd";
+            Name = "FrmPurchaseEdit";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Add Purchases";
-            Load += FrmPurchasesAdd_Load;
+            Text = "Edit Purchase";
+            Load += FrmPurchaseEdit_Load;
             flowLayoutPanel1.ResumeLayout(false);
             ResumeLayout(false);
         }

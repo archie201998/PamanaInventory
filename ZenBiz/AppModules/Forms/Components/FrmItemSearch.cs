@@ -1,4 +1,5 @@
 ﻿using System.Data;
+using ZenBiz.AppModules.Forms.Purchases;
 using ZenBiz.AppModules.Forms.Sales;
 
 namespace ZenBiz.AppModules.Forms.Components
@@ -6,16 +7,19 @@ namespace ZenBiz.AppModules.Forms.Components
     public partial class FrmItemSearch : Form
     {
         internal int ItemId;
+        private readonly UcPurchaseForm _ucPurchaseForm;
         private readonly UcSalesForm _ucSalesForm;
 
-        public FrmItemSearch(UcSalesForm ucSalesForm)
+        public FrmItemSearch(UcPurchaseForm ucPurchaseForm, UcSalesForm ucSalesForm)
         {
             InitializeComponent();
 
             Helper.LoadFormIcon(this);
             Helper.DatagridDefaultStyle(dgItems);
             Helper.FormDialogDefaults(this);
+
             _ucSalesForm = ucSalesForm;
+            _ucPurchaseForm = ucPurchaseForm;
         }
 
         private void LoadStores()
@@ -110,12 +114,25 @@ namespace ZenBiz.AppModules.Forms.Components
         {
             bool ItemExist(int storeId, int itemId)
             {
-                foreach (DataGridViewRow item in _ucSalesForm.dgItems.Rows)
+                if (_ucSalesForm == null)
                 {
-                    string currentItemId = item.Cells["ItemId"].Value.ToString();
-                    string currentStoreId = item.Cells["StoreId"].Value.ToString();
-                    if (currentItemId == itemId.ToString() && currentStoreId == storeId.ToString())
-                        return true;
+                    foreach (DataGridViewRow item in _ucPurchaseForm.dgItems.Rows)
+                    {
+                        string currentItemId = item.Cells["ItemId"].Value.ToString();
+                        string currentStoreId = item.Cells["StoreId"].Value.ToString();
+                        if (currentItemId == itemId.ToString() && currentStoreId == storeId.ToString())
+                            return true;
+                    }
+                }
+                else 
+                {
+                    foreach (DataGridViewRow item in _ucSalesForm.dgItems.Rows)
+                    {
+                        string currentItemId = item.Cells["ItemId"].Value.ToString();
+                        string currentStoreId = item.Cells["StoreId"].Value.ToString();
+                        if (currentItemId == itemId.ToString() && currentStoreId == storeId.ToString())
+                            return true;
+                    }
                 }
 
                 return false;
@@ -138,7 +155,14 @@ namespace ZenBiz.AppModules.Forms.Components
                 return;
             }
 
-            _ = new FrmSalesQuantity(this, _ucSalesForm).ShowDialog();
+            if (_ucSalesForm == null)
+            {
+                _ = new FrmPurchasesQuantity(this, _ucPurchaseForm).ShowDialog();
+            }
+            else 
+            {
+                _ = new FrmSalesQuantity(this, _ucSalesForm).ShowDialog();
+            }
         }
 
         private void btnSelect_Click(object sender, EventArgs e)

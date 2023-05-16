@@ -31,7 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UcPurchaseForm));
             label2 = new Label();
             dtpTransactionDate = new DateTimePicker();
-            groupBox1 = new GroupBox();
+            gbxSupplier = new GroupBox();
             panel1 = new Panel();
             btnClear = new Button();
             btnSearchSuppliers = new Button();
@@ -61,7 +61,7 @@
             nudAmountPaid = new NumericUpDown();
             txtRefCode = new TextBox();
             label6 = new Label();
-            groupBox1.SuspendLayout();
+            gbxSupplier.SuspendLayout();
             panel1.SuspendLayout();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
@@ -88,16 +88,16 @@
             dtpTransactionDate.Size = new Size(689, 23);
             dtpTransactionDate.TabIndex = 28;
             // 
-            // groupBox1
+            // gbxSupplier
             // 
-            groupBox1.Controls.Add(panel1);
-            groupBox1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            groupBox1.Location = new Point(6, 49);
-            groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(805, 144);
-            groupBox1.TabIndex = 30;
-            groupBox1.TabStop = false;
-            groupBox1.Text = "Supplier";
+            gbxSupplier.Controls.Add(panel1);
+            gbxSupplier.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            gbxSupplier.Location = new Point(6, 49);
+            gbxSupplier.Name = "gbxSupplier";
+            gbxSupplier.Size = new Size(805, 144);
+            gbxSupplier.TabIndex = 30;
+            gbxSupplier.TabStop = false;
+            gbxSupplier.Text = "Supplier";
             // 
             // panel1
             // 
@@ -124,6 +124,7 @@
             btnClear.TabIndex = 4;
             btnClear.Text = "Clear";
             btnClear.UseVisualStyleBackColor = true;
+            btnClear.Click += btnClear_Click;
             // 
             // btnSearchSuppliers
             // 
@@ -133,6 +134,7 @@
             btnSearchSuppliers.TabIndex = 3;
             btnSearchSuppliers.Text = "Search...";
             btnSearchSuppliers.UseVisualStyleBackColor = true;
+            btnSearchSuppliers.Click += btnSearchSuppliers_Click;
             // 
             // txtSupplierContactInfo
             // 
@@ -234,6 +236,7 @@
             btnAddItem.Name = "btnAddItem";
             btnAddItem.Size = new Size(23, 22);
             btnAddItem.Text = "Add";
+            btnAddItem.Click += btnAddItem_Click;
             // 
             // btnEditItem
             // 
@@ -279,10 +282,12 @@
             chkPayment.TabIndex = 32;
             chkPayment.Text = "Payment";
             chkPayment.UseVisualStyleBackColor = true;
+            chkPayment.CheckedChanged += chkPayment_CheckedChanged;
             // 
             // groupBoxPayments
             // 
             groupBoxPayments.Controls.Add(panel2);
+            groupBoxPayments.Enabled = false;
             groupBoxPayments.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
             groupBoxPayments.Location = new Point(6, 411);
             groupBoxPayments.Name = "groupBoxPayments";
@@ -383,12 +388,13 @@
             Controls.Add(chkPayment);
             Controls.Add(groupBoxPayments);
             Controls.Add(tabControl1);
-            Controls.Add(groupBox1);
+            Controls.Add(gbxSupplier);
             Controls.Add(label2);
             Controls.Add(dtpTransactionDate);
             Name = "UcPurchaseForm";
             Size = new Size(820, 583);
-            groupBox1.ResumeLayout(false);
+            Load += UcPurchaseForm_Load;
+            gbxSupplier.ResumeLayout(false);
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             tabControl1.ResumeLayout(false);
@@ -409,7 +415,7 @@
 
         private Label label2;
         internal DateTimePicker dtpTransactionDate;
-        private GroupBox groupBox1;
+        private GroupBox gbxSupplier;
         private Panel panel1;
         private Button btnClear;
         private Button btnSearchSuppliers;

@@ -10,10 +10,10 @@ using System.Windows.Forms;
 
 namespace ZenBiz.AppModules.Forms.Purchases
 {
-    public partial class FrmPurchaseEdit : Form
+    public partial class FrmPurchasesEdit : Form
     {
         private int _purchaseId;
-        public FrmPurchaseEdit(int purchaseId)
+        public FrmPurchasesEdit(int purchaseId)
         {
             InitializeComponent();
             Helper.LoadFormIcon(this);

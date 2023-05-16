@@ -45,7 +45,7 @@ namespace ZenBiz.AppModules.Forms.Purchases
             //if (dgPurchases.SelectedRows.Count == 0) return;
             //int purchaseId = Convert.ToInt32(dgPurchases.SelectedCells[0].Value);
             int purchaseId = 0;
-            FrmPurchaseEdit form = new(purchaseId);
+            FrmPurchasesEdit form = new(purchaseId);
             DialogResult dialogResult = form.ShowDialog();
             if (dialogResult == DialogResult.OK)
             {

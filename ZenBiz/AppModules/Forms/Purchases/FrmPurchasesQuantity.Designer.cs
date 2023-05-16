@@ -1,6 +1,6 @@
 ﻿namespace ZenBiz.AppModules.Forms.Purchases
 {
-    partial class FrmPurchaseEdit
+    partial class FrmPurchasesQuantity
     {
         /// <summary>
         /// Required designer variable.
@@ -30,18 +30,13 @@
         {
             SuspendLayout();
             // 
-            // FrmPurchaseEdit
+            // FrmPurchasesQuantity
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(846, 615);
-            FormBorderStyle = FormBorderStyle.FixedToolWindow;
-            MaximizeBox = false;
-            MinimizeBox = false;
-            Name = "FrmPurchaseEdit";
-            StartPosition = FormStartPosition.CenterScreen;
-            Text = "Edit Purchase";
-            Load += FrmPurchaseEdit_Load;
+            ClientSize = new Size(360, 143);
+            Name = "FrmPurchasesQuantity";
+            Text = "Enter Price & Quantity";
             ResumeLayout(false);
         }
 

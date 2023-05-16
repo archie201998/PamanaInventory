@@ -90,7 +90,7 @@ namespace ZenBiz.AppModules.Forms.Sales
 
         private void btnAddItem_Click(object sender, EventArgs e)
         {
-            _ = new FrmItemSearch(this).ShowDialog();
+            _ = new FrmItemSearch(null, this).ShowDialog();
         }
 
         private void btnDeleteItem_Click(object sender, EventArgs e)

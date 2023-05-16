@@ -50,7 +50,7 @@
             // 
             dtpTransactionDate.Location = new Point(53, 14);
             dtpTransactionDate.Name = "dtpTransactionDate";
-            dtpTransactionDate.Size = new Size(200, 23);
+            dtpTransactionDate.Size = new Size(210, 23);
             dtpTransactionDate.TabIndex = 5;
             // 
             // label1
@@ -64,15 +64,15 @@
             // 
             // dateTimePicker1
             // 
-            dateTimePicker1.Location = new Point(300, 14);
+            dateTimePicker1.Location = new Point(314, 14);
             dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(200, 23);
+            dateTimePicker1.Size = new Size(209, 23);
             dateTimePicker1.TabIndex = 5;
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(274, 18);
+            label2.Location = new Point(289, 18);
             label2.Name = "label2";
             label2.Size = new Size(19, 15);
             label2.TabIndex = 6;
