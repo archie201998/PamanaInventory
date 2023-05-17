@@ -60,31 +60,34 @@
   <metadata name="toolStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
+  <metadata name="toolStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="btnAddPayment.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAwSURBVDhPY6ApCOz0/wfCUC7pYNQAEgyAKSQVQ7VTwQBc
-        gGiFuMCoAVQwgDBgYAAAOetv7U4F6hoAAAAASUVORK5CYII=
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAwSURBVDhPY6ApCOzw/wfCUC7pYNQAEgyAKSQVQ7VTwQBc
+        gGiFuMCoAVQwgDBgYAAA0CJvuQG2kowAAAAASUVORK5CYII=
 </value>
   </data>
   <data name="btnEditPayment.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADfSURBVDhPzZCxDgFBEECvoOIvNCSiUmlO7Rvk3O4lIhLf
-        sHZXp9VI0KnQ6C5xZmgofIDWfyBu2KsEm0jES7bYmXkzk3F+iisgxbow5gonzeYhbcJ2kOzpKOcJPAZi
+        sHZXp1Uo0KnQ6C5xZmgofIDWfyBu2KsEm0jES7bYmXkzk3F+iisgxbow5gonzeYhbcJ2kOzpKOcJPAZi
         eOUKRib1GZK5xFk8eR8oLFATJmFh0u9JZJpKj0ncNQTk2wKypuQ1JPsK54n8WB2x3g8zpuQ1dKQnWf+9
         THAJg2/kFhdQZApOJMcXB2vZE9sSF5sz07i6N+nC1FommFovaaqr4cI1dEzYDl9HFRJ9CSHvQdmE7Ymv
-        Xgs0VM33lzjODYZIp8NqPIg0AAAAAElFTkSuQmCC
+        Xgs0VM33lzjODVqZp69wt0SUAAAAAElFTkSuQmCC
 </value>
   </data>
   <data name="btnDeletePayment.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACcSURBVEhLY4CBE75R/if8og8cDQj8sigw5h85GKQXZAbI
-        LKixEHA8ILoTmwZKMMhMsOEg27ApoAYG++REQOR+bJLUwCCzGSgJc0IYZDYDNglq4lELCGL6W7CnoZUi
-        vN/e/i+yeRgWXLt2jSI88BZg8zYpmKAF1MajFhDEtLeA5sU1qA7FJkkNDDIbWKPRuMoEAZpW+jBAm2YL
-        AwMAMuNADUTXK+kAAAAASUVORK5CYII=
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACcSURBVEhLY4CBE75R/if8og8cDQj8sjAw5h85GKQXZAbI
+        LKixEHA8ILoTmwZKMMhMsOEg27ApoAYG++REQOR+bJLUwCCzGSgJc0IYZDYDNglq4lELCGL6W7C7voUi
+        vN/e/i+yeRgWXL16lSI88BZg8zYpmKAF1MajFhDEtLeA5sU1qA7FJkkNDDIbWKPRuMoEAZpW+jBAm2YL
+        AwMAdZk9eQUYuVQAAAAASUVORK5CYII=
 </value>
   </data>
 </root>

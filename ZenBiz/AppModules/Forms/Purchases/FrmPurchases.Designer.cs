@@ -127,6 +127,7 @@
             btnPayments.TabIndex = 12;
             btnPayments.Text = "Payments";
             btnPayments.UseVisualStyleBackColor = true;
+            btnPayments.Click += btnPayments_Click;
             // 
             // btnDelete
             // 

@@ -1,6 +1,6 @@
 ﻿namespace ZenBiz.AppModules.Forms.Payments
 {
-    partial class FrmPaymentsPerSale
+    partial class FrmPaymentPerPurchase
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPaymentsPerSale));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPaymentPerPurchase));
+            tabControl1 = new TabControl();
+            tabPage1 = new TabPage();
+            dgPayments = new DataGridView();
+            toolStrip1 = new ToolStrip();
+            btnAddPayment = new ToolStripButton();
+            btnEditPayment = new ToolStripButton();
+            btnDeletePayment = new ToolStripButton();
+            lblTotalPayments = new ToolStripLabel();
+            toolStripLabel2 = new ToolStripLabel();
             groupBox1 = new GroupBox();
             panel1 = new Panel();
             textBox1 = new TextBox();
@@ -41,22 +50,95 @@
             label2 = new Label();
             txtTransactionNo = new TextBox();
             label1 = new Label();
-            tabControl1 = new TabControl();
-            tabPage1 = new TabPage();
-            dgPayments = new DataGridView();
-            toolStrip1 = new ToolStrip();
-            btnAddPayment = new ToolStripButton();
-            btnEditPayment = new ToolStripButton();
-            btnDeletePayment = new ToolStripButton();
-            lblTotalPayments = new ToolStripLabel();
-            toolStripLabel2 = new ToolStripLabel();
-            groupBox1.SuspendLayout();
-            panel1.SuspendLayout();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgPayments).BeginInit();
             toolStrip1.SuspendLayout();
+            groupBox1.SuspendLayout();
+            panel1.SuspendLayout();
             SuspendLayout();
+            // 
+            // tabControl1
+            // 
+            tabControl1.Controls.Add(tabPage1);
+            tabControl1.Location = new Point(15, 208);
+            tabControl1.Name = "tabControl1";
+            tabControl1.SelectedIndex = 0;
+            tabControl1.Size = new Size(773, 241);
+            tabControl1.TabIndex = 5;
+            // 
+            // tabPage1
+            // 
+            tabPage1.Controls.Add(dgPayments);
+            tabPage1.Controls.Add(toolStrip1);
+            tabPage1.Location = new Point(4, 24);
+            tabPage1.Name = "tabPage1";
+            tabPage1.Padding = new Padding(3);
+            tabPage1.Size = new Size(765, 213);
+            tabPage1.TabIndex = 0;
+            tabPage1.Text = "Payments";
+            tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // dgPayments
+            // 
+            dgPayments.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgPayments.Location = new Point(3, 31);
+            dgPayments.Name = "dgPayments";
+            dgPayments.RowTemplate.Height = 25;
+            dgPayments.Size = new Size(759, 176);
+            dgPayments.TabIndex = 2;
+            // 
+            // toolStrip1
+            // 
+            toolStrip1.GripStyle = ToolStripGripStyle.Hidden;
+            toolStrip1.Items.AddRange(new ToolStripItem[] { btnAddPayment, btnEditPayment, btnDeletePayment, lblTotalPayments, toolStripLabel2 });
+            toolStrip1.Location = new Point(3, 3);
+            toolStrip1.Name = "toolStrip1";
+            toolStrip1.Size = new Size(759, 25);
+            toolStrip1.TabIndex = 1;
+            toolStrip1.Text = "toolStrip1";
+            // 
+            // btnAddPayment
+            // 
+            btnAddPayment.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            btnAddPayment.Image = (Image)resources.GetObject("btnAddPayment.Image");
+            btnAddPayment.ImageTransparentColor = Color.Magenta;
+            btnAddPayment.Name = "btnAddPayment";
+            btnAddPayment.Size = new Size(23, 22);
+            btnAddPayment.Text = "Add";
+            // 
+            // btnEditPayment
+            // 
+            btnEditPayment.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            btnEditPayment.Image = (Image)resources.GetObject("btnEditPayment.Image");
+            btnEditPayment.ImageTransparentColor = Color.Magenta;
+            btnEditPayment.Name = "btnEditPayment";
+            btnEditPayment.Size = new Size(23, 22);
+            btnEditPayment.Text = "Edit";
+            // 
+            // btnDeletePayment
+            // 
+            btnDeletePayment.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            btnDeletePayment.Image = (Image)resources.GetObject("btnDeletePayment.Image");
+            btnDeletePayment.ImageTransparentColor = Color.Magenta;
+            btnDeletePayment.Name = "btnDeletePayment";
+            btnDeletePayment.Size = new Size(23, 22);
+            btnDeletePayment.Text = "Delete";
+            // 
+            // lblTotalPayments
+            // 
+            lblTotalPayments.Alignment = ToolStripItemAlignment.Right;
+            lblTotalPayments.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            lblTotalPayments.Name = "lblTotalPayments";
+            lblTotalPayments.Size = new Size(31, 22);
+            lblTotalPayments.Text = "0.00";
+            // 
+            // toolStripLabel2
+            // 
+            toolStripLabel2.Alignment = ToolStripItemAlignment.Right;
+            toolStripLabel2.Name = "toolStripLabel2";
+            toolStripLabel2.Size = new Size(35, 22);
+            toolStripLabel2.Text = "Total:";
             // 
             // groupBox1
             // 
@@ -65,9 +147,9 @@
             groupBox1.Location = new Point(12, 12);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(776, 190);
-            groupBox1.TabIndex = 3;
+            groupBox1.TabIndex = 6;
             groupBox1.TabStop = false;
-            groupBox1.Text = "Sales Transaction Details";
+            groupBox1.Text = "Purchase Transaction Details";
             // 
             // panel1
             // 
@@ -135,9 +217,9 @@
             label3.AutoSize = true;
             label3.Location = new Point(2, 64);
             label3.Name = "label3";
-            label3.Size = new Size(59, 15);
+            label3.Size = new Size(50, 15);
             label3.TabIndex = 4;
-            label3.Text = "Customer";
+            label3.Text = "Supplier";
             // 
             // txtTransactionDate
             // 
@@ -173,124 +255,30 @@
             label1.TabIndex = 0;
             label1.Text = "Transaction No.";
             // 
-            // tabControl1
-            // 
-            tabControl1.Controls.Add(tabPage1);
-            tabControl1.Location = new Point(12, 208);
-            tabControl1.Name = "tabControl1";
-            tabControl1.SelectedIndex = 0;
-            tabControl1.Size = new Size(773, 241);
-            tabControl1.TabIndex = 4;
-            // 
-            // tabPage1
-            // 
-            tabPage1.Controls.Add(dgPayments);
-            tabPage1.Controls.Add(toolStrip1);
-            tabPage1.Location = new Point(4, 24);
-            tabPage1.Name = "tabPage1";
-            tabPage1.Padding = new Padding(3);
-            tabPage1.Size = new Size(765, 213);
-            tabPage1.TabIndex = 0;
-            tabPage1.Text = "Payments";
-            tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // dgPayments
-            // 
-            dgPayments.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgPayments.Location = new Point(3, 31);
-            dgPayments.Name = "dgPayments";
-            dgPayments.RowTemplate.Height = 25;
-            dgPayments.Size = new Size(759, 176);
-            dgPayments.TabIndex = 2;
-            dgPayments.SelectionChanged += dgPayments_SelectionChanged;
-            // 
-            // toolStrip1
-            // 
-            toolStrip1.GripStyle = ToolStripGripStyle.Hidden;
-            toolStrip1.Items.AddRange(new ToolStripItem[] { btnAddPayment, btnEditPayment, btnDeletePayment, lblTotalPayments, toolStripLabel2 });
-            toolStrip1.Location = new Point(3, 3);
-            toolStrip1.Name = "toolStrip1";
-            toolStrip1.Size = new Size(759, 25);
-            toolStrip1.TabIndex = 1;
-            toolStrip1.Text = "toolStrip1";
-            // 
-            // btnAddPayment
-            // 
-            btnAddPayment.DisplayStyle = ToolStripItemDisplayStyle.Image;
-            btnAddPayment.Image = (Image)resources.GetObject("btnAddPayment.Image");
-            btnAddPayment.ImageTransparentColor = Color.Magenta;
-            btnAddPayment.Name = "btnAddPayment";
-            btnAddPayment.Size = new Size(23, 22);
-            btnAddPayment.Text = "Add";
-            btnAddPayment.Click += btnAddPayment_Click;
-            // 
-            // btnEditPayment
-            // 
-            btnEditPayment.DisplayStyle = ToolStripItemDisplayStyle.Image;
-            btnEditPayment.Image = (Image)resources.GetObject("btnEditPayment.Image");
-            btnEditPayment.ImageTransparentColor = Color.Magenta;
-            btnEditPayment.Name = "btnEditPayment";
-            btnEditPayment.Size = new Size(23, 22);
-            btnEditPayment.Text = "Edit";
-            btnEditPayment.Click += btnEditPayment_Click;
-            // 
-            // btnDeletePayment
-            // 
-            btnDeletePayment.DisplayStyle = ToolStripItemDisplayStyle.Image;
-            btnDeletePayment.Image = (Image)resources.GetObject("btnDeletePayment.Image");
-            btnDeletePayment.ImageTransparentColor = Color.Magenta;
-            btnDeletePayment.Name = "btnDeletePayment";
-            btnDeletePayment.Size = new Size(23, 22);
-            btnDeletePayment.Text = "Delete";
-            btnDeletePayment.Click += btnDeletePayment_Click;
-            // 
-            // lblTotalPayments
-            // 
-            lblTotalPayments.Alignment = ToolStripItemAlignment.Right;
-            lblTotalPayments.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            lblTotalPayments.Name = "lblTotalPayments";
-            lblTotalPayments.Size = new Size(31, 22);
-            lblTotalPayments.Text = "0.00";
-            // 
-            // toolStripLabel2
-            // 
-            toolStripLabel2.Alignment = ToolStripItemAlignment.Right;
-            toolStripLabel2.Name = "toolStripLabel2";
-            toolStripLabel2.Size = new Size(35, 22);
-            toolStripLabel2.Text = "Total:";
-            // 
-            // FrmPaymentsPerSale
+            // FrmPaymentPerPurchase
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 461);
-            Controls.Add(tabControl1);
             Controls.Add(groupBox1);
-            Name = "FrmPaymentsPerSale";
+            Controls.Add(tabControl1);
+            Name = "FrmPaymentPerPurchase";
             Text = "Payments";
-            FormClosed += FrmPaymentsPerSale_FormClosed;
-            Load += FrmPaymentsPerSale_Load;
-            groupBox1.ResumeLayout(false);
-            panel1.ResumeLayout(false);
-            panel1.PerformLayout();
+            Load += FrmPaymentPerPurchase_Load;
             tabControl1.ResumeLayout(false);
             tabPage1.ResumeLayout(false);
             tabPage1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dgPayments).EndInit();
             toolStrip1.ResumeLayout(false);
             toolStrip1.PerformLayout();
+            groupBox1.ResumeLayout(false);
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
             ResumeLayout(false);
         }
 
         #endregion
-        private GroupBox groupBox1;
-        private Panel panel1;
-        private TextBox txtCustomer;
-        private Label label3;
-        private TextBox txtTransactionDate;
-        private Label label2;
-        private TextBox txtTransactionNo;
-        private Label label1;
+
         private TabControl tabControl1;
         private TabPage tabPage1;
         private DataGridView dgPayments;
@@ -298,12 +286,19 @@
         private ToolStripButton btnAddPayment;
         private ToolStripButton btnEditPayment;
         private ToolStripButton btnDeletePayment;
-        private ToolStripLabel toolStripLabel1;
-        private ToolStripLabel toolStripLabel2;
         private ToolStripLabel lblTotalPayments;
-        private TextBox txtBalance;
-        private Label label4;
+        private ToolStripLabel toolStripLabel2;
+        private GroupBox groupBox1;
+        private Panel panel1;
         private TextBox textBox1;
         private Label label5;
+        private TextBox txtBalance;
+        private Label label4;
+        private TextBox txtCustomer;
+        private Label label3;
+        private TextBox txtTransactionDate;
+        private Label label2;
+        private TextBox txtTransactionNo;
+        private Label label1;
     }
 }

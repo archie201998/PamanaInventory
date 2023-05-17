@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ZenBiz.AppModules.Forms.Payments;
 using ZenBiz.AppModules.Forms.Sales;
 using ZenBiz.AppModules.Interfaces;
 
@@ -52,6 +53,20 @@ namespace ZenBiz.AppModules.Forms.Purchases
                 LoadPurchases();
             }
 
+            form.Dispose();
+        }
+
+        private void btnPayments_Click(object sender, EventArgs e)
+        {
+            if (dgPurchases.SelectedRows.Count == 0) return;
+
+            int purchaseId = Convert.ToInt32(dgPurchases.SelectedCells[0].Value);
+            using FrmPaymentPerPurchase form = new(purchaseId);
+            DialogResult dialogResult = form.ShowDialog();
+            if (dialogResult == DialogResult.OK)
+            {
+                LoadPurchases();
+            }
             form.Dispose();
         }
     }
