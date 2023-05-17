@@ -29,6 +29,16 @@ namespace ZenBiz.AppModules.Controllers
         {
             throw new NotImplementedException();
         }
+        public DataTable FetchByPurchaseId(int purchaseId)
+        {
+            var parameters = new object[][]
+            {
+                new object[] { "@purchases_id", DbType.Int32, purchaseId },
+            };
+            string query = $"SELECT id, purchases_id, items_id, amount, quantity FROM {tblPurchaseItems} WHERE purchases_id = @purchases_id";
+            return _dbGenericCommands.Fill(query, parameters);
+        }
+
 
         public Dictionary<string, string> FindById(int Id)
         {
@@ -63,5 +73,7 @@ namespace ZenBiz.AppModules.Controllers
         {
             throw new NotImplementedException();
         }
+
+
     }
 }

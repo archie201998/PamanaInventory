@@ -30,6 +30,16 @@ namespace ZenBiz.AppModules.Controllers
         {
             throw new NotImplementedException();
         }
+        public DataTable FetchByDatePeriod(DateTime purchasedDateFrom, DateTime purchaseDateTo)
+        {
+            var parameters = new object[][]
+            {
+                new object[] { "@purchase_date_from", DbType.Date, purchasedDateFrom },
+                new object[] { "@purchase_date_to", DbType.Date, purchaseDateTo },
+            };
+            string query = $"SELECT id, suppliers_id, purchase_date FROM {tblPurchase} WHERE purchase_date BETWEEN @purchase_date_from AND @purchase_date_to ORDER BY purchase_date DESC";
+            return _dbGenericCommands.Fill(query, parameters);
+        }
 
         public DataTable FetchBySearch(string searchText)
         {
@@ -68,5 +78,7 @@ namespace ZenBiz.AppModules.Controllers
         {
             throw new NotImplementedException();
         }
+
+
     }
 }

@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            dtpTransactionDate = new DateTimePicker();
+            dtpPurchasedDateFrom = new DateTimePicker();
             label1 = new Label();
-            dateTimePicker1 = new DateTimePicker();
+            dtpPurchasedDateTo = new DateTimePicker();
             label2 = new Label();
             tabControl1 = new TabControl();
             tabPage1 = new TabPage();
@@ -46,12 +46,12 @@
             ((System.ComponentModel.ISupportInitialize)dgPurchases).BeginInit();
             SuspendLayout();
             // 
-            // dtpTransactionDate
+            // dtpPurchasedDateFrom
             // 
-            dtpTransactionDate.Location = new Point(53, 14);
-            dtpTransactionDate.Name = "dtpTransactionDate";
-            dtpTransactionDate.Size = new Size(210, 23);
-            dtpTransactionDate.TabIndex = 5;
+            dtpPurchasedDateFrom.Location = new Point(53, 14);
+            dtpPurchasedDateFrom.Name = "dtpPurchasedDateFrom";
+            dtpPurchasedDateFrom.Size = new Size(210, 23);
+            dtpPurchasedDateFrom.TabIndex = 5;
             // 
             // label1
             // 
@@ -62,12 +62,12 @@
             label1.TabIndex = 6;
             label1.Text = "From";
             // 
-            // dateTimePicker1
+            // dtpPurchasedDateTo
             // 
-            dateTimePicker1.Location = new Point(314, 14);
-            dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(209, 23);
-            dateTimePicker1.TabIndex = 5;
+            dtpPurchasedDateTo.Location = new Point(314, 14);
+            dtpPurchasedDateTo.Name = "dtpPurchasedDateTo";
+            dtpPurchasedDateTo.Size = new Size(209, 23);
+            dtpPurchasedDateTo.TabIndex = 5;
             // 
             // label2
             // 
@@ -118,6 +118,7 @@
             dgPurchases.RowTemplate.Height = 25;
             dgPurchases.Size = new Size(898, 317);
             dgPurchases.TabIndex = 7;
+            dgPurchases.SelectionChanged += dgPurchases_SelectionChanged;
             // 
             // btnPayments
             // 
@@ -174,12 +175,13 @@
             Controls.Add(dgPurchases);
             Controls.Add(label2);
             Controls.Add(label1);
-            Controls.Add(dateTimePicker1);
-            Controls.Add(dtpTransactionDate);
+            Controls.Add(dtpPurchasedDateTo);
+            Controls.Add(dtpPurchasedDateFrom);
             Name = "FrmPurchases";
             ShowInTaskbar = false;
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Purchases";
+            Load += FrmPurchases_Load;
             tabControl1.ResumeLayout(false);
             tabPage1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dgPurchasesItems).EndInit();
@@ -190,9 +192,9 @@
 
         #endregion
 
-        private DateTimePicker dtpTransactionDate;
+        private DateTimePicker dtpPurchasedDateFrom;
         private Label label1;
-        private DateTimePicker dateTimePicker1;
+        private DateTimePicker dtpPurchasedDateTo;
         private Label label2;
         private TabControl tabControl1;
         private TabPage tabPage1;
