@@ -74,6 +74,15 @@ namespace ZenBiz.AppModules.Controllers
             throw new NotImplementedException();
         }
 
+        public bool DeletePerPurchaseId(int purchaseId)
+        {
+            var parameters = new object[][]
+            {
+                new object[] { "@purchases_id", DbType.Int32, purchaseId },
+            };
 
+            string query = $"DELETE FROM {tblPurchaseItems} WHERE purchases_id = @purchases_id";
+            return _dbGenericCommands.ExecuteNonQuery(query, parameters);
+        }
     }
 }

@@ -10,6 +10,9 @@ namespace ZenBiz.AppModules.Interfaces
 {
     internal interface IPurchaseItems : IController<PurchaseItemsModel>
     {
+        Dictionary<string, string> FindById(int Id);
+
         DataTable FetchByPurchaseId(int purchaseId);
+        bool DeletePerPurchaseId(int purchaseId);
     }
 }

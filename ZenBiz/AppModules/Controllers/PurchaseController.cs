@@ -48,7 +48,23 @@ namespace ZenBiz.AppModules.Controllers
 
         public Dictionary<string, string> FindById(int Id)
         {
-            throw new NotImplementedException();
+            Dictionary<string, string> record = new();
+
+            var parameters = new object[][]
+            {
+                new object[] { "@id", DbType.Int32,  Id },
+            };
+
+            //temporary query 
+            string query = $"SELECT a.id, a.suppliers_id, a.purchase_date, a.created_by, a.created_time, a.updated_by, a.updated_time,b.id, b.name,b.address, b.contact_info, b.created_time, b.updated_time FROM purchases AS a INNER JOIN suppliers AS b ON a.suppliers_id = b.id WHERE a.id = @id";
+            using (var reader = _dbGenericCommands.ExecuteReader(query, parameters))
+            {
+                if (reader.Rows.Count == 0) return record;
+                foreach (DataColumn column in reader.Columns)
+                    record.Add(column.ColumnName, reader.Rows[0][column.ColumnName].ToString());
+            }
+
+            return record;
         }
 
         public int Count()
@@ -71,12 +87,35 @@ namespace ZenBiz.AppModules.Controllers
 
         public bool Update(PurchasesModel entity)
         {
-            throw new NotImplementedException();
+            var parameters = new object[][]
+            {
+                new object[] { "@id", DbType.Int32, entity.Id },
+                new object[] { "@suppliers_id", DbType.Int32, entity.Supplier.Id != 0 ? entity.Supplier.Id : DBNull.Value },
+                new object[] { "@purchase_date", DbType.Date, entity.TransactionDate },
+                new object[] { "@updated_by", DbType.Int32, entity.Users.Id },
+            };
+
+            string query = $"UPDATE {tblPurchase} SET suppliers_id = @suppliers_id, purchase_date = @purchase_date,  updated_by = @updated_by WHERE id = @id";
+            return _dbGenericCommands.ExecuteNonQuery(query, parameters);
         }
 
         public bool Delete(List<PurchasesModel> entityList)
         {
-            throw new NotImplementedException();
+            using var scope = new TransactionScope();
+            foreach (var entity in entityList)
+            {
+                var parameters = new object[][]
+                {
+                    new object[] { "@id", DbType.Int32, entity.Id},
+                };
+
+                string query = $"DELETE FROM {tblPurchase} WHERE id = @id";
+                _ = _dbGenericCommands.ExecuteNonQuery(query, parameters);
+            }
+
+            scope.Complete();
+            scope.Dispose();
+            return true;
         }
 
 

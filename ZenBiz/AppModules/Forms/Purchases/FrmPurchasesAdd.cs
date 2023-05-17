@@ -43,7 +43,7 @@ namespace ZenBiz.AppModules.Forms.Purchases
             PurchasesModel purchases = new()
             {
                 Supplier = new SupplierModel() { Id = uc.SupplierId },
-                TransactionDate = uc.dtpTransactionDate.Value,
+                TransactionDate = uc.dtpDatePurchase.Value,
                 Users = new UsersModel() { Id = Helper.UserId },
             };
 

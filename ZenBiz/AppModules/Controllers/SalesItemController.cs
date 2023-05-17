@@ -49,7 +49,6 @@ namespace ZenBiz.AppModules.Controllers
 
             string query = $"DELETE FROM {tblSalesItem} WHERE sales_id = @sales_id";
             return _dbGenericCommands.ExecuteNonQuery(query, parameters);
-
         }
 
         public DataTable Fetch()

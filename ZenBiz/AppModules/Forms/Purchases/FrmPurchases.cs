@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,6 +11,7 @@ using System.Windows.Forms;
 using ZenBiz.AppModules.Forms.Payments;
 using ZenBiz.AppModules.Forms.Sales;
 using ZenBiz.AppModules.Interfaces;
+using ZenBiz.AppModules.Models;
 
 namespace ZenBiz.AppModules.Forms.Purchases
 {
@@ -51,9 +53,13 @@ namespace ZenBiz.AppModules.Forms.Purchases
                 int purchaseId = Convert.ToInt32(item["id"]);
                 int suppliersId = Convert.ToInt32(item["suppliers_id"]);
                 DateTime purchasedDate = Convert.ToDateTime(item["purchase_date"]);
-                item["total_amount"] = "999";
-                item["amount_paid"] = "444";
-                item["balance"] = "333";
+
+                decimal totalPurchase = Factory.SalesItemController().GrossSales(purchaseId);
+                decimal totalAmountPaid = Factory.PaymentsController().SumTotalPaymentsPerSalesId(purchaseId);
+
+                item["total_amount"] = totalPurchase;
+                item["amount_paid"] = totalAmountPaid;
+                item["balance"] = totalPurchase - totalAmountPaid;
             }
 
             dgPurchases.DataSource = dtPurchases;
@@ -79,9 +85,8 @@ namespace ZenBiz.AppModules.Forms.Purchases
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            //if (dgPurchases.SelectedRows.Count == 0) return;
-            //int purchaseId = Convert.ToInt32(dgPurchases.SelectedCells[0].Value);
-            int purchaseId = 0;
+            if (dgPurchases.SelectedRows.Count == 0) return;
+            int purchaseId = Convert.ToInt32(dgPurchases.SelectedCells[0].Value);
             FrmPurchasesEdit form = new(purchaseId);
             DialogResult dialogResult = form.ShowDialog();
             if (dialogResult == DialogResult.OK)
@@ -119,6 +124,7 @@ namespace ZenBiz.AppModules.Forms.Purchases
                 btnEdit.Enabled = false;
                 btnDelete.Enabled = false;
             }
+
         }
 
         private void dgPurchases_SelectionChanged(object sender, EventArgs e)
@@ -133,8 +139,6 @@ namespace ZenBiz.AppModules.Forms.Purchases
             }
 
             btnPayments.Enabled = false;
-            dgPurchases.DataSource = null;
-            dgPurchases.Rows.Clear();
         }
 
         private void LoadPurchasesItems()
@@ -146,6 +150,31 @@ namespace ZenBiz.AppModules.Forms.Purchases
             dgPurchasesItems.Columns["items_id"].Visible = false;
             dgPurchasesItems.Columns["amount"].HeaderText = "Amount";
             dgPurchasesItems.Columns["quantity"].HeaderText = "Quantity";
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            if (dgPurchases.SelectedRows.Count == 0) return;
+
+            try
+            {
+                List<PurchasesModel> purchaseModelList = new();
+                foreach (DataGridViewRow item in dgPurchases.SelectedRows)
+                    purchaseModelList.Add(new PurchasesModel() { Id = Convert.ToInt32(item.Cells["id"].Value) });
+
+                var messageBox = MessageBox.Show("Are you sure you want to delete this data?", "Deleting Purchase", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (messageBox != DialogResult.Yes) return;
+
+                _ = Factory.PurchaseController().Delete(purchaseModelList);
+                LoadPurchases();
+            }
+            catch (MySqlException ex)
+            {
+                if (ex.Number == 1451)
+                    Helper.MessageBoxError("Unable to delete the record/s because it is already been referenced to other records.");
+                else
+                    Helper.MessageBoxError(ex.Message);
+            }
         }
     }
 }

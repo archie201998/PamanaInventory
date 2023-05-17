@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UcPurchaseForm));
             label2 = new Label();
-            dtpTransactionDate = new DateTimePicker();
+            dtpDatePurchase = new DateTimePicker();
             gbxSupplier = new GroupBox();
             panel1 = new Panel();
             btnClear = new Button();
@@ -81,12 +81,12 @@
             label2.TabIndex = 29;
             label2.Text = "Date";
             // 
-            // dtpTransactionDate
+            // dtpDatePurchase
             // 
-            dtpTransactionDate.Location = new Point(119, 11);
-            dtpTransactionDate.Name = "dtpTransactionDate";
-            dtpTransactionDate.Size = new Size(689, 23);
-            dtpTransactionDate.TabIndex = 28;
+            dtpDatePurchase.Location = new Point(119, 11);
+            dtpDatePurchase.Name = "dtpDatePurchase";
+            dtpDatePurchase.Size = new Size(689, 23);
+            dtpDatePurchase.TabIndex = 28;
             // 
             // gbxSupplier
             // 
@@ -390,7 +390,7 @@
             Controls.Add(tabControl1);
             Controls.Add(gbxSupplier);
             Controls.Add(label2);
-            Controls.Add(dtpTransactionDate);
+            Controls.Add(dtpDatePurchase);
             Name = "UcPurchaseForm";
             Size = new Size(820, 583);
             Load += UcPurchaseForm_Load;
@@ -414,7 +414,7 @@
         #endregion
 
         private Label label2;
-        internal DateTimePicker dtpTransactionDate;
+        internal DateTimePicker dtpDatePurchase;
         private GroupBox gbxSupplier;
         private Panel panel1;
         private Button btnClear;
