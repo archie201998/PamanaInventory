@@ -100,5 +100,14 @@ namespace ZenBiz.AppModules.Forms.Purchases
             dgItems.Columns["Item"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
         }
 
+        internal void SumTotalPurchase()
+        {
+            decimal total = 0;
+            foreach (DataGridViewRow item in dgItems.Rows)
+            {
+                total += Convert.ToDecimal(item.Cells["Total"].Value);
+            }
+            lblTotalSales.Text = total.ToString("n2");
+        }
     }
 }
