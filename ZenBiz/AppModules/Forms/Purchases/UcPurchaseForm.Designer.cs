@@ -48,7 +48,7 @@
             btnAddItem = new ToolStripButton();
             btnEditItem = new ToolStripButton();
             btnDeleteItem = new ToolStripButton();
-            lblTotalSales = new ToolStripLabel();
+            lblTotalPurchase = new ToolStripLabel();
             toolStripLabel1 = new ToolStripLabel();
             chkPayment = new CheckBox();
             groupBoxPayments = new GroupBox();
@@ -221,7 +221,7 @@
             // toolStrip1
             // 
             toolStrip1.GripStyle = ToolStripGripStyle.Hidden;
-            toolStrip1.Items.AddRange(new ToolStripItem[] { btnAddItem, btnEditItem, btnDeleteItem, lblTotalSales, toolStripLabel1 });
+            toolStrip1.Items.AddRange(new ToolStripItem[] { btnAddItem, btnEditItem, btnDeleteItem, lblTotalPurchase, toolStripLabel1 });
             toolStrip1.Location = new Point(3, 3);
             toolStrip1.Name = "toolStrip1";
             toolStrip1.Size = new Size(792, 25);
@@ -257,13 +257,13 @@
             btnDeleteItem.Size = new Size(23, 22);
             btnDeleteItem.Text = "Delete";
             // 
-            // lblTotalSales
+            // lblTotalPurchase
             // 
-            lblTotalSales.Alignment = ToolStripItemAlignment.Right;
-            lblTotalSales.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            lblTotalSales.Name = "lblTotalSales";
-            lblTotalSales.Size = new Size(31, 22);
-            lblTotalSales.Text = "0.00";
+            lblTotalPurchase.Alignment = ToolStripItemAlignment.Right;
+            lblTotalPurchase.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            lblTotalPurchase.Name = "lblTotalPurchase";
+            lblTotalPurchase.Size = new Size(31, 22);
+            lblTotalPurchase.Text = "0.00";
             // 
             // toolStripLabel1
             // 
@@ -432,7 +432,7 @@
         private ToolStripButton btnAddItem;
         private ToolStripButton btnEditItem;
         private ToolStripButton btnDeleteItem;
-        private ToolStripLabel lblTotalSales;
+        private ToolStripLabel lblTotalPurchase;
         private ToolStripLabel toolStripLabel1;
         internal CheckBox chkPayment;
         internal GroupBox groupBoxPayments;

@@ -53,6 +53,18 @@ namespace ZenBiz.AppModules.Controllers
         public bool Delete(List<PurchasePaymentModel> entityList)
         {
             throw new NotImplementedException();
+        } 
+
+        public decimal TotalAmountPaidPerPurchased(int purchaseId)
+        {
+            var parameters = new object[][]
+            {
+                new object[] { "@purchases_id", DbType.Int32, purchaseId },
+            };
+            string query = $"SELECT SUM(amount) FROM {tblPurchasePayments} WHERE purchases_id = @purchases_id GROUP BY purchases_id";
+            string result = _dbGenericCommands.ExecuteScalar(query, parameters);
+            if (string.IsNullOrWhiteSpace(result)) return 0;
+            return Convert.ToDecimal(result);
         }
     }
 }

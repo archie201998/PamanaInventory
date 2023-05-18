@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Transactions;
 using System.Windows.Forms;
 using ZenBiz.AppModules.Interfaces;
+using ZenBiz.AppModules.Inventory.Items;
 using ZenBiz.AppModules.Models;
 
 namespace ZenBiz.AppModules.Forms.Purchases
@@ -49,11 +50,15 @@ namespace ZenBiz.AppModules.Forms.Purchases
             {
                 string[] row = new string[]
                 {
+
                     item["id"].ToString(),
-                    item["purchases_id"].ToString(),
                     item["items_id"].ToString(),
-                    item["amount"].ToString(),
-                    item["quantity"].ToString(),
+                    item["purchased_id"].ToString(),
+                    item["name"].ToString(),
+                    item["unit_name"].ToString(),
+                    item["purchased_amount"].ToString(),
+                    item["purchased_quantity"].ToString(),
+                    item["total_purchased_amount"].ToString(),
             };
                 uc.dgItems.Rows.Add(row);
             }

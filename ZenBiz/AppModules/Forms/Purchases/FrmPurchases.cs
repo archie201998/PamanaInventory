@@ -55,7 +55,7 @@ namespace ZenBiz.AppModules.Forms.Purchases
                 DateTime purchasedDate = Convert.ToDateTime(item["purchase_date"]);
 
                 decimal totalPurchase = Factory.PurchaseItemController().TotalAmountPerPurchased(purchaseId);
-                decimal totalAmountPaid = Factory.PaymentsController().SumTotalPaymentsPerSalesId(purchaseId);
+                decimal totalAmountPaid = Factory.PurchasePaymentsController().TotalAmountPaidPerPurchased(purchaseId);
 
                 item["total_amount"] = totalPurchase;
                 item["amount_paid"] = totalAmountPaid;

@@ -9,6 +9,6 @@ namespace ZenBiz.AppModules.Interfaces
 {
     internal interface IPurchasedPayments : IController<PurchasePaymentModel>
     {
-
+        decimal TotalAmountPaidPerPurchased(int purchaseId);
     }
 }
