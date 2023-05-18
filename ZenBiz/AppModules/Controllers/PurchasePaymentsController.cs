@@ -42,7 +42,18 @@ namespace ZenBiz.AppModules.Controllers
 
         public bool Insert(PurchasePaymentModel entity)
         {
-            throw new NotImplementedException();
+            var parameters = new object[][]
+            {
+                new object[] { "@purchases_id", DbType.Int32, entity.Purchase.Id },
+                new object[] { "@payment_types_id", DbType.Int32, entity.PaymentTypes.Id },
+                new object[] { "@amount", DbType.Decimal, entity.Amount },
+                new object[] { "@date_paid", DbType.Date, entity.DatePaid },
+                new object[] { "@ref_no", DbType.String, entity.RefCode },
+                new object[] { "@created_by", DbType.Int32, entity.Users.Id },
+            };
+
+            string query = $"INSERT INTO {tblPurchasePayments} (purchases_id, payment_types_id, amount, date_paid, ref_no, created_by) VALUES (@purchases_id, @payment_types_id, @amount, @date_paid, @ref_no, @created_by)";
+            return _dbGenericCommands.ExecuteNonQuery(query, parameters);
         }
 
         public bool Update(PurchasePaymentModel entity)
@@ -65,6 +76,25 @@ namespace ZenBiz.AppModules.Controllers
             string result = _dbGenericCommands.ExecuteScalar(query, parameters);
             if (string.IsNullOrWhiteSpace(result)) return 0;
             return Convert.ToDecimal(result);
+        }
+
+        public decimal BalanceAmountPerPurchased(int purchaseId)
+        {
+            decimal totalAmountPurchased = Factory.PurchaseItemController().TotalAmountPerPurchased(purchaseId);
+            decimal totalAmountPayed = TotalAmountPaidPerPurchased(purchaseId);
+
+            return totalAmountPurchased - totalAmountPayed;
+        }
+
+        public DataTable FetchbyPurchaseId(int purchaseId)
+        {
+            var parameters = new object[][]
+            {
+                new object[] { "@purchased_id", DbType.Int32, purchaseId },
+            };
+
+            string query = $"SELECT id, payment_types_id, amount, date_paid, ref_code, payment_type FROM {viewPurchasePayments} WHERe sales_id = @sales_id";
+            return _dbGenericCommands.Fill(query, parameters);
         }
     }
 }

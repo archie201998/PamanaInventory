@@ -40,16 +40,14 @@
             toolStripLabel2 = new ToolStripLabel();
             groupBox1 = new GroupBox();
             panel1 = new Panel();
-            textBox1 = new TextBox();
-            label5 = new Label();
             txtBalance = new TextBox();
+            label5 = new Label();
+            txtTotalAmount = new TextBox();
             label4 = new Label();
-            txtCustomer = new TextBox();
+            txtSupplier = new TextBox();
             label3 = new Label();
             txtTransactionDate = new TextBox();
             label2 = new Label();
-            txtTransactionNo = new TextBox();
-            label1 = new Label();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgPayments).BeginInit();
@@ -61,10 +59,10 @@
             // tabControl1
             // 
             tabControl1.Controls.Add(tabPage1);
-            tabControl1.Location = new Point(15, 208);
+            tabControl1.Location = new Point(12, 187);
             tabControl1.Name = "tabControl1";
             tabControl1.SelectedIndex = 0;
-            tabControl1.Size = new Size(773, 241);
+            tabControl1.Size = new Size(776, 262);
             tabControl1.TabIndex = 5;
             // 
             // tabPage1
@@ -74,7 +72,7 @@
             tabPage1.Location = new Point(4, 24);
             tabPage1.Name = "tabPage1";
             tabPage1.Padding = new Padding(3);
-            tabPage1.Size = new Size(765, 213);
+            tabPage1.Size = new Size(768, 234);
             tabPage1.TabIndex = 0;
             tabPage1.Text = "Payments";
             tabPage1.UseVisualStyleBackColor = true;
@@ -85,7 +83,7 @@
             dgPayments.Location = new Point(3, 31);
             dgPayments.Name = "dgPayments";
             dgPayments.RowTemplate.Height = 25;
-            dgPayments.Size = new Size(759, 176);
+            dgPayments.Size = new Size(759, 200);
             dgPayments.TabIndex = 2;
             // 
             // toolStrip1
@@ -94,7 +92,7 @@
             toolStrip1.Items.AddRange(new ToolStripItem[] { btnAddPayment, btnEditPayment, btnDeletePayment, lblTotalPayments, toolStripLabel2 });
             toolStrip1.Location = new Point(3, 3);
             toolStrip1.Name = "toolStrip1";
-            toolStrip1.Size = new Size(759, 25);
+            toolStrip1.Size = new Size(762, 25);
             toolStrip1.TabIndex = 1;
             toolStrip1.Text = "toolStrip1";
             // 
@@ -106,6 +104,7 @@
             btnAddPayment.Name = "btnAddPayment";
             btnAddPayment.Size = new Size(23, 22);
             btnAddPayment.Text = "Add";
+            btnAddPayment.Click += btnAddPayment_Click;
             // 
             // btnEditPayment
             // 
@@ -146,76 +145,74 @@
             groupBox1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
             groupBox1.Location = new Point(12, 12);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(776, 190);
+            groupBox1.Size = new Size(776, 160);
             groupBox1.TabIndex = 6;
             groupBox1.TabStop = false;
             groupBox1.Text = "Purchase Transaction Details";
             // 
             // panel1
             // 
-            panel1.Controls.Add(textBox1);
-            panel1.Controls.Add(label5);
             panel1.Controls.Add(txtBalance);
+            panel1.Controls.Add(label5);
+            panel1.Controls.Add(txtTotalAmount);
             panel1.Controls.Add(label4);
-            panel1.Controls.Add(txtCustomer);
+            panel1.Controls.Add(txtSupplier);
             panel1.Controls.Add(label3);
             panel1.Controls.Add(txtTransactionDate);
             panel1.Controls.Add(label2);
-            panel1.Controls.Add(txtTransactionNo);
-            panel1.Controls.Add(label1);
             panel1.Dock = DockStyle.Fill;
             panel1.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             panel1.Location = new Point(3, 19);
             panel1.Name = "panel1";
-            panel1.Size = new Size(770, 168);
+            panel1.Size = new Size(770, 138);
             panel1.TabIndex = 0;
             // 
-            // textBox1
+            // txtBalance
             // 
-            textBox1.Location = new Point(97, 119);
-            textBox1.Name = "textBox1";
-            textBox1.ReadOnly = true;
-            textBox1.Size = new Size(650, 23);
-            textBox1.TabIndex = 9;
+            txtBalance.Location = new Point(103, 99);
+            txtBalance.Name = "txtBalance";
+            txtBalance.ReadOnly = true;
+            txtBalance.Size = new Size(650, 23);
+            txtBalance.TabIndex = 9;
             // 
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(2, 122);
+            label5.Location = new Point(8, 102);
             label5.Name = "label5";
             label5.Size = new Size(48, 15);
             label5.TabIndex = 8;
             label5.Text = "Balance";
             // 
-            // txtBalance
+            // txtTotalAmount
             // 
-            txtBalance.Location = new Point(97, 90);
-            txtBalance.Name = "txtBalance";
-            txtBalance.ReadOnly = true;
-            txtBalance.Size = new Size(650, 23);
-            txtBalance.TabIndex = 7;
+            txtTotalAmount.Location = new Point(103, 70);
+            txtTotalAmount.Name = "txtTotalAmount";
+            txtTotalAmount.ReadOnly = true;
+            txtTotalAmount.Size = new Size(650, 23);
+            txtTotalAmount.TabIndex = 7;
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(2, 93);
+            label4.Location = new Point(8, 73);
             label4.Name = "label4";
-            label4.Size = new Size(48, 15);
+            label4.Size = new Size(77, 15);
             label4.TabIndex = 6;
-            label4.Text = "Balance";
+            label4.Text = "Amount Paid";
             // 
-            // txtCustomer
+            // txtSupplier
             // 
-            txtCustomer.Location = new Point(97, 61);
-            txtCustomer.Name = "txtCustomer";
-            txtCustomer.ReadOnly = true;
-            txtCustomer.Size = new Size(650, 23);
-            txtCustomer.TabIndex = 5;
+            txtSupplier.Location = new Point(103, 41);
+            txtSupplier.Name = "txtSupplier";
+            txtSupplier.ReadOnly = true;
+            txtSupplier.Size = new Size(650, 23);
+            txtSupplier.TabIndex = 5;
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(2, 64);
+            label3.Location = new Point(8, 44);
             label3.Name = "label3";
             label3.Size = new Size(50, 15);
             label3.TabIndex = 4;
@@ -223,7 +220,7 @@
             // 
             // txtTransactionDate
             // 
-            txtTransactionDate.Location = new Point(97, 32);
+            txtTransactionDate.Location = new Point(103, 12);
             txtTransactionDate.Name = "txtTransactionDate";
             txtTransactionDate.ReadOnly = true;
             txtTransactionDate.Size = new Size(650, 23);
@@ -232,28 +229,11 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(2, 35);
+            label2.Location = new Point(8, 15);
             label2.Name = "label2";
             label2.Size = new Size(31, 15);
             label2.TabIndex = 2;
             label2.Text = "Date";
-            // 
-            // txtTransactionNo
-            // 
-            txtTransactionNo.Location = new Point(97, 3);
-            txtTransactionNo.Name = "txtTransactionNo";
-            txtTransactionNo.ReadOnly = true;
-            txtTransactionNo.Size = new Size(650, 23);
-            txtTransactionNo.TabIndex = 1;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(2, 6);
-            label1.Name = "label1";
-            label1.Size = new Size(89, 15);
-            label1.TabIndex = 0;
-            label1.Text = "Transaction No.";
             // 
             // FrmPaymentPerPurchase
             // 
@@ -300,5 +280,7 @@
         private Label label2;
         private TextBox txtTransactionNo;
         private Label label1;
+        private TextBox txtTotalAmount;
+        private TextBox txtSupplier;
     }
 }

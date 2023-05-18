@@ -1,13 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ZenBiz.AppModules.Models
+﻿namespace ZenBiz.AppModules.Models
 {
-    public class PurchasePaymentModel
+    internal class PurchasePaymentModel
     {
-
+        public int Id { get; set; }
+        public PurchasesModel Purchase { get; set; } = new();
+        public PaymentTypesModel PaymentTypes { get; set; } = new();
+        public decimal Amount { get; set; }
+        public DateTime DatePaid { get; set; }
+        public string RefCode { get; set; } = string.Empty;
+        public UsersModel Users { get; set; } = new();
     }
 }

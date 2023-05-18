@@ -109,6 +109,8 @@ namespace ZenBiz.AppModules.Forms.Purchases
                 LoadPurchases();
             }
             form.Dispose();
+
+
         }
 
         private void FrmPurchases_Load(object sender, EventArgs e)
@@ -148,6 +150,7 @@ namespace ZenBiz.AppModules.Forms.Purchases
 
             dgPurchasesItems.Columns["items_id"].Visible = false;
             dgPurchasesItems.Columns["unit_cost"].Visible = false;
+            dgPurchasesItems.Columns["purchased_id"].Visible = false;
 
             dgPurchasesItems.Columns["name"].HeaderText = "Item";
             dgPurchasesItems.Columns["name"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;

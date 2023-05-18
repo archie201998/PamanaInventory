@@ -7,24 +7,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using ZenBiz.AppModules.Interfaces;
 
-namespace ZenBiz.AppModules.Forms.Payments
+namespace ZenBiz.AppModules.Forms.Payments.PurchasesPayments
 {
-    public partial class FrmPaymentPerPurchase : Form
+    public partial class FrmPurchasePaymentsEdit : Form
     {
-
         private readonly int _purchaseId;
-
-        public FrmPaymentPerPurchase(int purchaseId)
+        private readonly UcPayments uc;
+        public FrmPurchasePaymentsEdit(int purchaseId)
         {
             InitializeComponent();
-            Helper.DatagridDefaultStyle(dgPayments, true);
-            Helper.FormDialogDefaults(this, false, false);
+            Helper.FormFixedToolWindowDefaults(this);
             _purchaseId = purchaseId;
+            uc = ucPayments1;
         }
 
-        private void FrmPaymentPerPurchase_Load(object sender, EventArgs e)
+        private void FrmPurchasePaymentsEdit_Load(object sender, EventArgs e)
         {
 
         }

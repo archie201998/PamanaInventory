@@ -54,7 +54,6 @@ namespace ZenBiz.AppModules.Forms.Purchases
 
             foreach (DataGridViewRow item in uc.dgItems.Rows)
             {
-                // populate purchase item model
                 PurchaseItemsModel purchaseItemsModel = new()
                 {
                     Purchases = new PurchasesModel() { Id = purchaseController.LastInsertedId() },
@@ -63,25 +62,24 @@ namespace ZenBiz.AppModules.Forms.Purchases
                     Quantity = Convert.ToDecimal(item.Cells["Quantity"].Value)
                 };
 
-                // insert purchase item
                 _ = Factory.PurchaseItemController().Insert(purchaseItemsModel);
             }
 
             //if direct payment
-            //if (uc.chkPayment.Checked)
-            //{
-            //    PaymentsModel paymentsModel = new()
-            //    {
-            //        Sales = new SalesModel() { Id = salesController.LastInsertedId() },
-            //        PaymentTypes = new PaymentTypesModel() { Id = Convert.ToInt32(uc.cmbPaymentType.SelectedValue) },
-            //        Amount = uc.nudAmountPaid.Value,
-            //        DatePaid = uc.dtpDatePaid.Value,
-            //        RefCode = uc.txtRefCode.Text.Trim(),
-            //        Users = new UsersModel() { Id = Helper.UserId }
-            //    };
+            if (uc.chkPayment.Checked)
+            {
+                PurchasePaymentModel purchasePaymentodel = new()
+                {
+                    Purchase = new PurchasesModel() { Id = purchaseController.LastInsertedId() },
+                    PaymentTypes = new PaymentTypesModel() { Id = Convert.ToInt32(uc.cmbPaymentType.SelectedValue) },
+                    Amount = uc.nudAmountPaid.Value,
+                    DatePaid = uc.dtpDatePaid.Value,
+                    RefCode = uc.txtRefCode.Text.Trim(),
+                    Users = new UsersModel() { Id = Helper.UserId }
+                };
 
-            //    _ = Factory.PaymentsController().Insert(paymentsModel);
-            //}
+                _ = Factory.PurchasePaymentsController().Insert(purchasePaymentodel);
+            }
 
             scope.Complete();
             return true;

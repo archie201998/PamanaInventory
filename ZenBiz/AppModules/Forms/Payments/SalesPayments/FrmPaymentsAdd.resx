@@ -57,34 +57,4 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="toolStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="btnAddItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAwSURBVDhPY6ApCKz3/wfCUC7pYNQAEgyAKSQVQ7VTwQBc
-        gGiFuMCoAVQwgDBgYAAAGGtt5STDwWsAAAAASUVORK5CYII=
-</value>
-  </data>
-  <data name="btnEditItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADcSURBVDhPzZCxDgFBEECvoOIvNCSiUmmofYOc271EROIb
-        xu7qtEp0KjS6SzBDQ+EDtP4DccOqBJtIxEu22Jl5M5PxfkoZMCE6OJSaRo3GPmnDbrDsm2XGBzqEABep
-        cWBTn2FZKprEk3ehphw3EQpnNv2eh8xT+QlF2zpgtgWYtiWvYTnQNH3I99WJar0oZUtew0d6ks3fy4xU
-        2P9GbkrAvNB4ZDm+ODrLPmwKEtYnYWhxa9LBsbPMCL2a89SywbM02LZhNwKzLLEYKIxkF4s27E589Wpo
-        sGK/v8TzrhZGpbsFcwFDAAAAAElFTkSuQmCC
-</value>
-  </data>
-  <data name="btnDeleteItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACcSURBVEhLY4CBE75R/if8og8cDQj80hEY848cDNILMgNk
-        FtRYCDgeEN2JTQMlGGQm2HCQbdgUUAODfXIiIHI/NklqYJDZDJSEOSEMMpsBmwQ18agFBDH9LVhUX08R
-        3m9v/xfZPAwL9uzZQxEeeAuweZsUTNACauNRCwhi2ltA8+IaVIdik6QGBpkNrNFoXGWCAE0rfRigTbOF
-        gQEAjw8CpdI5pHcAAAAASUVORK5CYII=
-</value>
-  </data>
 </root>
