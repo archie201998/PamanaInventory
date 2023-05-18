@@ -37,7 +37,7 @@ namespace ZenBiz.AppModules.Controllers
                 new object[] { "@purchases_id", DbType.Int32, purchaseId },
             };
 
-            string query = $"SELECT id, purchased_id, items_id, name, unit_cost, unit_name, purchased_amount, purchased_quantity, (purchased_amount*purchased_quantity) AS total_purchased_amount FROM {viewPurchaseItems} WHERE purchased_id = @purchases_id";
+            string query = $"SELECT purchased_id, items_id, name, unit_cost, unit_name, purchased_amount, purchased_quantity, (purchased_amount*purchased_quantity) AS total_purchased_amount FROM {viewPurchaseItems} WHERE purchased_id = @purchases_id";
 
             return _dbGenericCommands.Fill(query, parameters);
         }

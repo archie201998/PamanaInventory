@@ -67,7 +67,6 @@ namespace ZenBiz.AppModules.Forms.Purchases
             }
 
             int storeId = Convert.ToInt32(_frmItemSearch.cmbStores.SelectedValue);
-            string storeName = _frmItemSearch.cmbStores.Text;
             decimal stocksLeft = Factory.StoreStocksController().StocksLeft(storeId, _itemId);
             if (nudQuantity.Value > stocksLeft)
             {
@@ -75,17 +74,25 @@ namespace ZenBiz.AppModules.Forms.Purchases
                 return false;
             }
 
-            decimal totalSale = nudPrice.Value * nudQuantity.Value;
+
+            //item["id"].ToString(),
+            //item["items_id"].ToString(),
+            //item["purchased_id"].ToString(),
+            //item["name"].ToString(),
+            //item["unit_name"].ToString(),
+            //item["purchased_amount"].ToString(),
+            //item["purchased_quantity"].ToString(),
+            //item["total_purchased_amount"].ToString(),
+
+            decimal totalPurchase = nudPrice.Value * nudQuantity.Value;
             string[] row = new string[]
             {
                 _frmItemSearch.ItemId.ToString(),
-                storeId.ToString(),
-                storeName,
                 dict["name"],
                 dict["unit_name"],
                 nudPrice.Value.ToString("n2"),
                 nudQuantity.Value.ToString("n2"),
-                totalSale.ToString("n2"),
+                totalPurchase.ToString("n2"),
                 dict["unit_cost"]
             };
 

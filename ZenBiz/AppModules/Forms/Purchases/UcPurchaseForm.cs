@@ -83,28 +83,16 @@ namespace ZenBiz.AppModules.Forms.Purchases
 
         private void CreateColumns()
         {
-            //    item["id"].ToString(),
-            //item["items_id"].ToString(),
-            //item["purchased_id"].ToString(),
-            //item["name"].ToString(),
-            //item["unit_name"].ToString(),
-            //item["unit_cost"].ToString(),
-            //item["purchased_amount"].ToString(),
-            //item["purchased_quantity"].ToString(),
 
-            dgItems.ColumnCount = 8;
-            dgItems.Columns[0].Name = "PurchasedItemId";
-            dgItems.Columns[1].Name = "ItemId";
-            dgItems.Columns[2].Name = "PurchaseId";
-            dgItems.Columns[3].Name = "Item";
-            dgItems.Columns[4].Name = "Unit";
-            dgItems.Columns[5].Name = "Price";
-            dgItems.Columns[6].Name = "Quantity";
-            dgItems.Columns[7].Name = "Total";
+            dgItems.ColumnCount = 6;
+            dgItems.Columns[0].Name = "ItemId";
+            dgItems.Columns[1].Name = "Item";
+            dgItems.Columns[2].Name = "Unit";
+            dgItems.Columns[3].Name = "Price";
+            dgItems.Columns[4].Name = "Quantity";
+            dgItems.Columns[5].Name = "Total";
 
-            dgItems.Columns["PurchasedItemId"].Visible = false;
             dgItems.Columns["ItemId"].Visible = false;
-            dgItems.Columns["PurchaseId"].Visible = false;
             dgItems.Columns["Item"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
         }
 
@@ -116,6 +104,12 @@ namespace ZenBiz.AppModules.Forms.Purchases
                 total += Convert.ToDecimal(item.Cells["Total"].Value);
             }
             lblTotalPurchase.Text = total.ToString("N2");
+        }
+
+        private void btnDeleteItem_Click(object sender, EventArgs e)
+        {
+            foreach (DataGridViewRow item in dgItems.SelectedRows)
+                dgItems.Rows.Remove(item);
         }
     }
 }

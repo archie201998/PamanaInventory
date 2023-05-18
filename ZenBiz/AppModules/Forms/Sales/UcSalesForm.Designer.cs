@@ -55,7 +55,6 @@
             label1 = new Label();
             epCustomer = new ErrorProvider(components);
             groupBoxPayments = new GroupBox();
-            chkPayment = new CheckBox();
             panel2 = new Panel();
             dtpDatePaid = new DateTimePicker();
             label9 = new Label();
@@ -65,6 +64,7 @@
             nudAmountPaid = new NumericUpDown();
             txtRefCode = new TextBox();
             label6 = new Label();
+            chkPayment = new CheckBox();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgItems).BeginInit();
@@ -309,18 +309,6 @@
             groupBoxPayments.TabIndex = 29;
             groupBoxPayments.TabStop = false;
             // 
-            // chkPayment
-            // 
-            chkPayment.AutoSize = true;
-            chkPayment.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            chkPayment.Location = new Point(6, 394);
-            chkPayment.Name = "chkPayment";
-            chkPayment.Size = new Size(75, 19);
-            chkPayment.TabIndex = 1;
-            chkPayment.Text = "Payment";
-            chkPayment.UseVisualStyleBackColor = true;
-            chkPayment.CheckedChanged += chkPayment_CheckedChanged;
-            // 
             // panel2
             // 
             panel2.Controls.Add(dtpDatePaid);
@@ -406,6 +394,18 @@
             label6.Size = new Size(90, 15);
             label6.TabIndex = 0;
             label6.Text = "Reference Code";
+            // 
+            // chkPayment
+            // 
+            chkPayment.AutoSize = true;
+            chkPayment.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            chkPayment.Location = new Point(6, 394);
+            chkPayment.Name = "chkPayment";
+            chkPayment.Size = new Size(75, 19);
+            chkPayment.TabIndex = 1;
+            chkPayment.Text = "Payment";
+            chkPayment.UseVisualStyleBackColor = true;
+            chkPayment.CheckedChanged += chkPayment_CheckedChanged;
             // 
             // UcSalesForm
             // 

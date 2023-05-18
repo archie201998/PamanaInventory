@@ -256,6 +256,7 @@
             btnDeleteItem.Name = "btnDeleteItem";
             btnDeleteItem.Size = new Size(23, 22);
             btnDeleteItem.Text = "Delete";
+            btnDeleteItem.Click += btnDeleteItem_Click;
             // 
             // lblTotalPurchase
             // 

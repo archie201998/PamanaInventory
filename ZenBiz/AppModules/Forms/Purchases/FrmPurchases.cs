@@ -146,8 +146,6 @@ namespace ZenBiz.AppModules.Forms.Purchases
             int purchaseId = Convert.ToInt32(dgPurchases.SelectedCells[0].Value);
             dgPurchasesItems.DataSource = Factory.PurchaseItemController().FetchByPurchaseId(purchaseId);
 
-            dgPurchasesItems.Columns["id"].Visible = false;
-            dgPurchasesItems.Columns["purchased_id"].Visible = false;
             dgPurchasesItems.Columns["items_id"].Visible = false;
             dgPurchasesItems.Columns["unit_cost"].Visible = false;
 

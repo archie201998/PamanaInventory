@@ -16,7 +16,7 @@ namespace ZenBiz.AppModules.Forms.Purchases
 {
     public partial class FrmPurchasesEdit : Form
     {
-        private int _purchaseId;
+        internal int _purchaseId;
         private UcPurchaseForm uc;
 
         public FrmPurchasesEdit(int purchaseId)
@@ -50,10 +50,7 @@ namespace ZenBiz.AppModules.Forms.Purchases
             {
                 string[] row = new string[]
                 {
-
-                    item["id"].ToString(),
                     item["items_id"].ToString(),
-                    item["purchased_id"].ToString(),
                     item["name"].ToString(),
                     item["unit_name"].ToString(),
                     item["purchased_amount"].ToString(),
@@ -62,7 +59,6 @@ namespace ZenBiz.AppModules.Forms.Purchases
             };
                 uc.dgItems.Rows.Add(row);
             }
-
         }
 
         private void btnSave_Click(object sender, EventArgs e)

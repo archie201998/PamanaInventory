@@ -119,8 +119,7 @@ namespace ZenBiz.AppModules.Forms.Components
                     foreach (DataGridViewRow item in _ucPurchaseForm.dgItems.Rows)
                     {
                         string currentItemId = item.Cells["ItemId"].Value.ToString();
-                        string currentStoreId = item.Cells["StoreId"].Value.ToString();
-                        if (currentItemId == itemId.ToString() && currentStoreId == storeId.ToString())
+                        if (currentItemId == itemId.ToString())
                             return true;
                     }
                 }
