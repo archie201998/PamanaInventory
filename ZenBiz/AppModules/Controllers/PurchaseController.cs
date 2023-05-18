@@ -9,6 +9,7 @@ namespace ZenBiz.AppModules.Controllers
     {
         private readonly IDbGenericCommands _dbGenericCommands;
         private const string tblPurchase = "purchases";
+        private const string viewPurchases = "view_purchases";
 
         public PurchaseController(IDbGenericCommands dbGenericCommands)
         {
@@ -37,7 +38,7 @@ namespace ZenBiz.AppModules.Controllers
                 new object[] { "@purchase_date_from", DbType.Date, purchasedDateFrom },
                 new object[] { "@purchase_date_to", DbType.Date, purchaseDateTo },
             };
-            string query = $"SELECT id, suppliers_id, purchase_date FROM {tblPurchase} WHERE purchase_date BETWEEN @purchase_date_from AND @purchase_date_to ORDER BY purchase_date DESC";
+            string query = $"SELECT id, suppliers_id, name, purchase_date FROM {viewPurchases} WHERE purchase_date BETWEEN @purchase_date_from AND @purchase_date_to ORDER BY purchase_date DESC";
             return _dbGenericCommands.Fill(query, parameters);
         }
 
@@ -55,8 +56,8 @@ namespace ZenBiz.AppModules.Controllers
                 new object[] { "@id", DbType.Int32,  Id },
             };
 
-            //temporary query 
-            string query = $"SELECT a.id, a.suppliers_id, a.purchase_date, a.created_by, a.created_time, a.updated_by, a.updated_time,b.id, b.name,b.address, b.contact_info, b.created_time, b.updated_time FROM purchases AS a INNER JOIN suppliers AS b ON a.suppliers_id = b.id WHERE a.id = @id";
+            string query = $"SELECT id, suppliers_id, name, address, contact_info, purchase_date FROM {viewPurchases} WHERE id = @id";
+
             using (var reader = _dbGenericCommands.ExecuteReader(query, parameters))
             {
                 if (reader.Rows.Count == 0) return record;

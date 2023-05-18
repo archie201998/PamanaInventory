@@ -40,6 +40,7 @@
             btnDelete = new Button();
             btnEdit = new Button();
             btnAdd = new Button();
+            btnLoad = new Button();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgPurchasesItems).BeginInit();
@@ -163,11 +164,22 @@
             btnAdd.UseVisualStyleBackColor = true;
             btnAdd.Click += btnAdd_Click;
             // 
+            // btnLoad
+            // 
+            btnLoad.Location = new Point(529, 14);
+            btnLoad.Name = "btnLoad";
+            btnLoad.Size = new Size(75, 23);
+            btnLoad.TabIndex = 13;
+            btnLoad.Text = "Load";
+            btnLoad.UseVisualStyleBackColor = true;
+            btnLoad.Click += btnLoad_Click;
+            // 
             // FrmPurchases
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1026, 583);
+            Controls.Add(btnLoad);
             Controls.Add(btnPayments);
             Controls.Add(btnDelete);
             Controls.Add(btnEdit);
@@ -205,5 +217,6 @@
         private Button btnDelete;
         private Button btnEdit;
         private Button btnAdd;
+        private Button btnLoad;
     }
 }

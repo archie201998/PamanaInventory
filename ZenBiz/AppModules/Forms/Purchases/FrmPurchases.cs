@@ -54,7 +54,7 @@ namespace ZenBiz.AppModules.Forms.Purchases
                 int suppliersId = Convert.ToInt32(item["suppliers_id"]);
                 DateTime purchasedDate = Convert.ToDateTime(item["purchase_date"]);
 
-                decimal totalPurchase = Factory.SalesItemController().GrossSales(purchaseId);
+                decimal totalPurchase = Factory.PurchaseItemController().TotalAmountPerPurchased(purchaseId);
                 decimal totalAmountPaid = Factory.PaymentsController().SumTotalPaymentsPerSalesId(purchaseId);
 
                 item["total_amount"] = totalPurchase;
@@ -65,8 +65,8 @@ namespace ZenBiz.AppModules.Forms.Purchases
             dgPurchases.DataSource = dtPurchases;
             dgPurchases.Columns["id"].Visible = false;
             dgPurchases.Columns["suppliers_id"].Visible = false;
+            dgPurchases.Columns["name"].HeaderText = "Supplier";
             dgPurchases.Columns["purchase_date"].HeaderText = "Purchased Date";
-            dgPurchases.Columns["purchase_date"].HeaderText = "Date";
             dgPurchases.Columns["purchase_date"].DefaultCellStyle.Format = "MMM dd, yyyy";
             dgPurchases.Columns["total_amount"].HeaderText = "Total Amount";
             dgPurchases.Columns["total_amount"].DefaultCellStyle.Format = "N2";
@@ -145,11 +145,25 @@ namespace ZenBiz.AppModules.Forms.Purchases
         {
             int purchaseId = Convert.ToInt32(dgPurchases.SelectedCells[0].Value);
             dgPurchasesItems.DataSource = Factory.PurchaseItemController().FetchByPurchaseId(purchaseId);
+
             dgPurchasesItems.Columns["id"].Visible = false;
-            dgPurchasesItems.Columns["purchases_id"].Visible = false;
+            dgPurchasesItems.Columns["purchased_id"].Visible = false;
             dgPurchasesItems.Columns["items_id"].Visible = false;
-            dgPurchasesItems.Columns["amount"].HeaderText = "Amount";
-            dgPurchasesItems.Columns["quantity"].HeaderText = "Quantity";
+            dgPurchasesItems.Columns["unit_cost"].Visible = false;
+
+            dgPurchasesItems.Columns["name"].HeaderText = "Item";
+            dgPurchasesItems.Columns["name"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dgPurchasesItems.Columns["unit_name"].HeaderText = "Unit";
+            dgPurchasesItems.Columns["purchased_amount"].HeaderText = "Amount";
+            dgPurchasesItems.Columns["purchased_amount"].DefaultCellStyle.Format = "N2";
+            dgPurchasesItems.Columns["purchased_amount"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            dgPurchasesItems.Columns["purchased_quantity"].HeaderText = "Quantity";
+            dgPurchasesItems.Columns["purchased_quantity"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+
+            dgPurchasesItems.Columns["total_purchased_amount"].HeaderText = "Total";
+            dgPurchasesItems.Columns["total_purchased_amount"].DefaultCellStyle.Format = "N2";
+            dgPurchasesItems.Columns["total_purchased_amount"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -176,5 +190,11 @@ namespace ZenBiz.AppModules.Forms.Purchases
                     Helper.MessageBoxError(ex.Message);
             }
         }
+
+        private void btnLoad_Click(object sender, EventArgs e)
+        {
+            LoadPurchases();
+        }
+
     }
 }

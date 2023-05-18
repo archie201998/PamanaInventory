@@ -14,5 +14,6 @@ namespace ZenBiz.AppModules.Interfaces
 
         DataTable FetchByPurchaseId(int purchaseId);
         bool DeletePerPurchaseId(int purchaseId);
+        decimal TotalAmountPerPurchased(int purchaseId);
     }
 }

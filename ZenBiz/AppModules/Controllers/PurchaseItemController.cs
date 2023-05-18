@@ -9,6 +9,7 @@ namespace ZenBiz.AppModules.Controllers
 
         private readonly IDbGenericCommands _dbGenericCommands;
         private const string tblPurchaseItems = "purchased_items";
+        private const string viewPurchaseItems = "view_purchased_items";
 
         public PurchaseItemController(IDbGenericCommands dbGenericCommands)
         {
@@ -35,7 +36,9 @@ namespace ZenBiz.AppModules.Controllers
             {
                 new object[] { "@purchases_id", DbType.Int32, purchaseId },
             };
-            string query = $"SELECT id, purchases_id, items_id, amount, quantity FROM {tblPurchaseItems} WHERE purchases_id = @purchases_id";
+
+            string query = $"SELECT id, purchased_id, items_id, name, unit_cost, unit_name, purchased_amount, purchased_quantity, (purchased_amount*purchased_quantity) AS total_purchased_amount FROM {viewPurchaseItems} WHERE purchased_id = @purchases_id";
+
             return _dbGenericCommands.Fill(query, parameters);
         }
 
@@ -83,6 +86,18 @@ namespace ZenBiz.AppModules.Controllers
 
             string query = $"DELETE FROM {tblPurchaseItems} WHERE purchases_id = @purchases_id";
             return _dbGenericCommands.ExecuteNonQuery(query, parameters);
+        }
+
+        public decimal TotalAmountPerPurchased(int purchaseId)
+        {
+            var parameters = new object[][]
+            {
+                new object[] { "@purchases_id", DbType.Int32, purchaseId },
+            };
+            string query = $"SELECT SUM(amount * quantity) FROM {tblPurchaseItems} WHERE purchases_id = @purchases_id GROUP BY purchases_id";
+            string result = _dbGenericCommands.ExecuteScalar(query, parameters);
+            if (string.IsNullOrWhiteSpace(result)) return 0;
+            return Convert.ToDecimal(result);
         }
     }
 }
