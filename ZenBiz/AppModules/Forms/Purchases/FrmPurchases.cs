@@ -35,7 +35,6 @@ namespace ZenBiz.AppModules.Forms.Purchases
                 LoadPurchases();
             }
 
-            form.Dispose();
         }
 
         private void LoadPurchases()
@@ -93,8 +92,6 @@ namespace ZenBiz.AppModules.Forms.Purchases
             {
                 LoadPurchases();
             }
-
-            form.Dispose();
         }
 
         private void btnPayments_Click(object sender, EventArgs e)
@@ -109,7 +106,6 @@ namespace ZenBiz.AppModules.Forms.Purchases
                 LoadPurchases();
             }
             form.Dispose();
-
 
         }
 

@@ -64,6 +64,7 @@
             btnSave.TabIndex = 2;
             btnSave.Text = "Save";
             btnSave.UseVisualStyleBackColor = true;
+            btnSave.Click += btnSave_Click;
             // 
             // ucPayments1
             // 
@@ -74,8 +75,10 @@
             // 
             // FrmPurchasePaymentsEdit
             // 
+            AcceptButton = btnSave;
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            CancelButton = btnCancel;
             ClientSize = new Size(424, 181);
             Controls.Add(ucPayments1);
             Controls.Add(flowLayoutPanel1);

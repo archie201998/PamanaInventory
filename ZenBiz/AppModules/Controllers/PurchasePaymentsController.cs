@@ -1,4 +1,5 @@
 ﻿using System.Data;
+using System.Transactions;
 using ZenBiz.AppModules.Interfaces;
 using ZenBiz.AppModules.Models;
 
@@ -32,7 +33,22 @@ namespace ZenBiz.AppModules.Controllers
 
         public Dictionary<string, string> FindById(int Id)
         {
-            throw new NotImplementedException();
+            Dictionary<string, string> record = new();
+
+            var parameters = new object[][]
+            {
+                new object[] { "@id", DbType.Int32,  Id },
+            };
+
+            string query = $"SELECT purchases_id, payment_types_id, amount, date_paid, ref_no FROM {tblPurchasePayments} WHERE id = @id";
+            using (var reader = _dbGenericCommands.ExecuteReader(query, parameters))
+            {
+                if (reader.Rows.Count == 0) return record;
+                foreach (DataColumn column in reader.Columns)
+                    record.Add(column.ColumnName, reader.Rows[0][column.ColumnName].ToString());
+            }
+
+            return record;
         }
 
         public int Count()
@@ -58,12 +74,37 @@ namespace ZenBiz.AppModules.Controllers
 
         public bool Update(PurchasePaymentModel entity)
         {
-            throw new NotImplementedException();
+            var parameters = new object[][]
+            {
+                new object[] { "@id", DbType.Int32, entity.Id },
+                new object[] { "@payment_types_id", DbType.Int32, entity.PaymentTypes.Id },
+                new object[] { "@amount", DbType.Decimal, entity.Amount },
+                new object[] { "@date_paid", DbType.Date, entity.DatePaid },
+                new object[] { "@ref_no", DbType.String, entity.RefCode },
+                new object[] { "@updated_by", DbType.Int32, entity.Users.Id },
+            };
+
+            string query = $"UPDATE {tblPurchasePayments} SET payment_types_id = @payment_types_id, amount = @amount, date_paid = @date_paid, ref_no = @ref_no, updated_by = @updated_by WHERE id = @id";
+            return _dbGenericCommands.ExecuteNonQuery(query, parameters);
         }
 
         public bool Delete(List<PurchasePaymentModel> entityList)
         {
-            throw new NotImplementedException();
+            using var scope = new TransactionScope();
+            foreach (var entity in entityList)
+            {
+                var parameters = new object[][]
+                {
+                    new object[] { "@id", DbType.Int32, entity.Id},
+                };
+
+                string query = $"DELETE FROM {tblPurchasePayments} WHERE id = @id";
+                _ = _dbGenericCommands.ExecuteNonQuery(query, parameters);
+            }
+
+            scope.Complete();
+            scope.Dispose();
+            return true;
         } 
 
         public decimal TotalAmountPaidPerPurchased(int purchaseId)
@@ -90,10 +131,10 @@ namespace ZenBiz.AppModules.Controllers
         {
             var parameters = new object[][]
             {
-                new object[] { "@purchased_id", DbType.Int32, purchaseId },
+                new object[] { "@purchases_id", DbType.Int32, purchaseId },
             };
 
-            string query = $"SELECT id, payment_types_id, amount, date_paid, ref_code, payment_type FROM {viewPurchasePayments} WHERe sales_id = @sales_id";
+            string query = $"SELECT id, payment_types_id, amount, date_paid, ref_no FROM {tblPurchasePayments} WHERE purchases_id = @purchases_id";
             return _dbGenericCommands.Fill(query, parameters);
         }
     }

@@ -85,6 +85,7 @@
             dgPayments.RowTemplate.Height = 25;
             dgPayments.Size = new Size(759, 200);
             dgPayments.TabIndex = 2;
+            dgPayments.SelectionChanged += dgPayments_SelectionChanged;
             // 
             // toolStrip1
             // 
@@ -114,6 +115,7 @@
             btnEditPayment.Name = "btnEditPayment";
             btnEditPayment.Size = new Size(23, 22);
             btnEditPayment.Text = "Edit";
+            btnEditPayment.Click += btnEditPayment_Click;
             // 
             // btnDeletePayment
             // 
@@ -123,6 +125,7 @@
             btnDeletePayment.Name = "btnDeletePayment";
             btnDeletePayment.Size = new Size(23, 22);
             btnDeletePayment.Text = "Delete";
+            btnDeletePayment.Click += btnDeletePayment_Click;
             // 
             // lblTotalPayments
             // 
@@ -244,6 +247,7 @@
             Controls.Add(tabControl1);
             Name = "FrmPaymentPerPurchase";
             Text = "Payments";
+            FormClosed += FrmPaymentPerPurchase_FormClosed;
             Load += FrmPaymentPerPurchase_Load;
             tabControl1.ResumeLayout(false);
             tabPage1.ResumeLayout(false);
