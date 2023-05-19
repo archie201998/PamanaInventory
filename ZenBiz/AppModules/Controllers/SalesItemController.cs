@@ -194,6 +194,18 @@ namespace ZenBiz.AppModules.Controllers
             return Convert.ToDecimal(result);
         }
 
+        public decimal GrossSalesPerCustomer(int customerId)
+        {
+            var parameters = new object[][]
+            {
+                new object[] { "@sales_id", DbType.Int32, customerId },
+            };
+            string query = $"SELECT SUM(price * quantity) FROM {tblSalesItem} WHERE sales_id = @sales_id GROUP BY customers_id";
+            string result = _dbGenericCommands.ExecuteScalar(query, parameters);
+            if (string.IsNullOrWhiteSpace(result)) return 0;
+            return Convert.ToDecimal(result);
+        }
+
         public decimal SumTotalStocksSold(int storeId, int itemId)
         {
             var parameters = new object[][]

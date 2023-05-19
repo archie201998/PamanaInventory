@@ -13,6 +13,7 @@ namespace ZenBiz.AppModules.Interfaces
         DataTable FetchSoldItems(DateTime dateFrom, DateTime dateTo, int storeId);
         decimal GrossSales(int salesId);
         decimal GrossSales(DateTime dateFrom, DateTime dateTo);
+        decimal GrossSalesPerCustomer(int customerId);
         decimal SumTotalStocksSold(int storeId, int itemId);
     }
 }

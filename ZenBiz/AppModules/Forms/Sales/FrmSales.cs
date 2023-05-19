@@ -46,9 +46,9 @@ namespace ZenBiz.AppModules.Forms.Sales
             dtSales.Columns.Add("balance", typeof(decimal));
             foreach (DataRow item in dtSales.Rows)
             {
-                int itemId = Convert.ToInt32(item["id"]);
-                decimal totalSale = Factory.SalesItemController().GrossSales(itemId);
-                decimal totalAmountPaid = Factory.PaymentsController().SumTotalPaymentsPerSalesId(itemId);
+                int salesId = Convert.ToInt32(item["id"]);
+                decimal totalSale = Factory.SalesItemController().GrossSales(salesId);
+                decimal totalAmountPaid = Factory.PaymentsController().SumTotalPaymentsPerSalesId(salesId);
                 item["total_sales"] = totalSale.ToString("n2");
                 item["amount_paid"] = totalAmountPaid.ToString("n2");
                 item["balance"] = totalSale - totalAmountPaid;
