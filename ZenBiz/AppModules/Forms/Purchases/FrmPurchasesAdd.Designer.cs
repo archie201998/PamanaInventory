@@ -86,7 +86,6 @@
             Name = "FrmPurchasesAdd";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Add Purchases";
-            Load += FrmPurchasesAdd_Load;
             flowLayoutPanel1.ResumeLayout(false);
             ResumeLayout(false);
         }

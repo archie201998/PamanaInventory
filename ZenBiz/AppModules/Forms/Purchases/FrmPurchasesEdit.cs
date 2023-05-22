@@ -99,9 +99,9 @@ namespace ZenBiz.AppModules.Forms.Purchases
                 PurchaseItemsModel purchaseItemsModel = new()
                 {
                     Purchases = new PurchasesModel() { Id = _purchaseId },
-                    Items = new ItemsModel() { Id = Convert.ToInt32(item.Cells["ItemId"].Value) },
-                    Amount = Convert.ToDecimal(item.Cells["Price"].Value),
-                    Quantity = Convert.ToDecimal(item.Cells["Quantity"].Value)
+                    Items = new ItemsModel() { Id = Convert.ToInt32(item.Cells["item_id"].Value) },
+                    Amount = Convert.ToDecimal(item.Cells["unit_cost"].Value),
+                    Quantity = Convert.ToDecimal(item.Cells["quantity"].Value)
                 };
 
                 _ = Factory.PurchaseItemController().Insert(purchaseItemsModel);
