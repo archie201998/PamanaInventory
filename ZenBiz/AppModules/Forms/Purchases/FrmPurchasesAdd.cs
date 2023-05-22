@@ -24,11 +24,6 @@ namespace ZenBiz.AppModules.Forms.Purchases
             Helper.LoadFormIcon(this);
         }
 
-        private void FrmPurchasesAdd_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private bool SaveData()
         {
             if (uc.dgItems.Rows.Count == 0)
@@ -38,7 +33,6 @@ namespace ZenBiz.AppModules.Forms.Purchases
             }
 
             using TransactionScope scope = new();
-            // populate purchase model
 
             PurchasesModel purchases = new()
             {
@@ -49,7 +43,6 @@ namespace ZenBiz.AppModules.Forms.Purchases
 
             IPurchases purchaseController = Factory.PurchaseController();
 
-            // insert purchase
             _ = purchaseController.Insert(purchases);
 
             foreach (DataGridViewRow item in uc.dgItems.Rows)
@@ -57,15 +50,14 @@ namespace ZenBiz.AppModules.Forms.Purchases
                 PurchaseItemsModel purchaseItemsModel = new()
                 {
                     Purchases = new PurchasesModel() { Id = purchaseController.LastInsertedId() },
-                    Items = new ItemsModel() { Id = Convert.ToInt32(item.Cells["ItemId"].Value) },
-                    Amount = Convert.ToDecimal(item.Cells["Price"].Value),
-                    Quantity = Convert.ToDecimal(item.Cells["Quantity"].Value)
+                    Items = new ItemsModel() { Id = Convert.ToInt32(item.Cells["item_id"].Value) },
+                    Amount = Convert.ToDecimal(item.Cells["unit_cost"].Value),
+                    Quantity = Convert.ToDecimal(item.Cells["quantity"].Value)
                 };
 
                 _ = Factory.PurchaseItemController().Insert(purchaseItemsModel);
             }
 
-            //if direct payment
             if (uc.chkPayment.Checked)
             {
                 PurchasePaymentModel purchasePaymentodel = new()

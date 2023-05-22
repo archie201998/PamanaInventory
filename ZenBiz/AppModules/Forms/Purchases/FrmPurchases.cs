@@ -137,6 +137,9 @@ namespace ZenBiz.AppModules.Forms.Purchases
             }
 
             btnPayments.Enabled = false;
+            dgPurchasesItems.DataSource = null;
+            dgPurchasesItems.Rows.Clear();
+
         }
 
         private void LoadPurchasesItems()

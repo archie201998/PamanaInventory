@@ -75,8 +75,11 @@
             // 
             // FrmPurchaseEdit
             // 
+
+            AcceptButton = btnSave;
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            CancelButton = btnCancel;
             ClientSize = new Size(846, 615);
             Controls.Add(flowLayoutPanel1);
             Controls.Add(ucPurchaseForm1);

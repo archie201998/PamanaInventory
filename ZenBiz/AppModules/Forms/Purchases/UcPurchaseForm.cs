@@ -54,7 +54,7 @@ namespace ZenBiz.AppModules.Forms.Purchases
 
         private void btnAddItem_Click(object sender, EventArgs e)
         {
-            _ = new FrmItemSearch(this, null).ShowDialog();
+            _ = new FrmPurchasesItemsSearch(this).ShowDialog();
         }
 
         private void chkPayment_CheckedChanged(object sender, EventArgs e)
@@ -73,6 +73,30 @@ namespace ZenBiz.AppModules.Forms.Purchases
                 LoadPaymentTypes();
             }
         }
+        private void CreateColumns()
+        {
+
+            dgItems.ColumnCount = 6;
+            dgItems.Columns[0].Name = "item_id";
+            dgItems.Columns[1].Name = "item";
+            dgItems.Columns[2].Name = "unit";
+            dgItems.Columns[3].Name = "unit_cost";
+            dgItems.Columns[4].Name = "quantity";
+            dgItems.Columns[5].Name = "total";
+
+            dgItems.Columns["item_id"].Visible = false;
+            dgItems.Columns["item"].HeaderText = "Item";
+            dgItems.Columns["unit"].HeaderText = "Unit";
+            dgItems.Columns["unit_cost"].HeaderText = "Unit Cost";
+            dgItems.Columns["quantity"].HeaderText = "Quantity";
+            dgItems.Columns["total"].HeaderText = "Total";
+
+            dgItems.Columns["unit_cost"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            dgItems.Columns["quantity"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            dgItems.Columns["total"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+
+            dgItems.Columns["item"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+        }
 
         private void LoadPaymentTypes()
         {
@@ -81,27 +105,12 @@ namespace ZenBiz.AppModules.Forms.Purchases
             cmbPaymentType.ValueMember = "id";
         }
 
-        private void CreateColumns()
-        {
-
-            dgItems.ColumnCount = 6;
-            dgItems.Columns[0].Name = "ItemId";
-            dgItems.Columns[1].Name = "Item";
-            dgItems.Columns[2].Name = "Unit";
-            dgItems.Columns[3].Name = "Price";
-            dgItems.Columns[4].Name = "Quantity";
-            dgItems.Columns[5].Name = "Total";
-
-            dgItems.Columns["ItemId"].Visible = false;
-            dgItems.Columns["Item"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-        }
-
         internal void SumTotalPurchase()
         {
             decimal total = 0;
             foreach (DataGridViewRow item in dgItems.Rows)
             {
-                total += Convert.ToDecimal(item.Cells["Total"].Value);
+                total += Convert.ToDecimal(item.Cells["total"].Value);
             }
             lblTotalPurchase.Text = total.ToString("N2");
         }

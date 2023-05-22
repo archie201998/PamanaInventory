@@ -74,9 +74,12 @@
             btnSave.Click += btnSave_Click;
             // 
             // FrmPurchasesAdd
-            // 
+            //
+            AcceptButton = btnSave;
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            AutoValidate = AutoValidate.EnableAllowFocusChange;
+            CancelButton = btnCancel;
             ClientSize = new Size(846, 615);
             Controls.Add(flowLayoutPanel1);
             Controls.Add(ucPurchaseForm1);
@@ -86,7 +89,6 @@
             Name = "FrmPurchasesAdd";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Add Purchases";
-            Load += FrmPurchasesAdd_Load;
             flowLayoutPanel1.ResumeLayout(false);
             ResumeLayout(false);
         }

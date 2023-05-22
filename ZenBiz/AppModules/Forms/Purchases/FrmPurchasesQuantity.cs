@@ -15,47 +15,27 @@ namespace ZenBiz.AppModules.Forms.Purchases
     public partial class FrmPurchasesQuantity : Form
     {
         private readonly int _itemId;
-        private readonly FrmItemSearch _frmItemSearch;
         private readonly UcPurchaseForm _ucPurchaseForm;
+        FrmPurchasesItemsSearch _frmPurchasesItemsSearch;
 
-        public FrmPurchasesQuantity(FrmItemSearch frmItemSearch, UcPurchaseForm ucPurchaseForm)
+        public FrmPurchasesQuantity(FrmPurchasesItemsSearch frmPurchasesItemsSearch, UcPurchaseForm ucPurchaseForm)
         {
             InitializeComponent();
             Helper.FormFixedToolWindowDefaults(this);
-            _itemId = frmItemSearch.ItemId;
-            _frmItemSearch = frmItemSearch;
+            _itemId = frmPurchasesItemsSearch.ItemId;
+            _frmPurchasesItemsSearch = frmPurchasesItemsSearch;
             _ucPurchaseForm = ucPurchaseForm;
         }
 
         private void SetPrice()
         {
-            string priceType = "retail_price";
-            if (radWholesalePrice.Checked) priceType = "wholesale_price";
-            else if (radSpecialPrice.Checked) priceType = "special_price";
-
-            nudPrice.Value = Factory.ItemsController().GetPrice(_itemId, priceType);
+            nudPrice.Value = Factory.ItemsController().GetPrice(_itemId, "unit_cost");
         }
 
         private void FrmPurchasesQuantity_Load(object sender, EventArgs e)
         {
             SetPrice();
         }
-
-        private void radRetailPrice_CheckedChanged(object sender, EventArgs e)
-        {
-            SetPrice();
-        }
-
-        private void radWholesalePrice_CheckedChanged(object sender, EventArgs e)
-        {
-            SetPrice();
-        }
-
-        private void radSpecialPrice_CheckedChanged(object sender, EventArgs e)
-        {
-            SetPrice();
-        }
-
 
         private bool SaveData()
         {
@@ -66,28 +46,10 @@ namespace ZenBiz.AppModules.Forms.Purchases
                 return false;
             }
 
-            int storeId = Convert.ToInt32(_frmItemSearch.cmbStores.SelectedValue);
-            decimal stocksLeft = Factory.StoreStocksController().StocksLeft(storeId, _itemId);
-            if (nudQuantity.Value > stocksLeft)
-            {
-                Helper.MessageBoxError("Please enter a quantity lesser than the remaining stocks.");
-                return false;
-            }
-
-
-            //item["id"].ToString(),
-            //item["items_id"].ToString(),
-            //item["purchased_id"].ToString(),
-            //item["name"].ToString(),
-            //item["unit_name"].ToString(),
-            //item["purchased_amount"].ToString(),
-            //item["purchased_quantity"].ToString(),
-            //item["total_purchased_amount"].ToString(),
-
             decimal totalPurchase = nudPrice.Value * nudQuantity.Value;
             string[] row = new string[]
             {
-                _frmItemSearch.ItemId.ToString(),
+                Convert.ToString(_frmPurchasesItemsSearch.ItemId),
                 dict["name"],
                 dict["unit_name"],
                 nudPrice.Value.ToString("n2"),

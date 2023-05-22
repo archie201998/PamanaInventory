@@ -31,9 +31,6 @@
             btnSave = new Button();
             btnCancel = new Button();
             flowLayoutPanel1 = new FlowLayoutPanel();
-            radSpecialPrice = new RadioButton();
-            radWholesalePrice = new RadioButton();
-            radRetailPrice = new RadioButton();
             nudQuantity = new NumericUpDown();
             label2 = new Label();
             nudPrice = new NumericUpDown();
@@ -48,7 +45,7 @@
             btnSave.Location = new Point(201, 3);
             btnSave.Name = "btnSave";
             btnSave.Size = new Size(75, 23);
-            btnSave.TabIndex = 0;
+            btnSave.TabIndex = 2;
             btnSave.Text = "Save";
             btnSave.UseVisualStyleBackColor = true;
             btnSave.Click += btnSave_Click;
@@ -58,7 +55,7 @@
             btnCancel.Location = new Point(282, 3);
             btnCancel.Name = "btnCancel";
             btnCancel.Size = new Size(75, 23);
-            btnCancel.TabIndex = 0;
+            btnCancel.TabIndex = 3;
             btnCancel.Text = "Cancel";
             btnCancel.UseVisualStyleBackColor = true;
             // 
@@ -69,59 +66,25 @@
             flowLayoutPanel1.Controls.Add(btnSave);
             flowLayoutPanel1.Dock = DockStyle.Bottom;
             flowLayoutPanel1.FlowDirection = FlowDirection.RightToLeft;
-            flowLayoutPanel1.Location = new Point(0, 113);
+            flowLayoutPanel1.Location = new Point(0, 90);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
             flowLayoutPanel1.Size = new Size(360, 30);
             flowLayoutPanel1.TabIndex = 2;
             // 
-            // radSpecialPrice
-            // 
-            radSpecialPrice.AutoSize = true;
-            radSpecialPrice.Location = new Point(219, 12);
-            radSpecialPrice.Name = "radSpecialPrice";
-            radSpecialPrice.Size = new Size(62, 19);
-            radSpecialPrice.TabIndex = 5;
-            radSpecialPrice.Text = "Special";
-            radSpecialPrice.UseVisualStyleBackColor = true;
-            radSpecialPrice.CheckedChanged += radSpecialPrice_CheckedChanged;
-            // 
-            // radWholesalePrice
-            // 
-            radWholesalePrice.AutoSize = true;
-            radWholesalePrice.Location = new Point(134, 12);
-            radWholesalePrice.Name = "radWholesalePrice";
-            radWholesalePrice.Size = new Size(79, 19);
-            radWholesalePrice.TabIndex = 4;
-            radWholesalePrice.Text = "Wholesale";
-            radWholesalePrice.UseVisualStyleBackColor = true;
-            radWholesalePrice.CheckedChanged += radWholesalePrice_CheckedChanged;
-            // 
-            // radRetailPrice
-            // 
-            radRetailPrice.AutoSize = true;
-            radRetailPrice.Checked = true;
-            radRetailPrice.Location = new Point(74, 12);
-            radRetailPrice.Name = "radRetailPrice";
-            radRetailPrice.Size = new Size(54, 19);
-            radRetailPrice.TabIndex = 3;
-            radRetailPrice.TabStop = true;
-            radRetailPrice.Text = "Retail";
-            radRetailPrice.UseVisualStyleBackColor = true;
-            radRetailPrice.CheckedChanged += radRetailPrice_CheckedChanged;
-            // 
             // nudQuantity
             // 
             nudQuantity.DecimalPlaces = 2;
-            nudQuantity.Location = new Point(74, 66);
+            nudQuantity.Location = new Point(83, 48);
             nudQuantity.Maximum = new decimal(new int[] { 10000000, 0, 0, 0 });
             nudQuantity.Name = "nudQuantity";
             nudQuantity.Size = new Size(250, 23);
-            nudQuantity.TabIndex = 8;
+            nudQuantity.TabIndex = 1;
+            nudQuantity.ThousandsSeparator = true;
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(13, 68);
+            label2.Location = new Point(17, 50);
             label2.Name = "label2";
             label2.Size = new Size(53, 15);
             label2.TabIndex = 9;
@@ -130,36 +93,36 @@
             // nudPrice
             // 
             nudPrice.DecimalPlaces = 2;
-            nudPrice.Location = new Point(74, 37);
+            nudPrice.Location = new Point(83, 19);
             nudPrice.Maximum = new decimal(new int[] { 10000000, 0, 0, 0 });
             nudPrice.Name = "nudPrice";
             nudPrice.Size = new Size(250, 23);
-            nudPrice.TabIndex = 7;
+            nudPrice.TabIndex = 0;
+            nudPrice.ThousandsSeparator = true;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(13, 39);
+            label1.Location = new Point(17, 21);
             label1.Name = "label1";
-            label1.Size = new Size(33, 15);
+            label1.Size = new Size(56, 15);
             label1.TabIndex = 6;
-            label1.Text = "Price";
+            label1.Text = "Unit Cost";
             // 
             // FrmPurchasesQuantity
             // 
+            AcceptButton = btnSave;
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(360, 143);
+            CancelButton = btnCancel;
+            ClientSize = new Size(360, 120);
             Controls.Add(nudQuantity);
             Controls.Add(label2);
             Controls.Add(nudPrice);
             Controls.Add(label1);
-            Controls.Add(radSpecialPrice);
-            Controls.Add(radWholesalePrice);
-            Controls.Add(radRetailPrice);
             Controls.Add(flowLayoutPanel1);
             Name = "FrmPurchasesQuantity";
-            Text = "Enter Price & Quantity";
+            Text = "Enter Unit Cost & Quantity";
             Load += FrmPurchasesQuantity_Load;
             flowLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)nudQuantity).EndInit();
@@ -173,9 +136,6 @@
         private Button btnSave;
         private Button btnCancel;
         private FlowLayoutPanel flowLayoutPanel1;
-        private RadioButton radSpecialPrice;
-        private RadioButton radWholesalePrice;
-        private RadioButton radRetailPrice;
         private NumericUpDown nudQuantity;
         private Label label2;
         private NumericUpDown nudPrice;
