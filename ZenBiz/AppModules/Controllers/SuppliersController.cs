@@ -47,7 +47,13 @@ namespace ZenBiz.AppModules.Controllers
 
         public DataTable FetchBySearch(string searchText)
         {
-            throw new NotImplementedException();
+            var parameters = new object[][]
+            {
+                new object[] { "@search_text", DbType.String,  $"%{searchText}%" },
+            };
+
+            string query = $"SELECT id, name, contact_info, address FROM {tblSuppliers} WHERE name LIKE @search_text ORDER BY name";
+            return _dbGenericCommands.Fill(query, parameters);
         }
 
         public Dictionary<string, string> FindById(int id)

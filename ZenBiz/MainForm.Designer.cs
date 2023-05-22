@@ -31,7 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             btnSales = new ToolStripButton();
             toolStrip1 = new ToolStrip();
-            toolStripButton3 = new ToolStripButton();
+            btnPurchases = new ToolStripButton();
             btnInventory = new ToolStripButton();
             btnCustomers = new ToolStripButton();
             btnUsers = new ToolStripButton();
@@ -109,7 +109,7 @@
             // toolStrip1
             // 
             toolStrip1.GripStyle = ToolStripGripStyle.Hidden;
-            toolStrip1.Items.AddRange(new ToolStripItem[] { btnSales, toolStripButton3, btnInventory, btnCustomers, btnUsers, btnLoggedInUser, btnReport });
+            toolStrip1.Items.AddRange(new ToolStripItem[] { btnSales, btnPurchases, btnInventory, btnCustomers, btnUsers, btnLoggedInUser, btnReport });
             toolStrip1.Location = new Point(0, 0);
             toolStrip1.Name = "toolStrip1";
             toolStrip1.Padding = new Padding(0, 5, 1, 5);
@@ -117,15 +117,15 @@
             toolStrip1.TabIndex = 2;
             toolStrip1.Text = "toolStrip1";
             // 
-            // toolStripButton3
+            // btnPurchases
             // 
-            toolStripButton3.Image = (Image)resources.GetObject("toolStripButton3.Image");
-            toolStripButton3.ImageScaling = ToolStripItemImageScaling.None;
-            toolStripButton3.ImageTransparentColor = Color.Magenta;
-            toolStripButton3.Name = "toolStripButton3";
-            toolStripButton3.Size = new Size(88, 28);
-            toolStripButton3.Text = "Purchases";
-            toolStripButton3.Visible = false;
+            btnPurchases.Image = (Image)resources.GetObject("btnPurchases.Image");
+            btnPurchases.ImageScaling = ToolStripItemImageScaling.None;
+            btnPurchases.ImageTransparentColor = Color.Magenta;
+            btnPurchases.Name = "btnPurchases";
+            btnPurchases.Size = new Size(88, 28);
+            btnPurchases.Text = "Purchases";
+            btnPurchases.Click += btnPurchases_Click;
             // 
             // btnInventory
             // 
@@ -170,14 +170,14 @@
             // changePasswordToolStripMenuItem
             // 
             changePasswordToolStripMenuItem.Name = "changePasswordToolStripMenuItem";
-            changePasswordToolStripMenuItem.Size = new Size(180, 22);
+            changePasswordToolStripMenuItem.Size = new Size(177, 22);
             changePasswordToolStripMenuItem.Text = "Change Password...";
             changePasswordToolStripMenuItem.Click += changePasswordToolStripMenuItem_Click;
             // 
             // logOutToolStripMenuItem
             // 
             logOutToolStripMenuItem.Name = "logOutToolStripMenuItem";
-            logOutToolStripMenuItem.Size = new Size(180, 22);
+            logOutToolStripMenuItem.Size = new Size(177, 22);
             logOutToolStripMenuItem.Text = "Log out";
             logOutToolStripMenuItem.Click += logOutToolStripMenuItem_Click;
             // 
@@ -640,7 +640,7 @@
         private ToolStripButton btnSales;
         private ToolStrip toolStrip1;
         private ToolStripButton btnInventory;
-        private ToolStripButton toolStripButton3;
+        private ToolStripButton btnPurchases;
         private ToolStripButton btnCustomers;
         private DateTimePicker dtpFrom;
         private DateTimePicker dtpTo;

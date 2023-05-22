@@ -41,5 +41,10 @@ namespace ZenBiz.AppModules.Forms.Customers
                 Close();
             }
         }
+
+        private void FrmCustomersAdd_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

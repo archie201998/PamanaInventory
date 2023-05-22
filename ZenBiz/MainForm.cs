@@ -1,6 +1,7 @@
 ﻿using ZenBiz.AppModules;
 using ZenBiz.AppModules.Forms;
 using ZenBiz.AppModules.Forms.Customers;
+using ZenBiz.AppModules.Forms.Purchases;
 using ZenBiz.AppModules.Forms.Reports;
 using ZenBiz.AppModules.Forms.Sales;
 using ZenBiz.AppModules.Forms.Users;
@@ -63,6 +64,11 @@ namespace ZenBiz
             _ = new FrmSales().ShowDialog();
         }
 
+        private void btnPurchases_Click(object sender, EventArgs e)
+        {
+            _ = new FrmPurchases().ShowDialog();
+        }
+
         private void btnUsers_Click(object sender, EventArgs e)
         {
             _ = new FrmUsers().ShowDialog();
@@ -94,5 +100,6 @@ namespace ZenBiz
         {
             _ = new FrmChangePassword(this).ShowDialog();
         }
+
     }
 }

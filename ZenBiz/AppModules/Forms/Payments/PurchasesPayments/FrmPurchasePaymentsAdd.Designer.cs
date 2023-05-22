@@ -1,6 +1,6 @@
-﻿namespace ZenBiz.AppModules.Forms.Customers
+﻿namespace ZenBiz.AppModules.Forms.Payments.PurchasesPayments
 {
-    partial class FrmCustomersAdd
+    partial class FrmPurchasePaymentsAdd
     {
         /// <summary>
         /// Required designer variable.
@@ -28,19 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            ucCustomersForm1 = new UcCustomersForm();
             flowLayoutPanel1 = new FlowLayoutPanel();
             btnCancel = new Button();
             btnSave = new Button();
+            ucPayments1 = new UcPayments();
             flowLayoutPanel1.SuspendLayout();
             SuspendLayout();
-            // 
-            // ucCustomersForm1
-            // 
-            ucCustomersForm1.Location = new Point(12, 12);
-            ucCustomersForm1.Name = "ucCustomersForm1";
-            ucCustomersForm1.Size = new Size(410, 100);
-            ucCustomersForm1.TabIndex = 0;
             // 
             // flowLayoutPanel1
             // 
@@ -48,58 +41,58 @@
             flowLayoutPanel1.Controls.Add(btnCancel);
             flowLayoutPanel1.Controls.Add(btnSave);
             flowLayoutPanel1.Dock = DockStyle.Bottom;
-            flowLayoutPanel1.Location = new Point(0, 122);
+            flowLayoutPanel1.FlowDirection = FlowDirection.RightToLeft;
+            flowLayoutPanel1.Location = new Point(0, 151);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.RightToLeft = RightToLeft.Yes;
-            flowLayoutPanel1.Size = new Size(427, 30);
-            flowLayoutPanel1.TabIndex = 3;
+            flowLayoutPanel1.Size = new Size(424, 30);
+            flowLayoutPanel1.TabIndex = 0;
             // 
             // btnCancel
             // 
-            btnCancel.Location = new Point(349, 3);
+            btnCancel.Location = new Point(346, 3);
             btnCancel.Name = "btnCancel";
             btnCancel.Size = new Size(75, 23);
-            btnCancel.TabIndex = 1;
+            btnCancel.TabIndex = 3;
             btnCancel.Text = "Cancel";
             btnCancel.UseVisualStyleBackColor = true;
             // 
             // btnSave
             // 
-            btnSave.Location = new Point(268, 3);
+            btnSave.Location = new Point(265, 3);
             btnSave.Name = "btnSave";
             btnSave.Size = new Size(75, 23);
-            btnSave.TabIndex = 0;
+            btnSave.TabIndex = 2;
             btnSave.Text = "Save";
             btnSave.UseVisualStyleBackColor = true;
             btnSave.Click += btnSave_Click;
             // 
-            // FrmCustomersAdd
+            // ucPayments1
+            // 
+            ucPayments1.Location = new Point(12, 12);
+            ucPayments1.Name = "ucPayments1";
+            ucPayments1.Size = new Size(404, 124);
+            ucPayments1.TabIndex = 1;
+            // 
+            // FrmPurchasePaymentsAdd
             // 
             AcceptButton = btnSave;
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            AutoValidate = AutoValidate.EnableAllowFocusChange;
             CancelButton = btnCancel;
-            ClientSize = new Size(427, 152);
+            ClientSize = new Size(424, 181);
+            Controls.Add(ucPayments1);
             Controls.Add(flowLayoutPanel1);
-            Controls.Add(ucCustomersForm1);
-            FormBorderStyle = FormBorderStyle.FixedToolWindow;
-            MaximizeBox = false;
-            MinimizeBox = false;
-            Name = "FrmCustomersAdd";
-            ShowInTaskbar = false;
-            StartPosition = FormStartPosition.CenterScreen;
-            Text = "Add Customer";
-            Load += FrmCustomersAdd_Load;
+            Name = "FrmPurchasePaymentsAdd";
+            Text = "Add Purchase Payment";
             flowLayoutPanel1.ResumeLayout(false);
             ResumeLayout(false);
         }
 
         #endregion
 
-        private UcCustomersForm ucCustomersForm1;
         private FlowLayoutPanel flowLayoutPanel1;
         private Button btnCancel;
         private Button btnSave;
+        private UcPayments ucPayments1;
     }
 }

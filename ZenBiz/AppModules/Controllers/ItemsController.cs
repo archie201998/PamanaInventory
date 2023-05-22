@@ -67,7 +67,7 @@ namespace ZenBiz.AppModules.Controllers
                 new object[] { "@search_text", DbType.String, $"%{searchText}%"},
             };
 
-            string query = $"SELECT id, sku_code, name, category_name, unit_name, retail_price, wholesale_price, special_price FROM {viewItems} WHERE name LIKE @search_text";
+            string query = $"SELECT id, sku_code, name, category_name, unit_name, unit_cost, retail_price, wholesale_price, special_price FROM {viewItems} WHERE name LIKE @search_text";
             return _dbGenericCommands.Fill(query, parameters);
         }
 

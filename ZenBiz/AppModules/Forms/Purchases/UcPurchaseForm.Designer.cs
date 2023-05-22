@@ -1,6 +1,6 @@
-﻿namespace ZenBiz.AppModules.Forms.Sales
+﻿namespace ZenBiz.AppModules.Forms.Purchases
 {
-    partial class UcSalesForm
+    partial class UcPurchaseForm
     {
         /// <summary> 
         /// Required designer variable.
@@ -28,8 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UcSalesForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UcPurchaseForm));
+            label2 = new Label();
+            dtpDatePurchase = new DateTimePicker();
+            gbxSupplier = new GroupBox();
+            panel1 = new Panel();
+            btnClear = new Button();
+            btnSearchSuppliers = new Button();
+            txtSupplierContactInfo = new TextBox();
+            label5 = new Label();
+            txtSupplierAddress = new TextBox();
+            label4 = new Label();
+            txtSupplierName = new TextBox();
+            label3 = new Label();
             tabControl1 = new TabControl();
             tabPage1 = new TabPage();
             dgItems = new DataGridView();
@@ -37,23 +48,9 @@
             btnAddItem = new ToolStripButton();
             btnEditItem = new ToolStripButton();
             btnDeleteItem = new ToolStripButton();
-            lblTotalSales = new ToolStripLabel();
+            lblTotalPurchase = new ToolStripLabel();
             toolStripLabel1 = new ToolStripLabel();
-            groupBox1 = new GroupBox();
-            panel1 = new Panel();
-            btnClear = new Button();
-            btnSearchCustomer = new Button();
-            txtCustomerContactInfo = new TextBox();
-            label5 = new Label();
-            txtCustomerAddress = new TextBox();
-            label4 = new Label();
-            txtCustomerName = new TextBox();
-            label3 = new Label();
-            label2 = new Label();
-            dtpTransactionDate = new DateTimePicker();
-            txtTransactionNo = new TextBox();
-            label1 = new Label();
-            epCustomer = new ErrorProvider(components);
+            chkPayment = new CheckBox();
             groupBoxPayments = new GroupBox();
             panel2 = new Panel();
             dtpDatePaid = new DateTimePicker();
@@ -64,27 +61,140 @@
             nudAmountPaid = new NumericUpDown();
             txtRefCode = new TextBox();
             label6 = new Label();
-            chkPayment = new CheckBox();
+            gbxSupplier.SuspendLayout();
+            panel1.SuspendLayout();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgItems).BeginInit();
             toolStrip1.SuspendLayout();
-            groupBox1.SuspendLayout();
-            panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)epCustomer).BeginInit();
             groupBoxPayments.SuspendLayout();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)nudAmountPaid).BeginInit();
             SuspendLayout();
             // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(9, 15);
+            label2.Name = "label2";
+            label2.Size = new Size(31, 15);
+            label2.TabIndex = 29;
+            label2.Text = "Date";
+            // 
+            // dtpDatePurchase
+            // 
+            dtpDatePurchase.Location = new Point(119, 11);
+            dtpDatePurchase.Name = "dtpDatePurchase";
+            dtpDatePurchase.Size = new Size(689, 23);
+            dtpDatePurchase.TabIndex = 28;
+            // 
+            // gbxSupplier
+            // 
+            gbxSupplier.Controls.Add(panel1);
+            gbxSupplier.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            gbxSupplier.Location = new Point(6, 49);
+            gbxSupplier.Name = "gbxSupplier";
+            gbxSupplier.Size = new Size(805, 144);
+            gbxSupplier.TabIndex = 30;
+            gbxSupplier.TabStop = false;
+            gbxSupplier.Text = "Supplier";
+            // 
+            // panel1
+            // 
+            panel1.Controls.Add(btnClear);
+            panel1.Controls.Add(btnSearchSuppliers);
+            panel1.Controls.Add(txtSupplierContactInfo);
+            panel1.Controls.Add(label5);
+            panel1.Controls.Add(txtSupplierAddress);
+            panel1.Controls.Add(label4);
+            panel1.Controls.Add(txtSupplierName);
+            panel1.Controls.Add(label3);
+            panel1.Dock = DockStyle.Fill;
+            panel1.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            panel1.Location = new Point(3, 19);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(799, 122);
+            panel1.TabIndex = 0;
+            // 
+            // btnClear
+            // 
+            btnClear.Location = new Point(700, 90);
+            btnClear.Name = "btnClear";
+            btnClear.Size = new Size(75, 23);
+            btnClear.TabIndex = 4;
+            btnClear.Text = "Clear";
+            btnClear.UseVisualStyleBackColor = true;
+            btnClear.Click += btnClear_Click;
+            // 
+            // btnSearchSuppliers
+            // 
+            btnSearchSuppliers.Location = new Point(619, 90);
+            btnSearchSuppliers.Name = "btnSearchSuppliers";
+            btnSearchSuppliers.Size = new Size(75, 23);
+            btnSearchSuppliers.TabIndex = 3;
+            btnSearchSuppliers.Text = "Search...";
+            btnSearchSuppliers.UseVisualStyleBackColor = true;
+            btnSearchSuppliers.Click += btnSearchSuppliers_Click;
+            // 
+            // txtSupplierContactInfo
+            // 
+            txtSupplierContactInfo.Location = new Point(110, 61);
+            txtSupplierContactInfo.Name = "txtSupplierContactInfo";
+            txtSupplierContactInfo.ReadOnly = true;
+            txtSupplierContactInfo.Size = new Size(665, 23);
+            txtSupplierContactInfo.TabIndex = 2;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(3, 64);
+            label5.Name = "label5";
+            label5.Size = new Size(73, 15);
+            label5.TabIndex = 6;
+            label5.Text = "Contact Info";
+            // 
+            // txtSupplierAddress
+            // 
+            txtSupplierAddress.Location = new Point(110, 32);
+            txtSupplierAddress.Name = "txtSupplierAddress";
+            txtSupplierAddress.ReadOnly = true;
+            txtSupplierAddress.Size = new Size(665, 23);
+            txtSupplierAddress.TabIndex = 1;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(3, 35);
+            label4.Name = "label4";
+            label4.Size = new Size(49, 15);
+            label4.TabIndex = 4;
+            label4.Text = "Address";
+            // 
+            // txtSupplierName
+            // 
+            txtSupplierName.Location = new Point(110, 3);
+            txtSupplierName.Name = "txtSupplierName";
+            txtSupplierName.ReadOnly = true;
+            txtSupplierName.Size = new Size(665, 23);
+            txtSupplierName.TabIndex = 0;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(3, 6);
+            label3.Name = "label3";
+            label3.Size = new Size(39, 15);
+            label3.TabIndex = 2;
+            label3.Text = "Name";
+            // 
             // tabControl1
             // 
             tabControl1.Controls.Add(tabPage1);
-            tabControl1.Location = new Point(6, 215);
+            tabControl1.Location = new Point(6, 206);
             tabControl1.Name = "tabControl1";
             tabControl1.SelectedIndex = 0;
             tabControl1.Size = new Size(806, 173);
-            tabControl1.TabIndex = 2;
+            tabControl1.TabIndex = 31;
             // 
             // tabPage1
             // 
@@ -111,7 +221,7 @@
             // toolStrip1
             // 
             toolStrip1.GripStyle = ToolStripGripStyle.Hidden;
-            toolStrip1.Items.AddRange(new ToolStripItem[] { btnAddItem, btnEditItem, btnDeleteItem, lblTotalSales, toolStripLabel1 });
+            toolStrip1.Items.AddRange(new ToolStripItem[] { btnAddItem, btnEditItem, btnDeleteItem, lblTotalPurchase, toolStripLabel1 });
             toolStrip1.Location = new Point(3, 3);
             toolStrip1.Name = "toolStrip1";
             toolStrip1.Size = new Size(792, 25);
@@ -148,13 +258,13 @@
             btnDeleteItem.Text = "Delete";
             btnDeleteItem.Click += btnDeleteItem_Click;
             // 
-            // lblTotalSales
+            // lblTotalPurchase
             // 
-            lblTotalSales.Alignment = ToolStripItemAlignment.Right;
-            lblTotalSales.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            lblTotalSales.Name = "lblTotalSales";
-            lblTotalSales.Size = new Size(31, 22);
-            lblTotalSales.Text = "0.00";
+            lblTotalPurchase.Alignment = ToolStripItemAlignment.Right;
+            lblTotalPurchase.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            lblTotalPurchase.Name = "lblTotalPurchase";
+            lblTotalPurchase.Size = new Size(31, 22);
+            lblTotalPurchase.Text = "0.00";
             // 
             // toolStripLabel1
             // 
@@ -163,150 +273,27 @@
             toolStripLabel1.Size = new Size(35, 22);
             toolStripLabel1.Text = "Total:";
             // 
-            // groupBox1
+            // chkPayment
             // 
-            groupBox1.Controls.Add(panel1);
-            groupBox1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            groupBox1.Location = new Point(3, 61);
-            groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(805, 148);
-            groupBox1.TabIndex = 28;
-            groupBox1.TabStop = false;
-            groupBox1.Text = "Customer";
-            // 
-            // panel1
-            // 
-            panel1.Controls.Add(btnClear);
-            panel1.Controls.Add(btnSearchCustomer);
-            panel1.Controls.Add(txtCustomerContactInfo);
-            panel1.Controls.Add(label5);
-            panel1.Controls.Add(txtCustomerAddress);
-            panel1.Controls.Add(label4);
-            panel1.Controls.Add(txtCustomerName);
-            panel1.Controls.Add(label3);
-            panel1.Dock = DockStyle.Fill;
-            panel1.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            panel1.Location = new Point(3, 19);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(799, 126);
-            panel1.TabIndex = 0;
-            // 
-            // btnClear
-            // 
-            btnClear.Location = new Point(700, 90);
-            btnClear.Name = "btnClear";
-            btnClear.Size = new Size(75, 23);
-            btnClear.TabIndex = 4;
-            btnClear.Text = "Clear";
-            btnClear.UseVisualStyleBackColor = true;
-            btnClear.Click += btnClear_Click;
-            // 
-            // btnSearchCustomer
-            // 
-            btnSearchCustomer.Location = new Point(619, 90);
-            btnSearchCustomer.Name = "btnSearchCustomer";
-            btnSearchCustomer.Size = new Size(75, 23);
-            btnSearchCustomer.TabIndex = 3;
-            btnSearchCustomer.Text = "Search...";
-            btnSearchCustomer.UseVisualStyleBackColor = true;
-            btnSearchCustomer.Click += btnSearchCustomer_Click;
-            // 
-            // txtCustomerContactInfo
-            // 
-            txtCustomerContactInfo.Location = new Point(110, 61);
-            txtCustomerContactInfo.Name = "txtCustomerContactInfo";
-            txtCustomerContactInfo.ReadOnly = true;
-            txtCustomerContactInfo.Size = new Size(665, 23);
-            txtCustomerContactInfo.TabIndex = 2;
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Location = new Point(3, 64);
-            label5.Name = "label5";
-            label5.Size = new Size(73, 15);
-            label5.TabIndex = 6;
-            label5.Text = "Contact Info";
-            // 
-            // txtCustomerAddress
-            // 
-            txtCustomerAddress.Location = new Point(110, 32);
-            txtCustomerAddress.Name = "txtCustomerAddress";
-            txtCustomerAddress.ReadOnly = true;
-            txtCustomerAddress.Size = new Size(665, 23);
-            txtCustomerAddress.TabIndex = 1;
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Location = new Point(3, 35);
-            label4.Name = "label4";
-            label4.Size = new Size(49, 15);
-            label4.TabIndex = 4;
-            label4.Text = "Address";
-            // 
-            // txtCustomerName
-            // 
-            txtCustomerName.Location = new Point(110, 3);
-            txtCustomerName.Name = "txtCustomerName";
-            txtCustomerName.ReadOnly = true;
-            txtCustomerName.Size = new Size(665, 23);
-            txtCustomerName.TabIndex = 0;
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Location = new Point(3, 6);
-            label3.Name = "label3";
-            label3.Size = new Size(39, 15);
-            label3.TabIndex = 2;
-            label3.Text = "Name";
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Location = new Point(3, 37);
-            label2.Name = "label2";
-            label2.Size = new Size(31, 15);
-            label2.TabIndex = 27;
-            label2.Text = "Date";
-            // 
-            // dtpTransactionDate
-            // 
-            dtpTransactionDate.Location = new Point(116, 32);
-            dtpTransactionDate.Name = "dtpTransactionDate";
-            dtpTransactionDate.Size = new Size(689, 23);
-            dtpTransactionDate.TabIndex = 1;
-            // 
-            // txtTransactionNo
-            // 
-            txtTransactionNo.Location = new Point(116, 3);
-            txtTransactionNo.Name = "txtTransactionNo";
-            txtTransactionNo.ReadOnly = true;
-            txtTransactionNo.Size = new Size(689, 23);
-            txtTransactionNo.TabIndex = 0;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(3, 6);
-            label1.Name = "label1";
-            label1.Size = new Size(89, 15);
-            label1.TabIndex = 24;
-            label1.Text = "Transaction No.";
-            // 
-            // epCustomer
-            // 
-            epCustomer.ContainerControl = this;
+            chkPayment.AutoSize = true;
+            chkPayment.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            chkPayment.Location = new Point(9, 394);
+            chkPayment.Name = "chkPayment";
+            chkPayment.Size = new Size(75, 19);
+            chkPayment.TabIndex = 32;
+            chkPayment.Text = "Payment";
+            chkPayment.UseVisualStyleBackColor = true;
+            chkPayment.CheckedChanged += chkPayment_CheckedChanged;
             // 
             // groupBoxPayments
             // 
             groupBoxPayments.Controls.Add(panel2);
+            groupBoxPayments.Enabled = false;
             groupBoxPayments.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            groupBoxPayments.Location = new Point(3, 410);
+            groupBoxPayments.Location = new Point(6, 411);
             groupBoxPayments.Name = "groupBoxPayments";
             groupBoxPayments.Size = new Size(805, 146);
-            groupBoxPayments.TabIndex = 29;
+            groupBoxPayments.TabIndex = 33;
             groupBoxPayments.TabStop = false;
             // 
             // panel2
@@ -395,43 +382,28 @@
             label6.TabIndex = 0;
             label6.Text = "Reference Code";
             // 
-            // chkPayment
-            // 
-            chkPayment.AutoSize = true;
-            chkPayment.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            chkPayment.Location = new Point(6, 394);
-            chkPayment.Name = "chkPayment";
-            chkPayment.Size = new Size(75, 19);
-            chkPayment.TabIndex = 1;
-            chkPayment.Text = "Payment";
-            chkPayment.UseVisualStyleBackColor = true;
-            chkPayment.CheckedChanged += chkPayment_CheckedChanged;
-            // 
-            // UcSalesForm
+            // UcPurchaseForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(chkPayment);
             Controls.Add(groupBoxPayments);
-            Controls.Add(groupBox1);
-            Controls.Add(label2);
-            Controls.Add(dtpTransactionDate);
-            Controls.Add(txtTransactionNo);
-            Controls.Add(label1);
             Controls.Add(tabControl1);
-            Name = "UcSalesForm";
+            Controls.Add(gbxSupplier);
+            Controls.Add(label2);
+            Controls.Add(dtpDatePurchase);
+            Name = "UcPurchaseForm";
             Size = new Size(820, 583);
-            Load += UcSalesForm_Load;
+            Load += UcPurchaseForm_Load;
+            gbxSupplier.ResumeLayout(false);
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
             tabControl1.ResumeLayout(false);
             tabPage1.ResumeLayout(false);
             tabPage1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dgItems).EndInit();
             toolStrip1.ResumeLayout(false);
             toolStrip1.PerformLayout();
-            groupBox1.ResumeLayout(false);
-            panel1.ResumeLayout(false);
-            panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)epCustomer).EndInit();
             groupBoxPayments.ResumeLayout(false);
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
@@ -441,40 +413,38 @@
         }
 
         #endregion
+
+        private Label label2;
+        internal DateTimePicker dtpDatePurchase;
+        private GroupBox gbxSupplier;
+        private Panel panel1;
+        private Button btnClear;
+        private Button btnSearchSuppliers;
+        internal TextBox txtSupplierContactInfo;
+        private Label label5;
+        internal TextBox txtSupplierAddress;
+        private Label label4;
+        internal TextBox txtSupplierName;
+        private Label label3;
         private TabControl tabControl1;
         private TabPage tabPage1;
+        internal DataGridView dgItems;
         private ToolStrip toolStrip1;
         private ToolStripButton btnAddItem;
         private ToolStripButton btnEditItem;
         private ToolStripButton btnDeleteItem;
-        private GroupBox groupBox1;
-        private Panel panel1;
-        private Button btnSearchCustomer;
-        private Label label5;
-        private Label label4;
-        private Label label3;
-        private Label label2;
-        private Label label1;
-        internal DataGridView dgItems;
-        private ErrorProvider epCustomer;
-        internal DateTimePicker dtpTransactionDate;
-        internal TextBox txtTransactionNo;
-        private ToolStripLabel lblTotalSales;
+        private ToolStripLabel lblTotalPurchase;
         private ToolStripLabel toolStripLabel1;
-        internal TextBox txtCustomerContactInfo;
-        internal TextBox txtCustomerAddress;
-        internal TextBox txtCustomerName;
-        private Button btnClear;
+        internal CheckBox chkPayment;
+        internal GroupBox groupBoxPayments;
         private Panel panel2;
+        internal DateTimePicker dtpDatePaid;
         private Label label9;
         private Label label8;
-        private Label label7;
-        private Label label6;
-        internal GroupBox groupBoxPayments;
-        internal DateTimePicker dtpDatePaid;
         internal ComboBox cmbPaymentType;
+        private Label label7;
         internal NumericUpDown nudAmountPaid;
         internal TextBox txtRefCode;
-        internal CheckBox chkPayment;
+        private Label label6;
     }
 }

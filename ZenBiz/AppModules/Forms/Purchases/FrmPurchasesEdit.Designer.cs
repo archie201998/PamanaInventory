@@ -1,6 +1,6 @@
-﻿namespace ZenBiz.AppModules.Forms.Customers
+﻿namespace ZenBiz.AppModules.Forms.Purchases
 {
-    partial class FrmCustomersAdd
+    partial class FrmPurchasesEdit
     {
         /// <summary>
         /// Required designer variable.
@@ -28,19 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
-            ucCustomersForm1 = new UcCustomersForm();
+            ucPurchaseForm1 = new UcPurchaseForm();
             flowLayoutPanel1 = new FlowLayoutPanel();
             btnCancel = new Button();
             btnSave = new Button();
             flowLayoutPanel1.SuspendLayout();
             SuspendLayout();
             // 
-            // ucCustomersForm1
+            // ucPurchaseForm1
             // 
-            ucCustomersForm1.Location = new Point(12, 12);
-            ucCustomersForm1.Name = "ucCustomersForm1";
-            ucCustomersForm1.Size = new Size(410, 100);
-            ucCustomersForm1.TabIndex = 0;
+            ucPurchaseForm1.Location = new Point(12, 12);
+            ucPurchaseForm1.Name = "ucPurchaseForm1";
+            ucPurchaseForm1.Size = new Size(822, 567);
+            ucPurchaseForm1.TabIndex = 0;
             // 
             // flowLayoutPanel1
             // 
@@ -48,15 +48,15 @@
             flowLayoutPanel1.Controls.Add(btnCancel);
             flowLayoutPanel1.Controls.Add(btnSave);
             flowLayoutPanel1.Dock = DockStyle.Bottom;
-            flowLayoutPanel1.Location = new Point(0, 122);
+            flowLayoutPanel1.Location = new Point(0, 585);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
             flowLayoutPanel1.RightToLeft = RightToLeft.Yes;
-            flowLayoutPanel1.Size = new Size(427, 30);
-            flowLayoutPanel1.TabIndex = 3;
+            flowLayoutPanel1.Size = new Size(846, 30);
+            flowLayoutPanel1.TabIndex = 9;
             // 
             // btnCancel
             // 
-            btnCancel.Location = new Point(349, 3);
+            btnCancel.Location = new Point(768, 3);
             btnCancel.Name = "btnCancel";
             btnCancel.Size = new Size(75, 23);
             btnCancel.TabIndex = 1;
@@ -65,7 +65,7 @@
             // 
             // btnSave
             // 
-            btnSave.Location = new Point(268, 3);
+            btnSave.Location = new Point(687, 3);
             btnSave.Name = "btnSave";
             btnSave.Size = new Size(75, 23);
             btnSave.TabIndex = 0;
@@ -73,31 +73,30 @@
             btnSave.UseVisualStyleBackColor = true;
             btnSave.Click += btnSave_Click;
             // 
-            // FrmCustomersAdd
+            // FrmPurchaseEdit
             // 
+
             AcceptButton = btnSave;
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            AutoValidate = AutoValidate.EnableAllowFocusChange;
             CancelButton = btnCancel;
-            ClientSize = new Size(427, 152);
+            ClientSize = new Size(846, 615);
             Controls.Add(flowLayoutPanel1);
-            Controls.Add(ucCustomersForm1);
+            Controls.Add(ucPurchaseForm1);
             FormBorderStyle = FormBorderStyle.FixedToolWindow;
             MaximizeBox = false;
             MinimizeBox = false;
-            Name = "FrmCustomersAdd";
-            ShowInTaskbar = false;
+            Name = "FrmPurchaseEdit";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Add Customer";
-            Load += FrmCustomersAdd_Load;
+            Text = "Edit Purchase";
+            Load += FrmPurchaseEdit_Load;
             flowLayoutPanel1.ResumeLayout(false);
             ResumeLayout(false);
         }
 
         #endregion
 
-        private UcCustomersForm ucCustomersForm1;
+        private UcPurchaseForm ucPurchaseForm1;
         private FlowLayoutPanel flowLayoutPanel1;
         private Button btnCancel;
         private Button btnSave;
