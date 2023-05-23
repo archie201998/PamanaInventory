@@ -126,5 +126,15 @@ namespace ZenBiz.AppModules.Controllers
             string query = $"SELECT coalesce(MAX(id), 0) + 1 FROM {tblSales}";
             return Convert.ToInt32(_dbGenericCommands.ExecuteScalar(query));
         }
+
+        public DataTable FetchByCustomerID(int customerID)
+        {
+            var parameters = new object[][]
+            {
+                new object[] { "@customers_id", DbType.Int32, customerID },
+            };
+            string query = $"SELECT id, trans_no FROM {viewSales} WHERE customers_id = @customers_id ORDER BY trans_date DESC";
+            return _dbGenericCommands.Fill(query, parameters);
+        }
     }
 }

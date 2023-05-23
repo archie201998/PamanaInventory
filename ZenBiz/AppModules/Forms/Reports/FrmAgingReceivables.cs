@@ -18,7 +18,7 @@ namespace ZenBiz.AppModules.Forms.Reports
             panel1.Controls.Add(reportViewer);
         }
 
-        private void LoadStores()
+        private void LoadCustomers()
         {
             Dictionary<int, string> customerDict = new();
             DataTable dtCustomers = Factory.CustomersController().Fetch();
@@ -31,15 +31,32 @@ namespace ZenBiz.AppModules.Forms.Reports
             cmbCustomers.ValueMember = "key";
         }
 
+        private void LoadCustomersTransactions()
+        {
+            Dictionary<int, string> customerSalesTransactionDict = new();
+            int customerID = Convert.ToInt32(cmbCustomers.SelectedValue);
+
+            DataTable dtCustomersSalesTransaction = Factory.SalesController().FetchByCustomerID(customerID);
+            customerSalesTransactionDict.Add(0, "All");
+            foreach (DataRow item in dtCustomersSalesTransaction.Rows)
+                customerSalesTransactionDict.Add(Convert.ToInt32(item["id"]), item["trans_no"].ToString());
+
+            cmbTransactionNo.DataSource = new BindingSource(customerSalesTransactionDict, null);
+            cmbTransactionNo.DisplayMember = "Value";
+            cmbTransactionNo.ValueMember = "key";
+        }
+
+
         private void FrmAgingReceivables_Load(object sender, EventArgs e)
         {
-            LoadStores();
+            LoadCustomers();
+            LoadCustomersTransactions();
         }
 
         private DataTable DataTableAgingReceivables()
         {
             DataTable dataTableFromDB;
-            var dtReport = new DataSet1.GrossIncomeDataTable();
+            var dtReport = new DataSet1.AgingReceivableDataTable();
             int storeId = Convert.ToInt32(cmbCustomers.SelectedValue);
             if (storeId == 0)
                 dataTableFromDB = Factory.SalesItemController().Fetch();
@@ -49,13 +66,13 @@ namespace ZenBiz.AppModules.Forms.Reports
             foreach (DataRow item in dataTableFromDB.Rows)
             {
                 DataRow row = dtReport.NewRow();
-                row[""] = item["customer_name"];
-                row[""] = item["total"];
-                row[""] = item["outstanding"];
-                row[""] = item["thirty_days"];
-                row[""] = item["sixty_days"];
-                row[""] = item["ninety_days"];
-                row[""] = item["over_ninety_days"];
+                row["customer_name"] = item["customer_name"];
+                row["total"] = item["total_sale"];
+                row["outstanding"] = item["total_sale"];
+                row["thirty_days"] = item["total_sale"];
+                row["sixty_days"] = item["total_sale"];
+                row["ninety_days"] = item["total_sale"];
+                row["over_ninety_days"] = item["total_sale"];
 
                 dtReport.Rows.Add(row);
             }
@@ -73,12 +90,13 @@ namespace ZenBiz.AppModules.Forms.Reports
                     new ReportParameter("paramAddress", dict["address"]),
                     new ReportParameter("paramPermitNo", dict["permit_no"]),
                     new ReportParameter("paramTIN", dict["tin"]),
-                    new ReportParameter("paramStoreName", cmbCustomers.Text),
+                    new ReportParameter("paramCustomerName", cmbCustomers.Text),
+                    new ReportParameter("paramTransactionNo", cmbTransactionNo.Text),
                 };
 
                 report.ReportPath = $"{Application.StartupPath}\\AppModules\\RDLC\\aging-accounts-receivables.rdlc";
                 report.DataSources.Clear();
-                report.DataSources.Add(new ReportDataSource("GrossIncome", DataTableAgingReceivables()));
+                report.DataSources.Add(new ReportDataSource("AgingReceivable", DataTableAgingReceivables()));
                 report.SetParameters(parameters);
             }
             catch (Exception ex)
@@ -89,8 +107,17 @@ namespace ZenBiz.AppModules.Forms.Reports
 
         private void btnGenerate_Click(object sender, EventArgs e)
         {
-
+            LoadReport(reportViewer.LocalReport);
+            reportViewer.SetDisplayMode(DisplayMode.PrintLayout);
+            reportViewer.ZoomMode = ZoomMode.Percent;
+            reportViewer.ZoomPercent = 100;
+            reportViewer.RefreshReport();
         }
 
+
+        private void cmbCustomers_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            LoadCustomersTransactions();
+        }
     }
 }

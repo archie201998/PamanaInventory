@@ -43,5 +43,11 @@
         {
             ShowMdiForm(new FrmSoldItems());
         }
+
+        private void agingAccountsReceivableToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ShowMdiForm(new FrmAgingReceivables());
+        }
+
     }
 }
