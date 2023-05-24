@@ -578,6 +578,7 @@
                                   <Value>=Fields!total.Value</Value>
                                   <Style>
                                     <FontSize>9pt</FontSize>
+                                    <Format>n2</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -611,6 +612,7 @@
                                   <Value>=Fields!outstanding.Value</Value>
                                   <Style>
                                     <FontSize>9pt</FontSize>
+                                    <Format>n2</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -644,6 +646,7 @@
                                   <Value>=Fields!thirty_days.Value</Value>
                                   <Style>
                                     <FontSize>9pt</FontSize>
+                                    <Format>n2</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -677,6 +680,7 @@
                                   <Value>=Fields!sixty_days.Value</Value>
                                   <Style>
                                     <FontSize>9pt</FontSize>
+                                    <Format>n2</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -710,6 +714,7 @@
                                   <Value>=Fields!ninety_days.Value</Value>
                                   <Style>
                                     <FontSize>9pt</FontSize>
+                                    <Format>n2</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -743,6 +748,7 @@
                                   <Value>=Fields!over_ninety_days.Value</Value>
                                   <Style>
                                     <FontSize>9pt</FontSize>
+                                    <Format>n2</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -819,6 +825,7 @@
                                   <Style>
                                     <FontSize>9pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
+                                    <Format>n2</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -858,6 +865,7 @@
                                   <Style>
                                     <FontSize>9pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
+                                    <Format>n2</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -897,6 +905,7 @@
                                   <Style>
                                     <FontSize>9pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
+                                    <Format>n2</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -936,6 +945,7 @@
                                   <Style>
                                     <FontSize>9pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
+                                    <Format>n2</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -975,6 +985,7 @@
                                   <Style>
                                     <FontSize>9pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
+                                    <Format>n2</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -1014,6 +1025,7 @@
                                   <Style>
                                     <FontSize>9pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
+                                    <Format>n2</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>

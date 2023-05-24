@@ -218,5 +218,28 @@ namespace ZenBiz.AppModules.Controllers
             if (string.IsNullOrWhiteSpace(result)) return 0;
             return Convert.ToDecimal(result);
         }
+
+        public DataTable FetchBySalesIdPerCustomer(int salesID, int customerID)
+        {
+            var parameters = new object[][]
+            {
+                new object[] { "@sales_id", DbType.Int32, salesID },
+                new object[] { "@customers_id", DbType.Int32, customerID },
+            };
+
+            string whereCondition = string.Empty;
+
+            if (salesID != 0 && customerID != 0)
+                whereCondition = $"WHERE sales_id = @sales_id AND customers_id = @customers_id";
+            else if (salesID == 0 && customerID != 0)
+                whereCondition = $"WHERE customers_id = @customers_id";
+            else if (salesID != 0 && customerID == 0)
+                whereCondition = $"WHERE sales_id = @sales_id";
+
+
+            string query = $"SELECT id, sales_id, items_id, stores_id, store_name, item_name, unit_name, sold_unit_cost, sold_price, sold_quantity, (sold_price * sold_quantity) AS total_sale, customer_name, trans_date FROM {viewSalesItem} {whereCondition} GROUP BY sales_id ORDER BY customer_name";
+
+            return _dbGenericCommands.Fill(query, parameters);
+        }
     }
 }

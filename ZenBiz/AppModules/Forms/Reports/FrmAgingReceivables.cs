@@ -46,7 +46,6 @@ namespace ZenBiz.AppModules.Forms.Reports
             cmbTransactionNo.ValueMember = "key";
         }
 
-
         private void FrmAgingReceivables_Load(object sender, EventArgs e)
         {
             LoadCustomers();
@@ -57,23 +56,39 @@ namespace ZenBiz.AppModules.Forms.Reports
         {
             DataTable dataTableFromDB;
             var dtReport = new DataSet1.AgingReceivableDataTable();
-            int storeId = Convert.ToInt32(cmbCustomers.SelectedValue);
-            if (storeId == 0)
-                dataTableFromDB = Factory.SalesItemController().Fetch();
-            else
-                dataTableFromDB = Factory.SalesItemController().Fetch();
+            int customerID = Convert.ToInt32(cmbCustomers.SelectedValue);
+            int salesID = Convert.ToInt32(cmbTransactionNo.SelectedValue);
 
+            dataTableFromDB = Factory.SalesItemController().FetchBySalesIdPerCustomer(salesID, customerID);
+            
             foreach (DataRow item in dataTableFromDB.Rows)
             {
-                DataRow row = dtReport.NewRow();
-                row["customer_name"] = item["customer_name"];
-                row["total"] = item["total_sale"];
-                row["outstanding"] = item["total_sale"];
-                row["thirty_days"] = item["total_sale"];
-                row["sixty_days"] = item["total_sale"];
-                row["ninety_days"] = item["total_sale"];
-                row["over_ninety_days"] = item["total_sale"];
+                int saleID = Convert.ToInt32(item["sales_id"]);
+                decimal balance = Factory.PaymentsController().BalanceAmount(saleID);
 
+                if (balance == 0)
+                    break;
+
+                decimal totalPayments = Factory.PaymentsController().SumTotalPaymentsPerSalesId(saleID);
+                DataRow row = dtReport.NewRow();
+
+                row["customer_name"] = item["customer_name"];
+                row["total"] = totalPayments + balance;
+                row["outstanding"] = balance;
+
+                DateTime transDate = Convert.ToDateTime(item["trans_date"]);
+                DateTime todaysDate = DateTime.Now;
+                int daysCount = Convert.ToInt32((todaysDate - transDate).TotalDays);
+
+                if (daysCount <= 30)
+                    row["thirty_days"] = balance;
+                else if(daysCount <= 60 && daysCount >= 31)
+                    row["sixty_days"] = balance;
+                else if(daysCount <= 90 && daysCount > 60)
+                    row["ninety_days"] = balance;
+                else if(daysCount > 90)
+                    row["over_ninety_days"] = balance;
+               
                 dtReport.Rows.Add(row);
             }
 
@@ -84,6 +99,8 @@ namespace ZenBiz.AppModules.Forms.Reports
         {
             try
             {
+
+                Cursor.Current = Cursors.WaitCursor;
                 var dict = Factory.BusinessDetailsController().FindById(1);
                 var parameters = new[] {
                     new ReportParameter("paramBusinessName", dict["name"]),
@@ -98,6 +115,7 @@ namespace ZenBiz.AppModules.Forms.Reports
                 report.DataSources.Clear();
                 report.DataSources.Add(new ReportDataSource("AgingReceivable", DataTableAgingReceivables()));
                 report.SetParameters(parameters);
+                Cursor.Current = Cursors.Default;
             }
             catch (Exception ex)
             {
