@@ -18,7 +18,7 @@ namespace ZenBiz.AppModules.Forms.Reports
             panel1.Controls.Add(reportViewer);
         }
 
-        private void LoadStores()
+        private void LoadCustomers()
         {
             Dictionary<int, string> customerDict = new();
             DataTable dtCustomers = Factory.CustomersController().Fetch();
@@ -31,32 +31,64 @@ namespace ZenBiz.AppModules.Forms.Reports
             cmbCustomers.ValueMember = "key";
         }
 
+        private void LoadCustomersTransactions()
+        {
+            Dictionary<int, string> customerSalesTransactionDict = new();
+            int customerID = Convert.ToInt32(cmbCustomers.SelectedValue);
+
+            DataTable dtCustomersSalesTransaction = Factory.SalesController().FetchByCustomerID(customerID);
+            customerSalesTransactionDict.Add(0, "All");
+            foreach (DataRow item in dtCustomersSalesTransaction.Rows)
+                customerSalesTransactionDict.Add(Convert.ToInt32(item["id"]), item["trans_no"].ToString());
+
+            cmbTransactionNo.DataSource = new BindingSource(customerSalesTransactionDict, null);
+            cmbTransactionNo.DisplayMember = "Value";
+            cmbTransactionNo.ValueMember = "key";
+        }
+
         private void FrmAgingReceivables_Load(object sender, EventArgs e)
         {
-            LoadStores();
+            LoadCustomers();
+            LoadCustomersTransactions();
         }
 
         private DataTable DataTableAgingReceivables()
         {
             DataTable dataTableFromDB;
-            var dtReport = new DataSet1.GrossIncomeDataTable();
-            int storeId = Convert.ToInt32(cmbCustomers.SelectedValue);
-            if (storeId == 0)
-                dataTableFromDB = Factory.SalesItemController().Fetch();
-            else
-                dataTableFromDB = Factory.SalesItemController().Fetch();
+            var dtReport = new DataSet1.AgingReceivableDataTable();
+            int customerID = Convert.ToInt32(cmbCustomers.SelectedValue);
+            int salesID = Convert.ToInt32(cmbTransactionNo.SelectedValue);
 
+            dataTableFromDB = Factory.SalesItemController().FetchBySalesIdPerCustomer(salesID, customerID);
+            
             foreach (DataRow item in dataTableFromDB.Rows)
             {
-                DataRow row = dtReport.NewRow();
-                row[""] = item["customer_name"];
-                row[""] = item["total"];
-                row[""] = item["outstanding"];
-                row[""] = item["thirty_days"];
-                row[""] = item["sixty_days"];
-                row[""] = item["ninety_days"];
-                row[""] = item["over_ninety_days"];
+                int saleID = Convert.ToInt32(item["sales_id"]);
+                decimal balance = Factory.PaymentsController().BalanceAmount(saleID);
 
+                if (balance == 0)
+                    break;
+
+                decimal totalPayments = Factory.PaymentsController().SumTotalPaymentsPerSalesId(saleID);
+                DataRow row = dtReport.NewRow();
+
+                row["customer_name"] = item["customer_name"];
+                row["total"] = totalPayments + balance;
+                row["outstanding"] = balance;
+
+                DateTime transDate = Convert.ToDateTime(item["trans_date"]);
+                DateTime todaysDate = DateTime.Now;
+                int daysCount = Convert.ToInt32((todaysDate - transDate).TotalDays);
+
+                if (daysCount <= 30)
+                    row["thirty_days"] = balance;
+                else if(daysCount <= 60 && daysCount >= 31)
+                    row["sixty_days"] = balance;
+                else if(daysCount <= 90 && daysCount > 60)
+                    row["ninety_days"] = balance;
+                else if(daysCount > 90)
+                    row["over_ninety_days"] = balance;
+               
                 dtReport.Rows.Add(row);
             }
 
@@ -67,19 +99,23 @@ namespace ZenBiz.AppModules.Forms.Reports
         {
             try
             {
+
+                Cursor.Current = Cursors.WaitCursor;
                 var dict = Factory.BusinessDetailsController().FindById(1);
                 var parameters = new[] {
                     new ReportParameter("paramBusinessName", dict["name"]),
                     new ReportParameter("paramAddress", dict["address"]),
                     new ReportParameter("paramPermitNo", dict["permit_no"]),
                     new ReportParameter("paramTIN", dict["tin"]),
-                    new ReportParameter("paramStoreName", cmbCustomers.Text),
+                    new ReportParameter("paramCustomerName", cmbCustomers.Text),
+                    new ReportParameter("paramTransactionNo", cmbTransactionNo.Text),
                 };
 
                 report.ReportPath = $"{Application.StartupPath}\\AppModules\\RDLC\\aging-accounts-receivables.rdlc";
                 report.DataSources.Clear();
-                report.DataSources.Add(new ReportDataSource("GrossIncome", DataTableAgingReceivables()));
+                report.DataSources.Add(new ReportDataSource("AgingReceivable", DataTableAgingReceivables()));
                 report.SetParameters(parameters);
+                Cursor.Current = Cursors.Default;
             }
             catch (Exception ex)
             {
@@ -89,8 +125,17 @@ namespace ZenBiz.AppModules.Forms.Reports
 
         private void btnGenerate_Click(object sender, EventArgs e)
         {
-
+            LoadReport(reportViewer.LocalReport);
+            reportViewer.SetDisplayMode(DisplayMode.PrintLayout);
+            reportViewer.ZoomMode = ZoomMode.Percent;
+            reportViewer.ZoomPercent = 100;
+            reportViewer.RefreshReport();
         }
 
+
+        private void cmbCustomers_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            LoadCustomersTransactions();
+        }
     }
 }

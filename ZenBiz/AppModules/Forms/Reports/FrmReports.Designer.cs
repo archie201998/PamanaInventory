@@ -43,6 +43,7 @@
             statementOfAcocuntToolStripMenuItem = new ToolStripMenuItem();
             payablesToolStripMenuItem = new ToolStripMenuItem();
             accountsReceivableToolStripMenuItem = new ToolStripMenuItem();
+            agingAccountsReceivableToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -146,9 +147,17 @@
             // 
             // accountsReceivableToolStripMenuItem
             // 
+            accountsReceivableToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { agingAccountsReceivableToolStripMenuItem });
             accountsReceivableToolStripMenuItem.Name = "accountsReceivableToolStripMenuItem";
             accountsReceivableToolStripMenuItem.Size = new Size(80, 20);
             accountsReceivableToolStripMenuItem.Text = "Receivables";
+            // 
+            // agingAccountsReceivableToolStripMenuItem
+            // 
+            agingAccountsReceivableToolStripMenuItem.Name = "agingAccountsReceivableToolStripMenuItem";
+            agingAccountsReceivableToolStripMenuItem.Size = new Size(218, 22);
+            agingAccountsReceivableToolStripMenuItem.Text = "Aging Accounts Receivable";
+            agingAccountsReceivableToolStripMenuItem.Click += agingAccountsReceivableToolStripMenuItem_Click;
             // 
             // FrmReports
             // 
@@ -184,5 +193,6 @@
         private ToolStripMenuItem statementOfAcocuntToolStripMenuItem;
         private ToolStripMenuItem payablesToolStripMenuItem;
         private ToolStripMenuItem accountsReceivableToolStripMenuItem;
+        private ToolStripMenuItem agingAccountsReceivableToolStripMenuItem;
     }
 }
