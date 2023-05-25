@@ -237,7 +237,7 @@ namespace ZenBiz.AppModules.Controllers
                 whereCondition = $"WHERE sales_id = @sales_id";
 
 
-            string query = $"SELECT id, sales_id, items_id, stores_id, store_name, item_name, unit_name, sold_unit_cost, sold_price, sold_quantity, (sold_price * sold_quantity) AS total_sale, customer_name, trans_date FROM {viewSalesItem} {whereCondition} GROUP BY sales_id ORDER BY customer_name";
+            string query = $"SELECT id, sales_id, items_id, stores_id, store_name, item_name, unit_name, sold_unit_cost, sold_price, sold_quantity, (sold_price * sold_quantity) AS total_sale, customer_name, trans_date, trans_no FROM {viewSalesItem} {whereCondition} GROUP BY sales_id ORDER BY customer_name";
 
             return _dbGenericCommands.Fill(query, parameters);
         }
