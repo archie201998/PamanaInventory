@@ -119,6 +119,16 @@ namespace ZenBiz.AppModules.Controllers
             return true;
         }
 
+        public DataTable FetchBySupplierID(int supplierID)
+        {
+            var parameters = new object[][]
+            {
+                new object[] { "@suppliers_id", DbType.Int32, supplierID }
+            };
 
+            string condition = supplierID != 0 ? "WHERE suppliers_id = @suppliers_id": string.Empty;
+            string query = $"SELECT id, suppliers_id, name, address, contact_info, purchase_date FROM {viewPurchases}  {condition} GROUP BY id ORDER BY name";
+            return _dbGenericCommands.Fill(query, parameters);
+        }
     }
 }
