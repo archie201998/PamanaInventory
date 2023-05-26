@@ -10,12 +10,19 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="AppModules\RDLC\aging-accounts-payable.rdlc" />
     <None Remove="AppModules\RDLC\aging-accounts-receivables.rdlc" />
     <None Remove="AppModules\RDLC\gross-income.rdlc" />
     <None Remove="AppModules\RDLC\sold-items.rdlc" />
     <None Remove="AppModules\RDLC\stock-adjustments-report.rdlc" />
     <None Remove="AppModules\RDLC\stocks-per-store.rdlc" />
     <None Remove="AppModules\RDLC\stocks-per-warehouse.rdlc" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="AppModules\RDLC\aging-accounts-payable.rdlc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
   <ItemGroup>

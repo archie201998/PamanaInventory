@@ -137,5 +137,16 @@ namespace ZenBiz.AppModules.Controllers
             string query = $"SELECT id, payment_types_id, amount, date_paid, ref_no FROM {tblPurchasePayments} WHERE purchases_id = @purchases_id";
             return _dbGenericCommands.Fill(query, parameters);
         }
+
+        public DataTable FetchBySupplierID(int supplierId)
+        {
+            var parameters = new object[][]
+            {
+                new object[] { "@suppliers_id", DbType.Int32, supplierId },
+            };
+
+            string query = $"SELECT * FROM {viewPurchasePayments} WHERE suppliers_id = @suppliers_id";
+            return _dbGenericCommands.Fill(query, parameters);
+        }
     }
 }

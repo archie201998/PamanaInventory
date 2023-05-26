@@ -49,5 +49,9 @@
             ShowMdiForm(new FrmAgingReceivables());
         }
 
+        private void agingAccountsPayableToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ShowMdiForm(new FrmAgingPayable());
+        }
     }
 }

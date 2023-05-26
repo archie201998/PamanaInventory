@@ -7,6 +7,7 @@ namespace ZenBiz.AppModules.Interfaces
     {
         decimal BalanceAmountPerPurchased(int purchaseId);
         DataTable FetchbyPurchaseId(int purchaseId);
+        DataTable FetchBySupplierID(int supplierId);
         decimal TotalAmountPaidPerPurchased(int purchaseId);
     }
 }

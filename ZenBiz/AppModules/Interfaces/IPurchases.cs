@@ -11,6 +11,7 @@ namespace ZenBiz.AppModules.Interfaces
     internal interface IPurchases : IController<PurchasesModel>
     {
         DataTable FetchByDatePeriod(DateTime purchasedDateFrom, DateTime purchaseDateTo);
+        DataTable FetchBySupplierID(int supplierID);
         int LastInsertedId();
     }
 }

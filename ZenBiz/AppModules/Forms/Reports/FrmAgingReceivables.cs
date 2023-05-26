@@ -73,6 +73,7 @@ namespace ZenBiz.AppModules.Forms.Reports
                 DataRow row = dtReport.NewRow();
 
                 row["customer_name"] = item["customer_name"];
+                row["transaction_number"] = item["trans_no"];
                 row["total"] = totalPayments + balance;
                 row["outstanding"] = balance;
 
