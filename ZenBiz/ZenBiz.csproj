@@ -14,6 +14,7 @@
     <None Remove="AppModules\RDLC\aging-accounts-receivables.rdlc" />
     <None Remove="AppModules\RDLC\gross-income.rdlc" />
     <None Remove="AppModules\RDLC\sold-items.rdlc" />
+    <None Remove="AppModules\RDLC\statement-of-account.rdlc" />
     <None Remove="AppModules\RDLC\stock-adjustments-report.rdlc" />
     <None Remove="AppModules\RDLC\stocks-per-store.rdlc" />
     <None Remove="AppModules\RDLC\stocks-per-warehouse.rdlc" />
@@ -33,6 +34,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="AppModules\RDLC\sold-items.rdlc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="AppModules\RDLC\statement-of-account.rdlc">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="AppModules\RDLC\stock-adjustments-report.rdlc">
@@ -76,9 +80,6 @@
     <None Update="AppModules\RDLC\DataSet1.xsd">
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>DataSet1.Designer.cs</LastGenOutput>
-    </None>
-    <None Update="AppModules\RDLC\statement-of-account.rdlc">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </None>
   </ItemGroup>
 

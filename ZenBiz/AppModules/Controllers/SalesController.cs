@@ -133,7 +133,7 @@ namespace ZenBiz.AppModules.Controllers
             {
                 new object[] { "@customers_id", DbType.Int32, customerID },
             };
-            string query = $"SELECT id, trans_no FROM {viewSales} WHERE customers_id = @customers_id ORDER BY trans_date DESC";
+            string query = $"SELECT id, trans_no, trans_date FROM {viewSales} WHERE customers_id = @customers_id ORDER BY trans_date DESC";
             return _dbGenericCommands.Fill(query, parameters);
         }
     }

@@ -136,5 +136,15 @@ namespace ZenBiz.AppModules.Controllers
             decimal totalSale = Factory.SalesItemController().GrossSales(salesId);
             return totalSale - SumTotalPaymentsPerSalesId(salesId);
         }
+
+        public DataTable FetchByCustomerID(int customerID)
+        {
+            var parameters = new object[][]
+                       {
+                new object[] { "@customers_id", DbType.Int32, customerID },
+                       };
+            string query = $"SELECT id, trans_no, trans_date FROM {viewPayments} WHERE customers_id = @customers_id ORDER BY trans_date DESC";
+            return _dbGenericCommands.Fill(query, parameters);
+        }
     }
 }
