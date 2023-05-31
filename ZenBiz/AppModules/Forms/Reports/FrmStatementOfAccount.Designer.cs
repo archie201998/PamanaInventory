@@ -30,12 +30,12 @@
         {
             groupBox1 = new GroupBox();
             panel2 = new Panel();
+            label2 = new Label();
+            cmbTransactionNo = new ComboBox();
             btnGenerate = new Button();
             lblStoreWarehouseComboBoxText = new Label();
             cmbCustomers = new ComboBox();
             panel1 = new Panel();
-            label2 = new Label();
-            cmbTransactionNo = new ComboBox();
             groupBox1.SuspendLayout();
             panel2.SuspendLayout();
             SuspendLayout();
@@ -66,6 +66,24 @@
             panel2.Size = new Size(715, 36);
             panel2.TabIndex = 0;
             // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(276, 6);
+            label2.Name = "label2";
+            label2.Size = new Size(92, 15);
+            label2.TabIndex = 14;
+            label2.Text = "Transaction No. ";
+            // 
+            // cmbTransactionNo
+            // 
+            cmbTransactionNo.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbTransactionNo.FormattingEnabled = true;
+            cmbTransactionNo.Location = new Point(374, 3);
+            cmbTransactionNo.Name = "cmbTransactionNo";
+            cmbTransactionNo.Size = new Size(197, 23);
+            cmbTransactionNo.TabIndex = 13;
+            // 
             // btnGenerate
             // 
             btnGenerate.Location = new Point(578, 3);
@@ -87,8 +105,8 @@
             // 
             // cmbCustomers
             // 
-            cmbCustomers.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
             cmbCustomers.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            cmbCustomers.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbCustomers.FormattingEnabled = true;
             cmbCustomers.Location = new Point(76, 3);
             cmbCustomers.Name = "cmbCustomers";
@@ -103,24 +121,6 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(960, 473);
             panel1.TabIndex = 5;
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Location = new Point(276, 6);
-            label2.Name = "label2";
-            label2.Size = new Size(92, 15);
-            label2.TabIndex = 14;
-            label2.Text = "Transaction No. ";
-            // 
-            // cmbTransactionNo
-            // 
-            cmbTransactionNo.DropDownStyle = ComboBoxStyle.DropDownList;
-            cmbTransactionNo.FormattingEnabled = true;
-            cmbTransactionNo.Location = new Point(374, 3);
-            cmbTransactionNo.Name = "cmbTransactionNo";
-            cmbTransactionNo.Size = new Size(197, 23);
-            cmbTransactionNo.TabIndex = 13;
             // 
             // FrmStatementOfAccount
             // 

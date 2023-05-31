@@ -84,6 +84,7 @@ namespace ZenBiz.AppModules.Forms.Reports
                     new ReportParameter("paramCustomerName", cmbCustomers.Text),
                     new ReportParameter("paramCustomerAddress", customerAddress),
                     new ReportParameter("paramCustomerContactInfo", customerContactInfo),
+                    new ReportParameter("paramTransactionNumber", cmbTransactionNo.Text),
                 };
 
                 report.ReportPath = $"{Application.StartupPath}\\AppModules\\RDLC\\statement-of-account.rdlc";
@@ -102,47 +103,44 @@ namespace ZenBiz.AppModules.Forms.Reports
         {
             var dtReport = new DataSet1.StatementOfAccountDataTable();
             int customerID = Convert.ToInt32(cmbCustomers.SelectedValue);
+            string transactionNo = cmbTransactionNo.Text;
 
-            decimal balance = 0.0m;
+            DataTable dtSalesByTransaction = Factory.SalesController().FetchByTransactionNo(transactionNo);
+            DataTable dtSalesByCustomer = Factory.SalesController().FetchByCustomerID(customerID);
 
-            DataTable dtSales = Factory.SalesController().FetchByCustomerID(customerID);
-            DataTable dtPayments;
-
+            DataTable dtSales = transactionNo == "All" ? dtSalesByCustomer : dtSalesByTransaction;
 
             foreach (DataRow item in dtSales.Rows)
             {
                 DataRow row = dtReport.NewRow();
 
-                int salesID = Convert.ToInt32(item["id"]);
-                dtPayments = Factory.PaymentsController().FetchbySalesId(salesID);
-
-                balance += Factory.SalesItemController().GrossSales(salesID);
-
+                if (transactionNo == "All")
+                    row["transaction_no"] = item["trans_no"];
+              
                 row["transaction_date"] = Convert.ToDateTime(item["trans_date"]);
-                row["transaction_details"] = "Transaction No." + item["trans_no"].ToString();
-                row["transaction"] = "Invoice";
-                row["amount"] = Factory.SalesItemController().GrossSales(salesID);
-                row["payments"] = 0.0m;
+
+                string transactionDetails = string.Empty;
+                DataTable dtTransactionItems = Factory.SalesItemController().FetchBySalesId(Convert.ToInt32(item["id"]));
+
+                foreach (DataRow transactionItems in dtTransactionItems.Rows)
+                {
+                    transactionDetails += $"{transactionItems["item_name"]} - (₱ {transactionItems["sold_price"]} x {transactionItems["sold_quantity"]} {transactionItems["unit_name"]})@";
+                }
+
+                transactionDetails = transactionDetails.Replace("@", Environment.NewLine);
+                decimal payments = Factory.PaymentsController().SumTotalPaymentsPerSalesId(Convert.ToInt32(item["id"]));
+                decimal balance = Factory.PaymentsController().BalanceAmount(Convert.ToInt32(item["id"]));
+
+                row["transaction_details"] = transactionDetails.Replace(Environment.NewLine, Environment.NewLine + Environment.NewLine);
+                row["amount"] = payments + balance;
+                row["payments"] = payments;
                 row["balance"] = balance;
+
 
                 dtReport.Rows.Add(row);
 
-                foreach (DataRow paymentItem in dtPayments.Rows)
-                {
-                    DataRow paymentRow = dtReport.NewRow();
-
-                    paymentRow["transaction_date"] = Convert.ToDateTime(paymentItem["date_paid"]);
-                    paymentRow["transaction_details"] = "Ref. Code " + paymentItem["ref_code"] + " : Payment for " + item["trans_no"];
-                    paymentRow["transaction"] = "Payment";
-                    paymentRow["amount"] = 0.0m;
-                    paymentRow["payments"] = Convert.ToDecimal(paymentItem["amount"]);
-                    paymentRow["balance"] = Factory.SalesItemController().GrossSales(salesID) - Convert.ToDecimal(paymentItem["amount"]);
-
-                    balance -= Convert.ToDecimal(paymentItem["amount"]);
-                    dtReport.Rows.Add(paymentRow);
-                }
-
             }
+
 
             return dtReport;
         }

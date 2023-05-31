@@ -2619,6 +2619,8 @@ namespace ZenBiz.AppModules.RDLC {
             
             private global::System.Data.DataColumn columntransaction;
             
+            private global::System.Data.DataColumn columntransaction_no;
+            
             private global::System.Data.DataColumn columntransaction_details;
             
             private global::System.Data.DataColumn columnamount;
@@ -2673,6 +2675,14 @@ namespace ZenBiz.AppModules.RDLC {
             public global::System.Data.DataColumn transactionColumn {
                 get {
                     return this.columntransaction;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn transaction_noColumn {
+                get {
+                    return this.columntransaction_no;
                 }
             }
             
@@ -2745,11 +2755,12 @@ namespace ZenBiz.AppModules.RDLC {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public StatementOfAccountRow AddStatementOfAccountRow(System.DateTime transaction_date, string transaction, string transaction_details, decimal amount, decimal payments, decimal balance) {
+            public StatementOfAccountRow AddStatementOfAccountRow(System.DateTime transaction_date, string transaction, string transaction_no, string transaction_details, decimal amount, decimal payments, decimal balance) {
                 StatementOfAccountRow rowStatementOfAccountRow = ((StatementOfAccountRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         transaction_date,
                         transaction,
+                        transaction_no,
                         transaction_details,
                         amount,
                         payments,
@@ -2778,6 +2789,7 @@ namespace ZenBiz.AppModules.RDLC {
             internal void InitVars() {
                 this.columntransaction_date = base.Columns["transaction_date"];
                 this.columntransaction = base.Columns["transaction"];
+                this.columntransaction_no = base.Columns["transaction_no"];
                 this.columntransaction_details = base.Columns["transaction_details"];
                 this.columnamount = base.Columns["amount"];
                 this.columnpayments = base.Columns["payments"];
@@ -2791,6 +2803,8 @@ namespace ZenBiz.AppModules.RDLC {
                 base.Columns.Add(this.columntransaction_date);
                 this.columntransaction = new global::System.Data.DataColumn("transaction", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columntransaction);
+                this.columntransaction_no = new global::System.Data.DataColumn("transaction_no", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columntransaction_no);
                 this.columntransaction_details = new global::System.Data.DataColumn("transaction_details", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columntransaction_details);
                 this.columnamount = new global::System.Data.DataColumn("amount", typeof(decimal), null, global::System.Data.MappingType.Element);
@@ -4519,6 +4533,22 @@ namespace ZenBiz.AppModules.RDLC {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string transaction_no {
+                get {
+                    try {
+                        return ((string)(this[this.tableStatementOfAccount.transaction_noColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'transaction_no\' in table \'StatementOfAccount\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableStatementOfAccount.transaction_noColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public string transaction_details {
                 get {
                     try {
@@ -4604,6 +4634,18 @@ namespace ZenBiz.AppModules.RDLC {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SettransactionNull() {
                 this[this.tableStatementOfAccount.transactionColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Istransaction_noNull() {
+                return this.IsNull(this.tableStatementOfAccount.transaction_noColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Settransaction_noNull() {
+                this[this.tableStatementOfAccount.transaction_noColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

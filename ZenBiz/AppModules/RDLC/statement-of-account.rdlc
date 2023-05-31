@@ -25,6 +25,10 @@
           <DataField>transaction</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
+        <Field Name="transaction_no">
+          <DataField>transaction_no</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
         <Field Name="transaction_details">
           <DataField>transaction_details</DataField>
           <rd:TypeName>System.String</rd:TypeName>
@@ -60,22 +64,22 @@
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>2.48762cm</Width>
+                  <Width>1.77325cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>2.67848cm</Width>
+                  <Width>2.92333cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>5.53094cm</Width>
+                  <Width>7.08525cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>2.49328cm</Width>
+                  <Width>2.0964cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>2.59911cm</Width>
+                  <Width>2.17578cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>2.4139cm</Width>
+                  <Width>2.14931cm</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
@@ -129,14 +133,14 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Textbox4">
+                        <Textbox Name="Textbox15">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Transaction</Value>
+                                  <Value>Transaction No.</Value>
                                   <Style>
                                     <FontSize>9pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
@@ -149,7 +153,7 @@
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Textbox4</rd:DefaultName>
+                          <rd:DefaultName>Textbox15</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>DimGray</Color>
@@ -355,7 +359,7 @@
                   </TablixCells>
                 </TablixRow>
                 <TablixRow>
-                  <Height>0.65292cm</Height>
+                  <Height>0.84613cm</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
@@ -398,25 +402,25 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="transaction">
+                        <Textbox Name="transaction_no">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!transaction.Value</Value>
+                                  <Value>=Fields!transaction_no.Value</Value>
                                   <Style>
                                     <FontSize>9pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
                               <Style>
-                                <TextAlign>Left</TextAlign>
+                                <TextAlign>Center</TextAlign>
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>transaction</rd:DefaultName>
+                          <rd:DefaultName>transaction_no</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>DimGray</Color>
@@ -450,7 +454,7 @@
                                 </TextRun>
                               </TextRuns>
                               <Style>
-                                <TextAlign>Center</TextAlign>
+                                <TextAlign>Left</TextAlign>
                               </Style>
                             </Paragraph>
                           </Paragraphs>
@@ -631,7 +635,7 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Textbox28">
+                        <Textbox Name="Textbox19">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
@@ -650,7 +654,7 @@
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Textbox28</rd:DefaultName>
+                          <rd:DefaultName>Textbox19</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>LightGrey</Color>
@@ -814,7 +818,11 @@
             <TablixColumnHierarchy>
               <TablixMembers>
                 <TablixMember />
-                <TablixMember />
+                <TablixMember>
+                  <Visibility>
+                    <Hidden>=IIf(Parameters!paramTransactionNumber.Value = "All", false , true)</Hidden>
+                  </Visibility>
+                </TablixMember>
                 <TablixMember />
                 <TablixMember />
                 <TablixMember />
@@ -839,7 +847,7 @@
             </TablixRowHierarchy>
             <DataSetName>StatementOfAccount</DataSetName>
             <Top>0.17639cm</Top>
-            <Height>1.82646cm</Height>
+            <Height>2.01967cm</Height>
             <Width>18.20333cm</Width>
             <Style>
               <Border>
@@ -848,13 +856,13 @@
             </Style>
           </Tablix>
         </ReportItems>
-        <Height>0.86459in</Height>
+        <Height>0.93751in</Height>
         <Style />
       </Body>
-      <Width>7.22052in</Width>
+      <Width>7.203in</Width>
       <Page>
         <PageHeader>
-          <Height>2.88396cm</Height>
+          <Height>3.46605cm</Height>
           <PrintOnFirstPage>true</PrintOnFirstPage>
           <PrintOnLastPage>true</PrintOnLastPage>
           <ReportItems>
@@ -1097,6 +1105,46 @@
                 <PaddingBottom>2pt</PaddingBottom>
               </Style>
             </Textbox>
+            <Textbox Name="Textbox10">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>Transaction No.:  </Value>
+                      <Style>
+                        <FontFamily />
+                        <FontSize>9pt</FontSize>
+                        <Color>DimGray</Color>
+                      </Style>
+                    </TextRun>
+                    <TextRun>
+                      <Value>=Parameters!paramTransactionNumber.Value</Value>
+                      <Style>
+                        <FontFamily />
+                        <FontSize>9pt</FontSize>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style />
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>Textbox7</rd:DefaultName>
+              <Top>2.7616cm</Top>
+              <Height>0.6cm</Height>
+              <Width>10.01417cm</Width>
+              <ZIndex>5</ZIndex>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <PaddingLeft>2pt</PaddingLeft>
+                <PaddingRight>2pt</PaddingRight>
+                <PaddingTop>2pt</PaddingTop>
+                <PaddingBottom>2pt</PaddingBottom>
+              </Style>
+            </Textbox>
           </ReportItems>
           <Style>
             <Border>
@@ -1242,6 +1290,12 @@
       <AllowBlank>true</AllowBlank>
       <Prompt>ReportParameter1</Prompt>
     </ReportParameter>
+    <ReportParameter Name="paramTransactionNumber">
+      <DataType>String</DataType>
+      <Nullable>true</Nullable>
+      <AllowBlank>true</AllowBlank>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
   </ReportParameters>
   <ReportParametersLayout>
     <GridLayoutDefinition>
@@ -1287,6 +1341,11 @@
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>2</RowIndex>
           <ParameterName>paramPeriodCovered</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>1</ColumnIndex>
+          <RowIndex>2</RowIndex>
+          <ParameterName>paramTransactionNumber</ParameterName>
         </CellDefinition>
       </CellDefinitions>
     </GridLayoutDefinition>
