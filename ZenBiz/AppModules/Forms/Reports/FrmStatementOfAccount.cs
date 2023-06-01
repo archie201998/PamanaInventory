@@ -145,30 +145,22 @@ namespace ZenBiz.AppModules.Forms.Reports
         {
             var dtReport = new DataSet1.StatementOfAccountDataTable();
             int customerID = Convert.ToInt32(cmbCustomers.SelectedValue);
-            string transactionNo = cmbTransactionNo.Text;
-
+            
             DataTable dtSalesByCustomer = Factory.SalesController().FetchByCustomerID(customerID);
 
             foreach (DataRow item in dtSalesByCustomer.Rows)
             {
                 DataRow row = dtReport.NewRow();
-                string transactionDetails = string.Empty;
-                DataTable dtTransactionItems = Factory.SalesItemController().FetchBySalesId(Convert.ToInt32(item["id"]));
+                int salesID = Convert.ToInt32(item["id"]);
 
-                foreach (DataRow transactionItems in dtTransactionItems.Rows)
-                {
-                    transactionDetails += $"{transactionItems["item_name"]} - (₱ {transactionItems["sold_price"]} x {transactionItems["sold_quantity"]} {transactionItems["unit_name"]})@";
-                }
+                decimal payments = Factory.PaymentsController().SumTotalPaymentsPerSalesId(salesID);
+                decimal balance = Factory.PaymentsController().BalanceAmount(salesID);
 
-                transactionDetails = transactionDetails.Replace("@", Environment.NewLine);
-                decimal payments = Factory.PaymentsController().SumTotalPaymentsPerSalesId(Convert.ToInt32(item["id"]));
-                decimal balance = Factory.PaymentsController().BalanceAmount(Convert.ToInt32(item["id"]));
-
-                row["transaction_details"] = transactionDetails.Replace(Environment.NewLine, Environment.NewLine + Environment.NewLine);
+                row["transaction_date"] = Convert.ToDateTime(item["trans_date"]);
                 row["amount"] = payments + balance;
+                row["transaction_no"] = item["trans_no"];
                 row["payments"] = payments;
                 row["balance"] = balance;
-
 
                 dtReport.Rows.Add(row);
 
