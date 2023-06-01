@@ -7,6 +7,7 @@ namespace ZenBiz.AppModules.Interfaces
     {
         DataTable Fetch(DateTime transactionDate);
         DataTable FetchByCustomerID(int customerID);
+        DataTable FetchByTransactionNo(string transactionNo);
         int GenerateTransactionNumber();
         int LastInsertedId();
     }

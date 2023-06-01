@@ -53,5 +53,10 @@
         {
             ShowMdiForm(new FrmAgingPayable());
         }
+
+        private void statementOfAccountToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ShowMdiForm(new FrmStatementOfAccount());
+        }
     }
 }

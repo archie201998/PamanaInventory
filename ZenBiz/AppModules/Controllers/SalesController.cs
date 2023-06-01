@@ -1,4 +1,5 @@
-﻿using System.Data;
+﻿using Microsoft.ReportingServices.ReportProcessing.ReportObjectModel;
+using System.Data;
 using System.Transactions;
 using ZenBiz.AppModules.Interfaces;
 using ZenBiz.AppModules.Models;
@@ -133,8 +134,18 @@ namespace ZenBiz.AppModules.Controllers
             {
                 new object[] { "@customers_id", DbType.Int32, customerID },
             };
-            string query = $"SELECT id, trans_no FROM {viewSales} WHERE customers_id = @customers_id ORDER BY trans_date DESC";
+            string query = $"SELECT id, trans_no, trans_date FROM {viewSales} WHERE customers_id = @customers_id ORDER BY trans_date DESC";
             return _dbGenericCommands.Fill(query, parameters);
+        }
+
+        public DataTable FetchByTransactionNo(string transactionNo)
+        {
+            var parameter = new object[][] { 
+                new object[] {"@trans_no", DbType.String, transactionNo},
+            };
+
+            string query = $"SELECT id, trans_date, trans_no  FROM {viewSales} WHERE trans_no = @trans_no";
+            return _dbGenericCommands.Fill(query, parameter);
         }
     }
 }

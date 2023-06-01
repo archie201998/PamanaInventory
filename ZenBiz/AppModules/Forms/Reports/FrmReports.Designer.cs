@@ -42,9 +42,10 @@
             fastSlowMovingStocksToolStripMenuItem = new ToolStripMenuItem();
             statementOfAcocuntToolStripMenuItem = new ToolStripMenuItem();
             payablesToolStripMenuItem = new ToolStripMenuItem();
+            agingAccountsPayableToolStripMenuItem1 = new ToolStripMenuItem();
             accountsReceivableToolStripMenuItem = new ToolStripMenuItem();
             agingAccountsReceivableToolStripMenuItem = new ToolStripMenuItem();
-            agingAccountsPayableToolStripMenuItem1 = new ToolStripMenuItem();
+            statementOfAccountToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -136,6 +137,7 @@
             // 
             // statementOfAcocuntToolStripMenuItem
             // 
+            statementOfAcocuntToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { statementOfAccountToolStripMenuItem });
             statementOfAcocuntToolStripMenuItem.Name = "statementOfAcocuntToolStripMenuItem";
             statementOfAcocuntToolStripMenuItem.Size = new Size(135, 20);
             statementOfAcocuntToolStripMenuItem.Text = "Statement of Acocunt";
@@ -146,6 +148,13 @@
             payablesToolStripMenuItem.Name = "payablesToolStripMenuItem";
             payablesToolStripMenuItem.Size = new Size(65, 20);
             payablesToolStripMenuItem.Text = "Payables";
+            // 
+            // agingAccountsPayableToolStripMenuItem1
+            // 
+            agingAccountsPayableToolStripMenuItem1.Name = "agingAccountsPayableToolStripMenuItem1";
+            agingAccountsPayableToolStripMenuItem1.Size = new Size(203, 22);
+            agingAccountsPayableToolStripMenuItem1.Text = "Aging Accounts Payable";
+            agingAccountsPayableToolStripMenuItem1.Click += agingAccountsPayableToolStripMenuItem_Click;
             // 
             // accountsReceivableToolStripMenuItem
             // 
@@ -161,12 +170,12 @@
             agingAccountsReceivableToolStripMenuItem.Text = "Aging Accounts Receivable";
             agingAccountsReceivableToolStripMenuItem.Click += agingAccountsReceivableToolStripMenuItem_Click;
             // 
-            // agingAccountsPayableToolStripMenuItem1
+            // statementOfAccountToolStripMenuItem
             // 
-            agingAccountsPayableToolStripMenuItem1.Name = "agingAccountsPayableToolStripMenuItem1";
-            agingAccountsPayableToolStripMenuItem1.Size = new Size(203, 22);
-            agingAccountsPayableToolStripMenuItem1.Text = "Aging Accounts Payable";
-            agingAccountsPayableToolStripMenuItem1.Click += agingAccountsPayableToolStripMenuItem_Click;
+            statementOfAccountToolStripMenuItem.Name = "statementOfAccountToolStripMenuItem";
+            statementOfAccountToolStripMenuItem.Size = new Size(190, 22);
+            statementOfAccountToolStripMenuItem.Text = "Statement of Account";
+            statementOfAccountToolStripMenuItem.Click += statementOfAccountToolStripMenuItem_Click;
             // 
             // FrmReports
             // 
@@ -204,5 +213,6 @@
         private ToolStripMenuItem accountsReceivableToolStripMenuItem;
         private ToolStripMenuItem agingAccountsReceivableToolStripMenuItem;
         private ToolStripMenuItem agingAccountsPayableToolStripMenuItem1;
+        private ToolStripMenuItem statementOfAccountToolStripMenuItem;
     }
 }

@@ -116,7 +116,7 @@ namespace ZenBiz.AppModules.Controllers
             {
                 new object[] { "@sales_id", DbType.Int32, salesId },
             };
-            string query = $"SELECT id, items_id, stores_id, store_name, item_name, unit_name, sold_unit_cost, sold_price, sold_quantity, (sold_price * sold_quantity) AS total_sale FROM {viewSalesItem} WHERE sales_id = @sales_id ORDER BY item_name";
+            string query = $"SELECT id, items_id, stores_id, store_name, item_name, unit_name, sold_unit_cost, sold_price, sold_quantity, (sold_price * sold_quantity) AS total_sale, item_unit_cost, unit_name FROM {viewSalesItem} WHERE sales_id = @sales_id ORDER BY item_name";
             return _dbGenericCommands.Fill(query, parameters);
         }
 
