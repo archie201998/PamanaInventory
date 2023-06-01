@@ -315,7 +315,7 @@
                   </TablixCells>
                 </TablixRow>
                 <TablixRow>
-                  <Height>0.84613cm</Height>
+                  <Height>0.608cm</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
@@ -326,7 +326,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!transaction_date.Value</Value>
+                                  <Value>=CDate(Fields!transaction_date.Value)</Value>
                                   <Style>
                                     <FontSize>9pt</FontSize>
                                     <Format>d</Format>
@@ -354,6 +354,7 @@
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
+                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>
@@ -729,7 +730,7 @@
             </TablixRowHierarchy>
             <DataSetName>StatementOfAccountPerCustomer</DataSetName>
             <Top>0.17639cm</Top>
-            <Height>2.01967cm</Height>
+            <Height>1.78154cm</Height>
             <Width>18.20333cm</Width>
             <Style>
               <Border>
