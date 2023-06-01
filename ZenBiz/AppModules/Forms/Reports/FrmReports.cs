@@ -44,19 +44,19 @@
             ShowMdiForm(new FrmSoldItems());
         }
 
-        private void agingAccountsReceivableToolStripMenuItem_Click(object sender, EventArgs e)
+        private void statementOfAcocuntToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ShowMdiForm(new FrmAgingReceivables());
+            ShowMdiForm(new FrmStatementOfAccount());
         }
 
-        private void agingAccountsPayableToolStripMenuItem_Click(object sender, EventArgs e)
+        private void payablesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ShowMdiForm(new FrmAgingPayable());
         }
 
-        private void statementOfAccountToolStripMenuItem_Click(object sender, EventArgs e)
+        private void accountsReceivableToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ShowMdiForm(new FrmStatementOfAccount());
+            ShowMdiForm(new FrmAgingReceivables());
         }
     }
 }

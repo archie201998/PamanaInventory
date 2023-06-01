@@ -146,5 +146,25 @@ namespace ZenBiz.AppModules.Controllers
             string query = $"SELECT id, trans_no, trans_date FROM {viewPayments} WHERE customers_id = @customers_id ORDER BY trans_date DESC";
             return _dbGenericCommands.Fill(query, parameters);
         }
+
+        public Dictionary<string, string> FetchbySalesId_Dict(int salesId)
+        {
+            Dictionary<string, string> record = new();
+
+            var parameters = new object[][]
+            {
+                new object[] { "@sales_id", DbType.Int32,  salesId },
+            };
+
+            string query = $"SELECT payment_types_id, payment_type, amount, date_paid, ref_code FROM {viewPayments} WHERE sales_id = @sales_id";
+            using (var reader = _dbGenericCommands.ExecuteReader(query, parameters))
+            {
+                if (reader.Rows.Count == 0) return record;
+                foreach (DataColumn column in reader.Columns)
+                    record.Add(column.ColumnName, reader.Rows[0][column.ColumnName].ToString());
+            }
+
+            return record;
+        }
     }
 }

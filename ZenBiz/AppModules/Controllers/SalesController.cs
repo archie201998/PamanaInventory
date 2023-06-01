@@ -138,14 +138,24 @@ namespace ZenBiz.AppModules.Controllers
             return _dbGenericCommands.Fill(query, parameters);
         }
 
-        public DataTable FetchByTransactionNo(string transactionNo)
+        public Dictionary<string, string> FetchByTransactionNo(string transactionNo)
         {
-            var parameter = new object[][] { 
-                new object[] {"@trans_no", DbType.String, transactionNo},
+            Dictionary<string, string> record = new();
+
+            var parameters = new object[][]
+            {
+                new object[] { "@trans_no", DbType.String,  transactionNo },
             };
 
-            string query = $"SELECT id, trans_date, trans_no  FROM {viewSales} WHERE trans_no = @trans_no";
-            return _dbGenericCommands.Fill(query, parameter);
+            string query = $"SELECT id, customers_id, trans_no, trans_date, created_by, created_time, updated_by, updated_time, customer_name, customer_contact_info, customer_address FROM {viewSales} WHERE trans_no = @trans_no";
+            using (var reader = _dbGenericCommands.ExecuteReader(query, parameters))
+            {
+                if (reader.Rows.Count == 0) return record;
+                foreach (DataColumn column in reader.Columns)
+                    record.Add(column.ColumnName, reader.Rows[0][column.ColumnName].ToString());
+            }
+
+            return record;
         }
     }
 }
