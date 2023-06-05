@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ZenBiz.AppModules.Controllers;
 using ZenBiz.AppModules.RDLC;
 
 namespace ZenBiz.AppModules.Forms.Reports
@@ -15,6 +16,7 @@ namespace ZenBiz.AppModules.Forms.Reports
     public partial class FrmStatementOfAccount : Form
     {
         private readonly ReportViewer reportViewer;
+        private int _salesID = 0;
 
         private string customerContactInfo, customerAddress = string.Empty;
 
@@ -69,81 +71,6 @@ namespace ZenBiz.AppModules.Forms.Reports
             SetCustomerInfo();
         }
 
-        private void LoadReport(LocalReport report)
-        {
-            try
-            {
-
-                Cursor.Current = Cursors.WaitCursor;
-                var dict = Factory.BusinessDetailsController().FindById(1);
-                var parameters = new[] {
-                    new ReportParameter("paramBusinessName", dict["name"]),
-                    new ReportParameter("paramAddress", dict["address"]),
-                    new ReportParameter("paramPermitNo", dict["permit_no"]),
-                    new ReportParameter("paramTIN", dict["tin"]),
-                    new ReportParameter("paramCustomerName", cmbCustomers.Text),
-                    new ReportParameter("paramCustomerAddress", customerAddress),
-                    new ReportParameter("paramCustomerContactInfo", customerContactInfo),
-                    new ReportParameter("paramTransactionNumber", cmbTransactionNo.Text),
-                };
-
-                report.ReportPath = $"{Application.StartupPath}\\AppModules\\RDLC\\statement-of-account.rdlc";
-                report.DataSources.Clear();
-                report.DataSources.Add(new ReportDataSource("StatementOfAccount", DataTableStatmentOfAccount()));
-                report.SetParameters(parameters);
-                Cursor.Current = Cursors.Default;
-            }
-            catch (Exception ex)
-            {
-                Helper.MessageBoxError(ex.Message);
-            }
-        }
-
-        private DataTable DataTableStatmentOfAccount()
-        {
-            var dtReport = new DataSet1.StatementOfAccountDataTable();
-            int customerID = Convert.ToInt32(cmbCustomers.SelectedValue);
-            string transactionNo = cmbTransactionNo.Text;
-
-            DataTable dtSalesByTransaction = Factory.SalesController().FetchByTransactionNo(transactionNo);
-            DataTable dtSalesByCustomer = Factory.SalesController().FetchByCustomerID(customerID);
-
-            DataTable dtSales = transactionNo == "All" ? dtSalesByCustomer : dtSalesByTransaction;
-
-            foreach (DataRow item in dtSales.Rows)
-            {
-                DataRow row = dtReport.NewRow();
-
-                if (transactionNo == "All")
-                    row["transaction_no"] = item["trans_no"];
-              
-                row["transaction_date"] = Convert.ToDateTime(item["trans_date"]);
-
-                string transactionDetails = string.Empty;
-                DataTable dtTransactionItems = Factory.SalesItemController().FetchBySalesId(Convert.ToInt32(item["id"]));
-
-                foreach (DataRow transactionItems in dtTransactionItems.Rows)
-                {
-                    transactionDetails += $"{transactionItems["item_name"]} - (₱ {transactionItems["sold_price"]} x {transactionItems["sold_quantity"]} {transactionItems["unit_name"]})@";
-                }
-
-                transactionDetails = transactionDetails.Replace("@", Environment.NewLine);
-                decimal payments = Factory.PaymentsController().SumTotalPaymentsPerSalesId(Convert.ToInt32(item["id"]));
-                decimal balance = Factory.PaymentsController().BalanceAmount(Convert.ToInt32(item["id"]));
-
-                row["transaction_details"] = transactionDetails.Replace(Environment.NewLine, Environment.NewLine + Environment.NewLine);
-                row["amount"] = payments + balance;
-                row["payments"] = payments;
-                row["balance"] = balance;
-
-
-                dtReport.Rows.Add(row);
-
-            }
-
-
-            return dtReport;
-        }
 
         private void LoadCustomersTransactions()
         {
@@ -165,5 +92,132 @@ namespace ZenBiz.AppModules.Forms.Reports
             SetCustomerInfo();
             LoadCustomersTransactions();
         }
+
+        private void LoadReport(LocalReport report)
+        {
+            try
+            {
+
+                Cursor.Current = Cursors.WaitCursor;
+                var dict = Factory.BusinessDetailsController().FindById(1);
+                var parameters = new[] {
+                    new ReportParameter("paramBusinessName", dict["name"]),
+                    new ReportParameter("paramAddress", dict["address"]),
+                    new ReportParameter("paramPermitNo", dict["permit_no"]),
+                    new ReportParameter("paramTIN", dict["tin"]),
+                    new ReportParameter("paramCustomerName", cmbCustomers.Text),
+                    new ReportParameter("paramCustomerAddress", customerAddress),
+                    new ReportParameter("paramCustomerContactInfo", customerContactInfo),
+                    new ReportParameter("paramTransactionNumber", cmbTransactionNo.Text),
+                };
+
+                DataTable dtReportSource = new();
+                string reportDataSourceName = string.Empty;
+                string reportRDLCSource = string.Empty;
+
+                report.DataSources.Clear();
+                if (cmbTransactionNo.Text == "All")
+                {
+                    dtReportSource = DataTableStatementOfAccountPerCustomer();
+                    reportDataSourceName = "StatementOfAccountPerCustomer";
+                    reportRDLCSource = "statement-of-account-by-customer.rdlc";
+                }
+                else //per transaction
+                {
+                    dtReportSource = DataTableStatmentOfAccountPerTransaction();
+                    reportDataSourceName = "StatementOfAccountPerTransaction";
+                    reportRDLCSource = "statement-of-account-by-transaction.rdlc";
+                    report.DataSources.Add(new ReportDataSource("StatementOfAccountPerTransactionDetails", DataTableStatmentOfAccountPerTransactionDetails()));
+                }
+
+                report.ReportPath = $"{Application.StartupPath}\\AppModules\\RDLC\\{reportRDLCSource}";
+                report.DataSources.Add(new ReportDataSource(reportDataSourceName, dtReportSource));
+                report.SetParameters(parameters);
+                Cursor.Current = Cursors.Default;
+            }
+            catch (Exception ex)
+            {
+                Helper.MessageBoxError(ex.Message);
+            }
+        }
+
+        private DataTable DataTableStatementOfAccountPerCustomer()
+        {
+            var dtReport = new DataSet1.StatementOfAccountDataTable();
+            int customerID = Convert.ToInt32(cmbCustomers.SelectedValue);
+            
+            DataTable dtSalesByCustomer = Factory.SalesController().FetchByCustomerID(customerID);
+
+            foreach (DataRow item in dtSalesByCustomer.Rows)
+            {
+                DataRow row = dtReport.NewRow();
+                int salesID = Convert.ToInt32(item["id"]);
+
+                decimal payments = Factory.PaymentsController().SumTotalPaymentsPerSalesId(salesID);
+                decimal balance = Factory.PaymentsController().BalanceAmount(salesID);
+
+                row["transaction_date"] = Convert.ToDateTime(item["trans_date"]);
+                row["amount"] = payments + balance;
+                row["transaction_no"] = item["trans_no"];
+                row["payments"] = payments;
+                row["balance"] = balance;
+
+                dtReport.Rows.Add(row);
+
+            }
+
+
+            return dtReport;
+
+        }
+
+        private DataTable DataTableStatmentOfAccountPerTransaction()
+        {
+            var dtReport = new DataSet1.StatementOfAccountDataTable();
+            string transactionNumber = cmbTransactionNo.Text;
+
+            Dictionary<string, string> salesDict = Factory.SalesController().FetchByTransactionNo(transactionNumber);
+            int salesID = Convert.ToInt32(salesDict["id"]);
+            _salesID = salesID;
+
+            DataTable  dtCustomerPayments = Factory.PaymentsController().FetchbySalesId(salesID);
+            decimal balance = Factory.SalesItemController().GrossSales(salesID);
+
+            foreach (DataRow item in dtCustomerPayments.Rows)
+            {
+                DataRow row = dtReport.NewRow();
+                row["transaction_date"] = item["date_paid"].ToString();
+                row["payment_type"] = item["payment_type"].ToString();
+                row["payments"] = Convert.ToDecimal(item["amount"]); 
+                row["balance"] = balance -= Convert.ToDecimal(item["amount"]);
+
+                dtReport.Rows.Add(row);
+            }
+
+
+            return dtReport;
+        }
+
+        private DataTable DataTableStatmentOfAccountPerTransactionDetails()
+        {
+            var dtReportDetails = new DataSet1.StatementOfAccountTransactionDetailsDataTable();
+            DataTable dtTransactionItems = Factory.SalesItemController().FetchBySalesId(_salesID);
+
+            foreach (DataRow transactionItems in dtTransactionItems.Rows)
+            {
+                DataRow rowDetails = dtReportDetails.NewRow();
+
+                decimal soldPrice = Convert.ToDecimal(transactionItems["sold_price"]);
+                int soldQuatity = Convert.ToInt32(transactionItems["sold_quantity"]);
+
+                rowDetails["details"] = transactionItems["item_name"];
+                rowDetails["quantity"] = $"{soldQuatity} {transactionItems["unit_name"]}";
+                rowDetails["amount"] = soldPrice * soldQuatity;
+                dtReportDetails.Rows.Add(rowDetails);
+            }
+
+            return dtReportDetails;
+        }
+
     }
 }

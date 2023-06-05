@@ -14,7 +14,8 @@
     <None Remove="AppModules\RDLC\aging-accounts-receivables.rdlc" />
     <None Remove="AppModules\RDLC\gross-income.rdlc" />
     <None Remove="AppModules\RDLC\sold-items.rdlc" />
-    <None Remove="AppModules\RDLC\statement-of-account.rdlc" />
+    <None Remove="AppModules\RDLC\statement-of-account-by-customer.rdlc" />
+    <None Remove="AppModules\RDLC\statement-of-account-by-transaction.rdlc" />
     <None Remove="AppModules\RDLC\stock-adjustments-report.rdlc" />
     <None Remove="AppModules\RDLC\stocks-per-store.rdlc" />
     <None Remove="AppModules\RDLC\stocks-per-warehouse.rdlc" />
@@ -36,7 +37,10 @@
     <Content Include="AppModules\RDLC\sold-items.rdlc">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="AppModules\RDLC\statement-of-account.rdlc">
+    <Content Include="AppModules\RDLC\statement-of-account-by-customer.rdlc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="AppModules\RDLC\statement-of-account-by-transaction.rdlc">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="AppModules\RDLC\stock-adjustments-report.rdlc">
@@ -54,6 +58,7 @@
   <ItemGroup>
     <PackageReference Include="MySql.Data" Version="8.0.32" />
     <PackageReference Include="ReportViewerCore.WinForms" Version="15.1.17" />
+    <PackageReference Include="System.Collections" Version="4.3.0" />
   </ItemGroup>
 
   <ItemGroup>

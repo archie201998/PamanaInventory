@@ -8,6 +8,7 @@ namespace ZenBiz.AppModules.Interfaces
         decimal BalanceAmount(int salesId);
         DataTable FetchByCustomerID(int customerID);
         DataTable FetchbySalesId(int salesId);
+        Dictionary<string, string> FetchbySalesId_Dict(int salesId);
         decimal SumTotalPaymentsPerSalesId(int salesId);
     }
 }

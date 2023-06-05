@@ -38,6 +38,8 @@ namespace ZenBiz.AppModules.RDLC {
         
         private StatementOfAccountDataTable tableStatementOfAccount;
         
+        private StatementOfAccountTransactionDetailsDataTable tableStatementOfAccountTransactionDetails;
+        
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -86,6 +88,9 @@ namespace ZenBiz.AppModules.RDLC {
                 }
                 if ((ds.Tables["StatementOfAccount"] != null)) {
                     base.Tables.Add(new StatementOfAccountDataTable(ds.Tables["StatementOfAccount"]));
+                }
+                if ((ds.Tables["StatementOfAccountTransactionDetails"] != null)) {
+                    base.Tables.Add(new StatementOfAccountTransactionDetailsDataTable(ds.Tables["StatementOfAccountTransactionDetails"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -177,6 +182,16 @@ namespace ZenBiz.AppModules.RDLC {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public StatementOfAccountTransactionDetailsDataTable StatementOfAccountTransactionDetails {
+            get {
+                return this.tableStatementOfAccountTransactionDetails;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.BrowsableAttribute(true)]
         [global::System.ComponentModel.DesignerSerializationVisibilityAttribute(global::System.ComponentModel.DesignerSerializationVisibility.Visible)]
         public override global::System.Data.SchemaSerializationMode SchemaSerializationMode {
@@ -263,6 +278,9 @@ namespace ZenBiz.AppModules.RDLC {
                 if ((ds.Tables["StatementOfAccount"] != null)) {
                     base.Tables.Add(new StatementOfAccountDataTable(ds.Tables["StatementOfAccount"]));
                 }
+                if ((ds.Tables["StatementOfAccountTransactionDetails"] != null)) {
+                    base.Tables.Add(new StatementOfAccountTransactionDetailsDataTable(ds.Tables["StatementOfAccountTransactionDetails"]));
+                }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
                 this.Namespace = ds.Namespace;
@@ -338,6 +356,12 @@ namespace ZenBiz.AppModules.RDLC {
                     this.tableStatementOfAccount.InitVars();
                 }
             }
+            this.tableStatementOfAccountTransactionDetails = ((StatementOfAccountTransactionDetailsDataTable)(base.Tables["StatementOfAccountTransactionDetails"]));
+            if ((initTable == true)) {
+                if ((this.tableStatementOfAccountTransactionDetails != null)) {
+                    this.tableStatementOfAccountTransactionDetails.InitVars();
+                }
+            }
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -362,6 +386,8 @@ namespace ZenBiz.AppModules.RDLC {
             base.Tables.Add(this.tableAgingPayable);
             this.tableStatementOfAccount = new StatementOfAccountDataTable();
             base.Tables.Add(this.tableStatementOfAccount);
+            this.tableStatementOfAccountTransactionDetails = new StatementOfAccountTransactionDetailsDataTable();
+            base.Tables.Add(this.tableStatementOfAccountTransactionDetails);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -403,6 +429,12 @@ namespace ZenBiz.AppModules.RDLC {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private bool ShouldSerializeStatementOfAccount() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        private bool ShouldSerializeStatementOfAccountTransactionDetails() {
             return false;
         }
         
@@ -481,6 +513,9 @@ namespace ZenBiz.AppModules.RDLC {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         public delegate void StatementOfAccountRowChangeEventHandler(object sender, StatementOfAccountRowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        public delegate void StatementOfAccountTransactionDetailsRowChangeEventHandler(object sender, StatementOfAccountTransactionDetailsRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -2625,6 +2660,8 @@ namespace ZenBiz.AppModules.RDLC {
             
             private global::System.Data.DataColumn columnamount;
             
+            private global::System.Data.DataColumn columnpayment_type;
+            
             private global::System.Data.DataColumn columnpayments;
             
             private global::System.Data.DataColumn columnbalance;
@@ -2704,6 +2741,14 @@ namespace ZenBiz.AppModules.RDLC {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn payment_typeColumn {
+                get {
+                    return this.columnpayment_type;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public global::System.Data.DataColumn paymentsColumn {
                 get {
                     return this.columnpayments;
@@ -2755,7 +2800,7 @@ namespace ZenBiz.AppModules.RDLC {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public StatementOfAccountRow AddStatementOfAccountRow(System.DateTime transaction_date, string transaction, string transaction_no, string transaction_details, decimal amount, decimal payments, decimal balance) {
+            public StatementOfAccountRow AddStatementOfAccountRow(string transaction_date, string transaction, string transaction_no, string transaction_details, decimal amount, string payment_type, decimal payments, decimal balance) {
                 StatementOfAccountRow rowStatementOfAccountRow = ((StatementOfAccountRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         transaction_date,
@@ -2763,6 +2808,7 @@ namespace ZenBiz.AppModules.RDLC {
                         transaction_no,
                         transaction_details,
                         amount,
+                        payment_type,
                         payments,
                         balance};
                 rowStatementOfAccountRow.ItemArray = columnValuesArray;
@@ -2792,6 +2838,7 @@ namespace ZenBiz.AppModules.RDLC {
                 this.columntransaction_no = base.Columns["transaction_no"];
                 this.columntransaction_details = base.Columns["transaction_details"];
                 this.columnamount = base.Columns["amount"];
+                this.columnpayment_type = base.Columns["payment_type"];
                 this.columnpayments = base.Columns["payments"];
                 this.columnbalance = base.Columns["balance"];
             }
@@ -2799,7 +2846,7 @@ namespace ZenBiz.AppModules.RDLC {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             private void InitClass() {
-                this.columntransaction_date = new global::System.Data.DataColumn("transaction_date", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                this.columntransaction_date = new global::System.Data.DataColumn("transaction_date", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columntransaction_date);
                 this.columntransaction = new global::System.Data.DataColumn("transaction", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columntransaction);
@@ -2809,6 +2856,8 @@ namespace ZenBiz.AppModules.RDLC {
                 base.Columns.Add(this.columntransaction_details);
                 this.columnamount = new global::System.Data.DataColumn("amount", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnamount);
+                this.columnpayment_type = new global::System.Data.DataColumn("payment_type", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnpayment_type);
                 this.columnpayments = new global::System.Data.DataColumn("payments", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnpayments);
                 this.columnbalance = new global::System.Data.DataColumn("balance", typeof(decimal), null, global::System.Data.MappingType.Element);
@@ -2899,6 +2948,281 @@ namespace ZenBiz.AppModules.RDLC {
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
                 attribute2.FixedValue = "StatementOfAccountDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class StatementOfAccountTransactionDetailsDataTable : global::System.Data.TypedTableBase<StatementOfAccountTransactionDetailsRow> {
+            
+            private global::System.Data.DataColumn columndetails;
+            
+            private global::System.Data.DataColumn columnamount;
+            
+            private global::System.Data.DataColumn columnquantity;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public StatementOfAccountTransactionDetailsDataTable() {
+                this.TableName = "StatementOfAccountTransactionDetails";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            internal StatementOfAccountTransactionDetailsDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected StatementOfAccountTransactionDetailsDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn detailsColumn {
+                get {
+                    return this.columndetails;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn amountColumn {
+                get {
+                    return this.columnamount;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn quantityColumn {
+                get {
+                    return this.columnquantity;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public StatementOfAccountTransactionDetailsRow this[int index] {
+                get {
+                    return ((StatementOfAccountTransactionDetailsRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event StatementOfAccountTransactionDetailsRowChangeEventHandler StatementOfAccountTransactionDetailsRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event StatementOfAccountTransactionDetailsRowChangeEventHandler StatementOfAccountTransactionDetailsRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event StatementOfAccountTransactionDetailsRowChangeEventHandler StatementOfAccountTransactionDetailsRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event StatementOfAccountTransactionDetailsRowChangeEventHandler StatementOfAccountTransactionDetailsRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void AddStatementOfAccountTransactionDetailsRow(StatementOfAccountTransactionDetailsRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public StatementOfAccountTransactionDetailsRow AddStatementOfAccountTransactionDetailsRow(string details, decimal amount, string quantity) {
+                StatementOfAccountTransactionDetailsRow rowStatementOfAccountTransactionDetailsRow = ((StatementOfAccountTransactionDetailsRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        details,
+                        amount,
+                        quantity};
+                rowStatementOfAccountTransactionDetailsRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowStatementOfAccountTransactionDetailsRow);
+                return rowStatementOfAccountTransactionDetailsRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                StatementOfAccountTransactionDetailsDataTable cln = ((StatementOfAccountTransactionDetailsDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new StatementOfAccountTransactionDetailsDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            internal void InitVars() {
+                this.columndetails = base.Columns["details"];
+                this.columnamount = base.Columns["amount"];
+                this.columnquantity = base.Columns["quantity"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            private void InitClass() {
+                this.columndetails = new global::System.Data.DataColumn("details", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columndetails);
+                this.columnamount = new global::System.Data.DataColumn("amount", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnamount);
+                this.columnquantity = new global::System.Data.DataColumn("quantity", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnquantity);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public StatementOfAccountTransactionDetailsRow NewStatementOfAccountTransactionDetailsRow() {
+                return ((StatementOfAccountTransactionDetailsRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new StatementOfAccountTransactionDetailsRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(StatementOfAccountTransactionDetailsRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.StatementOfAccountTransactionDetailsRowChanged != null)) {
+                    this.StatementOfAccountTransactionDetailsRowChanged(this, new StatementOfAccountTransactionDetailsRowChangeEvent(((StatementOfAccountTransactionDetailsRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.StatementOfAccountTransactionDetailsRowChanging != null)) {
+                    this.StatementOfAccountTransactionDetailsRowChanging(this, new StatementOfAccountTransactionDetailsRowChangeEvent(((StatementOfAccountTransactionDetailsRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.StatementOfAccountTransactionDetailsRowDeleted != null)) {
+                    this.StatementOfAccountTransactionDetailsRowDeleted(this, new StatementOfAccountTransactionDetailsRowChangeEvent(((StatementOfAccountTransactionDetailsRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.StatementOfAccountTransactionDetailsRowDeleting != null)) {
+                    this.StatementOfAccountTransactionDetailsRowDeleting(this, new StatementOfAccountTransactionDetailsRowChangeEvent(((StatementOfAccountTransactionDetailsRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void RemoveStatementOfAccountTransactionDetailsRow(StatementOfAccountTransactionDetailsRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                DataSet1 ds = new DataSet1();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "StatementOfAccountTransactionDetailsDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -4501,10 +4825,10 @@ namespace ZenBiz.AppModules.RDLC {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public System.DateTime transaction_date {
+            public string transaction_date {
                 get {
                     try {
-                        return ((global::System.DateTime)(this[this.tableStatementOfAccount.transaction_dateColumn]));
+                        return ((string)(this[this.tableStatementOfAccount.transaction_dateColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'transaction_date\' in table \'StatementOfAccount\' is DBNull.", e);
@@ -4577,6 +4901,22 @@ namespace ZenBiz.AppModules.RDLC {
                 }
                 set {
                     this[this.tableStatementOfAccount.amountColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string payment_type {
+                get {
+                    try {
+                        return ((string)(this[this.tableStatementOfAccount.payment_typeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'payment_type\' in table \'StatementOfAccount\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableStatementOfAccount.payment_typeColumn] = value;
                 }
             }
             
@@ -4674,6 +5014,18 @@ namespace ZenBiz.AppModules.RDLC {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Ispayment_typeNull() {
+                return this.IsNull(this.tableStatementOfAccount.payment_typeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Setpayment_typeNull() {
+                this[this.tableStatementOfAccount.payment_typeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IspaymentsNull() {
                 return this.IsNull(this.tableStatementOfAccount.paymentsColumn);
             }
@@ -4694,6 +5046,108 @@ namespace ZenBiz.AppModules.RDLC {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetbalanceNull() {
                 this[this.tableStatementOfAccount.balanceColumn] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class StatementOfAccountTransactionDetailsRow : global::System.Data.DataRow {
+            
+            private StatementOfAccountTransactionDetailsDataTable tableStatementOfAccountTransactionDetails;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            internal StatementOfAccountTransactionDetailsRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableStatementOfAccountTransactionDetails = ((StatementOfAccountTransactionDetailsDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string details {
+                get {
+                    try {
+                        return ((string)(this[this.tableStatementOfAccountTransactionDetails.detailsColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'details\' in table \'StatementOfAccountTransactionDetails\' is" +
+                                " DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableStatementOfAccountTransactionDetails.detailsColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal amount {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableStatementOfAccountTransactionDetails.amountColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'amount\' in table \'StatementOfAccountTransactionDetails\' is " +
+                                "DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableStatementOfAccountTransactionDetails.amountColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string quantity {
+                get {
+                    try {
+                        return ((string)(this[this.tableStatementOfAccountTransactionDetails.quantityColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'quantity\' in table \'StatementOfAccountTransactionDetails\' i" +
+                                "s DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableStatementOfAccountTransactionDetails.quantityColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsdetailsNull() {
+                return this.IsNull(this.tableStatementOfAccountTransactionDetails.detailsColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetdetailsNull() {
+                this[this.tableStatementOfAccountTransactionDetails.detailsColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsamountNull() {
+                return this.IsNull(this.tableStatementOfAccountTransactionDetails.amountColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetamountNull() {
+                this[this.tableStatementOfAccountTransactionDetails.amountColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsquantityNull() {
+                return this.IsNull(this.tableStatementOfAccountTransactionDetails.quantityColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetquantityNull() {
+                this[this.tableStatementOfAccountTransactionDetails.quantityColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -4921,6 +5375,40 @@ namespace ZenBiz.AppModules.RDLC {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public StatementOfAccountRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        public class StatementOfAccountTransactionDetailsRowChangeEvent : global::System.EventArgs {
+            
+            private StatementOfAccountTransactionDetailsRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public StatementOfAccountTransactionDetailsRowChangeEvent(StatementOfAccountTransactionDetailsRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public StatementOfAccountTransactionDetailsRow Row {
                 get {
                     return this.eventRow;
                 }
