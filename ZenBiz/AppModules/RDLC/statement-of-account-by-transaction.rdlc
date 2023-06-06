@@ -96,13 +96,13 @@
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>9.40588cm</Width>
+                  <Width>6.15387cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>4.39828cm</Width>
+                  <Width>1.75604cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>2.60363cm</Width>
+                  <Width>1.49597cm</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
@@ -118,7 +118,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Details : </Value>
+                                  <Value>Purchased Items:</Value>
                                   <Style>
                                     <FontSize>9pt</FontSize>
                                     <Color>DimGray</Color>
@@ -264,11 +264,10 @@
                                 <TextRun>
                                   <Value>=Fields!details.Value</Value>
                                   <Style>
-                                    <FontSize>9pt</FontSize>
+                                    <FontSize>8pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
-                              <ListLevel>1</ListLevel>
                               <Style />
                             </Paragraph>
                           </Paragraphs>
@@ -290,6 +289,7 @@
                             <RightBorder>
                               <Style>None</Style>
                             </RightBorder>
+                            <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -309,13 +309,13 @@
                                 <TextRun>
                                   <Value>=Fields!quantity.Value</Value>
                                   <Style>
-                                    <FontSize>9pt</FontSize>
+                                    <FontSize>8pt</FontSize>
                                     <Format>0;(0)</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
                               <Style>
-                                <TextAlign>Right</TextAlign>
+                                <TextAlign>Center</TextAlign>
                               </Style>
                             </Paragraph>
                           </Paragraphs>
@@ -325,6 +325,7 @@
                               <Color>LightGrey</Color>
                               <Style>None</Style>
                             </Border>
+                            <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -344,7 +345,7 @@
                                 <TextRun>
                                   <Value>=Fields!amount.Value</Value>
                                   <Style>
-                                    <FontSize>9pt</FontSize>
+                                    <FontSize>8pt</FontSize>
                                     <Format>n2</Format>
                                   </Style>
                                 </TextRun>
@@ -360,6 +361,7 @@
                               <Color>LightGrey</Color>
                               <Style>None</Style>
                             </Border>
+                            <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -371,7 +373,7 @@
                   </TablixCells>
                 </TablixRow>
                 <TablixRow>
-                  <Height>0.6cm</Height>
+                  <Height>0.52063cm</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
@@ -384,12 +386,11 @@
                                 <TextRun>
                                   <Value>Total</Value>
                                   <Style>
-                                    <FontSize>9pt</FontSize>
+                                    <FontSize>8pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
-                              <ListLevel>1</ListLevel>
                               <Style />
                             </Paragraph>
                           </Paragraphs>
@@ -430,7 +431,7 @@
                                 <TextRun>
                                   <Value />
                                   <Style>
-                                    <FontSize>9pt</FontSize>
+                                    <FontSize>8pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                     <Format>n0</Format>
                                   </Style>
@@ -466,7 +467,7 @@
                                 <TextRun>
                                   <Value>=Sum(Fields!amount.Value)</Value>
                                   <Style>
-                                    <FontSize>9pt</FontSize>
+                                    <FontSize>8pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                     <Format>n2</Format>
                                   </Style>
@@ -518,8 +519,8 @@
             <DataSetName>StatementOfAccountPerTransactionDetails</DataSetName>
             <Top>0.0635cm</Top>
             <Left>0.02498cm</Left>
-            <Height>1.69417cm</Height>
-            <Width>16.40779cm</Width>
+            <Height>1.61479cm</Height>
+            <Width>9.40588cm</Width>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -760,7 +761,7 @@
                                 </TextRun>
                               </TextRuns>
                               <Style>
-                                <TextAlign>Center</TextAlign>
+                                <TextAlign>Left</TextAlign>
                               </Style>
                             </Paragraph>
                           </Paragraphs>
@@ -798,7 +799,7 @@
                                 </TextRun>
                               </TextRuns>
                               <Style>
-                                <TextAlign>Center</TextAlign>
+                                <TextAlign>Left</TextAlign>
                               </Style>
                             </Paragraph>
                           </Paragraphs>
@@ -920,7 +921,7 @@
                                 </TextRun>
                               </TextRuns>
                               <Style>
-                                <TextAlign>Center</TextAlign>
+                                <TextAlign>Left</TextAlign>
                               </Style>
                             </Paragraph>
                           </Paragraphs>
@@ -955,7 +956,7 @@
                                 </TextRun>
                               </TextRuns>
                               <Style>
-                                <TextAlign>Center</TextAlign>
+                                <TextAlign>Left</TextAlign>
                               </Style>
                             </Paragraph>
                           </Paragraphs>
@@ -1074,7 +1075,7 @@
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>StatementOfAccountPerTransaction</DataSetName>
-            <Top>2.40663cm</Top>
+            <Top>1.86688cm</Top>
             <Left>0.05673cm</Left>
             <Height>1.75509cm</Height>
             <Width>18.1648cm</Width>
@@ -1086,7 +1087,7 @@
             </Style>
           </Tablix>
         </ReportItems>
-        <Height>1.76347in</Height>
+        <Height>1.50305in</Height>
         <Style />
       </Body>
       <Width>7.203in</Width>
@@ -1146,7 +1147,6 @@
                       <Style>
                         <FontFamily />
                         <FontSize>9pt</FontSize>
-                        <Color>DimGray</Color>
                       </Style>
                     </TextRun>
                   </TextRuns>
@@ -1187,7 +1187,6 @@
                       <Style>
                         <FontFamily />
                         <FontSize>9pt</FontSize>
-                        <Color>DimGray</Color>
                       </Style>
                     </TextRun>
                   </TextRuns>
@@ -1228,7 +1227,6 @@
                       <Style>
                         <FontFamily />
                         <FontSize>9pt</FontSize>
-                        <Color>DimGray</Color>
                       </Style>
                     </TextRun>
                   </TextRuns>
@@ -1269,7 +1267,6 @@
                       <Style>
                         <FontFamily />
                         <FontSize>9pt</FontSize>
-                        <Color>DimGray</Color>
                       </Style>
                     </TextRun>
                   </TextRuns>
