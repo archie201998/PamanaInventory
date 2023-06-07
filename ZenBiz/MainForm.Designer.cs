@@ -75,6 +75,7 @@
             panel3 = new Panel();
             panel7 = new Panel();
             label15 = new Label();
+            btnPersonnel = new ToolStripButton();
             toolStrip1.SuspendLayout();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
@@ -109,7 +110,7 @@
             // toolStrip1
             // 
             toolStrip1.GripStyle = ToolStripGripStyle.Hidden;
-            toolStrip1.Items.AddRange(new ToolStripItem[] { btnSales, btnPurchases, btnInventory, btnCustomers, btnUsers, btnLoggedInUser, btnReport });
+            toolStrip1.Items.AddRange(new ToolStripItem[] { btnSales, btnPurchases, btnInventory, btnCustomers, btnPersonnel, btnUsers, btnLoggedInUser, btnReport });
             toolStrip1.Location = new Point(0, 0);
             toolStrip1.Name = "toolStrip1";
             toolStrip1.Padding = new Padding(0, 5, 1, 5);
@@ -584,6 +585,16 @@
             label15.TabIndex = 14;
             label15.Text = "Top Paying Customers";
             // 
+            // btnPersonnel
+            // 
+            btnPersonnel.Image = (Image)resources.GetObject("btnPersonnel.Image");
+            btnPersonnel.ImageScaling = ToolStripItemImageScaling.None;
+            btnPersonnel.ImageTransparentColor = Color.Magenta;
+            btnPersonnel.Name = "btnPersonnel";
+            btnPersonnel.Size = new Size(87, 28);
+            btnPersonnel.Text = "Personnel";
+            btnPersonnel.Click += btnPersonnel_Click;
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -683,5 +694,6 @@
         private ToolStripMenuItem logOutToolStripMenuItem;
         private ToolStripButton btnReport;
         private ToolStripMenuItem changePasswordToolStripMenuItem;
+        private ToolStripButton btnPersonnel;
     }
 }

@@ -1,6 +1,7 @@
 ﻿using ZenBiz.AppModules;
 using ZenBiz.AppModules.Forms;
 using ZenBiz.AppModules.Forms.Customers;
+using ZenBiz.AppModules.Forms.Personnel;
 using ZenBiz.AppModules.Forms.Purchases;
 using ZenBiz.AppModules.Forms.Reports;
 using ZenBiz.AppModules.Forms.Sales;
@@ -58,6 +59,12 @@ namespace ZenBiz
         {
             _ = new FrmCustomers().ShowDialog();
         }
+
+        private void btnPersonnel_Click(object sender, EventArgs e)
+        {
+            _ = new FrmPersonnel().ShowDialog();
+        }
+
 
         private void btnSales_Click(object sender, EventArgs e)
         {
