@@ -1,6 +1,6 @@
-﻿namespace ZenBiz.AppModules.Forms.Personnel
+﻿namespace ZenBiz.AppModules.Forms.Services
 {
-    partial class FrmPersonnel
+    partial class FrmServices
     {
         /// <summary>
         /// Required designer variable.
@@ -32,26 +32,26 @@
             btnDelete = new Button();
             btnEdit = new Button();
             btnAdd = new Button();
-            dgPersonnel = new DataGridView();
-            ((System.ComponentModel.ISupportInitialize)dgPersonnel).BeginInit();
+            dgServices = new DataGridView();
+            ((System.ComponentModel.ISupportInitialize)dgServices).BeginInit();
             SuspendLayout();
             // 
             // txtSearch
             // 
-            txtSearch.Location = new Point(12, 12);
+            txtSearch.Location = new Point(12, 13);
             txtSearch.Name = "txtSearch";
             txtSearch.PlaceholderText = "Search here";
             txtSearch.Size = new Size(250, 23);
-            txtSearch.TabIndex = 9;
+            txtSearch.TabIndex = 14;
             txtSearch.TextChanged += txtSearch_TextChanged;
             // 
             // btnDelete
             // 
             btnDelete.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            btnDelete.Location = new Point(759, 99);
+            btnDelete.Location = new Point(759, 100);
             btnDelete.Name = "btnDelete";
             btnDelete.Size = new Size(75, 23);
-            btnDelete.TabIndex = 8;
+            btnDelete.TabIndex = 13;
             btnDelete.Text = "Delete";
             btnDelete.UseVisualStyleBackColor = true;
             btnDelete.Click += btnDelete_Click;
@@ -59,10 +59,10 @@
             // btnEdit
             // 
             btnEdit.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            btnEdit.Location = new Point(759, 70);
+            btnEdit.Location = new Point(759, 71);
             btnEdit.Name = "btnEdit";
             btnEdit.Size = new Size(75, 23);
-            btnEdit.TabIndex = 7;
+            btnEdit.TabIndex = 12;
             btnEdit.Text = "Edit";
             btnEdit.UseVisualStyleBackColor = true;
             btnEdit.Click += btnEdit_Click;
@@ -70,26 +70,26 @@
             // btnAdd
             // 
             btnAdd.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            btnAdd.Location = new Point(759, 41);
+            btnAdd.Location = new Point(759, 42);
             btnAdd.Name = "btnAdd";
             btnAdd.Size = new Size(75, 23);
-            btnAdd.TabIndex = 6;
+            btnAdd.TabIndex = 11;
             btnAdd.Text = "Add";
             btnAdd.UseVisualStyleBackColor = true;
             btnAdd.Click += btnAdd_Click;
             // 
-            // dgPersonnel
+            // dgServices
             // 
-            dgPersonnel.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            dgPersonnel.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgPersonnel.Location = new Point(12, 41);
-            dgPersonnel.Name = "dgPersonnel";
-            dgPersonnel.RowTemplate.Height = 25;
-            dgPersonnel.Size = new Size(741, 393);
-            dgPersonnel.TabIndex = 5;
-            dgPersonnel.SelectionChanged += dgPersonnel_SelectionChanged;
+            dgServices.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dgServices.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgServices.Location = new Point(12, 42);
+            dgServices.Name = "dgServices";
+            dgServices.RowTemplate.Height = 25;
+            dgServices.Size = new Size(741, 393);
+            dgServices.TabIndex = 10;
+            dgServices.SelectionChanged += dgServices_SelectionChanged;
             // 
-            // FrmPersonnel
+            // FrmServices
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -98,16 +98,15 @@
             Controls.Add(btnDelete);
             Controls.Add(btnEdit);
             Controls.Add(btnAdd);
-            Controls.Add(dgPersonnel);
+            Controls.Add(dgServices);
             FormBorderStyle = FormBorderStyle.FixedDialog;
             MaximizeBox = false;
             MinimizeBox = false;
-            MinimumSize = new Size(862, 487);
-            Name = "FrmPersonnel";
-            StartPosition = FormStartPosition.CenterParent;
-            Text = "Personnel";
-            Load += FrmPersonnel_Load;
-            ((System.ComponentModel.ISupportInitialize)dgPersonnel).EndInit();
+            Name = "FrmServices";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Services";
+            Load += FrmServices_Load;
+            ((System.ComponentModel.ISupportInitialize)dgServices).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -118,6 +117,6 @@
         private Button btnDelete;
         private Button btnEdit;
         private Button btnAdd;
-        private DataGridView dgPersonnel;
+        private DataGridView dgServices;
     }
 }

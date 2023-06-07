@@ -84,5 +84,10 @@ namespace ZenBiz.AppModules.Forms.Personnel
         {
             ((DataTable)dgPersonnel.DataSource).DefaultView.RowFilter = string.Format("name LIKE '%{0}%'", txtSearch.Text);
         }
+
+        private void dgPersonnel_SelectionChanged(object sender, EventArgs e)
+        {
+            Helper.EnableDisableButtons(dgPersonnel, btnEdit, btnDelete);
+        }
     }
 }
