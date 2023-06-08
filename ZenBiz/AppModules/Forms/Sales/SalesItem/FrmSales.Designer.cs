@@ -36,6 +36,8 @@
             tabControl1 = new TabControl();
             tabPage1 = new TabPage();
             dgSalesItems = new DataGridView();
+            tabPage2 = new TabPage();
+            dgSalesServices = new DataGridView();
             label1 = new Label();
             txtTotalSales = new TextBox();
             btnPayments = new Button();
@@ -45,6 +47,8 @@
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgSalesItems).BeginInit();
+            tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgSalesServices).BeginInit();
             SuspendLayout();
             // 
             // dgSales
@@ -103,6 +107,7 @@
             // 
             tabControl1.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             tabControl1.Controls.Add(tabPage1);
+            tabControl1.Controls.Add(tabPage2);
             tabControl1.Location = new Point(12, 364);
             tabControl1.Name = "tabControl1";
             tabControl1.SelectedIndex = 0;
@@ -129,6 +134,27 @@
             dgSalesItems.RowTemplate.Height = 25;
             dgSalesItems.Size = new Size(884, 173);
             dgSalesItems.TabIndex = 1;
+            // 
+            // tabPage2
+            // 
+            tabPage2.Controls.Add(dgSalesServices);
+            tabPage2.Location = new Point(4, 24);
+            tabPage2.Name = "tabPage2";
+            tabPage2.Padding = new Padding(3);
+            tabPage2.Size = new Size(890, 179);
+            tabPage2.TabIndex = 1;
+            tabPage2.Text = "Services";
+            tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // dgSalesServices
+            // 
+            dgSalesServices.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgSalesServices.Dock = DockStyle.Fill;
+            dgSalesServices.Location = new Point(3, 3);
+            dgSalesServices.Name = "dgSalesServices";
+            dgSalesServices.RowTemplate.Height = 25;
+            dgSalesServices.Size = new Size(884, 173);
+            dgSalesServices.TabIndex = 2;
             // 
             // label1
             // 
@@ -206,6 +232,8 @@
             tabControl1.ResumeLayout(false);
             tabPage1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dgSalesItems).EndInit();
+            tabPage2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dgSalesServices).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -225,5 +253,7 @@
         private Button btnPayments;
         private TextBox txtCollectibles;
         private Label label2;
+        private TabPage tabPage2;
+        private DataGridView dgSalesServices;
     }
 }

@@ -491,7 +491,7 @@
             chkPayment.AutoSize = true;
             chkPayment.BackColor = Color.Transparent;
             chkPayment.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            chkPayment.Location = new Point(4, 398);
+            chkPayment.Location = new Point(4, 399);
             chkPayment.Name = "chkPayment";
             chkPayment.Size = new Size(75, 19);
             chkPayment.TabIndex = 1;

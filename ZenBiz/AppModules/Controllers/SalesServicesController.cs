@@ -86,8 +86,31 @@ namespace ZenBiz.AppModules.Controllers
             {
                 new object[] { "@sales_id", DbType.Int32, salesId },
             };
-            string query = $"SELECT id, sales_id, services_id, personnel_id, personnel_name, services_name, fee FROM {viewSalesServices} WHERE sales_id = @sales_id ORDER BY services_name";
+            string query = $"SELECT id, sales_id, services_id, personnel_id, services_name, personnel_name, fee FROM {viewSalesServices} WHERE sales_id = @sales_id ORDER BY services_name";
             return _dbGenericCommands.Fill(query, parameters);
+        }
+
+        public bool DeletePerSalesId(int salesId)
+        {
+            var parameters = new object[][]
+            {
+               new object[] { "@sales_id", DbType.Int32, salesId },
+            };
+
+            string query = $"DELETE FROM {tblSalesServices} WHERE sales_id = @sales_id";
+            return _dbGenericCommands.ExecuteNonQuery(query, parameters);
+        }
+
+        public decimal GrossSales(int salesId)
+        {
+            var parameters = new object[][]
+              {
+                new object[] { "@sales_id", DbType.Int32, salesId },
+              };
+            string query = $"SELECT SUM(fee) FROM {viewSalesServices} WHERE sales_id = @sales_id GROUP BY sales_id";
+            string result = _dbGenericCommands.ExecuteScalar(query, parameters);
+            if (string.IsNullOrWhiteSpace(result)) return 0;
+            return Convert.ToDecimal(result);
         }
     }
 
