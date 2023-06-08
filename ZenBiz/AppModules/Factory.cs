@@ -33,5 +33,6 @@ namespace ZenBiz.AppModules
         public static IPurchasedPayments PurchasePaymentsController() => new PurchasePaymentsController(mySQLGenericCommands);
         public static IPersonnel PersonnelController() => new PersonnelController(mySQLGenericCommands);
         public static IServices ServicesController() => new ServicesController(mySQLGenericCommands);
+        public static ISalesServices SalesServicesController() => new SalesServicesController(mySQLGenericCommands);
     }
 }
