@@ -1,4 +1,5 @@
 ﻿using ZenBiz.AppModules.Forms.Components;
+using ZenBiz.AppModules.Forms.Sales.SalesServices;
 
 namespace ZenBiz.AppModules.Forms.Sales
 {
@@ -10,6 +11,7 @@ namespace ZenBiz.AppModules.Forms.Sales
         {
             InitializeComponent();
             Helper.DatagridDefaultStyle(dgItems);
+            Helper.DatagridDefaultStyle(dgServices);
         }
 
         internal string GetFormErrors()
@@ -31,7 +33,7 @@ namespace ZenBiz.AppModules.Forms.Sales
             txtCustomerContactInfo.Text = dict["contact_info"];
         }
 
-        private void CreateColumns()
+        private void CreateItemColumns()
         {
             dgItems.ColumnCount = 9;
             dgItems.Columns[0].Name = "ItemId";
@@ -48,6 +50,23 @@ namespace ZenBiz.AppModules.Forms.Sales
             dgItems.Columns["StoreId"].Visible = false;
             dgItems.Columns["UnitCost"].Visible = false;
             dgItems.Columns["Item"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+        }
+
+        private void CreateServicesColumns()
+        {
+            dgServices.ColumnCount = 5;
+            dgServices.Columns[0].Name = "ServiceId";
+            dgServices.Columns[1].Name = "PersonnelId";
+            dgServices.Columns[2].Name = "Service";
+            dgServices.Columns[3].Name = "Personnel";
+            dgServices.Columns[4].Name = "Fee";
+
+            dgServices.Columns["ServiceId"].Visible = false;
+            dgServices.Columns["PersonnelId"].Visible = false;
+
+            dgServices.Columns["Personnel"].Width = 200;
+            dgServices.Columns["Personnel"].MinimumWidth = 200;
+            dgServices.Columns["Service"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
         }
 
         internal void SumTotalSales()
@@ -71,7 +90,8 @@ namespace ZenBiz.AppModules.Forms.Sales
         {
             if (!DesignMode)
             {
-                CreateColumns();
+                CreateItemColumns();
+                CreateServicesColumns();
                 LoadPaymentTypes();
             }
         }
@@ -116,6 +136,11 @@ namespace ZenBiz.AppModules.Forms.Sales
             txtRefCode.Clear();
             nudAmountPaid.Value = 0;
 
+        }
+
+        private void btnAddServices_Click(object sender, EventArgs e)
+        {
+            _ = new FrmSalesServicesAdd(this).ShowDialog();
         }
 
     }

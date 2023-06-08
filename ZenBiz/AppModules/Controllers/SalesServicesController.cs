@@ -1,4 +1,5 @@
 ﻿using System.Data;
+using System.Transactions;
 using ZenBiz.AppModules.Interfaces;
 using ZenBiz.AppModules.Models;
 
@@ -51,7 +52,21 @@ namespace ZenBiz.AppModules.Controllers
 
         public bool Delete(List<SalesServicesModel> entityList)
         {
-            throw new NotImplementedException();
+            using var scope = new TransactionScope();
+            foreach (var entity in entityList)
+            {
+                var parameters = new object[][]
+                {
+                    new object[] { "@id", DbType.Int32, entity.Id},
+                };
+
+                string query = $"DELETE FROM {tblSalesServices} WHERE id = @id";
+                _ = _dbGenericCommands.ExecuteNonQuery(query, parameters);
+            }
+
+            scope.Complete();
+            scope.Dispose();
+            return true;
         }
     }
 

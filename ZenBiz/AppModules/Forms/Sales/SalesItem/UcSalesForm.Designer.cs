@@ -39,6 +39,14 @@
             btnDeleteItem = new ToolStripButton();
             lblTotalSales = new ToolStripLabel();
             toolStripLabel1 = new ToolStripLabel();
+            tabPageServices = new TabPage();
+            dgServices = new DataGridView();
+            toolStrip2 = new ToolStrip();
+            btnAddServices = new ToolStripButton();
+            toolStripButton2 = new ToolStripButton();
+            btnDeleteServices = new ToolStripButton();
+            toolStripLabel2 = new ToolStripLabel();
+            toolStripLabel3 = new ToolStripLabel();
             groupBox1 = new GroupBox();
             panel1 = new Panel();
             btnClear = new Button();
@@ -69,6 +77,9 @@
             tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgItems).BeginInit();
             toolStrip1.SuspendLayout();
+            tabPageServices.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgServices).BeginInit();
+            toolStrip2.SuspendLayout();
             groupBox1.SuspendLayout();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)epCustomer).BeginInit();
@@ -80,6 +91,7 @@
             // tabControl1
             // 
             tabControl1.Controls.Add(tabPage1);
+            tabControl1.Controls.Add(tabPageServices);
             tabControl1.Location = new Point(6, 215);
             tabControl1.Name = "tabControl1";
             tabControl1.SelectedIndex = 0;
@@ -162,6 +174,82 @@
             toolStripLabel1.Name = "toolStripLabel1";
             toolStripLabel1.Size = new Size(35, 22);
             toolStripLabel1.Text = "Total:";
+            // 
+            // tabPageServices
+            // 
+            tabPageServices.Controls.Add(dgServices);
+            tabPageServices.Controls.Add(toolStrip2);
+            tabPageServices.Location = new Point(4, 24);
+            tabPageServices.Name = "tabPageServices";
+            tabPageServices.Padding = new Padding(3);
+            tabPageServices.Size = new Size(798, 145);
+            tabPageServices.TabIndex = 1;
+            tabPageServices.Text = "Services";
+            tabPageServices.UseVisualStyleBackColor = true;
+            // 
+            // dgServices
+            // 
+            dgServices.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgServices.Dock = DockStyle.Fill;
+            dgServices.Location = new Point(3, 28);
+            dgServices.Name = "dgServices";
+            dgServices.RowTemplate.Height = 25;
+            dgServices.Size = new Size(792, 114);
+            dgServices.TabIndex = 3;
+            // 
+            // toolStrip2
+            // 
+            toolStrip2.GripStyle = ToolStripGripStyle.Hidden;
+            toolStrip2.Items.AddRange(new ToolStripItem[] { btnAddServices, toolStripButton2, btnDeleteServices, toolStripLabel2, toolStripLabel3 });
+            toolStrip2.Location = new Point(3, 3);
+            toolStrip2.Name = "toolStrip2";
+            toolStrip2.Size = new Size(792, 25);
+            toolStrip2.TabIndex = 2;
+            toolStrip2.Text = "toolStrip2";
+            // 
+            // btnAddServices
+            // 
+            btnAddServices.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            btnAddServices.Image = (Image)resources.GetObject("btnAddServices.Image");
+            btnAddServices.ImageTransparentColor = Color.Magenta;
+            btnAddServices.Name = "btnAddServices";
+            btnAddServices.Size = new Size(23, 22);
+            btnAddServices.Text = "Add";
+            btnAddServices.Click += btnAddServices_Click;
+            // 
+            // toolStripButton2
+            // 
+            toolStripButton2.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            toolStripButton2.Image = (Image)resources.GetObject("toolStripButton2.Image");
+            toolStripButton2.ImageTransparentColor = Color.Magenta;
+            toolStripButton2.Name = "toolStripButton2";
+            toolStripButton2.Size = new Size(23, 22);
+            toolStripButton2.Text = "Edit";
+            toolStripButton2.Visible = false;
+            // 
+            // btnDeleteServices
+            // 
+            btnDeleteServices.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            btnDeleteServices.Image = (Image)resources.GetObject("btnDeleteServices.Image");
+            btnDeleteServices.ImageTransparentColor = Color.Magenta;
+            btnDeleteServices.Name = "btnDeleteServices";
+            btnDeleteServices.Size = new Size(23, 22);
+            btnDeleteServices.Text = "Delete";
+            // 
+            // toolStripLabel2
+            // 
+            toolStripLabel2.Alignment = ToolStripItemAlignment.Right;
+            toolStripLabel2.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            toolStripLabel2.Name = "toolStripLabel2";
+            toolStripLabel2.Size = new Size(31, 22);
+            toolStripLabel2.Text = "0.00";
+            // 
+            // toolStripLabel3
+            // 
+            toolStripLabel3.Alignment = ToolStripItemAlignment.Right;
+            toolStripLabel3.Name = "toolStripLabel3";
+            toolStripLabel3.Size = new Size(35, 22);
+            toolStripLabel3.Text = "Total:";
             // 
             // groupBox1
             // 
@@ -428,6 +516,11 @@
             ((System.ComponentModel.ISupportInitialize)dgItems).EndInit();
             toolStrip1.ResumeLayout(false);
             toolStrip1.PerformLayout();
+            tabPageServices.ResumeLayout(false);
+            tabPageServices.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dgServices).EndInit();
+            toolStrip2.ResumeLayout(false);
+            toolStrip2.PerformLayout();
             groupBox1.ResumeLayout(false);
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
@@ -476,5 +569,13 @@
         internal NumericUpDown nudAmountPaid;
         internal TextBox txtRefCode;
         internal CheckBox chkPayment;
+        private TabPage tabPageServices;
+        private ToolStrip toolStrip2;
+        private ToolStripButton btnAddServices;
+        private ToolStripButton toolStripButton2;
+        private ToolStripButton btnDeleteServices;
+        private ToolStripLabel toolStripLabel2;
+        private ToolStripLabel toolStripLabel3;
+        internal DataGridView dgServices;
     }
 }
