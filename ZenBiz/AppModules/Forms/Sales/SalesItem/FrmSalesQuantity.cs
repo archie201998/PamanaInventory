@@ -79,7 +79,7 @@ namespace ZenBiz.AppModules.Forms.Sales
             };
 
             _ucSalesForm.dgItems.Rows.Add(row);
-            _ucSalesForm.SumTotalSales();
+            _ucSalesForm.SumTotalItemSales();
             return true;
         }
 

@@ -45,11 +45,27 @@ namespace ZenBiz.AppModules.Forms.Sales
                     Convert.ToDecimal(item["sold_quantity"]).ToString("n2"),
                     Convert.ToDecimal(item["total_sale"]).ToString("n2"),
                     item["sold_unit_cost"].ToString()
-            };
+                };
                 uc.dgItems.Rows.Add(row);
             }
 
-            uc.SumTotalSales();
+            var dtSalesServices = Factory.SalesServicesController().FetchBySalesId(_salesId);
+
+            foreach (DataRow item in dtSalesServices.Rows)
+            {
+                string[] row = new string[]
+                {
+                    item["services_id"].ToString(),
+                    item["sales_id"].ToString(),
+                    item["services_name"].ToString(),
+                    item["personnel_name"].ToString(),
+                    item["fee"].ToString(),
+                };
+                uc.dgServices.Rows.Add(row);
+            }
+
+            uc.SumTotalServiceFee();
+            uc.SumTotalItemSales();
         }
 
         private void FrmSalesEdit_Load(object sender, EventArgs e)

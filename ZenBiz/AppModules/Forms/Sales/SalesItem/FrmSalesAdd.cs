@@ -21,11 +21,51 @@ namespace ZenBiz.AppModules.Forms.Sales
             uc.txtTransactionNo.Text = Factory.SalesController().GenerateTransactionNumber().ToString().PadLeft(7, '0');
         }
 
+        private void InsertSalesItem(ISales salesController)
+        {
+            foreach (DataGridViewRow item in uc.dgItems.Rows)
+            {
+                // populate sales item model
+                SalesItemModel salesItemModel = new()
+                {
+                    Sales = new SalesModel() { Id = salesController.LastInsertedId() },
+                    Items = new ItemsModel() { Id = Convert.ToInt32(item.Cells["ItemId"].Value) },
+                    Stores = new StoresModel() { Id = Convert.ToInt32(item.Cells["StoreId"].Value) },
+                    UnitCost = Convert.ToDecimal(item.Cells["UnitCost"].Value),
+                    Price = Convert.ToDecimal(item.Cells["Price"].Value),
+                    Quantity = Convert.ToDecimal(item.Cells["Quantity"].Value)
+                };
+                // insert sales item
+                _ = Factory.SalesItemController().Insert(salesItemModel);
+            }
+        }
+
+        private void InsertSalesServices(ISales salesController)
+        {
+            foreach (DataGridViewRow item in uc.dgServices.Rows)
+            {
+                int salesId = salesController.LastInsertedId();
+                int serviceId = Convert.ToInt32(item.Cells["ServiceId"].Value);
+                int personnelId = Convert.ToInt32(item.Cells["PersonnelId"].Value);
+                decimal fee = Convert.ToDecimal(item.Cells["Fee"].Value);
+
+                SalesServicesModel salesServicesModel = new()
+                {
+                    Sales = new SalesModel() { Id = salesId },
+                    Services = new ServicesModel() { Id = serviceId },
+                    Personnel = new PersonnelModel() { Id = personnelId },
+                    Fee = fee
+                };
+
+                _ = Factory.SalesServicesController().Insert(salesServicesModel);
+            }
+        }
+
         private bool SaveData()
         {
-            if (uc.dgItems.Rows.Count == 0)
+            if (uc.dgItems.Rows.Count == 0 && uc.dgServices.Rows.Count == 0)
             {
-                Helper.MessageBoxError("Please add an item.");
+                Helper.MessageBoxError("Please add an item or services.");
                 return false;
             }
 
@@ -44,21 +84,11 @@ namespace ZenBiz.AppModules.Forms.Sales
             // insert sale
             _ = salesController.Insert(sales);
 
-            foreach (DataGridViewRow item in uc.dgItems.Rows)
-            {
-                // populate sales item model
-                SalesItemModel salesItemModel = new()
-                {
-                    Sales = new SalesModel() { Id = salesController.LastInsertedId() },
-                    Items = new ItemsModel() { Id = Convert.ToInt32(item.Cells["ItemId"].Value) },
-                    Stores = new StoresModel() { Id = Convert.ToInt32(item.Cells["StoreId"].Value) },
-                    UnitCost = Convert.ToDecimal(item.Cells["UnitCost"].Value),
-                    Price = Convert.ToDecimal(item.Cells["Price"].Value),
-                    Quantity = Convert.ToDecimal(item.Cells["Quantity"].Value)
-                };
-                // insert sales item
-                _ = Factory.SalesItemController().Insert(salesItemModel);
-            }
+            if (uc.dgItems.Rows.Count != 0)
+                InsertSalesItem(salesController);
+
+            if (uc.dgServices.Rows.Count != 0)
+                InsertSalesServices(salesController);
 
             if (uc.chkPayment.Checked)
             {

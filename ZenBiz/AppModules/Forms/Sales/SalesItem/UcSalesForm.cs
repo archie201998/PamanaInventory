@@ -69,14 +69,26 @@ namespace ZenBiz.AppModules.Forms.Sales
             dgServices.Columns["Service"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
         }
 
-        internal void SumTotalSales()
+        internal void SumTotalItemSales()
         {
             decimal total = 0;
             foreach (DataGridViewRow item in dgItems.Rows)
             {
                 total += Convert.ToDecimal(item.Cells["Total"].Value);
             }
-            lblTotalSales.Text = total.ToString("n2");
+            lblTotalItemSales.Text = total.ToString("n2");
+            lblTotalSales.Text = (Convert.ToDecimal(lblTotalItemSales.Text) + Convert.ToDecimal(lblTotalServicesFee.Text)).ToString("n2");
+        }
+
+        internal void SumTotalServiceFee()
+        {
+            decimal total = 0;
+            foreach (DataGridViewRow item in dgServices.Rows)
+            {
+                total += Convert.ToDecimal(item.Cells["fee"].Value);
+            }
+            lblTotalServicesFee.Text = total.ToString("n2");
+            lblTotalSales.Text = (Convert.ToDecimal(lblTotalItemSales.Text) + Convert.ToDecimal(lblTotalServicesFee.Text)).ToString("n2");
         }
 
         private void LoadPaymentTypes()
@@ -118,7 +130,7 @@ namespace ZenBiz.AppModules.Forms.Sales
             foreach (DataGridViewRow item in dgItems.SelectedRows)
                 dgItems.Rows.Remove(item);
 
-            SumTotalSales();
+            SumTotalItemSales();
         }
 
         private void btnClear_Click(object sender, EventArgs e)
@@ -143,5 +155,21 @@ namespace ZenBiz.AppModules.Forms.Sales
             _ = new FrmSalesServicesAdd(this).ShowDialog();
         }
 
+        private void btnDeleteServices_Click(object sender, EventArgs e)
+        {
+            foreach (DataGridViewRow item in dgServices.SelectedRows)
+                dgServices.Rows.Remove(item);
+
+            SumTotalServiceFee();
+        }
+
+        private void label10_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblTotalSales_TextChanged(object sender, EventArgs e)
+        {
+        }
     }
 }

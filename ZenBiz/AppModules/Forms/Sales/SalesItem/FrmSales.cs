@@ -87,6 +87,9 @@ namespace ZenBiz.AppModules.Forms.Sales
             dgSalesItems.Columns["id"].Visible = false;
             dgSalesItems.Columns["items_id"].Visible = false;
             dgSalesItems.Columns["stores_id"].Visible = false;
+            dgSalesItems.Columns["item_unit_cost"].Visible = false;
+            dgSalesItems.Columns["unit_name1"].Visible = false;
+
             dgSalesItems.Columns["store_name"].HeaderText = "Store";
             dgSalesItems.Columns["item_name"].HeaderText = "Item";
             dgSalesItems.Columns["item_name"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;

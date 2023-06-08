@@ -37,15 +37,15 @@
             btnAddItem = new ToolStripButton();
             btnEditItem = new ToolStripButton();
             btnDeleteItem = new ToolStripButton();
-            lblTotalSales = new ToolStripLabel();
+            lblTotalItemSales = new ToolStripLabel();
             toolStripLabel1 = new ToolStripLabel();
             tabPageServices = new TabPage();
             dgServices = new DataGridView();
-            toolStrip2 = new ToolStrip();
+            lblTotalServiceFee = new ToolStrip();
             btnAddServices = new ToolStripButton();
             toolStripButton2 = new ToolStripButton();
             btnDeleteServices = new ToolStripButton();
-            toolStripLabel2 = new ToolStripLabel();
+            lblTotalServicesFee = new ToolStripLabel();
             toolStripLabel3 = new ToolStripLabel();
             groupBox1 = new GroupBox();
             panel1 = new Panel();
@@ -73,13 +73,15 @@
             txtRefCode = new TextBox();
             label6 = new Label();
             chkPayment = new CheckBox();
+            label10 = new Label();
+            lblTotalSales = new TextBox();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgItems).BeginInit();
             toolStrip1.SuspendLayout();
             tabPageServices.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgServices).BeginInit();
-            toolStrip2.SuspendLayout();
+            lblTotalServiceFee.SuspendLayout();
             groupBox1.SuspendLayout();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)epCustomer).BeginInit();
@@ -92,10 +94,10 @@
             // 
             tabControl1.Controls.Add(tabPage1);
             tabControl1.Controls.Add(tabPageServices);
-            tabControl1.Location = new Point(6, 215);
+            tabControl1.Location = new Point(3, 213);
             tabControl1.Name = "tabControl1";
             tabControl1.SelectedIndex = 0;
-            tabControl1.Size = new Size(806, 173);
+            tabControl1.Size = new Size(809, 173);
             tabControl1.TabIndex = 2;
             // 
             // tabPage1
@@ -105,7 +107,7 @@
             tabPage1.Location = new Point(4, 24);
             tabPage1.Name = "tabPage1";
             tabPage1.Padding = new Padding(3);
-            tabPage1.Size = new Size(798, 145);
+            tabPage1.Size = new Size(801, 145);
             tabPage1.TabIndex = 0;
             tabPage1.Text = "Items";
             tabPage1.UseVisualStyleBackColor = true;
@@ -117,16 +119,16 @@
             dgItems.Location = new Point(3, 28);
             dgItems.Name = "dgItems";
             dgItems.RowTemplate.Height = 25;
-            dgItems.Size = new Size(792, 114);
+            dgItems.Size = new Size(795, 114);
             dgItems.TabIndex = 0;
             // 
             // toolStrip1
             // 
             toolStrip1.GripStyle = ToolStripGripStyle.Hidden;
-            toolStrip1.Items.AddRange(new ToolStripItem[] { btnAddItem, btnEditItem, btnDeleteItem, lblTotalSales, toolStripLabel1 });
+            toolStrip1.Items.AddRange(new ToolStripItem[] { btnAddItem, btnEditItem, btnDeleteItem, lblTotalItemSales, toolStripLabel1 });
             toolStrip1.Location = new Point(3, 3);
             toolStrip1.Name = "toolStrip1";
-            toolStrip1.Size = new Size(792, 25);
+            toolStrip1.Size = new Size(795, 25);
             toolStrip1.TabIndex = 1;
             toolStrip1.Text = "toolStrip1";
             // 
@@ -160,29 +162,29 @@
             btnDeleteItem.Text = "Delete";
             btnDeleteItem.Click += btnDeleteItem_Click;
             // 
-            // lblTotalSales
+            // lblTotalItemSales
             // 
-            lblTotalSales.Alignment = ToolStripItemAlignment.Right;
-            lblTotalSales.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            lblTotalSales.Name = "lblTotalSales";
-            lblTotalSales.Size = new Size(31, 22);
-            lblTotalSales.Text = "0.00";
+            lblTotalItemSales.Alignment = ToolStripItemAlignment.Right;
+            lblTotalItemSales.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            lblTotalItemSales.Name = "lblTotalItemSales";
+            lblTotalItemSales.Size = new Size(31, 22);
+            lblTotalItemSales.Text = "0.00";
             // 
             // toolStripLabel1
             // 
             toolStripLabel1.Alignment = ToolStripItemAlignment.Right;
             toolStripLabel1.Name = "toolStripLabel1";
-            toolStripLabel1.Size = new Size(35, 22);
-            toolStripLabel1.Text = "Total:";
+            toolStripLabel1.Size = new Size(114, 22);
+            toolStripLabel1.Text = "Total Items Amount:";
             // 
             // tabPageServices
             // 
             tabPageServices.Controls.Add(dgServices);
-            tabPageServices.Controls.Add(toolStrip2);
+            tabPageServices.Controls.Add(lblTotalServiceFee);
             tabPageServices.Location = new Point(4, 24);
             tabPageServices.Name = "tabPageServices";
             tabPageServices.Padding = new Padding(3);
-            tabPageServices.Size = new Size(798, 145);
+            tabPageServices.Size = new Size(801, 145);
             tabPageServices.TabIndex = 1;
             tabPageServices.Text = "Services";
             tabPageServices.UseVisualStyleBackColor = true;
@@ -194,18 +196,18 @@
             dgServices.Location = new Point(3, 28);
             dgServices.Name = "dgServices";
             dgServices.RowTemplate.Height = 25;
-            dgServices.Size = new Size(792, 114);
+            dgServices.Size = new Size(795, 114);
             dgServices.TabIndex = 3;
             // 
-            // toolStrip2
+            // lblTotalServiceFee
             // 
-            toolStrip2.GripStyle = ToolStripGripStyle.Hidden;
-            toolStrip2.Items.AddRange(new ToolStripItem[] { btnAddServices, toolStripButton2, btnDeleteServices, toolStripLabel2, toolStripLabel3 });
-            toolStrip2.Location = new Point(3, 3);
-            toolStrip2.Name = "toolStrip2";
-            toolStrip2.Size = new Size(792, 25);
-            toolStrip2.TabIndex = 2;
-            toolStrip2.Text = "toolStrip2";
+            lblTotalServiceFee.GripStyle = ToolStripGripStyle.Hidden;
+            lblTotalServiceFee.Items.AddRange(new ToolStripItem[] { btnAddServices, toolStripButton2, btnDeleteServices, lblTotalServicesFee, toolStripLabel3 });
+            lblTotalServiceFee.Location = new Point(3, 3);
+            lblTotalServiceFee.Name = "lblTotalServiceFee";
+            lblTotalServiceFee.Size = new Size(795, 25);
+            lblTotalServiceFee.TabIndex = 2;
+            lblTotalServiceFee.Text = "toolStrip2";
             // 
             // btnAddServices
             // 
@@ -235,21 +237,22 @@
             btnDeleteServices.Name = "btnDeleteServices";
             btnDeleteServices.Size = new Size(23, 22);
             btnDeleteServices.Text = "Delete";
+            btnDeleteServices.Click += btnDeleteServices_Click;
             // 
-            // toolStripLabel2
+            // lblTotalServicesFee
             // 
-            toolStripLabel2.Alignment = ToolStripItemAlignment.Right;
-            toolStripLabel2.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            toolStripLabel2.Name = "toolStripLabel2";
-            toolStripLabel2.Size = new Size(31, 22);
-            toolStripLabel2.Text = "0.00";
+            lblTotalServicesFee.Alignment = ToolStripItemAlignment.Right;
+            lblTotalServicesFee.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            lblTotalServicesFee.Name = "lblTotalServicesFee";
+            lblTotalServicesFee.Size = new Size(31, 22);
+            lblTotalServicesFee.Text = "0.00";
             // 
             // toolStripLabel3
             // 
             toolStripLabel3.Alignment = ToolStripItemAlignment.Right;
             toolStripLabel3.Name = "toolStripLabel3";
-            toolStripLabel3.Size = new Size(35, 22);
-            toolStripLabel3.Text = "Total:";
+            toolStripLabel3.Size = new Size(101, 22);
+            toolStripLabel3.Text = "Total Services Fee:";
             // 
             // groupBox1
             // 
@@ -353,7 +356,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(3, 37);
+            label2.Location = new Point(3, 38);
             label2.Name = "label2";
             label2.Size = new Size(31, 15);
             label2.TabIndex = 27;
@@ -486,20 +489,49 @@
             // chkPayment
             // 
             chkPayment.AutoSize = true;
+            chkPayment.BackColor = Color.Transparent;
             chkPayment.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            chkPayment.Location = new Point(6, 394);
+            chkPayment.Location = new Point(4, 398);
             chkPayment.Name = "chkPayment";
             chkPayment.Size = new Size(75, 19);
             chkPayment.TabIndex = 1;
             chkPayment.Text = "Payment";
-            chkPayment.UseVisualStyleBackColor = true;
+            chkPayment.UseVisualStyleBackColor = false;
             chkPayment.CheckedChanged += chkPayment_CheckedChanged;
+            // 
+            // label10
+            // 
+            label10.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            label10.AutoSize = true;
+            label10.Location = new Point(665, 388);
+            label10.Name = "label10";
+            label10.Size = new Size(64, 15);
+            label10.TabIndex = 6;
+            label10.Text = "Total Sales:";
+            label10.Click += label10_Click;
+            // 
+            // lblTotalSales
+            // 
+            lblTotalSales.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            lblTotalSales.BackColor = SystemColors.Control;
+            lblTotalSales.BorderStyle = BorderStyle.None;
+            lblTotalSales.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            lblTotalSales.Location = new Point(727, 388);
+            lblTotalSales.MaxLength = 45;
+            lblTotalSales.Name = "lblTotalSales";
+            lblTotalSales.Size = new Size(78, 16);
+            lblTotalSales.TabIndex = 1;
+            lblTotalSales.Text = "0.00";
+            lblTotalSales.TextAlign = HorizontalAlignment.Right;
+            lblTotalSales.TextChanged += lblTotalSales_TextChanged;
             // 
             // UcSalesForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(chkPayment);
+            Controls.Add(lblTotalSales);
+            Controls.Add(label10);
             Controls.Add(groupBoxPayments);
             Controls.Add(groupBox1);
             Controls.Add(label2);
@@ -519,8 +551,8 @@
             tabPageServices.ResumeLayout(false);
             tabPageServices.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dgServices).EndInit();
-            toolStrip2.ResumeLayout(false);
-            toolStrip2.PerformLayout();
+            lblTotalServiceFee.ResumeLayout(false);
+            lblTotalServiceFee.PerformLayout();
             groupBox1.ResumeLayout(false);
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
@@ -552,7 +584,7 @@
         private ErrorProvider epCustomer;
         internal DateTimePicker dtpTransactionDate;
         internal TextBox txtTransactionNo;
-        private ToolStripLabel lblTotalSales;
+        private ToolStripLabel lblTotalItemSales;
         private ToolStripLabel toolStripLabel1;
         internal TextBox txtCustomerContactInfo;
         internal TextBox txtCustomerAddress;
@@ -570,12 +602,14 @@
         internal TextBox txtRefCode;
         internal CheckBox chkPayment;
         private TabPage tabPageServices;
-        private ToolStrip toolStrip2;
+        private ToolStrip lblTotalServiceFee;
         private ToolStripButton btnAddServices;
         private ToolStripButton toolStripButton2;
         private ToolStripButton btnDeleteServices;
-        private ToolStripLabel toolStripLabel2;
+        private ToolStripLabel lblTotalServicesFee;
         private ToolStripLabel toolStripLabel3;
         internal DataGridView dgServices;
+        private Label label10;
+        internal TextBox lblTotalSales;
     }
 }

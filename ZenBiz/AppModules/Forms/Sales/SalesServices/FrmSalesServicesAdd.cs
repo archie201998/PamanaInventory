@@ -21,17 +21,38 @@
             string personnel = _ucSalesServices.cmbPersonnel.Text;
             decimal fee = _ucSalesServices.nudFee.Value;
 
-            string[] row = new string[]
-            {
-                serviceId.ToString(),
-                personnelId.ToString(),
-                service,
-                personnel,
-                fee.ToString(),
-            };
 
-            _ucSalesForm.dgServices.Rows.Add(row);
-            return true;
+            bool ServiceAlreadyAdded()
+            {
+                foreach (DataGridViewRow item in _ucSalesForm.dgServices.Rows)
+                {
+                    string serviceIdOnList = item.Cells["ServiceId"].Value.ToString();
+                    if (serviceId.ToString() == serviceIdOnList)
+                        return true;
+                }
+
+                return false;
+            }
+
+            if (ServiceAlreadyAdded())
+                Helper.MessageBoxError("Service is already on the list. Please check.");
+            else
+            {
+                string[] row = new string[]
+                {
+                    serviceId.ToString(),
+                    personnelId.ToString(),
+                    service,
+                    personnel,
+                    fee.ToString(),
+                };
+
+                _ucSalesForm.dgServices.Rows.Add(row);
+                _ucSalesForm.SumTotalServiceFee();
+                return true;
+            }
+
+            return false;
         }
 
         private void btnSave_Click(object sender, EventArgs e)

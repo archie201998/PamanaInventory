@@ -9,6 +9,7 @@ namespace ZenBiz.AppModules.Controllers
     {
         private readonly IDbGenericCommands _dbGenericCommands;
         private const string tblSalesServices = "sales_services";
+        private const string viewSalesServices = "view_sales_services";
 
         public SalesServicesController(IDbGenericCommands dbGenericCommands)
         {
@@ -42,7 +43,17 @@ namespace ZenBiz.AppModules.Controllers
 
         public bool Insert(SalesServicesModel entity)
         {
-            throw new NotImplementedException();
+            var parameters = new object[][]
+            {
+                new object[] { "@sales_id", DbType.Int32, entity.Sales.Id },
+                new object[] { "@services_id", DbType.Int32, entity.Services.Id },
+                new object[] { "@personnel_id", DbType.Int32, entity.Personnel.Id },
+                new object[] { "@fee", DbType.Decimal, entity.Fee },
+            };
+
+            string query = $"INSERT INTO {tblSalesServices} (sales_id, services_id, personnel_id, fee) VALUES (@sales_id, @services_id, @personnel_id, @fee)";
+
+            return _dbGenericCommands.ExecuteNonQuery(query, parameters);
         }
 
         public bool Update(SalesServicesModel entity)
@@ -67,6 +78,16 @@ namespace ZenBiz.AppModules.Controllers
             scope.Complete();
             scope.Dispose();
             return true;
+        }
+
+        public DataTable FetchBySalesId(int salesId)
+        {
+            var parameters = new object[][]
+            {
+                new object[] { "@sales_id", DbType.Int32, salesId },
+            };
+            string query = $"SELECT id, sales_id, services_id, personnel_id, personnel_name, services_name, fee FROM {viewSalesServices} WHERE sales_id = @sales_id ORDER BY services_name";
+            return _dbGenericCommands.Fill(query, parameters);
         }
     }
 

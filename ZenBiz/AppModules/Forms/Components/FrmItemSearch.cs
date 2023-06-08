@@ -1,5 +1,4 @@
 ﻿using System.Data;
-using ZenBiz.AppModules.Forms.Purchases;
 using ZenBiz.AppModules.Forms.Sales;
 
 namespace ZenBiz.AppModules.Forms.Components
@@ -112,7 +111,7 @@ namespace ZenBiz.AppModules.Forms.Components
         {
             bool ItemExist(int storeId, int itemId)
             {
-               
+
                 foreach (DataGridViewRow item in _ucSalesForm.dgItems.Rows)
                 {
                     string currentItemId = item.Cells["ItemId"].Value.ToString();
