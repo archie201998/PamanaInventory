@@ -32,8 +32,10 @@
             btnSales = new ToolStripButton();
             toolStrip1 = new ToolStrip();
             btnPurchases = new ToolStripButton();
+            btnServices = new ToolStripButton();
             btnInventory = new ToolStripButton();
             btnCustomers = new ToolStripButton();
+            btnPersonnel = new ToolStripButton();
             btnUsers = new ToolStripButton();
             btnLoggedInUser = new ToolStripDropDownButton();
             changePasswordToolStripMenuItem = new ToolStripMenuItem();
@@ -109,7 +111,7 @@
             // toolStrip1
             // 
             toolStrip1.GripStyle = ToolStripGripStyle.Hidden;
-            toolStrip1.Items.AddRange(new ToolStripItem[] { btnSales, btnPurchases, btnInventory, btnCustomers, btnUsers, btnLoggedInUser, btnReport });
+            toolStrip1.Items.AddRange(new ToolStripItem[] { btnSales, btnPurchases, btnServices, btnInventory, btnCustomers, btnPersonnel, btnUsers, btnLoggedInUser, btnReport });
             toolStrip1.Location = new Point(0, 0);
             toolStrip1.Name = "toolStrip1";
             toolStrip1.Padding = new Padding(0, 5, 1, 5);
@@ -126,6 +128,16 @@
             btnPurchases.Size = new Size(88, 28);
             btnPurchases.Text = "Purchases";
             btnPurchases.Click += btnPurchases_Click;
+            // 
+            // btnServices
+            // 
+            btnServices.Image = (Image)resources.GetObject("btnServices.Image");
+            btnServices.ImageScaling = ToolStripItemImageScaling.None;
+            btnServices.ImageTransparentColor = Color.Magenta;
+            btnServices.Name = "btnServices";
+            btnServices.Size = new Size(77, 28);
+            btnServices.Text = "Services";
+            btnServices.Click += btnServices_Click;
             // 
             // btnInventory
             // 
@@ -146,6 +158,16 @@
             btnCustomers.Size = new Size(92, 28);
             btnCustomers.Text = "Customers";
             btnCustomers.Click += btnCustomers_Click;
+            // 
+            // btnPersonnel
+            // 
+            btnPersonnel.Image = (Image)resources.GetObject("btnPersonnel.Image");
+            btnPersonnel.ImageScaling = ToolStripItemImageScaling.None;
+            btnPersonnel.ImageTransparentColor = Color.Magenta;
+            btnPersonnel.Name = "btnPersonnel";
+            btnPersonnel.Size = new Size(87, 28);
+            btnPersonnel.Text = "Personnel";
+            btnPersonnel.Click += btnPersonnel_Click;
             // 
             // btnUsers
             // 
@@ -683,5 +705,7 @@
         private ToolStripMenuItem logOutToolStripMenuItem;
         private ToolStripButton btnReport;
         private ToolStripMenuItem changePasswordToolStripMenuItem;
+        private ToolStripButton btnPersonnel;
+        private ToolStripButton btnServices;
     }
 }

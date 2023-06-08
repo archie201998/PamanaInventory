@@ -105,7 +105,7 @@ namespace ZenBiz.AppModules.Controllers
             scope.Complete();
             scope.Dispose();
             return true;
-        } 
+        }
 
         public decimal TotalAmountPaidPerPurchased(int purchaseId)
         {
