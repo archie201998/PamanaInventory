@@ -45,11 +45,27 @@ namespace ZenBiz.AppModules.Forms.Sales
                     Convert.ToDecimal(item["sold_quantity"]).ToString("n2"),
                     Convert.ToDecimal(item["total_sale"]).ToString("n2"),
                     item["sold_unit_cost"].ToString()
-            };
+                };
                 uc.dgItems.Rows.Add(row);
             }
 
-            uc.SumTotalSales();
+            var dtSalesServices = Factory.SalesServicesController().FetchBySalesId(_salesId);
+
+            foreach (DataRow item in dtSalesServices.Rows)
+            {
+                string[] row = new string[]
+                {
+                    item["services_id"].ToString(),
+                    item["personnel_id"].ToString(),
+                    item["services_name"].ToString(),
+                    item["personnel_name"].ToString(),
+                    item["fee"].ToString(),
+                };
+                uc.dgServices.Rows.Add(row);
+            }
+
+            uc.SumTotalServiceFee();
+            uc.SumTotalItemSales();
         }
 
         private void FrmSalesEdit_Load(object sender, EventArgs e)
@@ -83,8 +99,10 @@ namespace ZenBiz.AppModules.Forms.Sales
             // insert sale
             _ = salesController.Update(salesModel);
 
-            // delete all sales item
+            // delete all sales item and sales services
             _ = Factory.SalesItemController().DeletePerSalesId(_salesId);
+            _ = Factory.SalesServicesController().DeletePerSalesId(_salesId);
+
             // inserting new sales items
             foreach (DataGridViewRow item in uc.dgItems.Rows)
             {
@@ -100,6 +118,25 @@ namespace ZenBiz.AppModules.Forms.Sales
                 };
 
                 _ = Factory.SalesItemController().Insert(salesItemModel);
+            }
+
+            //inserting the changes in sales services
+            foreach (DataGridViewRow item in uc.dgServices.Rows)
+            {
+                int salesId = _salesId;
+                int serviceId = Convert.ToInt32(item.Cells["ServiceId"].Value);
+                int personnelId = Convert.ToInt32(item.Cells["PersonnelId"].Value);
+                decimal fee = Convert.ToDecimal(item.Cells["Fee"].Value);
+
+                SalesServicesModel salesServicesModel = new()
+                {
+                    Sales = new SalesModel() { Id = salesId },
+                    Services = new ServicesModel() { Id = serviceId },
+                    Personnel = new PersonnelModel() { Id = personnelId },
+                    Fee = fee
+                };
+
+                _ = Factory.SalesServicesController().Insert(salesServicesModel);
             }
 
             scope.Complete();

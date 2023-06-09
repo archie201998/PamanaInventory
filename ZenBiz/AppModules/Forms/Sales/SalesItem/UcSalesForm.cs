@@ -1,4 +1,5 @@
 ﻿using ZenBiz.AppModules.Forms.Components;
+using ZenBiz.AppModules.Forms.Sales.SalesServices;
 
 namespace ZenBiz.AppModules.Forms.Sales
 {
@@ -10,6 +11,7 @@ namespace ZenBiz.AppModules.Forms.Sales
         {
             InitializeComponent();
             Helper.DatagridDefaultStyle(dgItems);
+            Helper.DatagridDefaultStyle(dgServices);
         }
 
         internal string GetFormErrors()
@@ -31,7 +33,7 @@ namespace ZenBiz.AppModules.Forms.Sales
             txtCustomerContactInfo.Text = dict["contact_info"];
         }
 
-        private void CreateColumns()
+        private void CreateItemColumns()
         {
             dgItems.ColumnCount = 9;
             dgItems.Columns[0].Name = "ItemId";
@@ -50,14 +52,43 @@ namespace ZenBiz.AppModules.Forms.Sales
             dgItems.Columns["Item"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
         }
 
-        internal void SumTotalSales()
+        private void CreateServicesColumns()
+        {
+            dgServices.ColumnCount = 5;
+            dgServices.Columns[0].Name = "ServiceId";
+            dgServices.Columns[1].Name = "PersonnelId";
+            dgServices.Columns[2].Name = "Service";
+            dgServices.Columns[3].Name = "Personnel";
+            dgServices.Columns[4].Name = "Fee";
+
+            dgServices.Columns["ServiceId"].Visible = false;
+            dgServices.Columns["PersonnelId"].Visible = false;
+
+            dgServices.Columns["Personnel"].Width = 200;
+            dgServices.Columns["Personnel"].MinimumWidth = 200;
+            dgServices.Columns["Service"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+        }
+
+        internal void SumTotalItemSales()
         {
             decimal total = 0;
             foreach (DataGridViewRow item in dgItems.Rows)
             {
                 total += Convert.ToDecimal(item.Cells["Total"].Value);
             }
-            lblTotalSales.Text = total.ToString("n2");
+            lblTotalItemSales.Text = total.ToString("n2");
+            lblTotalSales.Text = (Convert.ToDecimal(lblTotalItemSales.Text) + Convert.ToDecimal(lblTotalServicesFee.Text)).ToString("n2");
+        }
+
+        internal void SumTotalServiceFee()
+        {
+            decimal total = 0;
+            foreach (DataGridViewRow item in dgServices.Rows)
+            {
+                total += Convert.ToDecimal(item.Cells["fee"].Value);
+            }
+            lblTotalServicesFee.Text = total.ToString("n2");
+            lblTotalSales.Text = (Convert.ToDecimal(lblTotalItemSales.Text) + Convert.ToDecimal(lblTotalServicesFee.Text)).ToString("n2");
         }
 
         private void LoadPaymentTypes()
@@ -71,7 +102,8 @@ namespace ZenBiz.AppModules.Forms.Sales
         {
             if (!DesignMode)
             {
-                CreateColumns();
+                CreateItemColumns();
+                CreateServicesColumns();
                 LoadPaymentTypes();
             }
         }
@@ -98,7 +130,7 @@ namespace ZenBiz.AppModules.Forms.Sales
             foreach (DataGridViewRow item in dgItems.SelectedRows)
                 dgItems.Rows.Remove(item);
 
-            SumTotalSales();
+            SumTotalItemSales();
         }
 
         private void btnClear_Click(object sender, EventArgs e)
@@ -118,5 +150,26 @@ namespace ZenBiz.AppModules.Forms.Sales
 
         }
 
+        private void btnAddServices_Click(object sender, EventArgs e)
+        {
+            _ = new FrmSalesServicesAdd(this).ShowDialog();
+        }
+
+        private void btnDeleteServices_Click(object sender, EventArgs e)
+        {
+            foreach (DataGridViewRow item in dgServices.SelectedRows)
+                dgServices.Rows.Remove(item);
+
+            SumTotalServiceFee();
+        }
+
+        private void label10_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblTotalSales_TextChanged(object sender, EventArgs e)
+        {
+        }
     }
 }

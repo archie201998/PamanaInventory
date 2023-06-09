@@ -14,6 +14,7 @@ namespace ZenBiz.AppModules.Forms.Sales
             Helper.FormDialogDefaults(this, true, true);
             Helper.DatagridDefaultStyle(dgSales, true);
             Helper.DatagridDefaultStyle(dgSalesItems);
+            Helper.DatagridDefaultStyle(dgSalesServices);
         }
 
         private void SumTotalSales()
@@ -47,7 +48,11 @@ namespace ZenBiz.AppModules.Forms.Sales
             foreach (DataRow item in dtSales.Rows)
             {
                 int salesId = Convert.ToInt32(item["id"]);
-                decimal totalSale = Factory.SalesItemController().GrossSales(salesId);
+
+                decimal grossSalesServices = Factory.SalesServicesController().GrossSales(salesId);
+                decimal grossSalesItems = Factory.SalesItemController().GrossSales(salesId);
+                decimal totalSale = grossSalesServices + grossSalesItems;
+
                 decimal totalAmountPaid = Factory.PaymentsController().SumTotalPaymentsPerSalesId(salesId);
                 item["total_sales"] = totalSale.ToString("n2");
                 item["amount_paid"] = totalAmountPaid.ToString("n2");
@@ -80,6 +85,7 @@ namespace ZenBiz.AppModules.Forms.Sales
             SumBalances();
         }
 
+
         private void LoadSalesItems()
         {
             int salesId = Convert.ToInt32(dgSales.SelectedCells[0].Value);
@@ -87,6 +93,9 @@ namespace ZenBiz.AppModules.Forms.Sales
             dgSalesItems.Columns["id"].Visible = false;
             dgSalesItems.Columns["items_id"].Visible = false;
             dgSalesItems.Columns["stores_id"].Visible = false;
+            dgSalesItems.Columns["item_unit_cost"].Visible = false;
+            dgSalesItems.Columns["unit_name1"].Visible = false;
+
             dgSalesItems.Columns["store_name"].HeaderText = "Store";
             dgSalesItems.Columns["item_name"].HeaderText = "Item";
             dgSalesItems.Columns["item_name"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
@@ -100,6 +109,26 @@ namespace ZenBiz.AppModules.Forms.Sales
             dgSalesItems.Columns["total_sale"].DefaultCellStyle.Format = "N2";
         }
 
+        private void LoadSalesServices()
+        {
+            int salesId = Convert.ToInt32(dgSales.SelectedCells[0].Value);
+            dgSalesServices.DataSource = Factory.SalesServicesController().FetchBySalesId(salesId);
+
+            dgSalesServices.Columns["id"].Visible = false;
+            dgSalesServices.Columns["sales_id"].Visible = false;
+            dgSalesServices.Columns["services_id"].Visible = false;
+            dgSalesServices.Columns["personnel_id"].Visible = false;
+            dgSalesServices.Columns["services_name"].HeaderText = "Service";
+            dgSalesServices.Columns["personnel_name"].HeaderText = "Personnel";
+            dgSalesServices.Columns["fee"].HeaderText = "Fee";
+            dgSalesServices.Columns["fee"].DefaultCellStyle.Format = "N2";
+
+            dgSalesServices.Columns["services_name"].Width = 200;
+            dgSalesServices.Columns["services_name"].MinimumWidth = 200;
+            dgSalesServices.Columns["services_name"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+
+        }
+
         private void FrmSales_Load(object sender, EventArgs e)
         {
             dgSales.SelectionChanged -= dgSales_SelectionChanged;
@@ -107,7 +136,11 @@ namespace ZenBiz.AppModules.Forms.Sales
             dgSales.SelectionChanged += dgSales_SelectionChanged;
 
             if (dgSales.SelectedRows.Count == 1)
+            {
                 LoadSalesItems();
+                LoadSalesServices();
+            }
+
             if (dgSales.Rows.Count == 0)
             {
                 btnEdit.Enabled = false;
@@ -122,6 +155,7 @@ namespace ZenBiz.AppModules.Forms.Sales
             if (dgSales.SelectedRows.Count == 1)
             {
                 LoadSalesItems();
+                LoadSalesServices();
                 btnPayments.Enabled = true;
                 return;
             }
