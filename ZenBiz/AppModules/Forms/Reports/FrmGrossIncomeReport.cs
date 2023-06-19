@@ -39,6 +39,9 @@ namespace ZenBiz.AppModules.Forms.Reports
         private DataTable DataTableGrossIncome()
         {
             DataTable dataTableFromDB;
+            DataTable dtSalesServices;
+            int previousSalesID = 0;
+
             var dtReport = new DataSet1.GrossIncomeDataTable();
             int storeId = Convert.ToInt32(cmbStores.SelectedValue);
             if (storeId == 0)
@@ -46,10 +49,13 @@ namespace ZenBiz.AppModules.Forms.Reports
             else
                 dataTableFromDB = Factory.SalesItemController().Fetch(dtpFrom.Value, dtpTo.Value, storeId);
 
+
+
             foreach (DataRow item in dataTableFromDB.Rows)
             {
                 decimal grossSale = Convert.ToDecimal(item["gross_sale"]);
                 decimal unitCost = Helper.UserType == "Staff" ? 0 : Convert.ToDecimal(item["sold_unit_cost"]);
+
                 DataRow row = dtReport.NewRow();
                 row["trans_no"] = item["trans_no"];
                 row["trans_date"] = Convert.ToDateTime(item["trans_date"]).ToString("MMM dd, yyyy");
@@ -57,12 +63,39 @@ namespace ZenBiz.AppModules.Forms.Reports
                 row["sold_price"] = item["sold_price"];
                 row["sold_quantity"] = item["sold_quantity"];
                 row["sold_unit_cost"] = unitCost;
-                row["total_sale"] = grossSale - unitCost;
+                row["total_sale"] = grossSale;
                 row["sku_code"] = item["sku_code"];
                 row["item_name"] = item["item_name"];
                 row["unit_name"] = item["unit_name"];
 
                 dtReport.Rows.Add(row);
+
+
+                //FOR SALES SERVICES
+                int salesID = Convert.ToInt32(item["sales_id"]);
+                dtSalesServices = Factory.SalesServicesController().FetchBySalesId(salesID);
+
+                if (dtSalesServices.Rows.Count != 0)
+                {
+                    foreach (DataRow salesServicesItem in dtSalesServices.Rows)
+                    {
+
+                        if (previousSalesID == salesID)
+                            break;
+
+                        DataRow serviceRow = dtReport.NewRow();
+                        serviceRow["trans_no"] = salesServicesItem["trans_no"];
+                        serviceRow["trans_date"] = Convert.ToDateTime(salesServicesItem["trans_date"]).ToString("MMM dd, yyyy");
+                        serviceRow["customer_name"] = salesServicesItem["customer_name"];
+                        serviceRow["sold_price"] = salesServicesItem["fee"];
+                        serviceRow["sold_quantity"] = 1;
+                        serviceRow["total_sale"] = salesServicesItem["fee"];
+                        serviceRow["item_name"] = salesServicesItem["services_name"];
+
+                        dtReport.Rows.Add(serviceRow);
+                    }
+                }
+                previousSalesID = salesID;
             }
 
             return dtReport;

@@ -118,6 +118,11 @@ namespace ZenBiz.AppModules.Forms.Sales
             dgSalesServices.Columns["sales_id"].Visible = false;
             dgSalesServices.Columns["services_id"].Visible = false;
             dgSalesServices.Columns["personnel_id"].Visible = false;
+
+            dgSalesServices.Columns["trans_no"].Visible = false;
+            dgSalesServices.Columns["trans_date"].Visible = false;
+            dgSalesServices.Columns["customer_name"].Visible = false;
+
             dgSalesServices.Columns["services_name"].HeaderText = "Service";
             dgSalesServices.Columns["personnel_name"].HeaderText = "Personnel";
             dgSalesServices.Columns["fee"].HeaderText = "Fee";
@@ -162,6 +167,8 @@ namespace ZenBiz.AppModules.Forms.Sales
             btnPayments.Enabled = false;
             dgSalesItems.DataSource = null;
             dgSalesItems.Rows.Clear();
+            dgSalesServices.DataSource = null;
+            dgSalesServices.Rows.Clear();
 
         }
 
