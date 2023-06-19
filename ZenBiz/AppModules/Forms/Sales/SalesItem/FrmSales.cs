@@ -123,7 +123,6 @@ namespace ZenBiz.AppModules.Forms.Sales
             dgSalesServices.Columns["fee"].HeaderText = "Fee";
             dgSalesServices.Columns["fee"].DefaultCellStyle.Format = "N2";
 
-            dgSalesServices.Columns["services_name"].Width = 200;
             dgSalesServices.Columns["services_name"].MinimumWidth = 200;
             dgSalesServices.Columns["services_name"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
 
