@@ -133,8 +133,11 @@ namespace ZenBiz.AppModules.Controllers
 
         public decimal BalanceAmount(int salesId)
         {
-            decimal totalSale = Factory.SalesItemController().GrossSales(salesId);
-            return totalSale - SumTotalPaymentsPerSalesId(salesId);
+            decimal servicesGross = Factory.SalesServicesController().GrossSales(salesId);
+            decimal itemsGrossSales = Factory.SalesItemController().GrossSales(salesId);
+            decimal totalSales = (servicesGross + itemsGrossSales) - SumTotalPaymentsPerSalesId(salesId);
+
+            return totalSales;
         }
 
         public DataTable FetchByCustomerID(int customerID)
