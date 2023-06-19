@@ -118,7 +118,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Purchased Items:</Value>
+                                  <Value>Purchased Items/Services:</Value>
                                   <Style>
                                     <FontSize>9pt</FontSize>
                                     <Color>DimGray</Color>
