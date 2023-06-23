@@ -1,14 +1,5 @@
 ﻿using Microsoft.Reporting.WinForms;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using ZenBiz.AppModules.Controllers;
 using ZenBiz.AppModules.RDLC;
 
 namespace ZenBiz.AppModules.Forms.Reports
@@ -145,7 +136,7 @@ namespace ZenBiz.AppModules.Forms.Reports
         {
             var dtReport = new DataSet1.StatementOfAccountDataTable();
             int customerID = Convert.ToInt32(cmbCustomers.SelectedValue);
-            
+
             DataTable dtSalesByCustomer = Factory.SalesController().FetchByCustomerID(customerID);
 
             foreach (DataRow item in dtSalesByCustomer.Rows)
@@ -180,7 +171,7 @@ namespace ZenBiz.AppModules.Forms.Reports
             int salesID = Convert.ToInt32(salesDict["id"]);
             _salesID = salesID;
 
-            DataTable  dtCustomerPayments = Factory.PaymentsController().FetchbySalesId(salesID);
+            DataTable dtCustomerPayments = Factory.PaymentsController().FetchbySalesId(salesID);
             decimal balance = Factory.SalesItemController().GrossSales(salesID);
 
             foreach (DataRow item in dtCustomerPayments.Rows)
@@ -188,7 +179,7 @@ namespace ZenBiz.AppModules.Forms.Reports
                 DataRow row = dtReport.NewRow();
                 row["transaction_date"] = item["date_paid"].ToString();
                 row["payment_type"] = item["payment_type"].ToString();
-                row["payments"] = Convert.ToDecimal(item["amount"]); 
+                row["payments"] = Convert.ToDecimal(item["amount"]);
                 row["balance"] = balance -= Convert.ToDecimal(item["amount"]);
 
                 dtReport.Rows.Add(row);
@@ -215,6 +206,18 @@ namespace ZenBiz.AppModules.Forms.Reports
                 rowDetails["amount"] = soldPrice * soldQuatity;
                 dtReportDetails.Rows.Add(rowDetails);
             }
+
+
+            DataTable dtTransactionSalesServices = Factory.SalesServicesController().FetchBySalesId(_salesID);
+
+            foreach (DataRow transactionServices in dtTransactionSalesServices.Rows)
+            {
+                DataRow rowDetails = dtReportDetails.NewRow();
+                rowDetails["details"] = transactionServices["services_name"];
+                rowDetails["amount"] = transactionServices["fee"];
+                dtReportDetails.Rows.Add(rowDetails);
+            }
+
 
             return dtReportDetails;
         }

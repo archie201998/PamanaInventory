@@ -44,6 +44,7 @@ namespace ZenBiz.AppModules.Forms.Payments
             dgPayments.Columns["date_paid"].HeaderText = "Date Paid";
             dgPayments.Columns["date_paid"].DefaultCellStyle.Format = "MMM dd, yyyy";
             dgPayments.Columns["ref_code"].HeaderText = "Reference Code";
+            dgPayments.Columns["payment_type"].HeaderText = "Payment Type";
 
             SumPayments();
         }
