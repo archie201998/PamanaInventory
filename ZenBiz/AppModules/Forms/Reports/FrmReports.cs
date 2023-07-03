@@ -58,5 +58,10 @@
         {
             ShowMdiForm(new FrmAgingReceivables());
         }
+
+        private void fastSlowMovingStocksToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ShowMdiForm(new FrmFastAndSlowMovingStocks());
+        }
     }
 }
