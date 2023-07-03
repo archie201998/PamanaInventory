@@ -78,6 +78,11 @@ namespace ZenBiz.AppModules.Forms.Sales
             dgSales.Columns["balance"].DefaultCellStyle.Format = "N2";
             dgSales.Columns["balance"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
             dgSales.Columns["balance"].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleRight;
+            dgSales.Columns["trans_due_date"].HeaderText = "Due Date";
+            dgSales.Columns["trans_due_date"].DefaultCellStyle.Format = "MMM dd, yyyy";
+            dgSales.Columns["trans_due_date"].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dgSales.Columns["trans_due_date"].DisplayIndex = (dgSales.Columns.Count) - 1;
+
             dgSales.CurrentCell = dgSales.FirstDisplayedCell;
 
 

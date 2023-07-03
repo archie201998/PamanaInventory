@@ -17,7 +17,7 @@ namespace ZenBiz.AppModules.Forms.Sales
 
         private void FrmSalesAdd_Load(object sender, EventArgs e)
         {
-            uc.groupBoxPayments.Enabled = false;
+            uc.panel2.Enabled = false;
             uc.txtTransactionNo.Text = Factory.SalesController().GenerateTransactionNumber().ToString().PadLeft(7, '0');
         }
 
@@ -76,6 +76,7 @@ namespace ZenBiz.AppModules.Forms.Sales
                 Customers = new CustomersModel() { Id = uc.CustomerId },
                 TransactioNo = uc.txtTransactionNo.Text.Trim(),
                 TransactionDate = uc.dtpTransactionDate.Value,
+                TransactionDueDate = uc.dtpDueDate.Enabled ? uc.dtpDueDate.Value : null,
                 Users = new UsersModel() { Id = Helper.UserId },
             };
 

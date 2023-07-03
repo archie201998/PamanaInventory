@@ -77,7 +77,7 @@ namespace ZenBiz.AppModules.Forms.Sales
                 total += Convert.ToDecimal(item.Cells["Total"].Value);
             }
             lblTotalItemSales.Text = total.ToString("n2");
-            lblTotalSales.Text = (Convert.ToDecimal(lblTotalItemSales.Text) + Convert.ToDecimal(lblTotalServicesFee.Text)).ToString("n2");
+            txtTotalSales.Text = (Convert.ToDecimal(lblTotalItemSales.Text) + Convert.ToDecimal(lblTotalServicesFee.Text)).ToString("n2");
         }
 
         internal void SumTotalServiceFee()
@@ -88,7 +88,7 @@ namespace ZenBiz.AppModules.Forms.Sales
                 total += Convert.ToDecimal(item.Cells["fee"].Value);
             }
             lblTotalServicesFee.Text = total.ToString("n2");
-            lblTotalSales.Text = (Convert.ToDecimal(lblTotalItemSales.Text) + Convert.ToDecimal(lblTotalServicesFee.Text)).ToString("n2");
+            txtTotalSales.Text = (Convert.ToDecimal(lblTotalItemSales.Text) + Convert.ToDecimal(lblTotalServicesFee.Text)).ToString("n2");
         }
 
         private void LoadPaymentTypes()
@@ -143,7 +143,7 @@ namespace ZenBiz.AppModules.Forms.Sales
 
         private void chkPayment_CheckedChanged(object sender, EventArgs e)
         {
-            groupBoxPayments.Enabled = chkPayment.Checked;
+            panel2.Enabled = chkPayment.Checked;
             cmbPaymentType.SelectedIndex = 0;
             txtRefCode.Clear();
             nudAmountPaid.Value = 0;
@@ -163,13 +163,12 @@ namespace ZenBiz.AppModules.Forms.Sales
             SumTotalServiceFee();
         }
 
-        private void label10_Click(object sender, EventArgs e)
+        private void nudAmountPaid_ValueChanged(object sender, EventArgs e)
         {
+            decimal totalPayable = Convert.ToDecimal(txtTotalSales.Text);
+            decimal amountPayed = nudAmountPaid.Value;
 
-        }
-
-        private void lblTotalSales_TextChanged(object sender, EventArgs e)
-        {
+            dtpDueDate.Enabled = amountPayed < totalPayable;
         }
     }
 }
