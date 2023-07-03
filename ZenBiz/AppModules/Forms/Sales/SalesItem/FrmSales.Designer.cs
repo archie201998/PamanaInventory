@@ -60,6 +60,7 @@
             dgSales.RowTemplate.Height = 25;
             dgSales.Size = new Size(898, 317);
             dgSales.TabIndex = 0;
+            dgSales.DataBindingComplete += dgSales_DataBindingComplete;
             dgSales.SelectionChanged += dgSales_SelectionChanged;
             // 
             // btnAdd
