@@ -31,13 +31,13 @@
             groupBox1 = new GroupBox();
             panel2 = new Panel();
             label1 = new Label();
+            label3 = new Label();
             cmbStores = new ComboBox();
+            dtpTo = new DateTimePicker();
+            label2 = new Label();
+            dtpFrom = new DateTimePicker();
             btnGenerate = new Button();
             panel1 = new Panel();
-            label3 = new Label();
-            label2 = new Label();
-            dtpTo = new DateTimePicker();
-            dtpFrom = new DateTimePicker();
             groupBox1.SuspendLayout();
             panel2.SuspendLayout();
             SuspendLayout();
@@ -78,6 +78,15 @@
             label1.TabIndex = 12;
             label1.Text = "Store";
             // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(463, 7);
+            label3.Name = "label3";
+            label3.Size = new Size(19, 15);
+            label3.TabIndex = 10;
+            label3.Text = "To";
+            // 
             // cmbStores
             // 
             cmbStores.DropDownStyle = ComboBoxStyle.DropDownList;
@@ -86,6 +95,29 @@
             cmbStores.Name = "cmbStores";
             cmbStores.Size = new Size(155, 23);
             cmbStores.TabIndex = 11;
+            // 
+            // dtpTo
+            // 
+            dtpTo.Location = new Point(488, 4);
+            dtpTo.Name = "dtpTo";
+            dtpTo.Size = new Size(200, 23);
+            dtpTo.TabIndex = 9;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(217, 7);
+            label2.Name = "label2";
+            label2.Size = new Size(35, 15);
+            label2.TabIndex = 8;
+            label2.Text = "From";
+            // 
+            // dtpFrom
+            // 
+            dtpFrom.Location = new Point(257, 4);
+            dtpFrom.Name = "dtpFrom";
+            dtpFrom.Size = new Size(200, 23);
+            dtpFrom.TabIndex = 7;
             // 
             // btnGenerate
             // 
@@ -104,38 +136,6 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(960, 473);
             panel1.TabIndex = 5;
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Location = new Point(463, 7);
-            label3.Name = "label3";
-            label3.Size = new Size(19, 15);
-            label3.TabIndex = 10;
-            label3.Text = "To";
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Location = new Point(217, 7);
-            label2.Name = "label2";
-            label2.Size = new Size(35, 15);
-            label2.TabIndex = 8;
-            label2.Text = "From";
-            // 
-            // dtpTo
-            // 
-            dtpTo.Location = new Point(488, 4);
-            dtpTo.Name = "dtpTo";
-            dtpTo.Size = new Size(200, 23);
-            dtpTo.TabIndex = 9;
-            // 
-            // dtpFrom
-            // 
-            dtpFrom.Location = new Point(257, 4);
-            dtpFrom.Name = "dtpFrom";
-            dtpFrom.Size = new Size(200, 23);
-            dtpFrom.TabIndex = 7;
             // 
             // FrmGrossIncomeReport
             // 

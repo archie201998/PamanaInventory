@@ -63,7 +63,6 @@
             txtUsername.Name = "txtUsername";
             txtUsername.Size = new Size(274, 29);
             txtUsername.TabIndex = 1;
-            txtUsername.Text = "sysadmin";
             // 
             // txtPassword
             // 
@@ -73,7 +72,6 @@
             txtPassword.PasswordChar = '●';
             txtPassword.Size = new Size(274, 29);
             txtPassword.TabIndex = 3;
-            txtPassword.Text = "123";
             // 
             // label2
             // 
