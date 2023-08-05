@@ -10,6 +10,8 @@ namespace ZenBiz.AppModules.Interfaces
         DataTable Fetch(DateTime dateFrom, DateTime dateTo, int storeId);
         DataTable FetchBySalesId(int salesId);
         DataTable FetchBySalesIdPerCustomer(int salesID, int customerID);
+        DataTable FetchFastAndSlowMovingStocks(int storeId, DateTime dateFrom, DateTime dateTo);
+        DataTable FetchSalableItem();
         DataTable FetchSoldItems(DateTime dateFrom, DateTime dateTo);
         DataTable FetchSoldItems(DateTime dateFrom, DateTime dateTo, int storeId);
         decimal GrossSales(int salesId);

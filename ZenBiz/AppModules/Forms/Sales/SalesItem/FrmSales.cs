@@ -78,6 +78,11 @@ namespace ZenBiz.AppModules.Forms.Sales
             dgSales.Columns["balance"].DefaultCellStyle.Format = "N2";
             dgSales.Columns["balance"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
             dgSales.Columns["balance"].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleRight;
+            dgSales.Columns["trans_due_date"].HeaderText = "Due Date";
+            dgSales.Columns["trans_due_date"].DefaultCellStyle.Format = "MMM dd, yyyy";
+            dgSales.Columns["trans_due_date"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dgSales.Columns["trans_due_date"].DisplayIndex = (dgSales.Columns.Count) - 1;
+
             dgSales.CurrentCell = dgSales.FirstDisplayedCell;
 
 
@@ -239,6 +244,29 @@ namespace ZenBiz.AppModules.Forms.Sales
                 LoadSales();
             }
             form.Dispose();
+        }
+
+        private void dgSales_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void dgSales_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            DateTime dueDate;
+            DateTime todaysDate = DateTime.Today;
+
+            foreach (DataGridViewRow row in dgSales.Rows)
+            {
+                if (!string.IsNullOrEmpty(row.Cells["trans_due_date"].Value.ToString()))
+                {
+                    dueDate = Convert.ToDateTime(row.Cells["trans_due_date"].Value);
+
+                    if (todaysDate > dueDate)
+                        row.Cells["trans_due_date"].Style.ForeColor = Color.Red;
+                }
+            }
+
         }
     }
 }

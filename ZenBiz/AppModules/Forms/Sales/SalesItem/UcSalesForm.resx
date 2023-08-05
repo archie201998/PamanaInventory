@@ -120,6 +120,9 @@
   <metadata name="toolStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
+  <metadata name="toolStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="btnAddItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -142,11 +145,14 @@
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACcSURBVEhLY4CBE75R/if8og8cDQj8Uh8Y848cDNILMgNk
-        FtRYCDgeEN2JTQMlGGQm2HCQbdgUUAODfXIiIHI/NklqYJDZDJSEOSEMMpsBmwQ18agFBDH9LZhaX08R
-        3m9v/xfZPAwL1q9fTxEeeAuweZsUTNACauNRCwhi2ltA8+IaVIdik6QGBpkNrNFoXGWCAE0rfRigTbOF
-        gQEACTHrojMtHSQAAAAASUVORK5CYII=
+        FtRYCDgeEN2JTQMlGGQm2HCQbdgUUAODfXIiIHI/NklqYJDZDJSEOSEMMpsBmwQ18agFBDH9LZhQX08R
+        3m9v/xfZPAwLVq1aRREeeAuweZsUTNACauNRCwhi2ltA8+IaVIdik6QGBpkNrNFoXGWCAE0rfRigTbOF
+        gQEAqJ3pIhjFHOYAAAAASUVORK5CYII=
 </value>
   </data>
+  <metadata name="lblTotalServiceFee.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
   <metadata name="lblTotalServiceFee.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
@@ -171,9 +177,9 @@
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACcSURBVEhLY4CBE75R/if8og8cDQj8Uh8Y848cDNILMgNk
-        FtRYCDgeEN2JTQMlGGQm2HCQbdgUUAODfXIiIHI/NklqYJDZDJSEOSEMMpsBmwQ18agFBDH9LZhSX08R
-        3m9v/xfZPAwL1q1bRxEeeAuweZsUTNACauNRCwhi2ltA8+IaVIdik6QGBpkNrNFoXGWCAE0rfRigTbOF
-        gQEAwqTrIm8XEEgAAAAASUVORK5CYII=
+        FtRYCDgeEN2JTQMlGGQm2HCQbdgUUAODfXIiIHI/NklqYJDZDJSEOSEMMpsBmwQ18agFBDH9Leivr6cI
+        77e3/4tsHoYFK1eupAgPvAXYvE0KJmgBtfGoBQQx7S2geXENqkOxSVIDg8wG1mg0rjJBgKaVPgzQptnC
+        wAAAYh/oovWQn9kAAAAASUVORK5CYII=
 </value>
   </data>
   <metadata name="epCustomer.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">

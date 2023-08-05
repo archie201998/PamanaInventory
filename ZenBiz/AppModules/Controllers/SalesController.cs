@@ -1,5 +1,4 @@
-﻿using Microsoft.ReportingServices.ReportProcessing.ReportObjectModel;
-using System.Data;
+﻿using System.Data;
 using System.Transactions;
 using ZenBiz.AppModules.Interfaces;
 using ZenBiz.AppModules.Models;
@@ -43,7 +42,7 @@ namespace ZenBiz.AppModules.Controllers
 
         public DataTable Fetch()
         {
-            string query = $"SELECT id, customers_id, trans_no, trans_date, customer_name FROM {viewSales} ORDER BY trans_date DESC";
+            string query = $"SELECT id, customers_id, trans_no, trans_date, trans_due_date, customer_name FROM {viewSales} ORDER BY trans_date DESC";
             return _dbGenericCommands.Fill(query);
         }
 
@@ -53,7 +52,7 @@ namespace ZenBiz.AppModules.Controllers
             {
                 new object[] { "@trans_date", DbType.Date, transactionDate },
             };
-            string query = $"SELECT id, customers_id, trans_no, trans_date, customer_name FROM {viewSales} WHERE trans_date = @trans_date ORDER BY trans_date DESC";
+            string query = $"SELECT id, customers_id, trans_no, trans_date, trans_due_date, customer_name FROM {viewSales} WHERE trans_date = @trans_date ORDER BY trans_date DESC";
             return _dbGenericCommands.Fill(query, parameters);
         }
 
@@ -94,10 +93,11 @@ namespace ZenBiz.AppModules.Controllers
                 new object[] { "@customers_id", DbType.Int32, entity.Customers.Id != 0 ? entity.Customers.Id : DBNull.Value },
                 new object[] { "@trans_no", DbType.String, entity.TransactioNo },
                 new object[] { "@trans_date", DbType.Date, entity.TransactionDate },
+                new object[] { "@trans_due_date", DbType.Date, entity.TransactionDueDate },
                 new object[] { "@created_by", DbType.Int32, entity.Users.Id },
             };
 
-            string query = $"INSERT INTO {tblSales} (customers_id, trans_no, trans_date, created_by) VALUES (@customers_id, @trans_no, @trans_date, @created_by)";
+            string query = $"INSERT INTO {tblSales} (customers_id, trans_no, trans_date, trans_due_date, created_by) VALUES (@customers_id, @trans_no, @trans_date, @trans_due_date, @created_by)";
             return _dbGenericCommands.ExecuteNonQuery(query, parameters);
         }
 
@@ -134,7 +134,7 @@ namespace ZenBiz.AppModules.Controllers
             {
                 new object[] { "@customers_id", DbType.Int32, customerID },
             };
-            string query = $"SELECT id, trans_no, trans_date FROM {viewSales} WHERE customers_id = @customers_id ORDER BY trans_date DESC";
+            string query = $"SELECT id, trans_no, trans_date, trans_due_date FROM {viewSales} WHERE customers_id = @customers_id ORDER BY trans_date DESC";
             return _dbGenericCommands.Fill(query, parameters);
         }
 

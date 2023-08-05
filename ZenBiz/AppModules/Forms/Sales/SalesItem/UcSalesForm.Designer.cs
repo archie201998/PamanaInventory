@@ -63,6 +63,9 @@
             label1 = new Label();
             epCustomer = new ErrorProvider(components);
             groupBoxPayments = new GroupBox();
+            panel3 = new Panel();
+            dtpDueDate = new DateTimePicker();
+            label11 = new Label();
             panel2 = new Panel();
             dtpDatePaid = new DateTimePicker();
             label9 = new Label();
@@ -74,7 +77,7 @@
             label6 = new Label();
             chkPayment = new CheckBox();
             label10 = new Label();
-            lblTotalSales = new TextBox();
+            txtTotalSales = new TextBox();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgItems).BeginInit();
@@ -86,6 +89,7 @@
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)epCustomer).BeginInit();
             groupBoxPayments.SuspendLayout();
+            panel3.SuspendLayout();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)nudAmountPaid).BeginInit();
             SuspendLayout();
@@ -392,13 +396,42 @@
             // 
             // groupBoxPayments
             // 
+            groupBoxPayments.Controls.Add(panel3);
             groupBoxPayments.Controls.Add(panel2);
             groupBoxPayments.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
             groupBoxPayments.Location = new Point(3, 410);
             groupBoxPayments.Name = "groupBoxPayments";
-            groupBoxPayments.Size = new Size(805, 146);
+            groupBoxPayments.Size = new Size(805, 170);
             groupBoxPayments.TabIndex = 29;
             groupBoxPayments.TabStop = false;
+            // 
+            // panel3
+            // 
+            panel3.Controls.Add(dtpDueDate);
+            panel3.Controls.Add(label11);
+            panel3.Dock = DockStyle.Fill;
+            panel3.Location = new Point(3, 138);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(799, 29);
+            panel3.TabIndex = 9;
+            // 
+            // dtpDueDate
+            // 
+            dtpDueDate.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dtpDueDate.Location = new Point(110, 3);
+            dtpDueDate.Name = "dtpDueDate";
+            dtpDueDate.Size = new Size(665, 23);
+            dtpDueDate.TabIndex = 8;
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            label11.Location = new Point(6, 5);
+            label11.Name = "label11";
+            label11.Size = new Size(55, 15);
+            label11.TabIndex = 7;
+            label11.Text = "Due Date";
             // 
             // panel2
             // 
@@ -410,11 +443,11 @@
             panel2.Controls.Add(nudAmountPaid);
             panel2.Controls.Add(txtRefCode);
             panel2.Controls.Add(label6);
-            panel2.Dock = DockStyle.Fill;
+            panel2.Dock = DockStyle.Top;
             panel2.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             panel2.Location = new Point(3, 19);
             panel2.Name = "panel2";
-            panel2.Size = new Size(799, 124);
+            panel2.Size = new Size(799, 119);
             panel2.TabIndex = 0;
             // 
             // dtpDatePaid
@@ -427,7 +460,7 @@
             // label9
             // 
             label9.AutoSize = true;
-            label9.Location = new Point(4, 89);
+            label9.Location = new Point(4, 92);
             label9.Name = "label9";
             label9.Size = new Size(57, 15);
             label9.TabIndex = 7;
@@ -454,7 +487,7 @@
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(4, 60);
+            label7.Location = new Point(4, 62);
             label7.Name = "label7";
             label7.Size = new Size(51, 15);
             label7.TabIndex = 3;
@@ -468,6 +501,7 @@
             nudAmountPaid.Name = "nudAmountPaid";
             nudAmountPaid.Size = new Size(665, 23);
             nudAmountPaid.TabIndex = 2;
+            nudAmountPaid.ValueChanged += nudAmountPaid_ValueChanged;
             // 
             // txtRefCode
             // 
@@ -480,7 +514,7 @@
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(3, 32);
+            label6.Location = new Point(3, 34);
             label6.Name = "label6";
             label6.Size = new Size(90, 15);
             label6.TabIndex = 0;
@@ -508,29 +542,27 @@
             label10.Size = new Size(64, 15);
             label10.TabIndex = 6;
             label10.Text = "Total Sales:";
-            label10.Click += label10_Click;
             // 
-            // lblTotalSales
+            // txtTotalSales
             // 
-            lblTotalSales.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            lblTotalSales.BackColor = SystemColors.Control;
-            lblTotalSales.BorderStyle = BorderStyle.None;
-            lblTotalSales.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            lblTotalSales.Location = new Point(727, 388);
-            lblTotalSales.MaxLength = 45;
-            lblTotalSales.Name = "lblTotalSales";
-            lblTotalSales.Size = new Size(78, 16);
-            lblTotalSales.TabIndex = 1;
-            lblTotalSales.Text = "0.00";
-            lblTotalSales.TextAlign = HorizontalAlignment.Right;
-            lblTotalSales.TextChanged += lblTotalSales_TextChanged;
+            txtTotalSales.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            txtTotalSales.BackColor = SystemColors.Control;
+            txtTotalSales.BorderStyle = BorderStyle.None;
+            txtTotalSales.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            txtTotalSales.Location = new Point(727, 388);
+            txtTotalSales.MaxLength = 45;
+            txtTotalSales.Name = "txtTotalSales";
+            txtTotalSales.Size = new Size(78, 16);
+            txtTotalSales.TabIndex = 1;
+            txtTotalSales.Text = "0.00";
+            txtTotalSales.TextAlign = HorizontalAlignment.Right;
             // 
             // UcSalesForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(chkPayment);
-            Controls.Add(lblTotalSales);
+            Controls.Add(txtTotalSales);
             Controls.Add(label10);
             Controls.Add(groupBoxPayments);
             Controls.Add(groupBox1);
@@ -558,6 +590,8 @@
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)epCustomer).EndInit();
             groupBoxPayments.ResumeLayout(false);
+            panel3.ResumeLayout(false);
+            panel3.PerformLayout();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)nudAmountPaid).EndInit();
@@ -590,7 +624,6 @@
         internal TextBox txtCustomerAddress;
         internal TextBox txtCustomerName;
         private Button btnClear;
-        private Panel panel2;
         private Label label9;
         private Label label8;
         private Label label7;
@@ -610,6 +643,10 @@
         private ToolStripLabel toolStripLabel3;
         internal DataGridView dgServices;
         private Label label10;
-        internal TextBox lblTotalSales;
+        internal TextBox txtTotalSales;
+        internal DateTimePicker dtpDueDate;
+        private Label label11;
+        internal Panel panel2;
+        internal Panel panel3;
     }
 }

@@ -124,6 +124,16 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
+        <xs:element name="FastAndSlowMovingStocks" msprop:Generator_RowClassName="FastAndSlowMovingStocksRow" msprop:Generator_RowEvHandlerName="FastAndSlowMovingStocksRowChangeEventHandler" msprop:Generator_RowDeletedName="FastAndSlowMovingStocksRowDeleted" msprop:Generator_RowDeletingName="FastAndSlowMovingStocksRowDeleting" msprop:Generator_RowEvArgName="FastAndSlowMovingStocksRowChangeEvent" msprop:Generator_TablePropName="FastAndSlowMovingStocks" msprop:Generator_RowChangedName="FastAndSlowMovingStocksRowChanged" msprop:Generator_UserTableName="FastAndSlowMovingStocks" msprop:Generator_RowChangingName="FastAndSlowMovingStocksRowChanging" msprop:Generator_TableClassName="FastAndSlowMovingStocksDataTable" msprop:Generator_TableVarName="tableFastAndSlowMovingStocks">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="items_id" msprop:Generator_UserColumnName="items_id" msprop:Generator_ColumnPropNameInTable="items_idColumn" msprop:Generator_ColumnPropNameInRow="items_id" msprop:Generator_ColumnVarNameInTable="columnitems_id" type="xs:string" minOccurs="0" />
+              <xs:element name="sku_code" msprop:Generator_UserColumnName="sku_code" msprop:Generator_ColumnPropNameInTable="sku_codeColumn" msprop:Generator_ColumnPropNameInRow="sku_code" msprop:Generator_ColumnVarNameInTable="columnsku_code" type="xs:string" minOccurs="0" />
+              <xs:element name="item_name" msprop:Generator_UserColumnName="item_name" msprop:Generator_ColumnPropNameInTable="item_nameColumn" msprop:Generator_ColumnPropNameInRow="item_name" msprop:Generator_ColumnVarNameInTable="columnitem_name" type="xs:string" minOccurs="0" />
+              <xs:element name="quantity_sold" msprop:Generator_UserColumnName="quantity_sold" msprop:Generator_ColumnPropNameInTable="quantity_soldColumn" msprop:Generator_ColumnPropNameInRow="quantity_sold" msprop:Generator_ColumnVarNameInTable="columnquantity_sold" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
       </xs:choice>
     </xs:complexType>
   </xs:element>

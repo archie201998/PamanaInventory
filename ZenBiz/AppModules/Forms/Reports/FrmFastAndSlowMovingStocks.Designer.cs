@@ -1,6 +1,6 @@
 ﻿namespace ZenBiz.AppModules.Forms.Reports
 {
-    partial class FrmGrossIncomeReport
+    partial class FrmFastAndSlowMovingStocks
     {
         /// <summary>
         /// Required designer variable.
@@ -31,13 +31,13 @@
             groupBox1 = new GroupBox();
             panel2 = new Panel();
             label1 = new Label();
-            label3 = new Label();
             cmbStores = new ComboBox();
+            btnGenerate = new Button();
+            panel1 = new Panel();
+            label3 = new Label();
             dtpTo = new DateTimePicker();
             label2 = new Label();
             dtpFrom = new DateTimePicker();
-            btnGenerate = new Button();
-            panel1 = new Panel();
             groupBox1.SuspendLayout();
             panel2.SuspendLayout();
             SuspendLayout();
@@ -48,25 +48,25 @@
             groupBox1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
             groupBox1.Location = new Point(12, 12);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(827, 58);
-            groupBox1.TabIndex = 4;
+            groupBox1.Size = new Size(814, 58);
+            groupBox1.TabIndex = 5;
             groupBox1.TabStop = false;
             groupBox1.Text = "Parameters";
             // 
             // panel2
             // 
-            panel2.Controls.Add(label1);
             panel2.Controls.Add(label3);
-            panel2.Controls.Add(cmbStores);
             panel2.Controls.Add(dtpTo);
             panel2.Controls.Add(label2);
             panel2.Controls.Add(dtpFrom);
+            panel2.Controls.Add(label1);
+            panel2.Controls.Add(cmbStores);
             panel2.Controls.Add(btnGenerate);
             panel2.Dock = DockStyle.Fill;
             panel2.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             panel2.Location = new Point(3, 19);
             panel2.Name = "panel2";
-            panel2.Size = new Size(821, 36);
+            panel2.Size = new Size(808, 36);
             panel2.TabIndex = 0;
             // 
             // label1
@@ -78,15 +78,6 @@
             label1.TabIndex = 12;
             label1.Text = "Store";
             // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Location = new Point(463, 7);
-            label3.Name = "label3";
-            label3.Size = new Size(19, 15);
-            label3.TabIndex = 10;
-            label3.Text = "To";
-            // 
             // cmbStores
             // 
             cmbStores.DropDownStyle = ComboBoxStyle.DropDownList;
@@ -96,32 +87,9 @@
             cmbStores.Size = new Size(155, 23);
             cmbStores.TabIndex = 11;
             // 
-            // dtpTo
-            // 
-            dtpTo.Location = new Point(488, 4);
-            dtpTo.Name = "dtpTo";
-            dtpTo.Size = new Size(200, 23);
-            dtpTo.TabIndex = 9;
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Location = new Point(217, 7);
-            label2.Name = "label2";
-            label2.Size = new Size(35, 15);
-            label2.TabIndex = 8;
-            label2.Text = "From";
-            // 
-            // dtpFrom
-            // 
-            dtpFrom.Location = new Point(257, 4);
-            dtpFrom.Name = "dtpFrom";
-            dtpFrom.Size = new Size(200, 23);
-            dtpFrom.TabIndex = 7;
-            // 
             // btnGenerate
             // 
-            btnGenerate.Location = new Point(694, 4);
+            btnGenerate.Location = new Point(686, 4);
             btnGenerate.Name = "btnGenerate";
             btnGenerate.Size = new Size(115, 23);
             btnGenerate.TabIndex = 6;
@@ -135,18 +103,50 @@
             panel1.Location = new Point(12, 76);
             panel1.Name = "panel1";
             panel1.Size = new Size(960, 473);
-            panel1.TabIndex = 5;
+            panel1.TabIndex = 6;
             // 
-            // FrmGrossIncomeReport
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(455, 7);
+            label3.Name = "label3";
+            label3.Size = new Size(19, 15);
+            label3.TabIndex = 16;
+            label3.Text = "To";
+            // 
+            // dtpTo
+            // 
+            dtpTo.Location = new Point(480, 4);
+            dtpTo.Name = "dtpTo";
+            dtpTo.Size = new Size(200, 23);
+            dtpTo.TabIndex = 15;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(209, 7);
+            label2.Name = "label2";
+            label2.Size = new Size(35, 15);
+            label2.TabIndex = 14;
+            label2.Text = "From";
+            // 
+            // dtpFrom
+            // 
+            dtpFrom.Location = new Point(249, 4);
+            dtpFrom.Name = "dtpFrom";
+            dtpFrom.Size = new Size(200, 23);
+            dtpFrom.TabIndex = 13;
+            // 
+            // FrmFastAndSlowMovingStocks
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(984, 561);
             Controls.Add(panel1);
             Controls.Add(groupBox1);
-            Name = "FrmGrossIncomeReport";
-            Text = "Gross Income Report";
-            Load += FrmGrossIncomeReport_Load;
+            Name = "FrmFastAndSlowMovingStocks";
+            Text = "Fast & Slow Moving Stocks";
+            Load += FrmFastAndSlowMovingStocks_Load;
             groupBox1.ResumeLayout(false);
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
@@ -157,10 +157,10 @@
 
         private GroupBox groupBox1;
         private Panel panel2;
-        private Button btnGenerate;
-        private Panel panel1;
         private Label label1;
         private ComboBox cmbStores;
+        private Button btnGenerate;
+        private Panel panel1;
         private Label label3;
         private DateTimePicker dtpTo;
         private Label label2;
