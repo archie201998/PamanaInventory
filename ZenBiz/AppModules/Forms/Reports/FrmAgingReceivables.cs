@@ -60,7 +60,7 @@ namespace ZenBiz.AppModules.Forms.Reports
             int salesID = Convert.ToInt32(cmbTransactionNo.SelectedValue);
 
             dataTableFromDB = Factory.SalesItemController().FetchBySalesIdPerCustomer(salesID, customerID);
-            
+
             foreach (DataRow item in dataTableFromDB.Rows)
             {
                 int saleID = Convert.ToInt32(item["sales_id"]);
@@ -74,6 +74,7 @@ namespace ZenBiz.AppModules.Forms.Reports
 
                 row["customer_name"] = item["customer_name"];
                 row["transaction_number"] = item["trans_no"];
+                row["transaction_date"] = item["trans_date"];
                 row["total"] = totalPayments + balance;
                 row["outstanding"] = balance;
 
@@ -83,13 +84,13 @@ namespace ZenBiz.AppModules.Forms.Reports
 
                 if (daysCount <= 30)
                     row["thirty_days"] = balance;
-                else if(daysCount <= 60 && daysCount >= 31)
+                else if (daysCount <= 60 && daysCount >= 31)
                     row["sixty_days"] = balance;
-                else if(daysCount <= 90 && daysCount > 60)
+                else if (daysCount <= 90 && daysCount > 60)
                     row["ninety_days"] = balance;
-                else if(daysCount > 90)
+                else if (daysCount > 90)
                     row["over_ninety_days"] = balance;
-               
+
                 dtReport.Rows.Add(row);
             }
 
