@@ -2013,6 +2013,8 @@ namespace ZenBiz.AppModules.RDLC {
             
             private global::System.Data.DataColumn columntransaction_number;
             
+            private global::System.Data.DataColumn columntransaction_date;
+            
             private global::System.Data.DataColumn columntotal;
             
             private global::System.Data.DataColumn columnoutstanding;
@@ -2071,6 +2073,14 @@ namespace ZenBiz.AppModules.RDLC {
             public global::System.Data.DataColumn transaction_numberColumn {
                 get {
                     return this.columntransaction_number;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn transaction_dateColumn {
+                get {
+                    return this.columntransaction_date;
                 }
             }
             
@@ -2159,11 +2169,12 @@ namespace ZenBiz.AppModules.RDLC {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public AgingReceivableRow AddAgingReceivableRow(string customer_name, string transaction_number, decimal total, decimal outstanding, decimal thirty_days, decimal sixty_days, decimal ninety_days, decimal over_ninety_days) {
+            public AgingReceivableRow AddAgingReceivableRow(string customer_name, string transaction_number, System.DateTime transaction_date, decimal total, decimal outstanding, decimal thirty_days, decimal sixty_days, decimal ninety_days, decimal over_ninety_days) {
                 AgingReceivableRow rowAgingReceivableRow = ((AgingReceivableRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         customer_name,
                         transaction_number,
+                        transaction_date,
                         total,
                         outstanding,
                         thirty_days,
@@ -2194,6 +2205,7 @@ namespace ZenBiz.AppModules.RDLC {
             internal void InitVars() {
                 this.columncustomer_name = base.Columns["customer_name"];
                 this.columntransaction_number = base.Columns["transaction_number"];
+                this.columntransaction_date = base.Columns["transaction_date"];
                 this.columntotal = base.Columns["total"];
                 this.columnoutstanding = base.Columns["outstanding"];
                 this.columnthirty_days = base.Columns["thirty_days"];
@@ -2209,6 +2221,8 @@ namespace ZenBiz.AppModules.RDLC {
                 base.Columns.Add(this.columncustomer_name);
                 this.columntransaction_number = new global::System.Data.DataColumn("transaction_number", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columntransaction_number);
+                this.columntransaction_date = new global::System.Data.DataColumn("transaction_date", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columntransaction_date);
                 this.columntotal = new global::System.Data.DataColumn("total", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columntotal);
                 this.columnoutstanding = new global::System.Data.DataColumn("outstanding", typeof(decimal), null, global::System.Data.MappingType.Element);
@@ -4731,6 +4745,22 @@ namespace ZenBiz.AppModules.RDLC {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public System.DateTime transaction_date {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableAgingReceivable.transaction_dateColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'transaction_date\' in table \'AgingReceivable\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableAgingReceivable.transaction_dateColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public decimal total {
                 get {
                     try {
@@ -4847,6 +4877,18 @@ namespace ZenBiz.AppModules.RDLC {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void Settransaction_numberNull() {
                 this[this.tableAgingReceivable.transaction_numberColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Istransaction_dateNull() {
+                return this.IsNull(this.tableAgingReceivable.transaction_dateColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Settransaction_dateNull() {
+                this[this.tableAgingReceivable.transaction_dateColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
