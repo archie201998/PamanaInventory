@@ -14,6 +14,7 @@
     <None Remove="AppModules\RDLC\aging-accounts-receivables.rdlc" />
     <None Remove="AppModules\RDLC\fast-and-slow-moving-stocks.rdlc" />
     <None Remove="AppModules\RDLC\gross-income.rdlc" />
+    <None Remove="AppModules\RDLC\sales-due.rdlc" />
     <None Remove="AppModules\RDLC\sold-items.rdlc" />
     <None Remove="AppModules\RDLC\statement-of-account-by-customer.rdlc" />
     <None Remove="AppModules\RDLC\statement-of-account-by-transaction.rdlc" />
@@ -36,6 +37,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="AppModules\RDLC\gross-income.rdlc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="AppModules\RDLC\sales-due.rdlc">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="AppModules\RDLC\sold-items.rdlc">

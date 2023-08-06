@@ -101,7 +101,6 @@ namespace ZenBiz.AppModules.Forms.Reports
         {
             try
             {
-
                 Cursor.Current = Cursors.WaitCursor;
                 var dict = Factory.BusinessDetailsController().FindById(1);
                 var parameters = new[] {

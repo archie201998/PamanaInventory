@@ -63,5 +63,10 @@
         {
             ShowMdiForm(new FrmFastAndSlowMovingStocks());
         }
+
+        private void dueReportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ShowMdiForm(new FrmSalesDueReport());
+        }
     }
 }

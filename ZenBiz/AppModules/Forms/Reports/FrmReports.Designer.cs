@@ -43,6 +43,7 @@
             statementOfAcocuntToolStripMenuItem = new ToolStripMenuItem();
             payablesToolStripMenuItem = new ToolStripMenuItem();
             accountsReceivableToolStripMenuItem = new ToolStripMenuItem();
+            dueReportToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -57,7 +58,7 @@
             // 
             // salesToolStripMenuItem
             // 
-            salesToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { grossIncomeToolStripMenuItem, soldItemsToolStripMenuItem });
+            salesToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { grossIncomeToolStripMenuItem, soldItemsToolStripMenuItem, dueReportToolStripMenuItem });
             salesToolStripMenuItem.Name = "salesToolStripMenuItem";
             salesToolStripMenuItem.Size = new Size(45, 20);
             salesToolStripMenuItem.Text = "Sales";
@@ -153,6 +154,13 @@
             accountsReceivableToolStripMenuItem.Text = "Aging Accounts Receivable";
             accountsReceivableToolStripMenuItem.Click += accountsReceivableToolStripMenuItem_Click;
             // 
+            // dueReportToolStripMenuItem
+            // 
+            dueReportToolStripMenuItem.Name = "dueReportToolStripMenuItem";
+            dueReportToolStripMenuItem.Size = new Size(180, 22);
+            dueReportToolStripMenuItem.Text = "Due Report";
+            dueReportToolStripMenuItem.Click += dueReportToolStripMenuItem_Click;
+            // 
             // FrmReports
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -187,5 +195,6 @@
         private ToolStripMenuItem statementOfAcocuntToolStripMenuItem;
         private ToolStripMenuItem payablesToolStripMenuItem;
         private ToolStripMenuItem accountsReceivableToolStripMenuItem;
+        private ToolStripMenuItem dueReportToolStripMenuItem;
     }
 }
