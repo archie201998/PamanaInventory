@@ -48,12 +48,14 @@ namespace ZenBiz.AppModules.Forms.Sales
                 int serviceId = Convert.ToInt32(item.Cells["ServiceId"].Value);
                 int personnelId = Convert.ToInt32(item.Cells["PersonnelId"].Value);
                 decimal fee = Convert.ToDecimal(item.Cells["Fee"].Value);
+                int storeId = Convert.ToInt32(item.Cells["StoreId"].Value);
 
                 SalesServicesModel salesServicesModel = new()
                 {
                     Sales = new SalesModel() { Id = salesId },
                     Services = new ServicesModel() { Id = serviceId },
                     Personnel = new PersonnelModel() { Id = personnelId },
+                    Stores = new StoresModel() { Id = storeId },
                     Fee = fee
                 };
 

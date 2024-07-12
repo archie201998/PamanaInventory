@@ -20,12 +20,20 @@
             cmbServices.ValueMember = "id";
         }
 
+        private void LoadStores()
+        {
+            cmbStores.DataSource = Factory.StoresController().Fetch();
+            cmbStores.DisplayMember = "name";
+            cmbStores.ValueMember = "id";
+        }
+
         private void UcSalesServices_Load(object sender, EventArgs e)
         {
             if (!DesignMode)
             {
                 LoadServices();
                 LoadPersonnel();
+                LoadStores();
 
                 cmbServices.SelectedValueChanged -= cmbServices_SelectedValueChanged;
                 GetServiceFee();

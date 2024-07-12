@@ -54,15 +54,17 @@ namespace ZenBiz.AppModules.Forms.Sales
 
         private void CreateServicesColumns()
         {
-            dgServices.ColumnCount = 5;
+            dgServices.ColumnCount = 6;
             dgServices.Columns[0].Name = "ServiceId";
             dgServices.Columns[1].Name = "PersonnelId";
             dgServices.Columns[2].Name = "Service";
             dgServices.Columns[3].Name = "Personnel";
             dgServices.Columns[4].Name = "Fee";
+            dgServices.Columns[5].Name = "StoreId";
 
             dgServices.Columns["ServiceId"].Visible = false;
             dgServices.Columns["PersonnelId"].Visible = false;
+            //dgServices.Columns["StoreId"].Visible = false;
 
             dgServices.Columns["Personnel"].Width = 200;
             dgServices.Columns["Personnel"].MinimumWidth = 200;

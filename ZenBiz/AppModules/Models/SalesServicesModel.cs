@@ -6,6 +6,7 @@
         public SalesModel Sales { get; set; } = new();
         public ServicesModel Services { get; set; } = new();
         public PersonnelModel Personnel { get; set; } = new();
+        public StoresModel Stores { get; set; } = new();
         public decimal Fee { get; set; }
     }
 }

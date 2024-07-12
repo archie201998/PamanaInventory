@@ -17,6 +17,7 @@
         {
             int serviceId = Convert.ToInt32(_ucSalesServices.cmbServices.SelectedValue);
             int personnelId = Convert.ToInt32(_ucSalesServices.cmbPersonnel.SelectedValue);
+            int storeId = Convert.ToInt32(_ucSalesServices.cmbStores.SelectedValue);
             string service = _ucSalesServices.cmbServices.Text;
             string personnel = _ucSalesServices.cmbPersonnel.Text;
             decimal fee = _ucSalesServices.nudFee.Value;
@@ -45,6 +46,7 @@
                     service,
                     personnel,
                     fee.ToString(),
+                    storeId.ToString()
                 };
 
                 _ucSalesForm.dgServices.Rows.Add(row);

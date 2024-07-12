@@ -41,7 +41,7 @@
             flowLayoutPanel1.Controls.Add(btnCancel);
             flowLayoutPanel1.Controls.Add(btnSave);
             flowLayoutPanel1.Dock = DockStyle.Bottom;
-            flowLayoutPanel1.Location = new Point(0, 119);
+            flowLayoutPanel1.Location = new Point(0, 146);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
             flowLayoutPanel1.RightToLeft = RightToLeft.Yes;
             flowLayoutPanel1.Size = new Size(423, 30);
@@ -70,7 +70,7 @@
             // 
             ucSalesServices1.Location = new Point(3, 12);
             ucSalesServices1.Name = "ucSalesServices1";
-            ucSalesServices1.Size = new Size(415, 94);
+            ucSalesServices1.Size = new Size(415, 128);
             ucSalesServices1.TabIndex = 8;
             // 
             // FrmSalesServicesAdd
@@ -79,7 +79,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             CancelButton = btnCancel;
-            ClientSize = new Size(423, 149);
+            ClientSize = new Size(423, 176);
             Controls.Add(ucSalesServices1);
             Controls.Add(flowLayoutPanel1);
             Name = "FrmSalesServicesAdd";

@@ -48,10 +48,11 @@ namespace ZenBiz.AppModules.Controllers
                 new object[] { "@sales_id", DbType.Int32, entity.Sales.Id },
                 new object[] { "@services_id", DbType.Int32, entity.Services.Id },
                 new object[] { "@personnel_id", DbType.Int32, entity.Personnel.Id },
+                new object[] { "@stores_id", DbType.Int32, entity.Stores.Id },
                 new object[] { "@fee", DbType.Decimal, entity.Fee },
             };
 
-            string query = $"INSERT INTO {tblSalesServices} (sales_id, services_id, personnel_id, fee) VALUES (@sales_id, @services_id, @personnel_id, @fee)";
+            string query = $"INSERT INTO {tblSalesServices} (sales_id, services_id, personnel_id, stores_id, fee) VALUES (@sales_id, @services_id, @personnel_id, @stores_id, @fee)";
 
             return _dbGenericCommands.ExecuteNonQuery(query, parameters);
         }
@@ -113,6 +114,16 @@ namespace ZenBiz.AppModules.Controllers
             return Convert.ToDecimal(result);
         }
 
+        public DataTable FetchBetweenDates(DateTime dateFrom, DateTime dateTo)
+        {
+            var parameters = new object[][]
+            {
+                new object[] { "@date_from", DbType.Date, dateFrom },
+                new object[] { "@date_to", DbType.Date, dateTo },
+            };
+            string query = $"SELECT id, sales_id, services_id, personnel_id, services_name, personnel_name, fee, trans_no, trans_date, customer_name FROM {viewSalesServices} WHERE (trans_date BETWEEN @date_from AND @date_to)";
+            return _dbGenericCommands.Fill(query, parameters);
+        }
     }
 
 }
