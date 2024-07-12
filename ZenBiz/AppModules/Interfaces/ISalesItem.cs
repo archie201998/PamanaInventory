@@ -8,9 +8,10 @@ namespace ZenBiz.AppModules.Interfaces
         bool DeletePerSalesId(int salesId);
         DataTable Fetch(DateTime dateFrom, DateTime dateTo);
         DataTable Fetch(DateTime dateFrom, DateTime dateTo, int storeId);
+        DataTable FetchByCustomerID(int customerID);
         DataTable FetchBySalesId(int salesId);
         DataTable FetchBySalesIdPerCustomer(int salesID, int customerID);
-        DataTable FetchFastAndSlowMovingStocks(int storeId, DateTime dateFrom, DateTime dateTo);
+        DataTable FetchFastAndSlowMovingStocks(int storeId, DateTime dateFrom, DateTime dateTo, string sortType);
         DataTable FetchSalableItem();
         DataTable FetchSoldItems(DateTime dateFrom, DateTime dateTo);
         DataTable FetchSoldItems(DateTime dateFrom, DateTime dateTo, int storeId);

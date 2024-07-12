@@ -137,12 +137,13 @@ namespace ZenBiz.AppModules.Forms.Reports
             var dtReport = new DataSet1.StatementOfAccountDataTable();
             int customerID = Convert.ToInt32(cmbCustomers.SelectedValue);
 
-            DataTable dtSalesByCustomer = Factory.SalesController().FetchByCustomerID(customerID);
+            //DataTable dtSalesByCustomer = Factory.SalesController().FetchByCustomerID(customerID);
+            DataTable dtSalesByCustomer = Factory.SalesItemController().FetchByCustomerID(customerID);
 
             foreach (DataRow item in dtSalesByCustomer.Rows)
             {
                 DataRow row = dtReport.NewRow();
-                int salesID = Convert.ToInt32(item["id"]);
+                int salesID = Convert.ToInt32(item["sales_id"]);
 
                 decimal payments = Factory.PaymentsController().SumTotalPaymentsPerSalesId(salesID);
                 decimal balance = Factory.PaymentsController().BalanceAmount(salesID);
@@ -152,9 +153,9 @@ namespace ZenBiz.AppModules.Forms.Reports
                 row["transaction_no"] = item["trans_no"];
                 row["payments"] = payments;
                 row["balance"] = balance;
+                row["particulars"] = item["particulars"];
 
                 dtReport.Rows.Add(row);
-
             }
 
 

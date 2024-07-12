@@ -166,6 +166,9 @@
                       <CellContents>
                         <Textbox Name="Textbox12">
                           <CanGrow>true</CanGrow>
+                          <UserSort>
+                            <SortExpression>=Fields!quantity_sold.Value</SortExpression>
+                          </UserSort>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
@@ -191,12 +194,9 @@
                               <Style>Solid</Style>
                             </Border>
                             <TopBorder>
-                              <Color>Gray</Color>
-                              <Style>Solid</Style>
                               <Width>1pt</Width>
                             </TopBorder>
                             <BottomBorder>
-                              <Color>Gray</Color>
                               <Width>1.5pt</Width>
                             </BottomBorder>
                             <LeftBorder>
@@ -211,6 +211,7 @@
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
+                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                   </TablixCells>

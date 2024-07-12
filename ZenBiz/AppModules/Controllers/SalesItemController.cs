@@ -242,7 +242,7 @@ namespace ZenBiz.AppModules.Controllers
             return _dbGenericCommands.Fill(query, parameters);
         }
 
-        public DataTable FetchFastAndSlowMovingStocks(int storeId, DateTime dateFrom, DateTime dateTo)
+        public DataTable FetchFastAndSlowMovingStocks(int storeId, DateTime dateFrom, DateTime dateTo, string sortType)
         {
             var parameters = new object[][]
             {
@@ -259,6 +259,16 @@ namespace ZenBiz.AppModules.Controllers
         public DataTable FetchSalableItem()
         {
             throw new NotImplementedException();
+        }
+
+        public DataTable FetchByCustomerID(int customerID)
+        {
+            var parameters = new object[][]
+            {
+                new object[] { "@customers_id", DbType.Int32, customerID },
+            };
+            string query = $"SELECT id, sales_id, trans_no, group_concat(concat(item_name, ' (', sold_quantity, ' ', unit_name, ')') SEPARATOR '; ') as particulars, trans_date, trans_due_date FROM {viewSalesItem} WHERE customers_id = @customers_id GROUP BY trans_no ORDER BY trans_date DESC";
+            return _dbGenericCommands.Fill(query, parameters);
         }
     }
 }
