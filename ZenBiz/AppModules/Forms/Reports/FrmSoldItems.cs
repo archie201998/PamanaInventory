@@ -40,6 +40,9 @@ namespace ZenBiz.AppModules.Forms.Reports
         {
             var dtReport = new DataSet1.SoldItemsDataTable();
             DataTable dataTableFromDB;
+            DataTable dtSalesServices;
+            int previousSalesID = 0;
+
             int storeId = Convert.ToInt32(cmbStores.SelectedValue);
             if (storeId == 0)
                 dataTableFromDB = Factory.SalesItemController().FetchSoldItems(dtpFrom.Value, dtpTo.Value);
@@ -58,6 +61,28 @@ namespace ZenBiz.AppModules.Forms.Reports
                 row["total_sale"] = item["gross_sale"];
 
                 dtReport.Rows.Add(row);
+
+                // for sales services
+                int salesID = Convert.ToInt32(item["sales_id"]);
+                dtSalesServices = Factory.SalesServicesController().FetchBySalesId(salesID);
+                if (dtSalesServices.Rows.Count == 0) continue;
+                foreach (DataRow salesServicesItem in dtSalesServices.Rows)
+                {
+                    if (previousSalesID == salesID)
+                        break;
+                    DataRow serviceRow = dtReport.NewRow();
+                    row["sku_code"] = string.Empty;
+                    row["item_name"] = salesServicesItem["services_name"];
+                    row["category"] = "Services";
+                    row["unit"] = string.Empty;
+                    row["sold_quantity"] = 0;
+                    row["sold_price"] = salesServicesItem["fee"];
+                    row["total_sale"] = salesServicesItem["fee"];
+
+                    dtReport.Rows.Add(serviceRow);
+                }
+
+                previousSalesID = salesID;
             }
 
             return dtReport;
@@ -81,15 +106,6 @@ namespace ZenBiz.AppModules.Forms.Reports
             report.DataSources.Clear();
             report.DataSources.Add(new ReportDataSource("SoldItems", DataTableSoldItems()));
             report.SetParameters(parameters);
-
-            //try
-            //{
-
-            //}
-            //catch (Exception ex)
-            //{
-            //    Helper.MessageBoxError(ex.Message);
-            //}
         }
 
         private void btnGenerate_Click(object sender, EventArgs e)
