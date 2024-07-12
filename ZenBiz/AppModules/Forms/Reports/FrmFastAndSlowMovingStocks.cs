@@ -45,8 +45,9 @@ namespace ZenBiz.AppModules.Forms.Reports
             int storeId = Convert.ToInt32(cmbStores.SelectedValue);
             DateTime dateFrom = dtpFrom.Value;
             DateTime dateTo = dtpTo.Value;
+            string sortType = radFastMoving.Checked ? radFastMoving.Tag.ToString() : radSlowMoving.Tag.ToString();
 
-            dtSalesItems = Factory.SalesItemController().FetchFastAndSlowMovingStocks(storeId, dateFrom, dateTo);
+            dtSalesItems = Factory.SalesItemController().FetchFastAndSlowMovingStocks(storeId, dateFrom, dateTo, sortType);
 
             foreach (DataRow item in dtSalesItems.Rows)
             {

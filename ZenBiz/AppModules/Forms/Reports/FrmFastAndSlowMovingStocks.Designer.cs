@@ -30,14 +30,16 @@
         {
             groupBox1 = new GroupBox();
             panel2 = new Panel();
-            label1 = new Label();
-            cmbStores = new ComboBox();
-            btnGenerate = new Button();
-            panel1 = new Panel();
             label3 = new Label();
             dtpTo = new DateTimePicker();
             label2 = new Label();
             dtpFrom = new DateTimePicker();
+            label1 = new Label();
+            cmbStores = new ComboBox();
+            btnGenerate = new Button();
+            panel1 = new Panel();
+            radFastMoving = new RadioButton();
+            radSlowMoving = new RadioButton();
             groupBox1.SuspendLayout();
             panel2.SuspendLayout();
             SuspendLayout();
@@ -48,13 +50,15 @@
             groupBox1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
             groupBox1.Location = new Point(12, 12);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(814, 58);
+            groupBox1.Size = new Size(940, 88);
             groupBox1.TabIndex = 5;
             groupBox1.TabStop = false;
             groupBox1.Text = "Parameters";
             // 
             // panel2
             // 
+            panel2.Controls.Add(radSlowMoving);
+            panel2.Controls.Add(radFastMoving);
             panel2.Controls.Add(label3);
             panel2.Controls.Add(dtpTo);
             panel2.Controls.Add(label2);
@@ -66,44 +70,8 @@
             panel2.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             panel2.Location = new Point(3, 19);
             panel2.Name = "panel2";
-            panel2.Size = new Size(808, 36);
+            panel2.Size = new Size(934, 66);
             panel2.TabIndex = 0;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(3, 6);
-            label1.Name = "label1";
-            label1.Size = new Size(34, 15);
-            label1.TabIndex = 12;
-            label1.Text = "Store";
-            // 
-            // cmbStores
-            // 
-            cmbStores.DropDownStyle = ComboBoxStyle.DropDownList;
-            cmbStores.FormattingEnabled = true;
-            cmbStores.Location = new Point(43, 3);
-            cmbStores.Name = "cmbStores";
-            cmbStores.Size = new Size(155, 23);
-            cmbStores.TabIndex = 11;
-            // 
-            // btnGenerate
-            // 
-            btnGenerate.Location = new Point(686, 4);
-            btnGenerate.Name = "btnGenerate";
-            btnGenerate.Size = new Size(115, 23);
-            btnGenerate.TabIndex = 6;
-            btnGenerate.Text = "Generate Report";
-            btnGenerate.UseVisualStyleBackColor = true;
-            btnGenerate.Click += btnGenerate_Click;
-            // 
-            // panel1
-            // 
-            panel1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            panel1.Location = new Point(12, 76);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(960, 473);
-            panel1.TabIndex = 6;
             // 
             // label3
             // 
@@ -137,6 +105,66 @@
             dtpFrom.Size = new Size(200, 23);
             dtpFrom.TabIndex = 13;
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(3, 6);
+            label1.Name = "label1";
+            label1.Size = new Size(34, 15);
+            label1.TabIndex = 12;
+            label1.Text = "Store";
+            // 
+            // cmbStores
+            // 
+            cmbStores.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbStores.FormattingEnabled = true;
+            cmbStores.Location = new Point(43, 3);
+            cmbStores.Name = "cmbStores";
+            cmbStores.Size = new Size(155, 23);
+            cmbStores.TabIndex = 11;
+            // 
+            // btnGenerate
+            // 
+            btnGenerate.Location = new Point(686, 4);
+            btnGenerate.Name = "btnGenerate";
+            btnGenerate.Size = new Size(115, 23);
+            btnGenerate.TabIndex = 6;
+            btnGenerate.Text = "Generate Report";
+            btnGenerate.UseVisualStyleBackColor = true;
+            btnGenerate.Click += btnGenerate_Click;
+            // 
+            // panel1
+            // 
+            panel1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            panel1.Location = new Point(12, 106);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(960, 443);
+            panel1.TabIndex = 6;
+            // 
+            // radFastMoving
+            // 
+            radFastMoving.AutoSize = true;
+            radFastMoving.Checked = true;
+            radFastMoving.Location = new Point(3, 32);
+            radFastMoving.Name = "radFastMoving";
+            radFastMoving.Size = new Size(90, 19);
+            radFastMoving.TabIndex = 17;
+            radFastMoving.TabStop = true;
+            radFastMoving.Tag = "DESC";
+            radFastMoving.Text = "Fast moving";
+            radFastMoving.UseVisualStyleBackColor = true;
+            // 
+            // radSlowMoving
+            // 
+            radSlowMoving.AutoSize = true;
+            radSlowMoving.Location = new Point(99, 32);
+            radSlowMoving.Name = "radSlowMoving";
+            radSlowMoving.Size = new Size(94, 19);
+            radSlowMoving.TabIndex = 18;
+            radSlowMoving.Tag = "ASC";
+            radSlowMoving.Text = "Slow moving";
+            radSlowMoving.UseVisualStyleBackColor = true;
+            // 
             // FrmFastAndSlowMovingStocks
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -165,5 +193,7 @@
         private DateTimePicker dtpTo;
         private Label label2;
         private DateTimePicker dtpFrom;
+        private RadioButton radSlowMoving;
+        private RadioButton radFastMoving;
     }
 }
