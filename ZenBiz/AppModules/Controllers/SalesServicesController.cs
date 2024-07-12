@@ -121,7 +121,20 @@ namespace ZenBiz.AppModules.Controllers
                 new object[] { "@date_from", DbType.Date, dateFrom },
                 new object[] { "@date_to", DbType.Date, dateTo },
             };
-            string query = $"SELECT id, sales_id, services_id, personnel_id, services_name, personnel_name, fee, trans_no, trans_date, customer_name FROM {viewSalesServices} WHERE (trans_date BETWEEN @date_from AND @date_to)";
+            string query = $"SELECT id, sales_id, services_id, personnel_id, services_name, personnel_name, SUM(fee) as fee, trans_no, trans_date, customer_name FROM {viewSalesServices} WHERE (trans_date BETWEEN @date_from AND @date_to) GROUP BY services_id";
+            return _dbGenericCommands.Fill(query, parameters);
+        }
+
+        public DataTable FetchBetweenDatesAndStore(DateTime dateFrom, DateTime dateTo, int storeId)
+        {
+            var parameters = new object[][]
+            {
+                new object[] { "@date_from", DbType.Date, dateFrom },
+                new object[] { "@date_to", DbType.Date, dateTo },
+                new object[] { "@stores_id", DbType.Int32, storeId },
+
+            };
+            string query = $"SELECT id, sales_id, services_id, personnel_id, services_name, personnel_name, fee, trans_no, trans_date, customer_name FROM {viewSalesServices} WHERE stores_id = @stores_id AND (trans_date BETWEEN @date_from AND @date_to)";
             return _dbGenericCommands.Fill(query, parameters);
         }
     }

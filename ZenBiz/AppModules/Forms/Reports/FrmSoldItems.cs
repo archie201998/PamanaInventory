@@ -41,13 +41,19 @@ namespace ZenBiz.AppModules.Forms.Reports
             var dtReport = new DataSet1.SoldItemsDataTable();
             DataTable dataTableFromDB;
             DataTable dtSalesServices;
-            int previousSalesID = 0;
 
             int storeId = Convert.ToInt32(cmbStores.SelectedValue);
             if (storeId == 0)
+            {
                 dataTableFromDB = Factory.SalesItemController().FetchSoldItems(dtpFrom.Value, dtpTo.Value);
+                dtSalesServices = Factory.SalesServicesController().FetchBetweenDates(dtpFrom.Value, dtpTo.Value);
+            }
             else
+            {
                 dataTableFromDB = Factory.SalesItemController().FetchSoldItems(dtpFrom.Value, dtpTo.Value, storeId);
+                dtSalesServices = Factory.SalesServicesController().FetchBetweenDatesAndStore(dtpFrom.Value, dtpTo.Value, storeId);
+            }
+
 
             foreach (DataRow item in dataTableFromDB.Rows)
             {
@@ -61,28 +67,20 @@ namespace ZenBiz.AppModules.Forms.Reports
                 row["total_sale"] = item["gross_sale"];
 
                 dtReport.Rows.Add(row);
+            }
+            // for sales services
+            foreach (DataRow salesServicesItem in dtSalesServices.Rows)
+            {
+                DataRow row = dtReport.NewRow();
+                row["sku_code"] = string.Empty;
+                row["item_name"] = salesServicesItem["services_name"];
+                row["category"] = "Services";
+                row["unit"] = string.Empty;
+                row["sold_quantity"] = 0;
+                row["sold_price"] = salesServicesItem["fee"];
+                row["total_sale"] = salesServicesItem["fee"];
 
-                // for sales services
-                int salesID = Convert.ToInt32(item["sales_id"]);
-                dtSalesServices = Factory.SalesServicesController().FetchBySalesId(salesID);
-                if (dtSalesServices.Rows.Count == 0) continue;
-                foreach (DataRow salesServicesItem in dtSalesServices.Rows)
-                {
-                    if (previousSalesID == salesID)
-                        break;
-                    DataRow serviceRow = dtReport.NewRow();
-                    row["sku_code"] = string.Empty;
-                    row["item_name"] = salesServicesItem["services_name"];
-                    row["category"] = "Services";
-                    row["unit"] = string.Empty;
-                    row["sold_quantity"] = 0;
-                    row["sold_price"] = salesServicesItem["fee"];
-                    row["total_sale"] = salesServicesItem["fee"];
-
-                    dtReport.Rows.Add(serviceRow);
-                }
-
-                previousSalesID = salesID;
+                dtReport.Rows.Add(row);
             }
 
             return dtReport;
