@@ -57,6 +57,8 @@ namespace ZenBiz.AppModules.Forms.Sales
                 {
                     item["services_id"].ToString(),
                     item["personnel_id"].ToString(),
+                    item["stores_id"].ToString(),
+                    item["store_name"].ToString(),
                     item["services_name"].ToString(),
                     item["personnel_name"].ToString(),
                     item["fee"].ToString(),
@@ -77,9 +79,9 @@ namespace ZenBiz.AppModules.Forms.Sales
 
         private bool SaveData()
         {
-            if (uc.dgItems.Rows.Count == 0)
+            if (uc.dgItems.Rows.Count == 0 && uc.dgServices.Rows.Count == 0)
             {
-                Helper.MessageBoxError("Please add an item.");
+                Helper.MessageBoxError("Please add an item or services.");
                 return false;
             }
 
@@ -126,6 +128,7 @@ namespace ZenBiz.AppModules.Forms.Sales
                 int salesId = _salesId;
                 int serviceId = Convert.ToInt32(item.Cells["ServiceId"].Value);
                 int personnelId = Convert.ToInt32(item.Cells["PersonnelId"].Value);
+                int storeId = Convert.ToInt32(item.Cells["StoreId"].Value);
                 decimal fee = Convert.ToDecimal(item.Cells["Fee"].Value);
 
                 SalesServicesModel salesServicesModel = new()
@@ -133,6 +136,7 @@ namespace ZenBiz.AppModules.Forms.Sales
                     Sales = new SalesModel() { Id = salesId },
                     Services = new ServicesModel() { Id = serviceId },
                     Personnel = new PersonnelModel() { Id = personnelId },
+                    Stores = new StoresModel() { Id = storeId },
                     Fee = fee
                 };
 

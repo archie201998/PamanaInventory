@@ -20,6 +20,7 @@
             int storeId = Convert.ToInt32(_ucSalesServices.cmbStores.SelectedValue);
             string service = _ucSalesServices.cmbServices.Text;
             string personnel = _ucSalesServices.cmbPersonnel.Text;
+            string storeName = _ucSalesServices.cmbStores.Text;
             decimal fee = _ucSalesServices.nudFee.Value;
 
 
@@ -43,10 +44,12 @@
                 {
                     serviceId.ToString(),
                     personnelId.ToString(),
+                    storeId.ToString(),
+                    storeName,
                     service,
                     personnel,
                     fee.ToString(),
-                    storeId.ToString()
+
                 };
 
                 _ucSalesForm.dgServices.Rows.Add(row);
