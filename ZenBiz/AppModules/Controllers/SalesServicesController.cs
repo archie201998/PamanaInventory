@@ -114,6 +114,19 @@ namespace ZenBiz.AppModules.Controllers
             return Convert.ToDecimal(result);
         }
 
+        public decimal GrossSales(DateTime dateFrom, DateTime dateTo)
+        {
+            var parameters = new object[][]
+              {
+                new object[] { "@date_from", DbType.Date, dateFrom },
+                new object[] { "@date_to", DbType.Date, dateTo },
+              };
+            string query = $"SELECT SUM(fee) FROM {viewSalesServices} WHERE (trans_date BETWEEN @date_from AND @date_to) GROUP BY services_id";
+            string result = _dbGenericCommands.ExecuteScalar(query, parameters);
+            if (string.IsNullOrWhiteSpace(result)) return 0;
+            return Convert.ToDecimal(result);
+        }
+
         public DataTable FetchBetweenDates(DateTime dateFrom, DateTime dateTo)
         {
             var parameters = new object[][]

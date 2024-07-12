@@ -10,5 +10,6 @@ namespace ZenBiz.AppModules.Interfaces
         DataTable FetchBetweenDatesAndStore(DateTime dateFrom, DateTime dateTo, int storeId);
         DataTable FetchBySalesId(int salesId);
         decimal GrossSales(int salesId);
+        decimal GrossSales(DateTime dateFrom, DateTime dateTo);
     }
 }

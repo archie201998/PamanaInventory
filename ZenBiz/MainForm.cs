@@ -37,7 +37,9 @@ namespace ZenBiz
 
         private void GrossSales()
         {
-            lblGrossSales.Text = Factory.SalesItemController().GrossSales(dtpFrom.Value, dtpTo.Value).ToString("n2");
+            decimal salesItemGrossSales = Factory.SalesItemController().GrossSales(dtpFrom.Value, dtpTo.Value);
+            decimal servicesGrossSales = Factory.SalesServicesController().GrossSales(dtpFrom.Value, dtpTo.Value);
+            lblGrossSales.Text = (salesItemGrossSales + servicesGrossSales).ToString("N2");
         }
 
         private void MainForm_Load(object sender, EventArgs e)
