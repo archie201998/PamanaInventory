@@ -158,13 +158,14 @@ namespace ZenBiz.AppModules.Controllers
             return record;
         }
 
-        public DataTable FetchSalesDue(int monthId)
+        public DataTable FetchSalesDue(int monthId, int year)
         {
             var parameters = new object[][]
             {
                 new object[] { "@month", DbType.Int32, monthId },
+                new object[] { "@year", DbType.Int32, year },
             };
-            string query = $"SELECT id, customer_name, trans_no, trans_date, trans_due_date FROM {viewSales} WHERE MONTH(trans_due_date) = @month";
+            string query = $"SELECT id, customer_name, trans_no, trans_date, trans_due_date FROM {viewSales} WHERE MONTH(trans_due_date) = @month AND YEAR(trans_due_date) = @year";
             return _dbGenericCommands.Fill(query, parameters);
         }
     }

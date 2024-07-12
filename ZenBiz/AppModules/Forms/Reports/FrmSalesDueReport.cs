@@ -43,6 +43,7 @@ namespace ZenBiz.AppModules.Forms.Reports
         private void FrmSalesDueReport_Load(object sender, EventArgs e)
         {
             LoadMonth();
+            nudYear.Value = DateTime.Now.Year;
         }
 
         private DataTable DataTableSalesDue()
@@ -50,8 +51,9 @@ namespace ZenBiz.AppModules.Forms.Reports
             DataTable dataTableFromDB;
             var dtReport = new DataSet1.SalesDueReportDataTable();
             int monthId = Convert.ToInt32(cmbMonth.SelectedValue);
+            int year = (int)nudYear.Value;
 
-            dataTableFromDB = Factory.SalesController().FetchSalesDue(monthId);
+            dataTableFromDB = Factory.SalesController().FetchSalesDue(monthId, year);
 
             foreach (DataRow item in dataTableFromDB.Rows)
             {
@@ -79,7 +81,6 @@ namespace ZenBiz.AppModules.Forms.Reports
 
         private void LoadReport(LocalReport report)
         {
-            Cursor.Current = Cursors.WaitCursor;
             var dict = Factory.BusinessDetailsController().FindById(1);
             var parameters = new[] {
                     new ReportParameter("paramBusinessName", dict["name"]),
@@ -93,39 +94,17 @@ namespace ZenBiz.AppModules.Forms.Reports
             report.DataSources.Clear();
             report.DataSources.Add(new ReportDataSource("SalesDueReport", DataTableSalesDue()));
             report.SetParameters(parameters);
-            Cursor.Current = Cursors.Default;
-
-            //try
-            //{
-            //    Cursor.Current = Cursors.WaitCursor;
-            //    var dict = Factory.BusinessDetailsController().FindById(1);
-            //    var parameters = new[] {
-            //        new ReportParameter("paramBusinessName", dict["name"]),
-            //        new ReportParameter("paramAddress", dict["address"]),
-            //        new ReportParameter("paramPermitNo", dict["permit_no"]),
-            //        new ReportParameter("paramTIN", dict["tin"]),
-            //        new ReportParameter("paramMonth", cmbMonth.Text),
-            //    };
-
-            //    report.ReportPath = $"{Application.StartupPath}\\AppModules\\RDLC\\sales-due.rdlc";
-            //    report.DataSources.Clear();
-            //    report.DataSources.Add(new ReportDataSource("SalesDueReport", DataTableSalesDue()));
-            //    report.SetParameters(parameters);
-            //    Cursor.Current = Cursors.Default;
-            //}
-            //catch (Exception ex)
-            //{
-            //    Helper.MessageBoxError(ex.Message);
-            //}
         }
 
         private void btnGenerate_Click(object sender, EventArgs e)
         {
+            Cursor.Current = Cursors.WaitCursor;
             LoadReport(reportViewer.LocalReport);
             reportViewer.SetDisplayMode(DisplayMode.PrintLayout);
             reportViewer.ZoomMode = ZoomMode.Percent;
             reportViewer.ZoomPercent = 100;
             reportViewer.RefreshReport();
+            Cursor.Current = Cursors.Default;
         }
     }
 }

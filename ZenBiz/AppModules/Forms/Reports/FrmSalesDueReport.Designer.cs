@@ -32,6 +32,8 @@
             cmbMonth = new ComboBox();
             label1 = new Label();
             btnGenerate = new Button();
+            nudYear = new NumericUpDown();
+            ((System.ComponentModel.ISupportInitialize)nudYear).BeginInit();
             SuspendLayout();
             // 
             // panel1
@@ -62,7 +64,7 @@
             // 
             // btnGenerate
             // 
-            btnGenerate.Location = new Point(241, 13);
+            btnGenerate.Location = new Point(316, 13);
             btnGenerate.Name = "btnGenerate";
             btnGenerate.Size = new Size(75, 23);
             btnGenerate.TabIndex = 3;
@@ -70,11 +72,21 @@
             btnGenerate.UseVisualStyleBackColor = true;
             btnGenerate.Click += btnGenerate_Click;
             // 
+            // nudYear
+            // 
+            nudYear.Location = new Point(241, 13);
+            nudYear.Maximum = new decimal(new int[] { 3000, 0, 0, 0 });
+            nudYear.Name = "nudYear";
+            nudYear.Size = new Size(69, 23);
+            nudYear.TabIndex = 4;
+            nudYear.Value = new decimal(new int[] { 2024, 0, 0, 0 });
+            // 
             // FrmSalesDueReport
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(984, 561);
+            Controls.Add(nudYear);
             Controls.Add(btnGenerate);
             Controls.Add(label1);
             Controls.Add(cmbMonth);
@@ -82,6 +94,7 @@
             Name = "FrmSalesDueReport";
             Text = "Sales Due Report";
             Load += FrmSalesDueReport_Load;
+            ((System.ComponentModel.ISupportInitialize)nudYear).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -92,5 +105,6 @@
         private ComboBox cmbMonth;
         private Label label1;
         private Button btnGenerate;
+        private NumericUpDown nudYear;
     }
 }
