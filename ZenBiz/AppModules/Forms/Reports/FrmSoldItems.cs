@@ -108,13 +108,13 @@ namespace ZenBiz.AppModules.Forms.Reports
 
         private void btnGenerate_Click(object sender, EventArgs e)
         {
+            Cursor.Current = Cursors.WaitCursor;
             LoadReport(reportViewer.LocalReport);
             reportViewer.SetDisplayMode(DisplayMode.PrintLayout);
             reportViewer.ZoomMode = ZoomMode.Percent;
             reportViewer.ZoomPercent = 100;
             reportViewer.RefreshReport();
+            Cursor.Current = Cursors.Default;
         }
-
-
     }
 }
