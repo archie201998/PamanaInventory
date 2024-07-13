@@ -168,5 +168,17 @@ namespace ZenBiz.AppModules.Controllers
             string query = $"SELECT id, customer_name, trans_no, trans_date, trans_due_date FROM {viewSales} WHERE MONTH(trans_due_date) = @month AND YEAR(trans_due_date) = @year";
             return _dbGenericCommands.Fill(query, parameters);
         }
+
+        public DataTable FetchBetweenDates(DateTime startDate, DateTime endDate)
+        {
+            var parameters = new object[][]
+            {
+                new object[] { "@startDate", DbType.Date, startDate },
+                new object[] { "@endDate", DbType.Date, endDate },
+            };
+
+            string query = $"SELECT id, customers_id, trans_no, trans_date, trans_due_date FROM {tblSales} WHERE (trans_date BETWEEN @startDate AND @endDate)";
+            return _dbGenericCommands.Fill(query, parameters);
+        }
     }
 }

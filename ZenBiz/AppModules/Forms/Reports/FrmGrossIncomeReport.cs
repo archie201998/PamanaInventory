@@ -38,64 +38,60 @@ namespace ZenBiz.AppModules.Forms.Reports
 
         private DataTable DataTableGrossIncome()
         {
-            DataTable dataTableFromDB;
+            DataTable dtSalesItem;
             DataTable dtSalesServices;
-            int previousSalesID = 0;
 
             var dtReport = new DataSet1.GrossIncomeDataTable();
             int storeId = Convert.ToInt32(cmbStores.SelectedValue);
-            if (storeId == 0)
-                dataTableFromDB = Factory.SalesItemController().Fetch(dtpFrom.Value, dtpTo.Value);
-            else
-                dataTableFromDB = Factory.SalesItemController().Fetch(dtpFrom.Value, dtpTo.Value, storeId);
+            DataTable dtSales = Factory.SalesController().FetchBetweenDates(dtpFrom.Value, dtpTo.Value);
 
-
-
-            foreach (DataRow item in dataTableFromDB.Rows)
+            foreach (DataRow item in dtSales.Rows)
             {
-                decimal grossSale = Convert.ToDecimal(item["gross_sale"]);
-                decimal unitCost = Helper.UserType == "Staff" ? 0 : Convert.ToDecimal(item["sold_unit_cost"]);
-
-                DataRow row = dtReport.NewRow();
-                row["trans_no"] = item["trans_no"];
-                row["trans_date"] = Convert.ToDateTime(item["trans_date"]).ToString("MMM dd, yyyy");
-                row["customer_name"] = item["customer_name"];
-                row["sold_price"] = item["sold_price"];
-                row["sold_quantity"] = item["sold_quantity"];
-                row["sold_unit_cost"] = unitCost;
-                row["total_sale"] = grossSale;
-                row["sku_code"] = item["sku_code"];
-                row["item_name"] = item["item_name"];
-                row["unit_name"] = item["unit_name"];
-
-                dtReport.Rows.Add(row);
-
-
-                //FOR SALES SERVICES
-                int salesID = Convert.ToInt32(item["sales_id"]);
-                dtSalesServices = Factory.SalesServicesController().FetchBySalesId(salesID);
-
-                if (dtSalesServices.Rows.Count != 0)
+                int salesId = (int)item["id"];
+                if (storeId == 0)
                 {
-                    foreach (DataRow salesServicesItem in dtSalesServices.Rows)
-                    {
-
-                        if (previousSalesID == salesID)
-                            break;
-
-                        DataRow serviceRow = dtReport.NewRow();
-                        serviceRow["trans_no"] = salesServicesItem["trans_no"];
-                        serviceRow["trans_date"] = Convert.ToDateTime(salesServicesItem["trans_date"]).ToString("MMM dd, yyyy");
-                        serviceRow["customer_name"] = salesServicesItem["customer_name"];
-                        serviceRow["sold_price"] = salesServicesItem["fee"];
-                        serviceRow["sold_quantity"] = 1;
-                        serviceRow["total_sale"] = salesServicesItem["fee"];
-                        serviceRow["item_name"] = salesServicesItem["services_name"];
-
-                        dtReport.Rows.Add(serviceRow);
-                    }
+                    dtSalesItem = Factory.SalesItemController().Fetch(salesId);
+                    dtSalesServices = Factory.SalesServicesController().FetchBySalesId(salesId);
                 }
-                previousSalesID = salesID;
+                else
+                {
+                    dtSalesItem = Factory.SalesItemController().Fetch(salesId, storeId);
+                    dtSalesServices = Factory.SalesServicesController().FetchBySalesIdAndStoreId(salesId, storeId);
+                }
+
+                // sales item
+                foreach (DataRow salesItem in dtSalesItem.Rows)
+                {
+                    decimal grossSale = Convert.ToDecimal(salesItem["gross_sale"]);
+                    decimal unitCost = Helper.UserType == "Staff" ? 0 : Convert.ToDecimal(salesItem["sold_unit_cost"]);
+
+                    DataRow row = dtReport.NewRow();
+                    row["trans_no"] = salesItem["trans_no"];
+                    row["trans_date"] = Convert.ToDateTime(salesItem["trans_date"]).ToString("MMM dd, yyyy");
+                    row["customer_name"] = salesItem["customer_name"];
+                    row["sold_price"] = salesItem["sold_price"];
+                    row["sold_quantity"] = salesItem["sold_quantity"];
+                    row["sold_unit_cost"] = unitCost;
+                    row["total_sale"] = grossSale;
+                    row["sku_code"] = salesItem["sku_code"];
+                    row["item_name"] = salesItem["item_name"];
+                    row["unit_name"] = salesItem["unit_name"];
+                    dtReport.Rows.Add(row);
+                }
+
+                // sales services
+                foreach (DataRow salesServicesItem in dtSalesServices.Rows)
+                {
+                    DataRow serviceRow = dtReport.NewRow();
+                    serviceRow["trans_no"] = salesServicesItem["trans_no"];
+                    serviceRow["trans_date"] = Convert.ToDateTime(salesServicesItem["trans_date"]).ToString("MMM dd, yyyy");
+                    serviceRow["customer_name"] = salesServicesItem["customer_name"];
+                    serviceRow["sold_price"] = salesServicesItem["fee"];
+                    serviceRow["sold_quantity"] = 1;
+                    serviceRow["total_sale"] = salesServicesItem["fee"];
+                    serviceRow["item_name"] = salesServicesItem["services_name"];
+                    dtReport.Rows.Add(serviceRow);
+                }
             }
 
             return dtReport;
@@ -129,11 +125,13 @@ namespace ZenBiz.AppModules.Forms.Reports
 
         private void btnGenerate_Click(object sender, EventArgs e)
         {
+            Cursor.Current = Cursors.WaitCursor;
             LoadReport(reportViewer.LocalReport);
             reportViewer.SetDisplayMode(DisplayMode.PrintLayout);
             reportViewer.ZoomMode = ZoomMode.Percent;
             reportViewer.ZoomPercent = 100;
             reportViewer.RefreshReport();
+            Cursor.Current = Cursors.Default;
         }
     }
 }

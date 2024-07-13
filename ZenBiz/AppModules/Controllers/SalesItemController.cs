@@ -59,31 +59,28 @@ namespace ZenBiz.AppModules.Controllers
 
         string salesItemColumns = "id, sales_id, trans_no, trans_date, customers_id, customer_name, stores_id, store_name, items_id, sku_code, item_name, unit_name, sold_unit_cost, sold_price, sold_quantity,(sold_price * sold_quantity) AS gross_sale";
 
-        public DataTable Fetch(DateTime dateFrom, DateTime dateTo)
+        public DataTable Fetch(int salesId)
         {
             var parameters = new object[][]
             {
-                new object[] { "@date_from", DbType.Date, dateFrom },
-                new object[] { "@date_to", DbType.Date, dateTo },
+                new object[] { "@sales_id", DbType.Int32, salesId},
             };
 
-            string query = $"SELECT {salesItemColumns} FROM {viewSalesItem} WHERE trans_date BETWEEN @date_from AND @date_to ORDER BY trans_date DESC";
+            string query = $"SELECT {salesItemColumns} FROM {viewSalesItem} WHERE sales_id = @sales_id ORDER BY trans_date DESC";
             return _dbGenericCommands.Fill(query, parameters);
         }
 
-        public DataTable Fetch(DateTime dateFrom, DateTime dateTo, int storeId)
+        public DataTable Fetch(int salesId, int storeId)
         {
             var parameters = new object[][]
             {
-                new object[] { "@date_from", DbType.Date, dateFrom },
-                new object[] { "@date_to", DbType.Date, dateTo },
+                new object[] { "@sales_id", DbType.Int32, salesId},
                 new object[] { "@stores_id", DbType.Int32, storeId },
             };
 
-            string query = $"SELECT {salesItemColumns} FROM {viewSalesItem} WHERE stores_id = @stores_id AND (trans_date BETWEEN @date_from AND @date_to) ORDER BY trans_date DESC";
+            string query = $"SELECT {salesItemColumns} FROM {viewSalesItem} WHERE stores_id = @stores_id AND sales_id = @sales_id ORDER BY trans_date DESC";
             return _dbGenericCommands.Fill(query, parameters);
         }
-
 
         string soldItemsColumns = "id, sales_id, trans_no, trans_date, customers_id, customer_name, stores_id, store_name, items_id, sku_code, item_name, category_name, unit_name, sold_unit_cost, sold_price, SUM(sold_quantity) AS sold_quantity, (sold_price * SUM(sold_quantity)) AS gross_sale";
 

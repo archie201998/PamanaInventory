@@ -91,6 +91,17 @@ namespace ZenBiz.AppModules.Controllers
             return _dbGenericCommands.Fill(query, parameters);
         }
 
+        public DataTable FetchBySalesIdAndStoreId(int salesId, int storeId)
+        {
+            var parameters = new object[][]
+            {
+                new object[] { "@sales_id", DbType.Int32, salesId },
+                new object[] { "@stores_id", DbType.Int32, storeId },
+            };
+            string query = $"SELECT id, sales_id, services_id, personnel_id, stores_id, store_name, services_name, personnel_name, fee, trans_no, trans_date, customer_name FROM {viewSalesServices} WHERE sales_id = @sales_id AND stores_id = @stores_id ORDER BY services_name";
+            return _dbGenericCommands.Fill(query, parameters);
+        }
+
         public bool DeletePerSalesId(int salesId)
         {
             var parameters = new object[][]

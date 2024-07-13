@@ -6,8 +6,8 @@ namespace ZenBiz.AppModules.Interfaces
     internal interface ISalesItem : IController<SalesItemModel>
     {
         bool DeletePerSalesId(int salesId);
-        DataTable Fetch(DateTime dateFrom, DateTime dateTo);
-        DataTable Fetch(DateTime dateFrom, DateTime dateTo, int storeId);
+        DataTable Fetch(int salesId);
+        DataTable Fetch(int salesId, int storeId);
         DataTable FetchByCustomerID(int customerID);
         DataTable FetchBySalesId(int salesId);
         DataTable FetchBySalesIdPerCustomer(int salesID, int customerID);
