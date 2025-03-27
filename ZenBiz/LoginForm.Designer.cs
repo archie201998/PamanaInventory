@@ -122,11 +122,11 @@
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             label5.ForeColor = Color.LightGray;
-            label5.Location = new Point(67, 236);
+            label5.Location = new Point(82, 252);
             label5.Name = "label5";
-            label5.Size = new Size(188, 68);
+            label5.Size = new Size(141, 17);
             label5.TabIndex = 7;
-            label5.Text = "Pasenya na wala pa akong\r\nMaisip na pwedeng ilagay dito\r\n\r\nAno ba ilalagay dito seer?";
+            label5.Text = "Short Description Here";
             label5.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // label4

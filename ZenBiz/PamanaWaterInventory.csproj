@@ -60,7 +60,6 @@
     <Content Include="AppModules\RDLC\stocks-per-warehouse.rdlc">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="zenbiz-icon.ico" />
   </ItemGroup>
 
   <ItemGroup>

@@ -251,7 +251,7 @@
             label6.AutoSize = true;
             label6.Location = new Point(267, 54);
             label6.Name = "label6";
-            label6.Size = new Size(19, 15);
+            label6.Size = new Size(20, 15);
             label6.TabIndex = 8;
             label6.Text = "To";
             // 
@@ -573,7 +573,7 @@
             label7.AutoSize = true;
             label7.Location = new Point(3, 0);
             label7.Name = "label7";
-            label7.Size = new Size(114, 15);
+            label7.Size = new Size(115, 15);
             label7.TabIndex = 10;
             label7.Text = "Top Selling Products";
             // 
@@ -602,7 +602,7 @@
             label15.AutoSize = true;
             label15.Location = new Point(3, 0);
             label15.Name = "label15";
-            label15.Size = new Size(125, 15);
+            label15.Size = new Size(126, 15);
             label15.TabIndex = 14;
             label15.Text = "Top Paying Customers";
             // 

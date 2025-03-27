@@ -11,7 +11,7 @@ namespace ZenBiz.AppModules
 
         public MySQLGenericCommands()
         {
-            connectionString = ConfigurationManager.ConnectionStrings["ZenBizInstance"].ConnectionString;
+            connectionString = ConfigurationManager.ConnectionStrings["PamanaWaterInventoryInstance"].ConnectionString;
         }
 
         private void AddDbParameter(MySqlCommand command, object[] param)
