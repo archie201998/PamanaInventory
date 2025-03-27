@@ -10,7 +10,10 @@ namespace ZenBiz
 
         public static void LoadFormIcon(Form form)
         {
-            form.Icon = Properties.Resources.zenbiz_icon;
+            using (var ms = new MemoryStream(PamanaWaterInventory.Properties.Resources.pamana_icon))
+            {
+                form.Icon = new Icon(ms);
+            }
         }
 
         public static void DatagridDefaultStyle(DataGridView dgv, bool Fill = false, bool IsReadOnly = true)

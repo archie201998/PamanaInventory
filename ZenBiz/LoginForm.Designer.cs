@@ -86,9 +86,9 @@
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(115, 51);
+            pictureBox1.Location = new Point(92, 37);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(68, 71);
+            pictureBox1.Size = new Size(124, 121);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 4;
             pictureBox1.TabStop = false;
@@ -98,11 +98,11 @@
             label3.AutoSize = true;
             label3.Font = new Font("Candara", 21.75F, FontStyle.Regular, GraphicsUnit.Point);
             label3.ForeColor = Color.White;
-            label3.Location = new Point(101, 140);
+            label3.Location = new Point(30, 161);
             label3.Name = "label3";
-            label3.Size = new Size(97, 36);
+            label3.Size = new Size(265, 36);
             label3.TabIndex = 5;
-            label3.Text = "ZenBiz";
+            label3.Text = "Pamana Water Corp.";
             // 
             // panel1
             // 
@@ -122,11 +122,11 @@
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             label5.ForeColor = Color.LightGray;
-            label5.Location = new Point(66, 215);
+            label5.Location = new Point(67, 236);
             label5.Name = "label5";
-            label5.Size = new Size(167, 51);
+            label5.Size = new Size(188, 68);
             label5.TabIndex = 7;
-            label5.Text = "A powerful, yet easy-to-use\r\napplication for managing\r\nsales && inventory data";
+            label5.Text = "Pasenya na wala pa akong\r\nMaisip na pwedeng ilagay dito\r\n\r\nAno ba ilalagay dito seer?";
             label5.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // label4
@@ -134,11 +134,11 @@
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             label4.ForeColor = Color.White;
-            label4.Location = new Point(42, 176);
+            label4.Location = new Point(69, 196);
             label4.Name = "label4";
-            label4.Size = new Size(214, 15);
+            label4.Size = new Size(172, 15);
             label4.TabIndex = 6;
-            label4.Text = "Sales && Inventory Management System";
+            label4.Text = "Inventory Management System";
             // 
             // btnVerify
             // 
@@ -160,9 +160,9 @@
             label6.Font = new Font("Candara", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
             label6.Location = new Point(349, 49);
             label6.Name = "label6";
-            label6.Size = new Size(135, 23);
+            label6.Size = new Size(59, 23);
             label6.TabIndex = 8;
-            label6.Text = "Log Into ZenBiz";
+            label6.Text = "Log In";
             // 
             // label7
             // 
@@ -183,7 +183,7 @@
             lblVersion.Name = "lblVersion";
             lblVersion.Size = new Size(121, 15);
             lblVersion.TabIndex = 10;
-            lblVersion.Text = "Version 1.0.0.1";
+            lblVersion.Text = "Version 1.0.0.0";
             lblVersion.TextAlign = ContentAlignment.MiddleRight;
             // 
             // LoginForm

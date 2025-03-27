@@ -10,7 +10,7 @@
 
 #pragma warning disable 1591
 
-namespace ZenBiz.AppModules.RDLC {
+namespace PamanaWaterInventory.AppModules.RDLC {
     
     
     /// <summary>

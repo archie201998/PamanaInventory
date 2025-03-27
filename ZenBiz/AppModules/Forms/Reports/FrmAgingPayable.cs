@@ -1,5 +1,6 @@
 ﻿using Microsoft.CodeAnalysis.VisualBasic.Syntax;
 using Microsoft.Reporting.WinForms;
+using PamanaWaterInventory.AppModules.RDLC;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
