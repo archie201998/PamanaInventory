@@ -24,9 +24,6 @@ namespace ZenBiz.AppModules.Forms.Inventory.Items
                 Code = uc.txtCode.Text.Trim(),
                 Name = uc.txtName.Text.Trim(),
                 UnitCost = uc.nudUnitCost.Value,
-                RetailPrice = uc.nudRetailPrice.Value,
-                WholesalePrice = uc.nudWholesalePrice.Value,
-                SpecialPrice = uc.nudSpecialPrice.Value,
                 MinimumThresholdStocks = (float)uc.nudMinStockThreshold.Value,
                 Users = new UsersModel() { Id = 1 }
             };

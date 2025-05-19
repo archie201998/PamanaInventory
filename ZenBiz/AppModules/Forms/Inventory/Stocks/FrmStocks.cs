@@ -27,9 +27,6 @@ namespace ZenBiz.AppModules.Forms.Inventory.Stocks
             txtCategory.Text = dict["category_name"];
             txtUnit.Text = dict["unit_name"];
             txtUnitCost.Text = Convert.ToDecimal(dict["unit_cost"]).ToString("N2");
-            txtRetailPrice.Text = Convert.ToDecimal(dict["retail_price"]).ToString("N2");
-            txtWholesalePrice.Text = Convert.ToDecimal(dict["wholesale_price"]).ToString("N2");
-            txtSpecialPrice.Text = Convert.ToDecimal(dict["special_price"]).ToString("N2");
             txtMinStockThreshold.Text = Convert.ToDecimal(dict["min_threshold_stock"]).ToString("N2");
         }
 
@@ -37,7 +34,7 @@ namespace ZenBiz.AppModules.Forms.Inventory.Stocks
         {
             Dictionary<int, string> storesDict = new();
             DataTable dtStores = Factory.StoresController().Fetch();
-            storesDict.Add(0, "All stores");
+            storesDict.Add(0, "All Branches");
             foreach (DataRow item in dtStores.Rows)
                 storesDict.Add(Convert.ToInt32(item["id"]), item["name"].ToString());
 
@@ -98,7 +95,7 @@ namespace ZenBiz.AppModules.Forms.Inventory.Stocks
             else dgStoreStocks.DataSource = Factory.StoreStocksController().Fetch(storeId, _itemId);
             dgStoreStocks.Columns["id"].Visible = false;
             dgStoreStocks.Columns["stocks_id"].Visible = false;
-            dgStoreStocks.Columns["store_name"].HeaderText = "Store";
+            dgStoreStocks.Columns["store_name"].HeaderText = "Branches";
             dgStoreStocks.Columns["quantity"].HeaderText = "Quantity";
             dgStoreStocks.Columns["quantity"].DefaultCellStyle.Format = "N2";
             dgStoreStocks.Columns["stock_date"].HeaderText = "Stock Date";
@@ -106,6 +103,13 @@ namespace ZenBiz.AppModules.Forms.Inventory.Stocks
             dgStoreStocks.Columns["expiration"].HeaderText = "Expiration";
             dgStoreStocks.Columns["expiration"].DefaultCellStyle.Format = "MMM dd, yyyy";
             dgStoreStocks.Columns["suppliers_name"].HeaderText = "Supplier";
+            dgStoreStocks.Columns["repaired_date"].HeaderText = "Repaired Date";
+            dgStoreStocks.Columns["repaired_date"].DefaultCellStyle.Format = "MMM dd, yyyy";
+            dgStoreStocks.Columns["returned_date"].HeaderText = "Returned Date";
+            dgStoreStocks.Columns["returned_date"].DefaultCellStyle.Format = "MMM dd, yyyy";
+            dgStoreStocks.Columns["user"].HeaderText = "User";
+            dgStoreStocks.Columns["status"].HeaderText = "Status";
+            dgStoreStocks.Columns["remarks"].HeaderText = "Remarks";
 
             lblTotalStoreStocks.Text = SumDatagridViewStocks(dgStoreStocks).ToString("N2");
         }
@@ -167,6 +171,9 @@ namespace ZenBiz.AppModules.Forms.Inventory.Stocks
 
         private void btnStoreStockEdit_Click(object sender, EventArgs e)
         {
+            if (dgStoreStocks.SelectedCells.Count == 0)
+                return; 
+
             int rowIndex = dgStoreStocks.CurrentCell.RowIndex;
             int stockId = (int)dgStoreStocks.Rows[rowIndex].Cells["stocks_id"].Value;
             using FrmStocksEdit form = new(_itemId, stockId, false);

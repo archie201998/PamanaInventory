@@ -55,6 +55,10 @@
             label2 = new Label();
             lblGrossSales = new Label();
             tableLayoutPanel1 = new TableLayoutPanel();
+            panel4 = new Panel();
+            pictureBox4 = new PictureBox();
+            label9 = new Label();
+            label10 = new Label();
             panel6 = new Panel();
             pictureBox6 = new PictureBox();
             label13 = new Label();
@@ -63,10 +67,6 @@
             pictureBox5 = new PictureBox();
             label11 = new Label();
             lblCollectibles = new Label();
-            panel4 = new Panel();
-            pictureBox4 = new PictureBox();
-            label9 = new Label();
-            label10 = new Label();
             dgTopSellingProducts = new DataGridView();
             dgSalesHistory = new DataGridView();
             label8 = new Label();
@@ -83,12 +83,12 @@
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             tableLayoutPanel1.SuspendLayout();
+            panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
             panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
-            panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgTopSellingProducts).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgSalesHistory).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgPayingCustomers).BeginInit();
@@ -106,6 +106,7 @@
             btnSales.Name = "btnSales";
             btnSales.Size = new Size(61, 28);
             btnSales.Text = "Sales";
+            btnSales.Visible = false;
             btnSales.Click += btnSales_Click;
             // 
             // toolStrip1
@@ -127,6 +128,7 @@
             btnPurchases.Name = "btnPurchases";
             btnPurchases.Size = new Size(88, 28);
             btnPurchases.Text = "Purchases";
+            btnPurchases.Visible = false;
             btnPurchases.Click += btnPurchases_Click;
             // 
             // btnServices
@@ -137,6 +139,7 @@
             btnServices.Name = "btnServices";
             btnServices.Size = new Size(77, 28);
             btnServices.Text = "Services";
+            btnServices.Visible = false;
             btnServices.Click += btnServices_Click;
             // 
             // btnInventory
@@ -157,6 +160,7 @@
             btnCustomers.Name = "btnCustomers";
             btnCustomers.Size = new Size(92, 28);
             btnCustomers.Text = "Customers";
+            btnCustomers.Visible = false;
             btnCustomers.Click += btnCustomers_Click;
             // 
             // btnPersonnel
@@ -167,6 +171,7 @@
             btnPersonnel.Name = "btnPersonnel";
             btnPersonnel.Size = new Size(87, 28);
             btnPersonnel.Text = "Personnel";
+            btnPersonnel.Visible = false;
             btnPersonnel.Click += btnPersonnel_Click;
             // 
             // btnUsers
@@ -177,6 +182,7 @@
             btnUsers.Name = "btnUsers";
             btnUsers.Size = new Size(63, 28);
             btnUsers.Text = "Users";
+            btnUsers.Visible = false;
             btnUsers.Click += btnUsers_Click;
             // 
             // btnLoggedInUser
@@ -263,7 +269,7 @@
             panel2.Controls.Add(label3);
             panel2.Controls.Add(lblProductCount);
             panel2.Dock = DockStyle.Fill;
-            panel2.Location = new Point(505, 7);
+            panel2.Location = new Point(7, 7);
             panel2.Margin = new Padding(7);
             panel2.Name = "panel2";
             panel2.Size = new Size(235, 116);
@@ -286,9 +292,9 @@
             label3.ForeColor = SystemColors.ControlDarkDark;
             label3.Location = new Point(50, 68);
             label3.Name = "label3";
-            label3.Size = new Size(59, 17);
+            label3.Size = new Size(39, 17);
             label3.TabIndex = 1;
-            label3.Text = "Products";
+            label3.Text = "Items";
             // 
             // lblProductCount
             // 
@@ -307,12 +313,12 @@
             panel1.Controls.Add(pictureBox1);
             panel1.Controls.Add(label2);
             panel1.Controls.Add(lblGrossSales);
-            panel1.Dock = DockStyle.Fill;
-            panel1.Location = new Point(7, 7);
+            panel1.Location = new Point(754, 7);
             panel1.Margin = new Padding(7);
             panel1.Name = "panel1";
             panel1.Size = new Size(235, 116);
             panel1.TabIndex = 0;
+            panel1.Visible = false;
             // 
             // pictureBox1
             // 
@@ -354,17 +360,62 @@
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
+            tableLayoutPanel1.Controls.Add(panel4, 1, 0);
             tableLayoutPanel1.Controls.Add(panel6, 4, 0);
-            tableLayoutPanel1.Controls.Add(panel5, 1, 0);
-            tableLayoutPanel1.Controls.Add(panel4, 3, 0);
-            tableLayoutPanel1.Controls.Add(panel2, 2, 0);
-            tableLayoutPanel1.Controls.Add(panel1, 0, 0);
+            tableLayoutPanel1.Controls.Add(panel2, 0, 0);
+            tableLayoutPanel1.Controls.Add(panel1, 3, 0);
+            tableLayoutPanel1.Controls.Add(panel5, 2, 0);
             tableLayoutPanel1.Location = new Point(12, 76);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 1;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
             tableLayoutPanel1.Size = new Size(1246, 130);
             tableLayoutPanel1.TabIndex = 3;
+            // 
+            // panel4
+            // 
+            panel4.BackColor = Color.White;
+            panel4.BorderStyle = BorderStyle.FixedSingle;
+            panel4.Controls.Add(pictureBox4);
+            panel4.Controls.Add(label9);
+            panel4.Controls.Add(label10);
+            panel4.Dock = DockStyle.Fill;
+            panel4.Location = new Point(256, 7);
+            panel4.Margin = new Padding(7);
+            panel4.Name = "panel4";
+            panel4.Size = new Size(235, 116);
+            panel4.TabIndex = 11;
+            // 
+            // pictureBox4
+            // 
+            pictureBox4.Image = (Image)resources.GetObject("pictureBox4.Image");
+            pictureBox4.Location = new Point(20, 39);
+            pictureBox4.Name = "pictureBox4";
+            pictureBox4.Size = new Size(24, 24);
+            pictureBox4.SizeMode = PictureBoxSizeMode.AutoSize;
+            pictureBox4.TabIndex = 2;
+            pictureBox4.TabStop = false;
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            label9.ForeColor = SystemColors.ControlDarkDark;
+            label9.Location = new Point(50, 68);
+            label9.Name = "label9";
+            label9.Size = new Size(101, 17);
+            label9.TabIndex = 1;
+            label9.Text = "Low Stock Items";
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
+            label10.Location = new Point(50, 28);
+            label10.Name = "label10";
+            label10.Size = new Size(27, 32);
+            label10.TabIndex = 0;
+            label10.Text = "0";
             // 
             // panel6
             // 
@@ -379,6 +430,7 @@
             panel6.Name = "panel6";
             panel6.Size = new Size(236, 116);
             panel6.TabIndex = 11;
+            panel6.Visible = false;
             // 
             // pictureBox6
             // 
@@ -418,12 +470,12 @@
             panel5.Controls.Add(pictureBox5);
             panel5.Controls.Add(label11);
             panel5.Controls.Add(lblCollectibles);
-            panel5.Dock = DockStyle.Fill;
-            panel5.Location = new Point(256, 7);
+            panel5.Location = new Point(505, 7);
             panel5.Margin = new Padding(7);
             panel5.Name = "panel5";
             panel5.Size = new Size(235, 116);
             panel5.TabIndex = 11;
+            panel5.Visible = false;
             // 
             // pictureBox5
             // 
@@ -455,51 +507,6 @@
             lblCollectibles.Size = new Size(72, 32);
             lblCollectibles.TabIndex = 0;
             lblCollectibles.Text = "₱0.00";
-            // 
-            // panel4
-            // 
-            panel4.BackColor = Color.White;
-            panel4.BorderStyle = BorderStyle.FixedSingle;
-            panel4.Controls.Add(pictureBox4);
-            panel4.Controls.Add(label9);
-            panel4.Controls.Add(label10);
-            panel4.Dock = DockStyle.Fill;
-            panel4.Location = new Point(754, 7);
-            panel4.Margin = new Padding(7);
-            panel4.Name = "panel4";
-            panel4.Size = new Size(235, 116);
-            panel4.TabIndex = 11;
-            // 
-            // pictureBox4
-            // 
-            pictureBox4.Image = (Image)resources.GetObject("pictureBox4.Image");
-            pictureBox4.Location = new Point(20, 39);
-            pictureBox4.Name = "pictureBox4";
-            pictureBox4.Size = new Size(24, 24);
-            pictureBox4.SizeMode = PictureBoxSizeMode.AutoSize;
-            pictureBox4.TabIndex = 2;
-            pictureBox4.TabStop = false;
-            // 
-            // label9
-            // 
-            label9.AutoSize = true;
-            label9.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            label9.ForeColor = SystemColors.ControlDarkDark;
-            label9.Location = new Point(50, 68);
-            label9.Name = "label9";
-            label9.Size = new Size(121, 17);
-            label9.TabIndex = 1;
-            label9.Text = "Low Stock Products";
-            // 
-            // label10
-            // 
-            label10.AutoSize = true;
-            label10.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            label10.Location = new Point(50, 28);
-            label10.Name = "label10";
-            label10.Size = new Size(27, 32);
-            label10.TabIndex = 0;
-            label10.Text = "0";
             // 
             // dgTopSellingProducts
             // 
@@ -622,7 +629,7 @@
             MinimumSize = new Size(1000, 650);
             Name = "MainForm";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "MainForm";
+            Text = "Pamana Inventory";
             WindowState = FormWindowState.Maximized;
             FormClosed += MainForm_FormClosed;
             Load += MainForm_Load;
@@ -635,15 +642,15 @@
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             tableLayoutPanel1.ResumeLayout(false);
+            panel4.ResumeLayout(false);
+            panel4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
             panel6.ResumeLayout(false);
             panel6.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox6).EndInit();
             panel5.ResumeLayout(false);
             panel5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
-            panel4.ResumeLayout(false);
-            panel4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
             ((System.ComponentModel.ISupportInitialize)dgTopSellingProducts).EndInit();
             ((System.ComponentModel.ISupportInitialize)dgSalesHistory).EndInit();
             ((System.ComponentModel.ISupportInitialize)dgPayingCustomers).EndInit();

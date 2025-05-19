@@ -111,9 +111,9 @@
             lblStoreWarehouse.AutoSize = true;
             lblStoreWarehouse.Location = new Point(3, 6);
             lblStoreWarehouse.Name = "lblStoreWarehouse";
-            lblStoreWarehouse.Size = new Size(98, 15);
+            lblStoreWarehouse.Size = new Size(108, 15);
             lblStoreWarehouse.TabIndex = 6;
-            lblStoreWarehouse.Text = "Store/Warehouse";
+            lblStoreWarehouse.Text = "Branch/Warehouse";
             // 
             // cmbStoreWarehouse
             // 

@@ -51,23 +51,14 @@ namespace ZenBiz.AppModules.Forms.Inventory.Items
             dgItems.Columns["category_name"].HeaderText = "Category";
             dgItems.Columns["unit_name"].HeaderText = "Unit";
             dgItems.Columns["unit_cost"].HeaderText = "Unit Cost";
-            dgItems.Columns["retail_price"].HeaderText = "Retail";
-            dgItems.Columns["wholesale_price"].HeaderText = "Wholesale";
-            dgItems.Columns["special_price"].HeaderText = "Special";
             dgItems.Columns["min_threshold_stock"].HeaderText = "Min. Stock";
 
             dgItems.Columns["name"].Width = 300;
 
             dgItems.Columns["unit_cost"].DefaultCellStyle.Format = "N2";
-            dgItems.Columns["retail_price"].DefaultCellStyle.Format = "N2";
-            dgItems.Columns["wholesale_price"].DefaultCellStyle.Format = "N2";
-            dgItems.Columns["special_price"].DefaultCellStyle.Format = "N2";
             dgItems.Columns["min_threshold_stock"].DefaultCellStyle.Format = "N2";
 
             dgItems.Columns["unit_cost"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-            dgItems.Columns["retail_price"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-            dgItems.Columns["wholesale_price"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-            dgItems.Columns["special_price"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
             dgItems.Columns["min_threshold_stock"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
             CountRecords();
         }

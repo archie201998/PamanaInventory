@@ -40,12 +40,33 @@ namespace ZenBiz.AppModules.Forms.Inventory.Stocks
 
             uc.cmbStoreWarehouse.SelectedValue = storeWarehouseId;
             uc.nudStockCount.Value = Convert.ToDecimal(dict["quantity"]);
+            uc.txtUser.Text = dict["user"];
+            uc.txtRemarks.Text = dict["remarks"];
+            uc.cmbxStatus.Text = dict["status"];
+
+
             if (!string.IsNullOrEmpty(dict["expiration"]))
             {
                 uc.dtpExpiration.Value = Convert.ToDateTime(dict["expiration"]);
                 uc.chkExpiration.Checked = true;
                 uc.dtpExpiration.Enabled = true;
             }
+
+            if (!string.IsNullOrEmpty(dict["returned_date"]))
+            {
+                uc.dtpReturnedDate.Value = Convert.ToDateTime(dict["returned_date"]);
+                uc.chkReturnedDate.Checked = true;
+                uc.dtpReturnedDate.Enabled = true;
+            }
+
+            if (!string.IsNullOrEmpty(dict["repaired_date"]))
+            {
+                uc.dtpRepairedDate.Value = Convert.ToDateTime(dict["returned_date"]);
+                uc.chkRepairedDate.Checked = true;
+                uc.dtpRepairedDate.Enabled = true;
+            }
+
+
 
             if (!string.IsNullOrWhiteSpace(dict["stock_date"]))
             {

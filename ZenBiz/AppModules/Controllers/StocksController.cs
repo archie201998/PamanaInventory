@@ -68,9 +68,14 @@ namespace ZenBiz.AppModules.Controllers
                 new object[] { "@quantity", DbType.Decimal, entity.Quantity },
                 new object[] { "@stock_date", DbType.Date, entity.StockDate },
                 new object[] { "@expiration", DbType.Date, entity.Expiration },
+                new object[] { "@returned_date", DbType.Date, entity.ReturnedDate },
+                new object[] { "@repaired_date", DbType.Date, entity.RepairedDate },
+                new object[] { "@user", DbType.String, entity.User },
+                new object[] { "@status", DbType.String, entity.Status },
+                new object[] { "@remarks", DbType.String, entity.Remarks },
             };
 
-            string query = $"INSERT INTO {tblStocks} (item_id, suppliers_id, quantity, stock_date, expiration) VALUES (@item_id, @suppliers_id, @quantity, @stock_date, @expiration)";
+            string query = $"INSERT INTO {tblStocks} (item_id, suppliers_id, quantity, stock_date, expiration, user, status, returned_date, repaired_date, remarks) VALUES (@item_id, @suppliers_id, @quantity, @stock_date, @expiration, @user, @status, @returned_date, @repaired_date, @remarks)";
             return _dbGenericCommands.ExecuteNonQuery(query, parameters);
         }
 
@@ -84,9 +89,20 @@ namespace ZenBiz.AppModules.Controllers
                 new object[] { "@quantity", DbType.Decimal, entity.Quantity },
                 new object[] { "@stock_date", DbType.Date, entity.StockDate },
                 new object[] { "@expiration", DbType.Date, entity.Expiration },
+                new object[] { "@returned_date", DbType.Date, entity.ReturnedDate },
+                new object[] { "@repaired_date", DbType.Date, entity.RepairedDate },
+                new object[] { "@user", DbType.String, entity.User },
+                new object[] { "@status", DbType.String, entity.Status },
+                new object[] { "@remarks", DbType.String, entity.Remarks },
             };
 
-            string query = $"UPDATE {tblStocks} SET item_id = @item_id, suppliers_id = @suppliers_id, quantity = @quantity, stock_date = @stock_date, expiration = @expiration WHERE id = @id";
+            string query = $"UPDATE {tblStocks} SET item_id = @item_id, suppliers_id = @suppliers_id, quantity = @quantity, stock_date = @stock_date, " +
+                $"expiration = @expiration, " +
+                $"returned_date = @returned_date," +
+                $"repaired_date = @repaired_date," +
+                $"user = @user, " +
+                $"status = @status," +
+                $"remarks = @remarks WHERE id = @id";
             return _dbGenericCommands.ExecuteNonQuery(query, parameters);
         }
 

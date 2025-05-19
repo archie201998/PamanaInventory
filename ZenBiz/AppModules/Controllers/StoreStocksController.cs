@@ -38,7 +38,7 @@ namespace ZenBiz.AppModules.Controllers
                 new object[] { "@categories_id", DbType.Int32, categoriesId },
             };
 
-            string query = $"SELECT item_id, sku_code, item_name, category_name, unit_name, unit_cost, retail_price, wholesale_price, special_price, min_threshold_stock FROM {viewStoreStocks} WHERE stores_id = @stores_id AND categories_id = @categories_id GROUP BY item_id";
+            string query = $"SELECT item_id, sku_code, item_name, category_name, unit_name, unit_cost, min_threshold_stock FROM {viewStoreStocks} WHERE stores_id = @stores_id AND categories_id = @categories_id GROUP BY item_id";
             return _dbGenericCommands.Fill(query, parameters);
         }
 
@@ -49,7 +49,7 @@ namespace ZenBiz.AppModules.Controllers
                 new object[] { "@stores_id", DbType.Int32, storesId },
             };
 
-            string query = $"SELECT item_id, sku_code, item_name, category_name, unit_name, unit_cost, retail_price, wholesale_price, special_price, min_threshold_stock FROM {viewStoreStocks} WHERE stores_id = @stores_id GROUP BY item_id";
+            string query = $"SELECT item_id, sku_code, item_name, category_name, unit_name, unit_cost,  min_threshold_stock FROM {viewStoreStocks} WHERE stores_id = @stores_id GROUP BY item_id";
             return _dbGenericCommands.Fill(query, parameters);
         }
 
@@ -60,7 +60,7 @@ namespace ZenBiz.AppModules.Controllers
                 new object[] { "@item_id", DbType.String, itemId },
             };
 
-            string query = $"SELECT id, stocks_id, store_name, quantity, stock_date, expiration, suppliers_name FROM {viewStoreStocks} WHERE item_id = @item_id";
+            string query = $"SELECT id, stocks_id, store_name, quantity, stock_date, expiration, suppliers_name, user, status, repaired_date, returned_date, remarks FROM {viewStoreStocks} WHERE item_id = @item_id";
             return _dbGenericCommands.Fill(query, parameters);
         }
 
@@ -84,7 +84,7 @@ namespace ZenBiz.AppModules.Controllers
                 new object[] { "@search_text", DbType.String, $"%{searchText}%"},
             };
 
-            string query = $"SELECT id, item_id, sku_code, item_name, retail_price, wholesale_price, special_price, SUM(quantity) AS total_quantity FROM {viewStoreStocks} WHERE stores_id = @stores_id AND item_name LIKE @search_text GROUP BY stores_id, item_id";
+            string query = $"SELECT id, item_id, sku_code, item_name, SUM(quantity) AS total_quantity FROM {viewStoreStocks} WHERE stores_id = @stores_id AND item_name LIKE @search_text GROUP BY stores_id, item_id";
             return _dbGenericCommands.Fill(query, parameters);
         }
 
@@ -118,7 +118,7 @@ namespace ZenBiz.AppModules.Controllers
                 new object[] { "@stocks_id", DbType.Int32, stockId },
             };
 
-            string query = $"SELECT stores_id, suppliers_id, store_name, store_address, item_id, quantity, stock_date, expiration, suppliers_name FROM {viewStoreStocks} WHERE stocks_id = @stocks_id";
+            string query = $"SELECT stores_id, suppliers_id, store_name, store_address, item_id, quantity, stock_date, expiration, suppliers_name, user, status, repaired_date, returned_date, remarks FROM {viewStoreStocks} WHERE stocks_id = @stocks_id";
             using (var reader = _dbGenericCommands.ExecuteReader(query, parameters))
             {
                 if (reader.Rows.Count == 0) return record;

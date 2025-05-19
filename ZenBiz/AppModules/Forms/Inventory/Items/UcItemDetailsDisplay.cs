@@ -16,9 +16,6 @@
             txtCategory.Text = dict["category_name"];
             txtUnit.Text = dict["unit_name"];
             txtUnitCost.Text = Convert.ToDecimal(dict["unit_cost"]).ToString("N2");
-            txtRetailPrice.Text = Convert.ToDecimal(dict["retail_price"]).ToString("N2");
-            txtWholesalePrice.Text = Convert.ToDecimal(dict["wholesale_price"]).ToString("N2");
-            txtSpecialPrice.Text = Convert.ToDecimal(dict["special_price"]).ToString("N2");
             txtMinStockThreshold.Text = Convert.ToDecimal(dict["min_threshold_stock"]).ToString("N2");
         }
 

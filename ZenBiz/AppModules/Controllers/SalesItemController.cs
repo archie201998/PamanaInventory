@@ -249,7 +249,7 @@ namespace ZenBiz.AppModules.Controllers
             };
             string storeFilter = storeId != 0 ? "AND stores_id = @stores_id" : string.Empty;
 
-            string querySoldItems = $"SELECT a.items_id, a.sku_code, a.item_name, COUNT(a.items_id) AS quantity_sold FROM zenbiz_db.view_sales_item AS a INNER JOIN view_items AS b ON a.items_id = b.id  WHERE a.trans_date BETWEEN @date_from AND @date_to {storeFilter} Group by a.items_id UNION SELECT  a.id, a.sku_code, a.name, COUNT(b.items_id) AS quantity_sold FROM zenbiz_db.view_items AS a LEFT JOIN view_sales_item AS b ON a.id = b.items_id WHERE b.items_id IS NULL GROUP BY a.id";
+            string querySoldItems = $"SELECT a.items_id, a.sku_code, a.item_name, COUNT(a.items_id) AS quantity_sold FROM view_sales_item AS a INNER JOIN view_items AS b ON a.items_id = b.id  WHERE a.trans_date BETWEEN @date_from AND @date_to {storeFilter} Group by a.items_id UNION SELECT  a.id, a.sku_code, a.name, COUNT(b.items_id) AS quantity_sold FROM view_items AS a LEFT JOIN view_sales_item AS b ON a.id = b.items_id WHERE b.items_id IS NULL GROUP BY a.id";
             return _dbGenericCommands.Fill(querySoldItems, parameters);
         }
 

@@ -32,12 +32,6 @@
             panel1 = new Panel();
             txtMinStockThreshold = new TextBox();
             label7 = new Label();
-            txtSpecialPrice = new TextBox();
-            label8 = new Label();
-            txtWholesalePrice = new TextBox();
-            label9 = new Label();
-            txtRetailPrice = new TextBox();
-            label10 = new Label();
             txtUnitCost = new TextBox();
             label5 = new Label();
             txtUnit = new TextBox();
@@ -68,12 +62,6 @@
             // 
             panel1.Controls.Add(txtMinStockThreshold);
             panel1.Controls.Add(label7);
-            panel1.Controls.Add(txtSpecialPrice);
-            panel1.Controls.Add(label8);
-            panel1.Controls.Add(txtWholesalePrice);
-            panel1.Controls.Add(label9);
-            panel1.Controls.Add(txtRetailPrice);
-            panel1.Controls.Add(label10);
             panel1.Controls.Add(txtUnitCost);
             panel1.Controls.Add(label5);
             panel1.Controls.Add(txtUnit);
@@ -93,7 +81,7 @@
             // 
             // txtMinStockThreshold
             // 
-            txtMinStockThreshold.Location = new Point(517, 90);
+            txtMinStockThreshold.Location = new Point(523, 6);
             txtMinStockThreshold.Name = "txtMinStockThreshold";
             txtMinStockThreshold.ReadOnly = true;
             txtMinStockThreshold.Size = new Size(297, 23);
@@ -102,62 +90,11 @@
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(393, 93);
+            label7.Location = new Point(399, 9);
             label7.Name = "label7";
-            label7.Size = new Size(118, 15);
+            label7.Size = new Size(119, 15);
             label7.TabIndex = 34;
             label7.Text = "Min. Stock Threshold";
-            // 
-            // txtSpecialPrice
-            // 
-            txtSpecialPrice.Location = new Point(517, 61);
-            txtSpecialPrice.Name = "txtSpecialPrice";
-            txtSpecialPrice.ReadOnly = true;
-            txtSpecialPrice.Size = new Size(297, 23);
-            txtSpecialPrice.TabIndex = 33;
-            // 
-            // label8
-            // 
-            label8.AutoSize = true;
-            label8.Location = new Point(393, 64);
-            label8.Name = "label8";
-            label8.Size = new Size(73, 15);
-            label8.TabIndex = 32;
-            label8.Text = "Special Price";
-            // 
-            // txtWholesalePrice
-            // 
-            txtWholesalePrice.Location = new Point(517, 32);
-            txtWholesalePrice.Name = "txtWholesalePrice";
-            txtWholesalePrice.ReadOnly = true;
-            txtWholesalePrice.Size = new Size(297, 23);
-            txtWholesalePrice.TabIndex = 31;
-            // 
-            // label9
-            // 
-            label9.AutoSize = true;
-            label9.Location = new Point(393, 35);
-            label9.Name = "label9";
-            label9.Size = new Size(90, 15);
-            label9.TabIndex = 30;
-            label9.Text = "Wholesale Price";
-            // 
-            // txtRetailPrice
-            // 
-            txtRetailPrice.Location = new Point(517, 3);
-            txtRetailPrice.Name = "txtRetailPrice";
-            txtRetailPrice.ReadOnly = true;
-            txtRetailPrice.Size = new Size(297, 23);
-            txtRetailPrice.TabIndex = 29;
-            // 
-            // label10
-            // 
-            label10.AutoSize = true;
-            label10.Location = new Point(393, 6);
-            label10.Name = "label10";
-            label10.Size = new Size(65, 15);
-            label10.TabIndex = 28;
-            label10.Text = "Retail Price";
             // 
             // txtUnitCost
             // 
@@ -264,12 +201,6 @@
         private Panel panel1;
         private TextBox txtMinStockThreshold;
         private Label label7;
-        private TextBox txtSpecialPrice;
-        private Label label8;
-        private TextBox txtWholesalePrice;
-        private Label label9;
-        private TextBox txtRetailPrice;
-        private Label label10;
         private TextBox txtUnitCost;
         private Label label5;
         private TextBox txtUnit;

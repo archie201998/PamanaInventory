@@ -45,7 +45,7 @@ namespace ZenBiz.AppModules.Controllers
 
         public DataTable Fetch()
         {
-            string query = $"SELECT id, sku_code, name, category_name, unit_name, unit_cost, retail_price, wholesale_price, special_price, min_threshold_stock FROM {viewItems} ORDER BY name";
+            string query = $"SELECT id, sku_code, name, category_name, unit_name, unit_cost, min_threshold_stock FROM {viewItems} ORDER BY name";
             return _dbGenericCommands.Fill(query);
         }
 
@@ -56,7 +56,7 @@ namespace ZenBiz.AppModules.Controllers
                 new object[] { "@categories_id", DbType.Int32, categoriesId },
             };
 
-            string query = $"SELECT id, sku_code, name, category_name, unit_name, unit_cost, retail_price, wholesale_price, special_price, min_threshold_stock FROM {viewItems} WHERE categories_id = @categories_id ORDER BY name";
+            string query = $"SELECT id, sku_code, name, category_name, unit_name, unit_cost,  min_threshold_stock FROM {viewItems} WHERE categories_id = @categories_id ORDER BY name";
             return _dbGenericCommands.Fill(query, parameters);
         }
 
@@ -67,7 +67,7 @@ namespace ZenBiz.AppModules.Controllers
                 new object[] { "@search_text", DbType.String, $"%{searchText}%"},
             };
 
-            string query = $"SELECT id, sku_code, name, category_name, unit_name, unit_cost, retail_price, wholesale_price, special_price FROM {viewItems} WHERE name LIKE @search_text";
+            string query = $"SELECT id, sku_code, name, category_name, unit_name, unit_cost FROM {viewItems} WHERE name LIKE @search_text";
             return _dbGenericCommands.Fill(query, parameters);
         }
 
@@ -80,7 +80,7 @@ namespace ZenBiz.AppModules.Controllers
                 new object[] { "@id", DbType.Int32,  Id },
             };
 
-            string query = $"SELECT categories_id, unit_measurements_id, sku_code, name, unit_cost, retail_price, wholesale_price, special_price, min_threshold_stock, created_by, created_time, updated_by, updated_time, category_name, unit_abbreviation, unit_name FROM {viewItems} WHERE id = @id";
+            string query = $"SELECT categories_id, unit_measurements_id, sku_code, name, unit_cost, min_threshold_stock, created_by, created_time, updated_by, updated_time, category_name, unit_abbreviation, unit_name FROM {viewItems} WHERE id = @id";
             using (var reader = _dbGenericCommands.ExecuteReader(query, parameters))
             {
                 if (reader.Rows.Count == 0) return record;
@@ -119,14 +119,11 @@ namespace ZenBiz.AppModules.Controllers
                 new object[] { "@name", DbType.String, entity.Name },
                 new object[] { "@sku_code", DbType.String, entity.Code },
                 new object[] { "@unit_cost", DbType.Decimal, entity.UnitCost },
-                new object[] { "@retail_price", DbType.Decimal, entity.RetailPrice },
-                new object[] { "@wholesale_price", DbType.Decimal, entity.WholesalePrice },
-                new object[] { "@special_price", DbType.Decimal, entity.SpecialPrice },
                 new object[] { "@min_threshold_stock", DbType.Decimal, entity.MinimumThresholdStocks },
                 new object[] { "@created_by", DbType.Int32, entity.Users.Id},
             };
 
-            string query = $"INSERT INTO {tblItems} (categories_id, unit_measurements_id, sku_code, name, unit_cost, retail_price, wholesale_price, special_price, min_threshold_stock, created_by) VALUES (@categories_id, @unit_measurements_id, @sku_code, @name, @unit_cost, @retail_price, @wholesale_price, @special_price, @min_threshold_stock, @created_by)";
+            string query = $"INSERT INTO {tblItems} (categories_id, unit_measurements_id, sku_code, name, unit_cost, min_threshold_stock, created_by) VALUES (@categories_id, @unit_measurements_id, @sku_code, @name, @unit_cost, @min_threshold_stock, @created_by)";
             return _dbGenericCommands.ExecuteNonQuery(query, parameters);
         }
 
@@ -140,14 +137,11 @@ namespace ZenBiz.AppModules.Controllers
                 new object[] { "@name", DbType.String, entity.Name },
                 new object[] { "@sku_code", DbType.String, entity.Code },
                 new object[] { "@unit_cost", DbType.Decimal, entity.UnitCost },
-                new object[] { "@retail_price", DbType.Decimal, entity.RetailPrice },
-                new object[] { "@wholesale_price", DbType.Decimal, entity.WholesalePrice },
-                new object[] { "@special_price", DbType.Decimal, entity.SpecialPrice },
                 new object[] { "@min_threshold_stock", DbType.Decimal, entity.MinimumThresholdStocks },
                 new object[] { "@updated_by", DbType.Int32, entity.Users.Id},
             };
 
-            string query = $"UPDATE {tblItems} SET categories_id = @categories_id, unit_measurements_id = @unit_measurements_id, sku_code = @sku_code, name = @name, unit_cost = @unit_cost, retail_price = @retail_price, wholesale_price = @wholesale_price, special_price = @special_price, min_threshold_stock = @min_threshold_stock, updated_by = @updated_by WHERE id = @id";
+            string query = $"UPDATE {tblItems} SET categories_id = @categories_id, unit_measurements_id = @unit_measurements_id, sku_code = @sku_code, name = @name, unit_cost = @unit_cost, min_threshold_stock = @min_threshold_stock, updated_by = @updated_by WHERE id = @id";
             return _dbGenericCommands.ExecuteNonQuery(query, parameters);
         }
 

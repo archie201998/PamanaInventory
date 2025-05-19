@@ -31,7 +31,7 @@
             flowLayoutPanel1 = new FlowLayoutPanel();
             btnCancel = new Button();
             btnSave = new Button();
-            ucStocksForm1 = new Items.UcStocksForm();
+            ucStocksForm1 = new ZenBiz.AppModules.Forms.Inventory.Items.UcStocksForm();
             flowLayoutPanel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -41,7 +41,7 @@
             flowLayoutPanel1.Controls.Add(btnCancel);
             flowLayoutPanel1.Controls.Add(btnSave);
             flowLayoutPanel1.Dock = DockStyle.Bottom;
-            flowLayoutPanel1.Location = new Point(0, 183);
+            flowLayoutPanel1.Location = new Point(0, 338);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
             flowLayoutPanel1.RightToLeft = RightToLeft.Yes;
             flowLayoutPanel1.Size = new Size(446, 30);
@@ -70,7 +70,7 @@
             // 
             ucStocksForm1.Location = new Point(12, 12);
             ucStocksForm1.Name = "ucStocksForm1";
-            ucStocksForm1.Size = new Size(428, 161);
+            ucStocksForm1.Size = new Size(428, 318);
             ucStocksForm1.TabIndex = 5;
             // 
             // FrmStocksEdit
@@ -80,7 +80,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             AutoValidate = AutoValidate.EnableAllowFocusChange;
             CancelButton = btnCancel;
-            ClientSize = new Size(446, 213);
+            ClientSize = new Size(446, 368);
             Controls.Add(ucStocksForm1);
             Controls.Add(flowLayoutPanel1);
             FormBorderStyle = FormBorderStyle.FixedToolWindow;

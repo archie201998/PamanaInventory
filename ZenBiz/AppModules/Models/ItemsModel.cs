@@ -8,9 +8,6 @@
         public string Code { get; set; } = string.Empty;
         public string Name { get; set; } = string.Empty;
         public decimal UnitCost { get; set; }
-        public decimal RetailPrice { get; set; }
-        public decimal WholesalePrice { get; set; }
-        public decimal SpecialPrice { get; set; }
         public float MinimumThresholdStocks { get; set; }
         public UsersModel Users { get; set; } = new();
 

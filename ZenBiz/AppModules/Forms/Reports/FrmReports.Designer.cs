@@ -49,7 +49,7 @@
             // 
             // menuStrip1
             // 
-            menuStrip1.Items.AddRange(new ToolStripItem[] { salesToolStripMenuItem, inventoryToolStripMenuItem, statementOfAcocuntToolStripMenuItem, payablesToolStripMenuItem, accountsReceivableToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { inventoryToolStripMenuItem, salesToolStripMenuItem, statementOfAcocuntToolStripMenuItem, payablesToolStripMenuItem, accountsReceivableToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Size = new Size(1184, 24);
@@ -62,6 +62,7 @@
             salesToolStripMenuItem.Name = "salesToolStripMenuItem";
             salesToolStripMenuItem.Size = new Size(45, 20);
             salesToolStripMenuItem.Text = "Sales";
+            salesToolStripMenuItem.Visible = false;
             // 
             // grossIncomeToolStripMenuItem
             // 
@@ -101,14 +102,14 @@
             // stocksPerStoreToolStripMenuItem
             // 
             stocksPerStoreToolStripMenuItem.Name = "stocksPerStoreToolStripMenuItem";
-            stocksPerStoreToolStripMenuItem.Size = new Size(180, 22);
+            stocksPerStoreToolStripMenuItem.Size = new Size(173, 22);
             stocksPerStoreToolStripMenuItem.Text = "Inventory List";
             stocksPerStoreToolStripMenuItem.Click += stocksPerStoreToolStripMenuItem_Click_1;
             // 
             // stockAdjustmentStoreToolStripMenuItem1
             // 
             stockAdjustmentStoreToolStripMenuItem1.Name = "stockAdjustmentStoreToolStripMenuItem1";
-            stockAdjustmentStoreToolStripMenuItem1.Size = new Size(180, 22);
+            stockAdjustmentStoreToolStripMenuItem1.Size = new Size(173, 22);
             stockAdjustmentStoreToolStripMenuItem1.Text = "Stock Adjustments";
             stockAdjustmentStoreToolStripMenuItem1.Click += stockAdjustmentStoreToolStripMenuItem1_Click;
             // 
@@ -145,6 +146,7 @@
             statementOfAcocuntToolStripMenuItem.Name = "statementOfAcocuntToolStripMenuItem";
             statementOfAcocuntToolStripMenuItem.Size = new Size(135, 20);
             statementOfAcocuntToolStripMenuItem.Text = "Statement of Acocunt";
+            statementOfAcocuntToolStripMenuItem.Visible = false;
             statementOfAcocuntToolStripMenuItem.Click += statementOfAcocuntToolStripMenuItem_Click;
             // 
             // payablesToolStripMenuItem
@@ -152,6 +154,7 @@
             payablesToolStripMenuItem.Name = "payablesToolStripMenuItem";
             payablesToolStripMenuItem.Size = new Size(153, 20);
             payablesToolStripMenuItem.Text = "Aging Accounts Payables";
+            payablesToolStripMenuItem.Visible = false;
             payablesToolStripMenuItem.Click += payablesToolStripMenuItem_Click;
             // 
             // accountsReceivableToolStripMenuItem
@@ -159,6 +162,7 @@
             accountsReceivableToolStripMenuItem.Name = "accountsReceivableToolStripMenuItem";
             accountsReceivableToolStripMenuItem.Size = new Size(163, 20);
             accountsReceivableToolStripMenuItem.Text = "Aging Accounts Receivable";
+            accountsReceivableToolStripMenuItem.Visible = false;
             accountsReceivableToolStripMenuItem.Click += accountsReceivableToolStripMenuItem_Click;
             // 
             // FrmReports

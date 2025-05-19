@@ -203,6 +203,7 @@
             Controls.Add(label1);
             Name = "LoginForm";
             Text = "Login";
+            Load += LoginForm_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();

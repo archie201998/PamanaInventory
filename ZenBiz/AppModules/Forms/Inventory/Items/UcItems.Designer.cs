@@ -30,12 +30,12 @@
         {
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UcItems));
-            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle9 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle10 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle11 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle12 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
             label1 = new Label();
             txtCode = new TextBox();
             cmbCategory = new ComboBox();
@@ -43,12 +43,6 @@
             label2 = new Label();
             nudUnitCost = new NumericUpDown();
             lblUnitCost = new Label();
-            label4 = new Label();
-            nudRetailPrice = new NumericUpDown();
-            label5 = new Label();
-            nudWholesalePrice = new NumericUpDown();
-            label6 = new Label();
-            nudSpecialPrice = new NumericUpDown();
             label7 = new Label();
             nudMinStockThreshold = new NumericUpDown();
             label8 = new Label();
@@ -73,9 +67,6 @@
             epName = new ErrorProvider(components);
             epCode = new ErrorProvider(components);
             ((System.ComponentModel.ISupportInitialize)nudUnitCost).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)nudRetailPrice).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)nudWholesalePrice).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)nudSpecialPrice).BeginInit();
             ((System.ComponentModel.ISupportInitialize)nudMinStockThreshold).BeginInit();
             groupBox1.SuspendLayout();
             panel1.SuspendLayout();
@@ -112,7 +103,7 @@
             // 
             cmbCategory.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbCategory.FormattingEnabled = true;
-            cmbCategory.Location = new Point(132, 177);
+            cmbCategory.Location = new Point(132, 90);
             cmbCategory.Name = "cmbCategory";
             cmbCategory.Size = new Size(300, 23);
             cmbCategory.TabIndex = 6;
@@ -140,7 +131,7 @@
             // 
             nudUnitCost.DecimalPlaces = 2;
             nudUnitCost.Increment = new decimal(new int[] { 1, 0, 0, 131072 });
-            nudUnitCost.Location = new Point(132, 235);
+            nudUnitCost.Location = new Point(132, 148);
             nudUnitCost.Maximum = new decimal(new int[] { 10000000, 0, 0, 0 });
             nudUnitCost.Name = "nudUnitCost";
             nudUnitCost.Size = new Size(300, 23);
@@ -149,75 +140,18 @@
             // lblUnitCost
             // 
             lblUnitCost.AutoSize = true;
-            lblUnitCost.Location = new Point(5, 237);
+            lblUnitCost.Location = new Point(5, 150);
             lblUnitCost.Name = "lblUnitCost";
             lblUnitCost.Size = new Size(56, 15);
             lblUnitCost.TabIndex = 6;
             lblUnitCost.Text = "Unit Cost";
             // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Location = new Point(5, 63);
-            label4.Name = "label4";
-            label4.Size = new Size(65, 15);
-            label4.TabIndex = 8;
-            label4.Text = "Retail Price";
-            // 
-            // nudRetailPrice
-            // 
-            nudRetailPrice.DecimalPlaces = 2;
-            nudRetailPrice.Increment = new decimal(new int[] { 1, 0, 0, 131072 });
-            nudRetailPrice.Location = new Point(132, 61);
-            nudRetailPrice.Maximum = new decimal(new int[] { 10000000, 0, 0, 0 });
-            nudRetailPrice.Name = "nudRetailPrice";
-            nudRetailPrice.Size = new Size(300, 23);
-            nudRetailPrice.TabIndex = 2;
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Location = new Point(5, 92);
-            label5.Name = "label5";
-            label5.Size = new Size(90, 15);
-            label5.TabIndex = 10;
-            label5.Text = "Wholesale Price";
-            // 
-            // nudWholesalePrice
-            // 
-            nudWholesalePrice.DecimalPlaces = 2;
-            nudWholesalePrice.Increment = new decimal(new int[] { 1, 0, 0, 131072 });
-            nudWholesalePrice.Location = new Point(132, 90);
-            nudWholesalePrice.Maximum = new decimal(new int[] { 10000000, 0, 0, 0 });
-            nudWholesalePrice.Name = "nudWholesalePrice";
-            nudWholesalePrice.Size = new Size(300, 23);
-            nudWholesalePrice.TabIndex = 3;
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Location = new Point(5, 121);
-            label6.Name = "label6";
-            label6.Size = new Size(73, 15);
-            label6.TabIndex = 12;
-            label6.Text = "Special Price";
-            // 
-            // nudSpecialPrice
-            // 
-            nudSpecialPrice.DecimalPlaces = 2;
-            nudSpecialPrice.Increment = new decimal(new int[] { 1, 0, 0, 131072 });
-            nudSpecialPrice.Location = new Point(132, 119);
-            nudSpecialPrice.Maximum = new decimal(new int[] { 10000000, 0, 0, 0 });
-            nudSpecialPrice.Name = "nudSpecialPrice";
-            nudSpecialPrice.Size = new Size(300, 23);
-            nudSpecialPrice.TabIndex = 4;
-            // 
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(5, 150);
+            label7.Location = new Point(5, 63);
             label7.Name = "label7";
-            label7.Size = new Size(118, 15);
+            label7.Size = new Size(119, 15);
             label7.TabIndex = 14;
             label7.Text = "Min. Stock Threshold";
             // 
@@ -225,7 +159,7 @@
             // 
             nudMinStockThreshold.DecimalPlaces = 2;
             nudMinStockThreshold.Increment = new decimal(new int[] { 1, 0, 0, 131072 });
-            nudMinStockThreshold.Location = new Point(132, 148);
+            nudMinStockThreshold.Location = new Point(132, 61);
             nudMinStockThreshold.Maximum = new decimal(new int[] { 10000000, 0, 0, 0 });
             nudMinStockThreshold.Name = "nudMinStockThreshold";
             nudMinStockThreshold.Size = new Size(300, 23);
@@ -234,7 +168,7 @@
             // label8
             // 
             label8.AutoSize = true;
-            label8.Location = new Point(5, 180);
+            label8.Location = new Point(5, 93);
             label8.Name = "label8";
             label8.Size = new Size(55, 15);
             label8.TabIndex = 15;
@@ -243,7 +177,7 @@
             // label9
             // 
             label9.AutoSize = true;
-            label9.Location = new Point(5, 209);
+            label9.Location = new Point(5, 122);
             label9.Name = "label9";
             label9.Size = new Size(29, 15);
             label9.TabIndex = 17;
@@ -253,7 +187,7 @@
             // 
             cmbUnit.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbUnit.FormattingEnabled = true;
-            cmbUnit.Location = new Point(132, 206);
+            cmbUnit.Location = new Point(132, 119);
             cmbUnit.Name = "cmbUnit";
             cmbUnit.Size = new Size(300, 23);
             cmbUnit.TabIndex = 7;
@@ -261,7 +195,7 @@
             // btnAddCategory
             // 
             btnAddCategory.Image = (Image)resources.GetObject("btnAddCategory.Image");
-            btnAddCategory.Location = new Point(438, 177);
+            btnAddCategory.Location = new Point(438, 90);
             btnAddCategory.Name = "btnAddCategory";
             btnAddCategory.Size = new Size(23, 23);
             btnAddCategory.TabIndex = 18;
@@ -271,7 +205,7 @@
             // btnAddUnit
             // 
             btnAddUnit.Image = (Image)resources.GetObject("btnAddUnit.Image");
-            btnAddUnit.Location = new Point(438, 206);
+            btnAddUnit.Location = new Point(438, 119);
             btnAddUnit.Name = "btnAddUnit";
             btnAddUnit.Size = new Size(23, 23);
             btnAddUnit.TabIndex = 19;
@@ -302,34 +236,34 @@
             // 
             // dgStoreStocks
             // 
-            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = SystemColors.Control;
-            dataGridViewCellStyle7.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle7.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle7.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = DataGridViewTriState.True;
-            dgStoreStocks.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = SystemColors.Control;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dgStoreStocks.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgStoreStocks.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = SystemColors.Window;
-            dataGridViewCellStyle8.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle8.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle8.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = DataGridViewTriState.False;
-            dgStoreStocks.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = SystemColors.Window;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            dgStoreStocks.DefaultCellStyle = dataGridViewCellStyle2;
             dgStoreStocks.Dock = DockStyle.Fill;
             dgStoreStocks.Location = new Point(0, 25);
             dgStoreStocks.Name = "dgStoreStocks";
-            dataGridViewCellStyle9.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = SystemColors.Control;
-            dataGridViewCellStyle9.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle9.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle9.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle9.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = DataGridViewTriState.True;
-            dgStoreStocks.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = SystemColors.Control;
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle3.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
+            dgStoreStocks.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             dgStoreStocks.RowTemplate.Height = 25;
             dgStoreStocks.Size = new Size(486, 89);
             dgStoreStocks.TabIndex = 1;
@@ -399,34 +333,34 @@
             // 
             // dgWarehouseStocks
             // 
-            dataGridViewCellStyle10.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = SystemColors.Control;
-            dataGridViewCellStyle10.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle10.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle10.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle10.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle10.WrapMode = DataGridViewTriState.True;
-            dgWarehouseStocks.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = SystemColors.Control;
+            dataGridViewCellStyle4.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle4.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
+            dgWarehouseStocks.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             dgWarehouseStocks.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle11.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = SystemColors.Window;
-            dataGridViewCellStyle11.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle11.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle11.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle11.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle11.WrapMode = DataGridViewTriState.False;
-            dgWarehouseStocks.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = SystemColors.Window;
+            dataGridViewCellStyle5.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle5.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle5.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.False;
+            dgWarehouseStocks.DefaultCellStyle = dataGridViewCellStyle5;
             dgWarehouseStocks.Dock = DockStyle.Fill;
             dgWarehouseStocks.Location = new Point(0, 25);
             dgWarehouseStocks.Name = "dgWarehouseStocks";
-            dataGridViewCellStyle12.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = SystemColors.Control;
-            dataGridViewCellStyle12.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle12.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle12.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle12.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle12.WrapMode = DataGridViewTriState.True;
-            dgWarehouseStocks.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = SystemColors.Control;
+            dataGridViewCellStyle6.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle6.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.True;
+            dgWarehouseStocks.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             dgWarehouseStocks.RowTemplate.Height = 25;
             dgWarehouseStocks.Size = new Size(486, 89);
             dgWarehouseStocks.TabIndex = 1;
@@ -492,12 +426,6 @@
             Controls.Add(label8);
             Controls.Add(label7);
             Controls.Add(nudMinStockThreshold);
-            Controls.Add(label6);
-            Controls.Add(nudSpecialPrice);
-            Controls.Add(label5);
-            Controls.Add(nudWholesalePrice);
-            Controls.Add(label4);
-            Controls.Add(nudRetailPrice);
             Controls.Add(lblUnitCost);
             Controls.Add(nudUnitCost);
             Controls.Add(txtName);
@@ -509,9 +437,6 @@
             Size = new Size(971, 294);
             Load += UcItems_Load;
             ((System.ComponentModel.ISupportInitialize)nudUnitCost).EndInit();
-            ((System.ComponentModel.ISupportInitialize)nudRetailPrice).EndInit();
-            ((System.ComponentModel.ISupportInitialize)nudWholesalePrice).EndInit();
-            ((System.ComponentModel.ISupportInitialize)nudSpecialPrice).EndInit();
             ((System.ComponentModel.ISupportInitialize)nudMinStockThreshold).EndInit();
             groupBox1.ResumeLayout(false);
             panel1.ResumeLayout(false);
@@ -536,9 +461,6 @@
         private Label label1;
         private Label label2;
         private Label lblUnitCost;
-        private Label label4;
-        private Label label5;
-        private Label label6;
         private Label label7;
         private Label label8;
         private Label label9;
@@ -559,9 +481,6 @@
         public ComboBox cmbCategory;
         public TextBox txtName;
         public NumericUpDown nudUnitCost;
-        public NumericUpDown nudRetailPrice;
-        public NumericUpDown nudWholesalePrice;
-        public NumericUpDown nudSpecialPrice;
         public NumericUpDown nudMinStockThreshold;
         public ComboBox cmbUnit;
         public DataGridView dgStoreStocks;

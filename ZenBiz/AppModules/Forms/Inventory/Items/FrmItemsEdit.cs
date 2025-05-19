@@ -20,9 +20,6 @@ namespace ZenBiz.AppModules.Forms.Inventory.Items
             var data = Factory.ItemsController().FindById(_id);
             uc.txtCode.Text = data["sku_code"];
             uc.txtName.Text = data["name"];
-            uc.nudRetailPrice.Value = Convert.ToDecimal(data["retail_price"]);
-            uc.nudWholesalePrice.Value = Convert.ToDecimal(data["wholesale_price"]);
-            uc.nudSpecialPrice.Value = Convert.ToDecimal(data["special_price"]);
             uc.nudMinStockThreshold.Value = Convert.ToDecimal(data["min_threshold_stock"]);
             uc.nudUnitCost.Value = Convert.ToDecimal(data["unit_cost"]);
             uc.cmbCategory.SelectedValue = Convert.ToInt32(data["categories_id"]);
@@ -50,9 +47,6 @@ namespace ZenBiz.AppModules.Forms.Inventory.Items
                 Code = uc.txtCode.Text.Trim(),
                 Name = uc.txtName.Text.Trim(),
                 UnitCost = uc.nudUnitCost.Value,
-                RetailPrice = uc.nudRetailPrice.Value,
-                WholesalePrice = uc.nudWholesalePrice.Value,
-                SpecialPrice = uc.nudSpecialPrice.Value,
                 MinimumThresholdStocks = (float)uc.nudMinStockThreshold.Value,
                 Users = new UsersModel() { Id = Helper.UserId }
             };

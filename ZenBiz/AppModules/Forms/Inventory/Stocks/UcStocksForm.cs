@@ -30,6 +30,8 @@ namespace ZenBiz.AppModules.Forms.Inventory.Items
             chkExpiration.Checked = false;
             chkStockDate.Checked = false;
             chkSupplier.Checked = false;
+            dtpRepairedDate.Checked = false;
+            dtpReturnedDate.Checked = false;
         }
 
         internal void LoadStores()
@@ -88,6 +90,16 @@ namespace ZenBiz.AppModules.Forms.Inventory.Items
         private void chkSupplier_CheckedChanged(object sender, EventArgs e)
         {
             cmbSupplier.Enabled = chkSupplier.Checked;
+        }
+
+        private void chkRepairedDate_CheckedChanged(object sender, EventArgs e)
+        {
+            dtpRepairedDate.Enabled = chkRepairedDate.Checked;
+        }
+
+        private void chkReturnedDate_CheckedChanged(object sender, EventArgs e)
+        {
+            dtpReturnedDate.Enabled = chkReturnedDate.Checked;
         }
     }
 }

@@ -61,14 +61,25 @@ namespace ZenBiz.AppModules.Forms.Inventory.Stocks
             }
             DateTime? stockDate = uc.chkStockDate.Checked ? uc.dtpStockDate.Value : null;
             DateTime? expirationDate = uc.chkExpiration.Checked ? uc.dtpExpiration.Value : null;
+            DateTime? repairedDate = uc.chkRepairedDate.Checked ? uc.dtpRepairedDate.Value : null;
+            DateTime? returnedDate = uc.chkReturnedDate.Checked ? uc.dtpReturnedDate.Value : null;
             int? suppliersId = uc.chkSupplier.Checked ? (int)uc.cmbSupplier.SelectedValue : null;
+            string? user = uc.txtUser.Text.Trim();
+            string? status = uc.cmbxStatus.Text.Trim();
+            string? remarks = uc.txtRemarks.Text.Trim();
+
             StocksModel stocksModel = new()
             {
                 Item = new ItemsModel() { Id = _itemId },
                 Supplier = new SupplierModel() { Id = suppliersId },
                 Quantity = uc.nudStockCount.Value,
                 StockDate = stockDate,
-                Expiration = expirationDate
+                Expiration = expirationDate,
+                RepairedDate = repairedDate,
+                ReturnedDate = returnedDate,
+                User = user,
+                Status = status,
+                Remarks = remarks
             };
 
             _ = Factory.StocksController().Insert(stocksModel);
