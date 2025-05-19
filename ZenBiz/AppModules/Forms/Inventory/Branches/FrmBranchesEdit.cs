@@ -2,11 +2,11 @@
 
 namespace ZenBiz.AppModules.Inventory.Stores
 {
-    public partial class FrmStoresEdit : Form
+    public partial class FrmBranchesEdit : Form
     {
-        private readonly UcStore uc;
+        private readonly UcBranches uc;
 
-        public FrmStoresEdit(int storeId)
+        public FrmBranchesEdit(int storeId)
         {
             InitializeComponent();
             Helper.LoadFormIcon(this);
@@ -34,7 +34,7 @@ namespace ZenBiz.AppModules.Inventory.Stores
                 return false;
             }
 
-            StoresModel storesModel = new()
+            BranchModel storesModel = new()
             {
                 Id = uc.storeId,
                 Name = uc.txtName.Text.Trim(),

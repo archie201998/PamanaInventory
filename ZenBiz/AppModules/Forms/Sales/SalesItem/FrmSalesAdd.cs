@@ -30,7 +30,7 @@ namespace ZenBiz.AppModules.Forms.Sales
                 {
                     Sales = new SalesModel() { Id = salesController.LastInsertedId() },
                     Items = new ItemsModel() { Id = Convert.ToInt32(item.Cells["ItemId"].Value) },
-                    Stores = new StoresModel() { Id = Convert.ToInt32(item.Cells["StoreId"].Value) },
+                    Stores = new BranchModel() { Id = Convert.ToInt32(item.Cells["StoreId"].Value) },
                     UnitCost = Convert.ToDecimal(item.Cells["UnitCost"].Value),
                     Price = Convert.ToDecimal(item.Cells["Price"].Value),
                     Quantity = Convert.ToDecimal(item.Cells["Quantity"].Value)
@@ -55,7 +55,7 @@ namespace ZenBiz.AppModules.Forms.Sales
                     Sales = new SalesModel() { Id = salesId },
                     Services = new ServicesModel() { Id = serviceId },
                     Personnel = new PersonnelModel() { Id = personnelId },
-                    Stores = new StoresModel() { Id = storeId },
+                    Stores = new BranchModel() { Id = storeId },
                     Fee = fee
                 };
 

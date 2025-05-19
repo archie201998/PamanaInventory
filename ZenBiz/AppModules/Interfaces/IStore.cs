@@ -2,7 +2,7 @@
 
 namespace ZenBiz.AppModules.Interfaces
 {
-    internal interface IStore : IController<StoresModel>
+    internal interface IStore : IController<BranchModel>
     {
     }
 }

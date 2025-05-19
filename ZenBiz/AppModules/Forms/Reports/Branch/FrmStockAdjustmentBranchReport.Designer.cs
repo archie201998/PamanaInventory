@@ -1,6 +1,6 @@
 ﻿namespace ZenBiz.AppModules.Forms.Reports.Store
 {
-    partial class FrmStockAdjustmentStoreReport
+    partial class FrmStockAdjustmentBranchReport
     {
         /// <summary>
         /// Required designer variable.
@@ -97,7 +97,7 @@
             Controls.Add(groupBox1);
             MinimumSize = new Size(1121, 619);
             Name = "FrmStockAdjustmentStoreReport";
-            Text = "Store Stock Adjustment Report";
+            Text = "Branch Stock Adjustment Report";
             Load += FrmStockAdjustmentStoreReport_Load;
             groupBox1.ResumeLayout(false);
             panel2.ResumeLayout(false);

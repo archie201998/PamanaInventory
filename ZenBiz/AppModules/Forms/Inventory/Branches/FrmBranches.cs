@@ -3,9 +3,9 @@ using ZenBiz.AppModules.Models;
 
 namespace ZenBiz.AppModules.Inventory.Stores
 {
-    public partial class frmStores : Form
+    public partial class FrmBranches : Form
     {
-        public frmStores()
+        public FrmBranches()
         {
             InitializeComponent();
             Helper.LoadFormIcon(this);
@@ -33,7 +33,7 @@ namespace ZenBiz.AppModules.Inventory.Stores
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            using FrmStoresAdd form = new();
+            using FrmBranchesAdd form = new();
             DialogResult dialogResult = form.ShowDialog();
             if (dialogResult == DialogResult.OK)
                 FetchData();
@@ -52,9 +52,9 @@ namespace ZenBiz.AppModules.Inventory.Stores
 
             try
             {
-                List<StoresModel> storeModelList = new();
+                List<BranchModel> storeModelList = new();
                 foreach (DataGridViewRow item in dgStores.SelectedRows)
-                    storeModelList.Add(new StoresModel() { Id = Convert.ToInt32(item.Cells["id"].Value) });
+                    storeModelList.Add(new BranchModel() { Id = Convert.ToInt32(item.Cells["id"].Value) });
 
                 var messageBox = MessageBox.Show("Are you sure you want to delete this data?", "Deleting Stores", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (messageBox != DialogResult.Yes) return;
@@ -74,7 +74,7 @@ namespace ZenBiz.AppModules.Inventory.Stores
         private void btnEdit_Click(object sender, EventArgs e)
         {
             if (dgStores.SelectedRows.Count == 0) return;
-            using FrmStoresEdit form = new(Convert.ToInt32(dgStores.SelectedCells[0].Value));
+            using FrmBranchesEdit form = new(Convert.ToInt32(dgStores.SelectedCells[0].Value));
             DialogResult dialogResult = form.ShowDialog();
             if (dialogResult == DialogResult.OK)
                 FetchData();

@@ -1,6 +1,6 @@
 ﻿namespace ZenBiz.AppModules.Inventory.Stores
 {
-    partial class FrmStoresAdd
+    partial class FrmBranchesEdit
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.ucStore1 = new ZenBiz.AppModules.Inventory.Stores.UcStore();
+            this.ucStore1 = new ZenBiz.AppModules.Inventory.Stores.UcBranches();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
@@ -52,7 +52,7 @@
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.flowLayoutPanel1.Size = new System.Drawing.Size(398, 30);
-            this.flowLayoutPanel1.TabIndex = 1;
+            this.flowLayoutPanel1.TabIndex = 2;
             // 
             // btnCancel
             // 
@@ -73,7 +73,7 @@
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
-            // FrmStoresAdd
+            // FrmStoresEdit
             // 
             this.AcceptButton = this.btnSave;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -84,9 +84,10 @@
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.ucStore1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Name = "FrmStoresAdd";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Add Store";
+            this.Name = "FrmStoresEdit";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Edit Stores";
+            this.Load += new System.EventHandler(this.FrmStoresEdit_Load);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -94,7 +95,7 @@
 
         #endregion
 
-        private UcStore ucStore1;
+        private UcBranches ucStore1;
         private FlowLayoutPanel flowLayoutPanel1;
         private Button btnCancel;
         private Button btnSave;

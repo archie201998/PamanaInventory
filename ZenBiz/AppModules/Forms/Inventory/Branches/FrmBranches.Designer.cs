@@ -1,6 +1,6 @@
 ﻿namespace ZenBiz.AppModules.Inventory.Stores
 {
-    partial class frmStores
+    partial class FrmBranches
     {
         /// <summary>
         /// Required designer variable.
@@ -104,7 +104,7 @@
             btnAdd.UseVisualStyleBackColor = true;
             btnAdd.Click += btnAdd_Click;
             // 
-            // frmStores
+            // FrmBranches
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -115,8 +115,8 @@
             Controls.Add(statusStrip1);
             Controls.Add(dgStores);
             MinimumSize = new Size(692, 401);
-            Name = "frmStores";
-            Text = "Stores";
+            Name = "FrmBranches";
+            Text = "Branches";
             Load += frmStores_Load;
             ((System.ComponentModel.ISupportInitialize)dgStores).EndInit();
             statusStrip1.ResumeLayout(false);

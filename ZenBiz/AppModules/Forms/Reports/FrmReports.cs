@@ -16,7 +16,7 @@
 
         private void stocksPerStoreToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
-            ShowMdiForm(new FrmStockPerStoreReport());
+            ShowMdiForm(new FrmStockPerBranchReport());
         }
 
         private void stocksPerWarehouseToolStripMenuItem1_Click(object sender, EventArgs e)

@@ -20,7 +20,7 @@ namespace ZenBiz.AppModules.Controllers
             throw new NotImplementedException();
         }
 
-        public bool Delete(List<StoresModel> entityList)
+        public bool Delete(List<BranchModel> entityList)
         {
             using var scope = new TransactionScope();
             foreach (var entity in entityList)
@@ -81,7 +81,7 @@ namespace ZenBiz.AppModules.Controllers
             throw new NotImplementedException();
         }
 
-        public bool Insert(StoresModel entity)
+        public bool Insert(BranchModel entity)
         {
             var parameters = new object[][]
             {
@@ -93,7 +93,7 @@ namespace ZenBiz.AppModules.Controllers
             return _dbGenericCommands.ExecuteNonQuery(query, parameters);
         }
 
-        public bool Update(StoresModel entity)
+        public bool Update(BranchModel entity)
         {
             var parameters = new object[][]
             {

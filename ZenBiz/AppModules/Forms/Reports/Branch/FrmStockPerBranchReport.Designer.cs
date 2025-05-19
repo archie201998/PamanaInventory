@@ -1,6 +1,6 @@
 ﻿namespace ZenBiz.AppModules.Forms.Reports
 {
-    partial class FrmStockPerStoreReport
+    partial class FrmStockPerBranchReport
     {
         /// <summary>
         /// Required designer variable.
@@ -120,7 +120,7 @@
             cmbCategories.Size = new Size(155, 23);
             cmbCategories.TabIndex = 4;
             // 
-            // FrmStockPerStoreReport
+            // FrmStockPerBranchReport
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -128,9 +128,8 @@
             Controls.Add(groupBox1);
             Controls.Add(panel1);
             MinimumSize = new Size(1179, 618);
-            Name = "FrmStockPerStoreReport";
-            ShowIcon = false;
-            Text = "Store Stocks Report";
+            Name = "FrmStockPerBranchReport";
+            Text = "Branch Stocks Report";
             Load += FrmStockPerStoreReport_Load;
             groupBox1.ResumeLayout(false);
             panel2.ResumeLayout(false);

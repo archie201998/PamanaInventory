@@ -100,9 +100,9 @@ namespace ZenBiz.AppModules.Forms.Inventory.StockAdjustment
 
             try
             {
-                List<StoreStockAdjustmentsModel> storeStockAdjustmentsModels = new();
+                List<BranchStockAdjustmentsModel> storeStockAdjustmentsModels = new();
                 foreach (DataGridViewRow item in dgStoreStockAdjust.SelectedRows)
-                    storeStockAdjustmentsModels.Add(new StoreStockAdjustmentsModel() { Id = Convert.ToInt32(item.Cells["id"].Value) });
+                    storeStockAdjustmentsModels.Add(new BranchStockAdjustmentsModel() { Id = Convert.ToInt32(item.Cells["id"].Value) });
 
                 var messageBox = MessageBox.Show("Are you sure you want to delete this data?", "Deleting Stock Adjustment", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (messageBox != DialogResult.Yes) return;

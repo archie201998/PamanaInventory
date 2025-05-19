@@ -1,8 +1,8 @@
 ﻿namespace ZenBiz.AppModules.Forms.Reports.Store
 {
-    public partial class FrmStockAdjustmentStoreReport : Form
+    public partial class FrmStockAdjustmentBranchReport : Form
     {
-        public FrmStockAdjustmentStoreReport()
+        public FrmStockAdjustmentBranchReport()
         {
             InitializeComponent();
         }

@@ -1,9 +1,9 @@
 ﻿namespace ZenBiz.AppModules.Models
 {
-    internal class StoreStocksModel
+    internal class BranchStocksModel
     {
         public int Id { get; set; }
-        public StoresModel Store { get; set; } = new();
+        public BranchModel Store { get; set; } = new();
         public StocksModel Stock { get; set; } = new();
     }
 }

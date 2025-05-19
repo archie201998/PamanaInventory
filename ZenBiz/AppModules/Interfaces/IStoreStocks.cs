@@ -3,7 +3,7 @@ using ZenBiz.AppModules.Models;
 
 namespace ZenBiz.AppModules.Interfaces
 {
-    internal interface IStoreStocks : IController<StoreStocksModel>
+    internal interface IStoreStocks : IController<BranchStocksModel>
     {
         DataTable Fetch(int storeId, int itemId);
         DataTable Fetch(int itemId);

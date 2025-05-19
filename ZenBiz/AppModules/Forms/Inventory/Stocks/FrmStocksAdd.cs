@@ -30,10 +30,10 @@ namespace ZenBiz.AppModules.Forms.Inventory.Stocks
         private void InsertStoreStock(int stockId, int storeId)
         {
 
-            StoreStocksModel storeStocksModel = new()
+            BranchStocksModel storeStocksModel = new()
             {
                 Stock = new StocksModel() { Id = stockId },
-                Store = new StoresModel() { Id = storeId }
+                Store = new BranchModel() { Id = storeId }
             };
 
             _ = Factory.StoreStocksController().Insert(storeStocksModel);

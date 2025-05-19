@@ -20,7 +20,7 @@ namespace ZenBiz.AppModules.Controllers
             throw new NotImplementedException();
         }
 
-        public bool Delete(List<StoreStocksModel> entityList)
+        public bool Delete(List<BranchStocksModel> entityList)
         {
             throw new NotImplementedException();
         }
@@ -134,7 +134,7 @@ namespace ZenBiz.AppModules.Controllers
             throw new NotImplementedException();
         }
 
-        public bool Insert(StoreStocksModel entity)
+        public bool Insert(BranchStocksModel entity)
         {
             var parameters = new object[][]
             {
@@ -146,7 +146,7 @@ namespace ZenBiz.AppModules.Controllers
             return _dbGenericCommands.ExecuteNonQuery(query, parameters);
         }
 
-        public bool Update(StoreStocksModel entity)
+        public bool Update(BranchStocksModel entity)
         {
             var parameters = new object[][]
             {

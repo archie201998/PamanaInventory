@@ -1,6 +1,6 @@
 ﻿namespace ZenBiz.AppModules.Inventory.Stores
 {
-    partial class UcStore
+    partial class UcBranches
     {
         /// <summary> 
         /// Required designer variable.

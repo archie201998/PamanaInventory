@@ -130,7 +130,7 @@
             label7.AutoSize = true;
             label7.Location = new Point(392, 93);
             label7.Name = "label7";
-            label7.Size = new Size(118, 15);
+            label7.Size = new Size(119, 15);
             label7.TabIndex = 16;
             label7.Text = "Min. Stock Threshold";
             // 
@@ -289,7 +289,7 @@
             tabStores.Padding = new Padding(3);
             tabStores.Size = new Size(833, 272);
             tabStores.TabIndex = 0;
-            tabStores.Text = "Stores";
+            tabStores.Text = "Branches";
             tabStores.UseVisualStyleBackColor = true;
             // 
             // dgStoreStocks
@@ -354,7 +354,7 @@
             // 
             toolStripLabel2.Alignment = ToolStripItemAlignment.Right;
             toolStripLabel2.Name = "toolStripLabel2";
-            toolStripLabel2.Size = new Size(35, 22);
+            toolStripLabel2.Size = new Size(36, 22);
             toolStripLabel2.Text = "Total:";
             // 
             // cmbStores
@@ -438,7 +438,7 @@
             // 
             toolStripLabel3.Alignment = ToolStripItemAlignment.Right;
             toolStripLabel3.Name = "toolStripLabel3";
-            toolStripLabel3.Size = new Size(35, 22);
+            toolStripLabel3.Size = new Size(36, 22);
             toolStripLabel3.Text = "Total:";
             // 
             // cmbWarehouses

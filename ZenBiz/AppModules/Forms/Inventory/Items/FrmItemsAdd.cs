@@ -53,10 +53,10 @@ namespace ZenBiz.AppModules.Forms.Inventory.Items
 
                 stocksController.Insert(stocksModel);
 
-                StoreStocksModel storeStocksModel = new()
+                BranchStocksModel storeStocksModel = new()
                 {
                     Stock = new StocksModel() { Id = stocksController.LastInsertedId() },
-                    Store = new StoresModel() { Id = Convert.ToInt32(item.Cells["store_warehouse_id"].Value) }
+                    Store = new BranchModel() { Id = Convert.ToInt32(item.Cells["store_warehouse_id"].Value) }
                 };
 
                 storeStocksController.Insert(storeStocksModel);

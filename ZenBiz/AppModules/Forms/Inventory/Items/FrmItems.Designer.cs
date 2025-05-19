@@ -41,12 +41,12 @@
             txtSearch = new TextBox();
             statusStrip1 = new StatusStrip();
             toolStripStatusLabel1 = new ToolStripStatusLabel();
+            lblRecordCount = new ToolStripStatusLabel();
             tableLayoutPanel1 = new TableLayoutPanel();
             groupBox2 = new GroupBox();
             dgWarehouseStocks = new DataGridView();
             groupBox1 = new GroupBox();
             dgStoreStocks = new DataGridView();
-            lblRecordCount = new ToolStripStatusLabel();
             ((System.ComponentModel.ISupportInitialize)dgItems).BeginInit();
             statusStrip1.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
@@ -118,7 +118,7 @@
             dgItems.Location = new Point(12, 41);
             dgItems.Name = "dgItems";
             dgItems.RowTemplate.Height = 25;
-            dgItems.Size = new Size(970, 368);
+            dgItems.Size = new Size(970, 285);
             dgItems.TabIndex = 5;
             dgItems.SelectionChanged += dgItems_SelectionChanged;
             // 
@@ -146,6 +146,12 @@
             toolStripStatusLabel1.Size = new Size(52, 17);
             toolStripStatusLabel1.Text = "Records:";
             // 
+            // lblRecordCount
+            // 
+            lblRecordCount.Name = "lblRecordCount";
+            lblRecordCount.Size = new Size(13, 17);
+            lblRecordCount.Text = "0";
+            // 
             // tableLayoutPanel1
             // 
             tableLayoutPanel1.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
@@ -154,11 +160,11 @@
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
             tableLayoutPanel1.Controls.Add(groupBox2, 1, 0);
             tableLayoutPanel1.Controls.Add(groupBox1, 0, 0);
-            tableLayoutPanel1.Location = new Point(12, 415);
+            tableLayoutPanel1.Location = new Point(12, 332);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 1;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tableLayoutPanel1.Size = new Size(970, 120);
+            tableLayoutPanel1.Size = new Size(970, 203);
             tableLayoutPanel1.TabIndex = 8;
             // 
             // groupBox2
@@ -168,7 +174,7 @@
             groupBox2.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
             groupBox2.Location = new Point(488, 3);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(479, 114);
+            groupBox2.Size = new Size(479, 197);
             groupBox2.TabIndex = 0;
             groupBox2.TabStop = false;
             groupBox2.Text = "Warehouse Stocks";
@@ -196,7 +202,7 @@
             dgWarehouseStocks.Location = new Point(3, 19);
             dgWarehouseStocks.Name = "dgWarehouseStocks";
             dgWarehouseStocks.RowTemplate.Height = 25;
-            dgWarehouseStocks.Size = new Size(473, 92);
+            dgWarehouseStocks.Size = new Size(473, 175);
             dgWarehouseStocks.TabIndex = 1;
             // 
             // groupBox1
@@ -206,10 +212,10 @@
             groupBox1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
             groupBox1.Location = new Point(3, 3);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(479, 114);
+            groupBox1.Size = new Size(479, 197);
             groupBox1.TabIndex = 0;
             groupBox1.TabStop = false;
-            groupBox1.Text = "Store Stocks";
+            groupBox1.Text = "Branch Stocks";
             // 
             // dgStoreStocks
             // 
@@ -234,14 +240,8 @@
             dgStoreStocks.Location = new Point(3, 19);
             dgStoreStocks.Name = "dgStoreStocks";
             dgStoreStocks.RowTemplate.Height = 25;
-            dgStoreStocks.Size = new Size(473, 92);
+            dgStoreStocks.Size = new Size(473, 175);
             dgStoreStocks.TabIndex = 0;
-            // 
-            // lblRecordCount
-            // 
-            lblRecordCount.Name = "lblRecordCount";
-            lblRecordCount.Size = new Size(13, 17);
-            lblRecordCount.Text = "0";
             // 
             // FrmItems
             // 

@@ -61,9 +61,9 @@
             lblStoreWarehouse.AutoSize = true;
             lblStoreWarehouse.Location = new Point(2, 6);
             lblStoreWarehouse.Name = "lblStoreWarehouse";
-            lblStoreWarehouse.Size = new Size(34, 15);
+            lblStoreWarehouse.Size = new Size(44, 15);
             lblStoreWarehouse.TabIndex = 1;
-            lblStoreWarehouse.Text = "Store";
+            lblStoreWarehouse.Text = "Branch";
             // 
             // label2
             // 
@@ -118,7 +118,7 @@
             label4.AutoSize = true;
             label4.Location = new Point(2, 94);
             label4.Name = "label4";
-            label4.Size = new Size(60, 15);
+            label4.Size = new Size(59, 15);
             label4.TabIndex = 7;
             label4.Text = "Expiration";
             // 

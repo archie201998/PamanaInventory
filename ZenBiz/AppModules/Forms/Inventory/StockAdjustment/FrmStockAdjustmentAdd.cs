@@ -19,9 +19,9 @@ namespace ZenBiz.AppModules.Forms.Inventory.StockAdjustment
 
         private bool InsertStoreStockAdjustment()
         {
-            StoreStockAdjustmentsModel storeStockAdjustmentsModel = new()
+            BranchStockAdjustmentsModel storeStockAdjustmentsModel = new()
             {
-                Stores = new StoresModel() { Id = (int)uc.cmbStoreWarehouse.SelectedValue },
+                Stores = new BranchModel() { Id = (int)uc.cmbStoreWarehouse.SelectedValue },
                 Items = new ItemsModel() { Id = _itemId },
                 Quantity = uc.nudQuantity.Value,
                 DateAdjusted = uc.dtpDate.Value,

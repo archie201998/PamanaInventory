@@ -5,11 +5,11 @@ using ZenBiz.AppModules.RDLC;
 
 namespace ZenBiz.AppModules.Forms.Reports
 {
-    public partial class FrmStockPerStoreReport : Form
+    public partial class FrmStockPerBranchReport : Form
     {
         private readonly ReportViewer reportViewer;
 
-        public FrmStockPerStoreReport()
+        public FrmStockPerBranchReport()
         {
             InitializeComponent();
 

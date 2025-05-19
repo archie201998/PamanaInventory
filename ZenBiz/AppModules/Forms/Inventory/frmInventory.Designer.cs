@@ -66,8 +66,8 @@
             btnStoresForm.ImageScaling = ToolStripItemImageScaling.None;
             btnStoresForm.ImageTransparentColor = Color.Magenta;
             btnStoresForm.Name = "btnStoresForm";
-            btnStoresForm.Size = new Size(43, 43);
-            btnStoresForm.Text = "Stores";
+            btnStoresForm.Size = new Size(59, 43);
+            btnStoresForm.Text = "Branches";
             btnStoresForm.TextImageRelation = TextImageRelation.ImageAboveText;
             btnStoresForm.Click += btnStoresForm_Click;
             // 

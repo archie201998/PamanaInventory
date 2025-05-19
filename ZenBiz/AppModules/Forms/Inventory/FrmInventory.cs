@@ -36,7 +36,7 @@ namespace ZenBiz.AppModules.Inventory
 
         private void btnStoresForm_Click(object sender, EventArgs e)
         {
-            ShowMdiChildForm(new frmStores());
+            ShowMdiChildForm(new FrmBranches());
         }
 
         private void btnWarehousesForm_Click(object sender, EventArgs e)

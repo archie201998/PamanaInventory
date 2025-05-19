@@ -2,10 +2,10 @@
 
 namespace ZenBiz.AppModules.Inventory.Stores
 {
-    public partial class UcStore : UserControl
+    public partial class UcBranches : UserControl
     {
         public int storeId = 0;
-        public UcStore()
+        public UcBranches()
         {
             InitializeComponent();
         }

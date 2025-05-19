@@ -1,6 +1,6 @@
 ﻿namespace ZenBiz.AppModules.Models
 {
-    public class StoresModel
+    public class BranchModel
     {
         public int Id { get; set; }
         public string Name { get; set; }
