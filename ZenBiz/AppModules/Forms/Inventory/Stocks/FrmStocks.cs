@@ -171,9 +171,6 @@ namespace ZenBiz.AppModules.Forms.Inventory.Stocks
 
         private void btnStoreStockEdit_Click(object sender, EventArgs e)
         {
-            if (dgStoreStocks.SelectedCells.Count == 0)
-                return; 
-
             int rowIndex = dgStoreStocks.CurrentCell.RowIndex;
             int stockId = (int)dgStoreStocks.Rows[rowIndex].Cells["stocks_id"].Value;
             using FrmStocksEdit form = new(_itemId, stockId, false);

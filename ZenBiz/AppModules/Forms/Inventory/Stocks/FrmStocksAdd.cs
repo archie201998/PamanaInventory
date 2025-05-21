@@ -25,6 +25,8 @@ namespace ZenBiz.AppModules.Forms.Inventory.Stocks
             uc.dtpExpiration.Enabled = false;
             uc.dtpStockDate.Enabled = false;
             uc.cmbSupplier.Enabled = false;
+            uc.dtpRepairedDate.Enabled = false;
+            uc.dtpReturnedDate.Enabled = false;
         }
 
         private void InsertStoreStock(int stockId, int storeId)

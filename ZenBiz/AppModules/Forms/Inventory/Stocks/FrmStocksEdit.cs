@@ -87,6 +87,8 @@ namespace ZenBiz.AppModules.Forms.Inventory.Stocks
         {
             uc.dtpExpiration.Enabled = false;
             uc.dtpStockDate.Enabled = false;
+            uc.dtpRepairedDate.Enabled = false;
+            uc.dtpReturnedDate.Enabled = false;
             uc.cmbSupplier.Enabled = false;
             LoadData();
         }
