@@ -197,5 +197,10 @@ namespace ZenBiz.AppModules.Forms.Inventory.Items
             btnStocks.Enabled = false;
             btnAdjustStocks.Enabled = false;
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

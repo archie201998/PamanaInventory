@@ -188,8 +188,7 @@ namespace ZenBiz.AppModules.Controllers
         {
             decimal totalStocks = SumTotalStocks(storeId, itemId);
             decimal totalStocksAdjusted = Factory.StoreStockAdjustmentController().SumStockAdjusted(storeId, itemId);
-            decimal totalStockSold = Factory.SalesItemController().SumTotalStocksSold(storeId, itemId);
-            return totalStocks + totalStocksAdjusted - totalStockSold;
+            return totalStocks + totalStocksAdjusted ;
         }
     }
 }

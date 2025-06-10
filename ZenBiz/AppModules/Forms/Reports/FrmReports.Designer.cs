@@ -69,21 +69,18 @@
             grossIncomeToolStripMenuItem.Name = "grossIncomeToolStripMenuItem";
             grossIncomeToolStripMenuItem.Size = new Size(146, 22);
             grossIncomeToolStripMenuItem.Text = "Gross Income";
-            grossIncomeToolStripMenuItem.Click += grossIncomeToolStripMenuItem_Click;
             // 
             // soldItemsToolStripMenuItem
             // 
             soldItemsToolStripMenuItem.Name = "soldItemsToolStripMenuItem";
             soldItemsToolStripMenuItem.Size = new Size(146, 22);
             soldItemsToolStripMenuItem.Text = "Sold Items";
-            soldItemsToolStripMenuItem.Click += soldItemsToolStripMenuItem_Click;
             // 
             // dueReportToolStripMenuItem
             // 
             dueReportToolStripMenuItem.Name = "dueReportToolStripMenuItem";
             dueReportToolStripMenuItem.Size = new Size(146, 22);
             dueReportToolStripMenuItem.Text = "Due Report";
-            dueReportToolStripMenuItem.Click += dueReportToolStripMenuItem_Click;
             // 
             // inventoryToolStripMenuItem
             // 
@@ -139,7 +136,6 @@
             fastSlowMovingStocksToolStripMenuItem.Name = "fastSlowMovingStocksToolStripMenuItem";
             fastSlowMovingStocksToolStripMenuItem.Size = new Size(217, 22);
             fastSlowMovingStocksToolStripMenuItem.Text = "Fast && Slow Moving Stocks";
-            fastSlowMovingStocksToolStripMenuItem.Click += fastSlowMovingStocksToolStripMenuItem_Click;
             // 
             // statementOfAcocuntToolStripMenuItem
             // 
@@ -147,7 +143,6 @@
             statementOfAcocuntToolStripMenuItem.Size = new Size(135, 20);
             statementOfAcocuntToolStripMenuItem.Text = "Statement of Acocunt";
             statementOfAcocuntToolStripMenuItem.Visible = false;
-            statementOfAcocuntToolStripMenuItem.Click += statementOfAcocuntToolStripMenuItem_Click;
             // 
             // payablesToolStripMenuItem
             // 
@@ -155,7 +150,6 @@
             payablesToolStripMenuItem.Size = new Size(153, 20);
             payablesToolStripMenuItem.Text = "Aging Accounts Payables";
             payablesToolStripMenuItem.Visible = false;
-            payablesToolStripMenuItem.Click += payablesToolStripMenuItem_Click;
             // 
             // accountsReceivableToolStripMenuItem
             // 
@@ -163,7 +157,6 @@
             accountsReceivableToolStripMenuItem.Size = new Size(163, 20);
             accountsReceivableToolStripMenuItem.Text = "Aging Accounts Receivable";
             accountsReceivableToolStripMenuItem.Visible = false;
-            accountsReceivableToolStripMenuItem.Click += accountsReceivableToolStripMenuItem_Click;
             // 
             // FrmReports
             // 

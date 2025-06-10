@@ -140,7 +140,6 @@
             btnServices.Size = new Size(77, 28);
             btnServices.Text = "Services";
             btnServices.Visible = false;
-            btnServices.Click += btnServices_Click;
             // 
             // btnInventory
             // 
@@ -161,7 +160,6 @@
             btnCustomers.Size = new Size(92, 28);
             btnCustomers.Text = "Customers";
             btnCustomers.Visible = false;
-            btnCustomers.Click += btnCustomers_Click;
             // 
             // btnPersonnel
             // 
@@ -241,7 +239,6 @@
             btnRetrieve.TabIndex = 6;
             btnRetrieve.Text = "Retrieve";
             btnRetrieve.UseVisualStyleBackColor = true;
-            btnRetrieve.Click += btnRetrieve_Click;
             // 
             // label5
             // 

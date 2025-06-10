@@ -1,11 +1,7 @@
 ﻿using ZenBiz.AppModules;
 using ZenBiz.AppModules.Forms;
-using ZenBiz.AppModules.Forms.Customers;
 using ZenBiz.AppModules.Forms.Personnel;
-using ZenBiz.AppModules.Forms.Purchases;
 using ZenBiz.AppModules.Forms.Reports;
-using ZenBiz.AppModules.Forms.Sales;
-using ZenBiz.AppModules.Forms.Services;
 using ZenBiz.AppModules.Forms.Users;
 using ZenBiz.AppModules.Inventory;
 
@@ -35,19 +31,10 @@ namespace ZenBiz
             dgTopSellingProducts.Rows.Add(new string[] { "Blacklion Voracio H/T BC86 235/75R15 105 S", "5,200.00" });
         }
 
-        private void GrossSales()
-        {
-            decimal salesItemGrossSales = Factory.SalesItemController().GrossSales(dtpFrom.Value, dtpTo.Value);
-            decimal servicesGrossSales = Factory.SalesServicesController().GrossSales(dtpFrom.Value, dtpTo.Value);
-            lblGrossSales.Text = (salesItemGrossSales + servicesGrossSales).ToString("N2");
-        }
-
         private void MainForm_Load(object sender, EventArgs e)
         {
             Cursor.Current = Cursors.WaitCursor;
             TopSellingProducts();
-            GrossSales();
-            lblCustomerCount.Text = Factory.CustomersController().Count().ToString();
             lblProductCount.Text = Factory.ItemsController().Count().ToString();
             btnLoggedInUser.Text = Helper.LoggedInUserFullName;
             Cursor.Current = Cursors.Default;
@@ -58,11 +45,6 @@ namespace ZenBiz
             _ = new frmInventory(_loginForm).ShowDialog();
         }
 
-        private void btnCustomers_Click(object sender, EventArgs e)
-        {
-            _ = new FrmCustomers().ShowDialog();
-        }
-
         private void btnPersonnel_Click(object sender, EventArgs e)
         {
             _ = new FrmPersonnel().ShowDialog();
@@ -71,12 +53,11 @@ namespace ZenBiz
 
         private void btnSales_Click(object sender, EventArgs e)
         {
-            _ = new FrmSales().ShowDialog();
+ 
         }
 
         private void btnPurchases_Click(object sender, EventArgs e)
         {
-            _ = new FrmPurchases().ShowDialog();
         }
 
         private void btnUsers_Click(object sender, EventArgs e)
@@ -101,19 +82,12 @@ namespace ZenBiz
             _ = new FrmReports().ShowDialog();
         }
 
-        private void btnRetrieve_Click(object sender, EventArgs e)
-        {
-            GrossSales();
-        }
+
 
         private void changePasswordToolStripMenuItem_Click(object sender, EventArgs e)
         {
             _ = new FrmChangePassword(this).ShowDialog();
         }
 
-        private void btnServices_Click(object sender, EventArgs e)
-        {
-            _ = new FrmServices().ShowDialog();
-        }
     }
 }

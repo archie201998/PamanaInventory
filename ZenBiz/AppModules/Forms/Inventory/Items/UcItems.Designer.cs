@@ -66,6 +66,18 @@
             btnDeleteWarehouseStock = new ToolStripButton();
             epName = new ErrorProvider(components);
             epCode = new ErrorProvider(components);
+            label3 = new Label();
+            textBox1 = new TextBox();
+            textBox2 = new TextBox();
+            label4 = new Label();
+            textBox3 = new TextBox();
+            label5 = new Label();
+            textBox4 = new TextBox();
+            label6 = new Label();
+            label11 = new Label();
+            textBox6 = new TextBox();
+            label12 = new Label();
+            dateTimePicker1 = new DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)nudUnitCost).BeginInit();
             ((System.ComponentModel.ISupportInitialize)nudMinStockThreshold).BeginInit();
             groupBox1.SuspendLayout();
@@ -83,7 +95,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(5, 6);
+            label1.Location = new Point(9, 6);
             label1.Name = "label1";
             label1.Size = new Size(35, 15);
             label1.TabIndex = 0;
@@ -121,7 +133,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(5, 35);
+            label2.Location = new Point(9, 35);
             label2.Name = "label2";
             label2.Size = new Size(39, 15);
             label2.TabIndex = 3;
@@ -140,7 +152,7 @@
             // lblUnitCost
             // 
             lblUnitCost.AutoSize = true;
-            lblUnitCost.Location = new Point(5, 150);
+            lblUnitCost.Location = new Point(9, 150);
             lblUnitCost.Name = "lblUnitCost";
             lblUnitCost.Size = new Size(56, 15);
             lblUnitCost.TabIndex = 6;
@@ -149,7 +161,7 @@
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(5, 63);
+            label7.Location = new Point(9, 63);
             label7.Name = "label7";
             label7.Size = new Size(119, 15);
             label7.TabIndex = 14;
@@ -168,7 +180,7 @@
             // label8
             // 
             label8.AutoSize = true;
-            label8.Location = new Point(5, 93);
+            label8.Location = new Point(9, 93);
             label8.Name = "label8";
             label8.Size = new Size(55, 15);
             label8.TabIndex = 15;
@@ -177,7 +189,7 @@
             // label9
             // 
             label9.AutoSize = true;
-            label9.Location = new Point(5, 122);
+            label9.Location = new Point(9, 122);
             label9.Name = "label9";
             label9.Size = new Size(29, 15);
             label9.TabIndex = 17;
@@ -218,10 +230,10 @@
             groupBox1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
             groupBox1.Location = new Point(476, 3);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(492, 136);
+            groupBox1.Size = new Size(492, 270);
             groupBox1.TabIndex = 9;
             groupBox1.TabStop = false;
-            groupBox1.Text = "Store Stocks";
+            groupBox1.Text = "Branch Stocks";
             // 
             // panel1
             // 
@@ -231,7 +243,7 @@
             panel1.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             panel1.Location = new Point(3, 19);
             panel1.Name = "panel1";
-            panel1.Size = new Size(486, 114);
+            panel1.Size = new Size(486, 248);
             panel1.TabIndex = 21;
             // 
             // dgStoreStocks
@@ -265,7 +277,7 @@
             dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
             dgStoreStocks.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             dgStoreStocks.RowTemplate.Height = 25;
-            dgStoreStocks.Size = new Size(486, 89);
+            dgStoreStocks.Size = new Size(486, 223);
             dgStoreStocks.TabIndex = 1;
             dgStoreStocks.SelectionChanged += dgStoreStocks_SelectionChanged;
             // 
@@ -313,9 +325,9 @@
             // 
             groupBox2.Controls.Add(panel2);
             groupBox2.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            groupBox2.Location = new Point(479, 147);
+            groupBox2.Location = new Point(476, 279);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(492, 136);
+            groupBox2.Size = new Size(492, 213);
             groupBox2.TabIndex = 10;
             groupBox2.TabStop = false;
             groupBox2.Text = "Warehouse Stocks";
@@ -328,7 +340,7 @@
             panel2.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             panel2.Location = new Point(3, 19);
             panel2.Name = "panel2";
-            panel2.Size = new Size(486, 114);
+            panel2.Size = new Size(486, 191);
             panel2.TabIndex = 21;
             // 
             // dgWarehouseStocks
@@ -362,7 +374,7 @@
             dataGridViewCellStyle6.WrapMode = DataGridViewTriState.True;
             dgWarehouseStocks.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             dgWarehouseStocks.RowTemplate.Height = 25;
-            dgWarehouseStocks.Size = new Size(486, 89);
+            dgWarehouseStocks.Size = new Size(486, 166);
             dgWarehouseStocks.TabIndex = 1;
             // 
             // toolStrip2
@@ -413,10 +425,123 @@
             // 
             epCode.ContainerControl = this;
             // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(9, 180);
+            label3.Name = "label3";
+            label3.Size = new Size(41, 15);
+            label3.TabIndex = 20;
+            label3.Text = "Model";
+            // 
+            // textBox1
+            // 
+            textBox1.Location = new Point(132, 177);
+            textBox1.MaxLength = 99;
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(300, 23);
+            textBox1.TabIndex = 21;
+            // 
+            // textBox2
+            // 
+            textBox2.Location = new Point(132, 206);
+            textBox2.MaxLength = 99;
+            textBox2.Name = "textBox2";
+            textBox2.Size = new Size(300, 23);
+            textBox2.TabIndex = 23;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(9, 209);
+            label4.Name = "label4";
+            label4.Size = new Size(82, 15);
+            label4.TabIndex = 22;
+            label4.Text = "Serial Number";
+            // 
+            // textBox3
+            // 
+            textBox3.Location = new Point(132, 235);
+            textBox3.MaxLength = 99;
+            textBox3.Name = "textBox3";
+            textBox3.Size = new Size(300, 23);
+            textBox3.TabIndex = 25;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(9, 238);
+            label5.Name = "label5";
+            label5.Size = new Size(73, 15);
+            label5.TabIndex = 24;
+            label5.Text = "Current User";
+            // 
+            // textBox4
+            // 
+            textBox4.Location = new Point(132, 264);
+            textBox4.MaxLength = 99;
+            textBox4.Name = "textBox4";
+            textBox4.Size = new Size(300, 23);
+            textBox4.TabIndex = 27;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Location = new Point(9, 267);
+            label6.Name = "label6";
+            label6.Size = new Size(96, 15);
+            label6.TabIndex = 26;
+            label6.Text = "Computer Name";
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Location = new Point(9, 296);
+            label11.Name = "label11";
+            label11.Size = new Size(89, 15);
+            label11.TabIndex = 28;
+            label11.Text = "Sophos Tamper";
+            // 
+            // textBox6
+            // 
+            textBox6.Location = new Point(132, 293);
+            textBox6.MaxLength = 99;
+            textBox6.Name = "textBox6";
+            textBox6.Size = new Size(300, 23);
+            textBox6.TabIndex = 29;
+            // 
+            // label12
+            // 
+            label12.AutoSize = true;
+            label12.Location = new Point(9, 328);
+            label12.Name = "label12";
+            label12.Size = new Size(82, 15);
+            label12.TabIndex = 28;
+            label12.Text = "Date Acquired";
+            // 
+            // dateTimePicker1
+            // 
+            dateTimePicker1.Location = new Point(132, 322);
+            dateTimePicker1.Name = "dateTimePicker1";
+            dateTimePicker1.Size = new Size(300, 23);
+            dateTimePicker1.TabIndex = 30;
+            // 
             // UcItems
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(dateTimePicker1);
+            Controls.Add(label12);
+            Controls.Add(textBox6);
+            Controls.Add(label11);
+            Controls.Add(textBox4);
+            Controls.Add(label6);
+            Controls.Add(textBox3);
+            Controls.Add(label5);
+            Controls.Add(textBox2);
+            Controls.Add(label4);
+            Controls.Add(textBox1);
+            Controls.Add(label3);
             Controls.Add(groupBox2);
             Controls.Add(groupBox1);
             Controls.Add(btnAddUnit);
@@ -434,7 +559,7 @@
             Controls.Add(txtCode);
             Controls.Add(label1);
             Name = "UcItems";
-            Size = new Size(971, 294);
+            Size = new Size(971, 495);
             Load += UcItems_Load;
             ((System.ComponentModel.ISupportInitialize)nudUnitCost).EndInit();
             ((System.ComponentModel.ISupportInitialize)nudMinStockThreshold).EndInit();
@@ -488,5 +613,17 @@
         private ToolStripButton btnEditStoreStock;
         private ToolStripButton btnEditWarehouseStock;
         private ErrorProvider epCode;
+        public TextBox textBox1;
+        private Label label3;
+        public TextBox textBox3;
+        private Label label5;
+        public TextBox textBox2;
+        private Label label4;
+        private Label label12;
+        public TextBox textBox6;
+        private Label label11;
+        public TextBox textBox4;
+        private Label label6;
+        private DateTimePicker dateTimePicker1;
     }
 }

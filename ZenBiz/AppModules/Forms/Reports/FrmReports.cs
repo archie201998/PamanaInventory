@@ -34,39 +34,5 @@
             ShowMdiForm(new FrmStockAdjustmentsReport(true));
         }
 
-        private void grossIncomeToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            ShowMdiForm(new FrmGrossIncomeReport());
-        }
-
-        private void soldItemsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            ShowMdiForm(new FrmSoldItems());
-        }
-
-        private void statementOfAcocuntToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            ShowMdiForm(new FrmStatementOfAccount());
-        }
-
-        private void payablesToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            ShowMdiForm(new FrmAgingPayable());
-        }
-
-        private void accountsReceivableToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            ShowMdiForm(new FrmAgingReceivables());
-        }
-
-        private void fastSlowMovingStocksToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            ShowMdiForm(new FrmFastAndSlowMovingStocks());
-        }
-
-        private void dueReportToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            ShowMdiForm(new FrmSalesDueReport());
-        }
     }
 }

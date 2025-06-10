@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
             btnAdd = new Button();
             btnEdit = new Button();
             btnDelete = new Button();
@@ -47,6 +47,8 @@
             dgWarehouseStocks = new DataGridView();
             groupBox1 = new GroupBox();
             dgStoreStocks = new DataGridView();
+            btnUsersHistory = new Button();
+            btnRepairsHistory = new Button();
             ((System.ComponentModel.ISupportInitialize)dgItems).BeginInit();
             statusStrip1.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
@@ -92,7 +94,7 @@
             // btnStocks
             // 
             btnStocks.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            btnStocks.Location = new Point(988, 139);
+            btnStocks.Location = new Point(988, 162);
             btnStocks.Name = "btnStocks";
             btnStocks.Size = new Size(98, 23);
             btnStocks.TabIndex = 3;
@@ -103,7 +105,7 @@
             // btnAdjustStocks
             // 
             btnAdjustStocks.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            btnAdjustStocks.Location = new Point(988, 168);
+            btnAdjustStocks.Location = new Point(988, 191);
             btnAdjustStocks.Name = "btnAdjustStocks";
             btnAdjustStocks.Size = new Size(98, 23);
             btnAdjustStocks.TabIndex = 4;
@@ -181,23 +183,23 @@
             // 
             // dgWarehouseStocks
             // 
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = SystemColors.Control;
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            dgWarehouseStocks.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = SystemColors.Control;
+            dataGridViewCellStyle5.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle5.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.True;
+            dgWarehouseStocks.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             dgWarehouseStocks.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = SystemColors.Window;
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
-            dgWarehouseStocks.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = SystemColors.Window;
+            dataGridViewCellStyle6.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle6.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.False;
+            dgWarehouseStocks.DefaultCellStyle = dataGridViewCellStyle6;
             dgWarehouseStocks.Dock = DockStyle.Fill;
             dgWarehouseStocks.Location = new Point(3, 19);
             dgWarehouseStocks.Name = "dgWarehouseStocks";
@@ -219,23 +221,23 @@
             // 
             // dgStoreStocks
             // 
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = SystemColors.Control;
-            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle3.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
-            dgStoreStocks.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = SystemColors.Control;
+            dataGridViewCellStyle7.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle7.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = DataGridViewTriState.True;
+            dgStoreStocks.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             dgStoreStocks.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = SystemColors.Window;
-            dataGridViewCellStyle4.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle4.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.False;
-            dgStoreStocks.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = SystemColors.Window;
+            dataGridViewCellStyle8.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle8.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle8.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = DataGridViewTriState.False;
+            dgStoreStocks.DefaultCellStyle = dataGridViewCellStyle8;
             dgStoreStocks.Dock = DockStyle.Fill;
             dgStoreStocks.Location = new Point(3, 19);
             dgStoreStocks.Name = "dgStoreStocks";
@@ -243,11 +245,34 @@
             dgStoreStocks.Size = new Size(473, 175);
             dgStoreStocks.TabIndex = 0;
             // 
+            // btnUsersHistory
+            // 
+            btnUsersHistory.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnUsersHistory.Location = new Point(988, 303);
+            btnUsersHistory.Name = "btnUsersHistory";
+            btnUsersHistory.Size = new Size(98, 23);
+            btnUsersHistory.TabIndex = 10;
+            btnUsersHistory.Text = "Users History";
+            btnUsersHistory.UseVisualStyleBackColor = true;
+            // 
+            // btnRepairsHistory
+            // 
+            btnRepairsHistory.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnRepairsHistory.Location = new Point(988, 274);
+            btnRepairsHistory.Name = "btnRepairsHistory";
+            btnRepairsHistory.Size = new Size(98, 23);
+            btnRepairsHistory.TabIndex = 9;
+            btnRepairsHistory.Text = "Repairs History";
+            btnRepairsHistory.UseVisualStyleBackColor = true;
+            btnRepairsHistory.Click += button2_Click;
+            // 
             // FrmItems
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1098, 560);
+            Controls.Add(btnUsersHistory);
+            Controls.Add(btnRepairsHistory);
             Controls.Add(tableLayoutPanel1);
             Controls.Add(statusStrip1);
             Controls.Add(txtSearch);
@@ -289,5 +314,7 @@
         private GroupBox groupBox1;
         private DataGridView dgStoreStocks;
         private ToolStripStatusLabel lblRecordCount;
+        private Button btnUsersHistory;
+        private Button btnRepairsHistory;
     }
 }
