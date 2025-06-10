@@ -53,13 +53,13 @@ namespace ZenBiz.AppModules.Forms.Reports
             DataTable dataTableFromDB;
 
             if (categoriesId == 0)
-                dataTableFromDB = Factory.StoreStocksController().FetchItemsGroupByItem(storeId);
+                dataTableFromDB = Factory.BranchStocksController().FetchItemsGroupByItem(storeId);
             else
-                dataTableFromDB = Factory.StoreStocksController().FetchItemsGroupByItem(storeId, categoriesId);
+                dataTableFromDB = Factory.BranchStocksController().FetchItemsGroupByItem(storeId, categoriesId);
 
             foreach (DataRow item in dataTableFromDB.Rows)
             {
-                decimal stocksLeft = Factory.StoreStocksController().StocksLeft(storeId, Convert.ToInt32(item["item_id"]));
+                decimal stocksLeft = Factory.BranchStocksController().StocksLeft(storeId, Convert.ToInt32(item["item_id"]));
                 DataRow row = dtReport.NewRow();
                 row["sku_code"] = item["sku_code"];
                 row["item_name"] = item["item_name"];

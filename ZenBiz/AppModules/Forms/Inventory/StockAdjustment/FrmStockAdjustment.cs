@@ -25,7 +25,7 @@ namespace ZenBiz.AppModules.Forms.Inventory.StockAdjustment
             dgStoreStockAdjust.DataSource = Factory.StoreStockAdjustmentController().Fetch(_itemId);
             dgStoreStockAdjust.Columns["id"].Visible = false;
             dgStoreStockAdjust.Columns["stores_id"].Visible = false;
-            dgStoreStockAdjust.Columns["store_name"].HeaderText = "Store";
+            dgStoreStockAdjust.Columns["branch_name"].HeaderText = "Store";
             dgStoreStockAdjust.Columns["quantity"].HeaderText = "Quantity";
             dgStoreStockAdjust.Columns["quantity"].Width = 100;
             dgStoreStockAdjust.Columns["date_adjusted"].HeaderText = "Date";

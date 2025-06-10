@@ -31,7 +31,7 @@
             flowLayoutPanel1 = new FlowLayoutPanel();
             btnCancel = new Button();
             btnSave = new Button();
-            ucItems1 = new AppModules.Inventory.Items.UcItems();
+            ucItems1 = new ZenBiz.AppModules.Inventory.Items.UcItems();
             flowLayoutPanel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -41,7 +41,7 @@
             flowLayoutPanel1.Controls.Add(btnCancel);
             flowLayoutPanel1.Controls.Add(btnSave);
             flowLayoutPanel1.Dock = DockStyle.Bottom;
-            flowLayoutPanel1.Location = new Point(0, 319);
+            flowLayoutPanel1.Location = new Point(0, 530);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
             flowLayoutPanel1.RightToLeft = RightToLeft.Yes;
             flowLayoutPanel1.Size = new Size(1001, 30);
@@ -70,7 +70,7 @@
             // 
             ucItems1.Location = new Point(12, 12);
             ucItems1.Name = "ucItems1";
-            ucItems1.Size = new Size(983, 294);
+            ucItems1.Size = new Size(983, 514);
             ucItems1.TabIndex = 3;
             // 
             // FrmItemsAdd
@@ -80,7 +80,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             AutoValidate = AutoValidate.EnableAllowFocusChange;
             CancelButton = btnCancel;
-            ClientSize = new Size(1001, 349);
+            ClientSize = new Size(1001, 560);
             Controls.Add(ucItems1);
             Controls.Add(flowLayoutPanel1);
             FormBorderStyle = FormBorderStyle.FixedToolWindow;

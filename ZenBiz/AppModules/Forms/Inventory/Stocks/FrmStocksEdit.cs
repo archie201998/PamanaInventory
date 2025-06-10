@@ -33,7 +33,7 @@ namespace ZenBiz.AppModules.Forms.Inventory.Stocks
             }
             else
             {
-                dict = Factory.StoreStocksController().FindByStockId(_stockId);
+                dict = Factory.BranchStocksController().FindByStockId(_stockId);
                 storeWarehouseId = Convert.ToInt32(dict["stores_id"]);
             }
 
@@ -102,7 +102,7 @@ namespace ZenBiz.AppModules.Forms.Inventory.Stocks
                 Store = new BranchModel() { Id = storeId }
             };
 
-            _ = Factory.StoreStocksController().Update(storeStocksModel);
+            _ = Factory.BranchStocksController().Update(storeStocksModel);
         }
 
         private void UpdateWarehouseStock(int stockId, int warehouseId)

@@ -61,8 +61,8 @@
           <DataField>unit_name</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="store_name">
-          <DataField>store_name</DataField>
+        <Field Name="branch_name">
+          <DataField>branch_name</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
       </Fields>

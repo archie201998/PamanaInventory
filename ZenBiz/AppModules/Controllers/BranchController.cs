@@ -5,12 +5,12 @@ using ZenBiz.AppModules.Models;
 
 namespace ZenBiz.AppModules.Controllers
 {
-    internal class StoresController : IStore
+    internal class BranchController : IStore
     {
         private readonly IDbGenericCommands _dbGenericCommands;
-        private const string tblStores = "stores";
+        private const string tblStores = "branches";
 
-        public StoresController(IDbGenericCommands dbGenericCommands)
+        public BranchController(IDbGenericCommands dbGenericCommands)
         {
             _dbGenericCommands = dbGenericCommands;
         }

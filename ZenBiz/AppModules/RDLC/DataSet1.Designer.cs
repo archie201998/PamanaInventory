@@ -1334,7 +1334,7 @@ namespace PamanaWaterInventory.AppModules.RDLC {
             
             private global::System.Data.DataColumn columnunit_name;
             
-            private global::System.Data.DataColumn columnstore_name;
+            private global::System.Data.DataColumn columnbranch_name;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
@@ -1459,9 +1459,9 @@ namespace PamanaWaterInventory.AppModules.RDLC {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn store_nameColumn {
+            public global::System.Data.DataColumn branch_nameColumn {
                 get {
-                    return this.columnstore_name;
+                    return this.columnbranch_name;
                 }
             }
             
@@ -1502,7 +1502,7 @@ namespace PamanaWaterInventory.AppModules.RDLC {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public GrossIncomeRow AddGrossIncomeRow(string trans_no, string trans_date, string customer_name, decimal sold_price, decimal sold_quantity, decimal sold_unit_cost, decimal total_sale, string sku_code, string item_name, string category_name, string unit_name, string store_name) {
+            public GrossIncomeRow AddGrossIncomeRow(string trans_no, string trans_date, string customer_name, decimal sold_price, decimal sold_quantity, decimal sold_unit_cost, decimal total_sale, string sku_code, string item_name, string category_name, string unit_name, string branch_name) {
                 GrossIncomeRow rowGrossIncomeRow = ((GrossIncomeRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         trans_no,
@@ -1516,7 +1516,7 @@ namespace PamanaWaterInventory.AppModules.RDLC {
                         item_name,
                         category_name,
                         unit_name,
-                        store_name};
+                        branch_name};
                 rowGrossIncomeRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowGrossIncomeRow);
                 return rowGrossIncomeRow;
@@ -1550,7 +1550,7 @@ namespace PamanaWaterInventory.AppModules.RDLC {
                 this.columnitem_name = base.Columns["item_name"];
                 this.columncategory_name = base.Columns["category_name"];
                 this.columnunit_name = base.Columns["unit_name"];
-                this.columnstore_name = base.Columns["store_name"];
+                this.columnbranch_name = base.Columns["branch_name"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1578,8 +1578,8 @@ namespace PamanaWaterInventory.AppModules.RDLC {
                 base.Columns.Add(this.columncategory_name);
                 this.columnunit_name = new global::System.Data.DataColumn("unit_name", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnunit_name);
-                this.columnstore_name = new global::System.Data.DataColumn("store_name", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnstore_name);
+                this.columnbranch_name = new global::System.Data.DataColumn("branch_name", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnbranch_name);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4679,17 +4679,17 @@ namespace PamanaWaterInventory.AppModules.RDLC {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string store_name {
+            public string branch_name {
                 get {
                     try {
-                        return ((string)(this[this.tableGrossIncome.store_nameColumn]));
+                        return ((string)(this[this.tableGrossIncome.branch_nameColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'store_name\' in table \'GrossIncome\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'branch_name\' in table \'GrossIncome\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableGrossIncome.store_nameColumn] = value;
+                    this[this.tableGrossIncome.branch_nameColumn] = value;
                 }
             }
             
@@ -4827,14 +4827,14 @@ namespace PamanaWaterInventory.AppModules.RDLC {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool Isstore_nameNull() {
-                return this.IsNull(this.tableGrossIncome.store_nameColumn);
+            public bool Isbranch_nameNull() {
+                return this.IsNull(this.tableGrossIncome.branch_nameColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void Setstore_nameNull() {
-                this[this.tableGrossIncome.store_nameColumn] = global::System.Convert.DBNull;
+            public void Setbranch_nameNull() {
+                this[this.tableGrossIncome.branch_nameColumn] = global::System.Convert.DBNull;
             }
         }
         

@@ -56,7 +56,7 @@
               <xs:element name="item_name" msprop:Generator_ColumnPropNameInTable="item_nameColumn" msprop:Generator_ColumnPropNameInRow="item_name" msprop:Generator_UserColumnName="item_name" msprop:Generator_ColumnVarNameInTable="columnitem_name" type="xs:string" minOccurs="0" />
               <xs:element name="category_name" msprop:Generator_ColumnPropNameInTable="category_nameColumn" msprop:Generator_ColumnPropNameInRow="category_name" msprop:Generator_UserColumnName="category_name" msprop:Generator_ColumnVarNameInTable="columncategory_name" type="xs:string" minOccurs="0" />
               <xs:element name="unit_name" msprop:Generator_ColumnPropNameInTable="unit_nameColumn" msprop:Generator_ColumnPropNameInRow="unit_name" msprop:Generator_UserColumnName="unit_name" msprop:Generator_ColumnVarNameInTable="columnunit_name" type="xs:string" minOccurs="0" />
-              <xs:element name="store_name" msprop:Generator_ColumnPropNameInTable="store_nameColumn" msprop:Generator_ColumnPropNameInRow="store_name" msprop:Generator_UserColumnName="store_name" msprop:Generator_ColumnVarNameInTable="columnstore_name" type="xs:string" minOccurs="0" />
+              <xs:element name="branch_name" msprop:Generator_ColumnPropNameInTable="branch_nameColumn" msprop:Generator_ColumnPropNameInRow="branch_name" msprop:Generator_UserColumnName="branch_name" msprop:Generator_ColumnVarNameInTable="columnbranch_name" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

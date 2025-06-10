@@ -91,11 +91,11 @@ namespace ZenBiz.AppModules.Forms.Inventory.Stocks
         private void LoadStoresStocks()
         {
             int storeId = (int)cmbStores.ComboBox.SelectedValue;
-            if (storeId == 0) dgStoreStocks.DataSource = Factory.StoreStocksController().Fetch(_itemId);
-            else dgStoreStocks.DataSource = Factory.StoreStocksController().Fetch(storeId, _itemId);
+            if (storeId == 0) dgStoreStocks.DataSource = Factory.BranchStocksController().Fetch(_itemId);
+            else dgStoreStocks.DataSource = Factory.BranchStocksController().Fetch(storeId, _itemId);
             dgStoreStocks.Columns["id"].Visible = false;
             dgStoreStocks.Columns["stocks_id"].Visible = false;
-            dgStoreStocks.Columns["store_name"].HeaderText = "Branches";
+            dgStoreStocks.Columns["branch_name"].HeaderText = "Branches";
             dgStoreStocks.Columns["quantity"].HeaderText = "Quantity";
             dgStoreStocks.Columns["quantity"].DefaultCellStyle.Format = "N2";
             dgStoreStocks.Columns["stock_date"].HeaderText = "Stock Date";

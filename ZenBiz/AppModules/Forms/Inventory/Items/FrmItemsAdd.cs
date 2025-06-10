@@ -23,8 +23,6 @@ namespace ZenBiz.AppModules.Forms.Inventory.Items
                 UnitOfMeasurements = new UnitOfMeasurementsModel() { Id = Convert.ToInt32(uc.cmbUnit.SelectedValue) },
                 Code = uc.txtCode.Text.Trim(),
                 Name = uc.txtName.Text.Trim(),
-                UnitCost = uc.nudUnitCost.Value,
-                MinimumThresholdStocks = (float)uc.nudMinStockThreshold.Value,
                 Users = new UsersModel() { Id = 1 }
             };
 
@@ -34,7 +32,7 @@ namespace ZenBiz.AppModules.Forms.Inventory.Items
         private void InsertStoreStocks()
         {
             var stocksController = Factory.StocksController();
-            var storeStocksController = Factory.StoreStocksController();
+            var storeStocksController = Factory.BranchStocksController();
             foreach (DataGridViewRow item in uc.dgStoreStocks.Rows)
             {
                 DateTime? stockDate = !string.IsNullOrWhiteSpace(item.Cells["stock_date"].Value.ToString()) ? Convert.ToDateTime(item.Cells["stock_date"].Value.ToString()) : null;

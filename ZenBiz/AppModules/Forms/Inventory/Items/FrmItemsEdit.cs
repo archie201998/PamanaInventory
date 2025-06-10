@@ -46,8 +46,6 @@ namespace ZenBiz.AppModules.Forms.Inventory.Items
                 UnitOfMeasurements = new UnitOfMeasurementsModel() { Id = Convert.ToInt32(uc.cmbUnit.SelectedValue) },
                 Code = uc.txtCode.Text.Trim(),
                 Name = uc.txtName.Text.Trim(),
-                UnitCost = uc.nudUnitCost.Value,
-                MinimumThresholdStocks = (float)uc.nudMinStockThreshold.Value,
                 Users = new UsersModel() { Id = Helper.UserId }
             };
 

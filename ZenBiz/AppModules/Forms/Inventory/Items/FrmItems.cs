@@ -15,18 +15,15 @@ namespace ZenBiz.AppModules.Forms.Inventory.Items
         {
             InitializeComponent();
             Helper.LoadFormIcon(this);
-            Helper.DatagridDefaultStyle(dgItems);
-            Helper.DatagridDefaultStyle(dgStoreStocks);
+            Helper.DatagridDefaultStyle(dgItems, true);
+            Helper.DatagridDefaultStyle(dgBranchStocks);
             Helper.DatagridDefaultStyle(dgWarehouseStocks);
-            CreateStocksColumns(dgStoreStocks, false);
+            CreateStocksColumns(dgBranchStocks, false);
             CreateStocksColumns(dgWarehouseStocks, true);
             _frmInventory = frmInventory;
         }
 
-        private void CountRecords()
-        {
-            lblRecordCount.Text = dgItems.Rows.Count.ToString();
-        }
+
 
         private void CreateStocksColumns(DataGridView dataGrid, bool isWarehouse)
         {
@@ -36,7 +33,7 @@ namespace ZenBiz.AppModules.Forms.Inventory.Items
             dataGrid.Columns[2].Name = "stocks_left";
             dataGrid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGrid.Columns["id"].Visible = false;
-            dataGrid.Columns["name"].HeaderText = isWarehouse ? "Warehouse" : "Store";
+            dataGrid.Columns["name"].HeaderText = isWarehouse ? "Warehouse" : "Branch";
             dataGrid.Columns["stocks_left"].HeaderText = "Stocks Left";
             dataGrid.Columns["stocks_left"].DefaultCellStyle.Format = "N2";
             dataGrid.Columns["stocks_left"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
@@ -46,36 +43,31 @@ namespace ZenBiz.AppModules.Forms.Inventory.Items
         {
             dgItems.DataSource = Factory.ItemsController().Fetch();
             dgItems.Columns["id"].Visible = false;
-            dgItems.Columns["sku_code"].HeaderText = "Code";
+            dgItems.Columns["code"].HeaderText = "Code";
             dgItems.Columns["name"].HeaderText = "Item";
             dgItems.Columns["category_name"].HeaderText = "Category";
             dgItems.Columns["unit_name"].HeaderText = "Unit";
-            dgItems.Columns["unit_cost"].HeaderText = "Unit Cost";
-            dgItems.Columns["min_threshold_stock"].HeaderText = "Min. Stock";
-
             dgItems.Columns["name"].Width = 300;
-
-            dgItems.Columns["unit_cost"].DefaultCellStyle.Format = "N2";
-            dgItems.Columns["min_threshold_stock"].DefaultCellStyle.Format = "N2";
-
-            dgItems.Columns["unit_cost"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-            dgItems.Columns["min_threshold_stock"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
             CountRecords();
+        }
+        private void CountRecords()
+        {
+            lblRecordCount.Text = dgItems.Rows.Count.ToString();
         }
 
         // need pa ug minus ang total stocks sa sold
-        private void LoadStores()
+        private void LoadBranches()
         {
-            dgStoreStocks.Rows.Clear();
+            dgBranchStocks.Rows.Clear();
             int itemId = (int)dgItems.SelectedCells[0].Value;
-            DataTable dtStores = Factory.StoreStocksController().FetchStores(itemId);
-            foreach (DataRow item in dtStores.Rows)
+            DataTable dtBranhes = Factory.BranchStocksController().FetchBranches(itemId);
+            foreach (DataRow item in dtBranhes.Rows)
             {
-                int storeId = (int)item["stores_id"];
-                string storeName = item["store_name"].ToString();
+                int storeId = (int)item["branches_id"];
+                string storeName = item["branch_name"].ToString();
                 // total stocks + total stock adjusted + total transfer stocks + sold stocks
-                decimal stocksLeft = Factory.StoreStocksController().StocksLeft(storeId, itemId);
-                dgStoreStocks.Rows.Add(storeId, storeName, stocksLeft.ToString("N2"));
+                decimal stocksLeft = Factory.BranchStocksController().StocksLeft(storeId, itemId);
+                dgBranchStocks.Rows.Add(storeId, storeName, stocksLeft.ToString("N2"));
             }
         }
 
@@ -154,7 +146,7 @@ namespace ZenBiz.AppModules.Forms.Inventory.Items
             DialogResult dialogResult = form.ShowDialog();
             if (dialogResult == DialogResult.OK)
             {
-                LoadStores();
+                LoadBranches();
                 LoadWarehouses();
             }
 
@@ -168,7 +160,7 @@ namespace ZenBiz.AppModules.Forms.Inventory.Items
             DialogResult dialogResult = form.ShowDialog();
             if (dialogResult == DialogResult.OK)
             {
-                LoadStores();
+                LoadBranches();
                 LoadWarehouses();
             }
 
@@ -185,14 +177,14 @@ namespace ZenBiz.AppModules.Forms.Inventory.Items
             Helper.EnableDisableButtons(dgItems, btnEdit, btnDelete);
             if (dgItems.SelectedRows.Count == 1)
             {
-                LoadStores();
+                LoadBranches();
                 LoadWarehouses();
                 btnStocks.Enabled = true;
                 btnAdjustStocks.Enabled = true;
                 return;
             }
 
-            dgStoreStocks.Rows.Clear();
+            dgBranchStocks.Rows.Clear();
             dgWarehouseStocks.Rows.Clear();
             btnStocks.Enabled = false;
             btnAdjustStocks.Enabled = false;

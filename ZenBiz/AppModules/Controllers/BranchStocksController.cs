@@ -4,13 +4,13 @@ using ZenBiz.AppModules.Models;
 
 namespace ZenBiz.AppModules.Controllers
 {
-    internal class StoreStocksController : IStoreStocks
+    internal class BranchStocksController : IStoreStocks
     {
         private readonly IDbGenericCommands _dbGenericCommands;
-        private const string tblStoreStocks = "store_stocks";
-        private const string viewStoreStocks = "view_store_stocks";
+        private const string branchStocks = "branch_stocks";
+        private const string viewBranchStocks = "view_branch_stocks";
 
-        public StoreStocksController(IDbGenericCommands dbGenericCommands)
+        public BranchStocksController(IDbGenericCommands dbGenericCommands)
         {
             _dbGenericCommands = dbGenericCommands;
         }
@@ -34,11 +34,11 @@ namespace ZenBiz.AppModules.Controllers
         {
             var parameters = new object[][]
             {
-                new object[] { "@stores_id", DbType.Int32, storesId },
+                new object[] { "@branches_id", DbType.Int32, storesId },
                 new object[] { "@categories_id", DbType.Int32, categoriesId },
             };
 
-            string query = $"SELECT item_id, sku_code, item_name, category_name, unit_name, unit_cost, min_threshold_stock FROM {viewStoreStocks} WHERE stores_id = @stores_id AND categories_id = @categories_id GROUP BY item_id";
+            string query = $"SELECT item_id, item_name, category_name, unit_name, unit_cost FROM {viewBranchStocks} WHERE branches_id = @branches_id AND categories_id = @categories_id GROUP BY item_id";
             return _dbGenericCommands.Fill(query, parameters);
         }
 
@@ -46,10 +46,10 @@ namespace ZenBiz.AppModules.Controllers
         {
             var parameters = new object[][]
             {
-                new object[] { "@stores_id", DbType.Int32, storesId },
+                new object[] { "@branches_id", DbType.Int32, storesId },
             };
 
-            string query = $"SELECT item_id, sku_code, item_name, category_name, unit_name, unit_cost,  min_threshold_stock FROM {viewStoreStocks} WHERE stores_id = @stores_id GROUP BY item_id";
+            string query = $"SELECT item_id, sku_code, item_name, category_name, unit_name, unit_cost FROM {viewBranchStocks} WHERE branches_id = @branches_id GROUP BY item_id";
             return _dbGenericCommands.Fill(query, parameters);
         }
 
@@ -60,7 +60,7 @@ namespace ZenBiz.AppModules.Controllers
                 new object[] { "@item_id", DbType.String, itemId },
             };
 
-            string query = $"SELECT id, stocks_id, store_name, quantity, stock_date, expiration, suppliers_name, user, status, repaired_date, returned_date, remarks FROM {viewStoreStocks} WHERE item_id = @item_id";
+            string query = $"SELECT id, stocks_id, branch_name, quantity, stock_date, expiration, suppliers_name, user, status, repaired_date, returned_date, remarks FROM {viewBranchStocks} WHERE item_id = @item_id";
             return _dbGenericCommands.Fill(query, parameters);
         }
 
@@ -68,11 +68,11 @@ namespace ZenBiz.AppModules.Controllers
         {
             var parameters = new object[][]
             {
-                new object[] { "@stores_id", DbType.String, storeId },
+                new object[] { "@branches_id", DbType.String, storeId },
                 new object[] { "@item_id", DbType.String, itemId },
             };
 
-            string query = $"SELECT id, stocks_id, store_name, quantity, stock_date, expiration, suppliers_name FROM {viewStoreStocks} WHERE stores_id = @stores_id AND item_id = @item_id";
+            string query = $"SELECT id, stocks_id, branch_name, quantity, stock_date, expiration, suppliers_name FROM {viewBranchStocks} WHERE branches_id = @branches_id AND item_id = @item_id";
             return _dbGenericCommands.Fill(query, parameters);
         }
 
@@ -80,22 +80,22 @@ namespace ZenBiz.AppModules.Controllers
         {
             var parameters = new object[][]
             {
-                new object[] { "@stores_id", DbType.Int32, storeId },
+                new object[] { "@branches_id", DbType.Int32, storeId },
                 new object[] { "@search_text", DbType.String, $"%{searchText}%"},
             };
 
-            string query = $"SELECT id, item_id, sku_code, item_name, SUM(quantity) AS total_quantity FROM {viewStoreStocks} WHERE stores_id = @stores_id AND item_name LIKE @search_text GROUP BY stores_id, item_id";
+            string query = $"SELECT id, item_id, sku_code, item_name, SUM(quantity) AS total_quantity FROM {viewBranchStocks} WHERE branches_id = @branches_id AND item_name LIKE @search_text GROUP BY branches_id, item_id";
             return _dbGenericCommands.Fill(query, parameters);
         }
 
-        public DataTable FetchStores(int itemId)
+        public DataTable FetchBranches(int itemId)
         {
             var parameters = new object[][]
             {
                 new object[] { "@item_id", DbType.String, itemId },
             };
 
-            string query = $"SELECT DISTINCT stores_id, store_name FROM {viewStoreStocks} WHERE item_id = @item_id";
+            string query = $"SELECT DISTINCT branches_id, branch_name FROM {viewBranchStocks} WHERE item_id = @item_id";
             return _dbGenericCommands.Fill(query, parameters);
         }
 
@@ -118,7 +118,7 @@ namespace ZenBiz.AppModules.Controllers
                 new object[] { "@stocks_id", DbType.Int32, stockId },
             };
 
-            string query = $"SELECT stores_id, suppliers_id, store_name, store_address, item_id, quantity, stock_date, expiration, suppliers_name, user, status, repaired_date, returned_date, remarks FROM {viewStoreStocks} WHERE stocks_id = @stocks_id";
+            string query = $"SELECT branches_id, suppliers_id, branch_name, store_address, item_id, quantity, stock_date, expiration, suppliers_name, user, status, repaired_date, returned_date, remarks FROM {viewBranchStocks} WHERE stocks_id = @stocks_id";
             using (var reader = _dbGenericCommands.ExecuteReader(query, parameters))
             {
                 if (reader.Rows.Count == 0) return record;
@@ -138,11 +138,11 @@ namespace ZenBiz.AppModules.Controllers
         {
             var parameters = new object[][]
             {
-                new object[] { "@stores_id", DbType.String, entity.Store.Id },
+                new object[] { "@branches_id", DbType.String, entity.Store.Id },
                 new object[] { "@stocks_id", DbType.String, entity.Stock.Id },
             };
 
-            string query = $"INSERT INTO {tblStoreStocks} (stocks_id, stores_id) VALUES (@stocks_id, @stores_id)";
+            string query = $"INSERT INTO {branchStocks} (stocks_id, branches_id) VALUES (@stocks_id, @branches_id)";
             return _dbGenericCommands.ExecuteNonQuery(query, parameters);
         }
 
@@ -150,11 +150,11 @@ namespace ZenBiz.AppModules.Controllers
         {
             var parameters = new object[][]
             {
-                new object[] { "@stores_id", DbType.String, entity.Store.Id },
+                new object[] { "@branches_id", DbType.String, entity.Store.Id },
                 new object[] { "@stocks_id", DbType.String, entity.Stock.Id },
             };
 
-            string query = $"UPDATE {tblStoreStocks} SET stores_id = @stores_id WHERE stocks_id = @stocks_id";
+            string query = $"UPDATE {branchStocks} SET branches_id = @branches_id WHERE stocks_id = @stocks_id";
             return _dbGenericCommands.ExecuteNonQuery(query, parameters);
         }
 
@@ -162,11 +162,11 @@ namespace ZenBiz.AppModules.Controllers
         {
             var parameters = new object[][]
             {
-                new object[] { "@stores_id", DbType.String, storeId },
+                new object[] { "@branches_id", DbType.String, storeId },
                 new object[] { "@item_id", DbType.String, itemId },
             };
 
-            string query = $"SELECT id, stocks_id, store_name, store_address, quantity, stock_date, expiration FROM {viewStoreStocks} WHERE stores_id = @stores_id AND item_id = @item_id";
+            string query = $"SELECT id, stocks_id, branch_name, store_address, quantity, stock_date, expiration FROM {viewBranchStocks} WHERE branches_id = @branches_id AND item_id = @item_id";
             return _dbGenericCommands.Fill(query, parameters);
         }
 
@@ -174,11 +174,11 @@ namespace ZenBiz.AppModules.Controllers
         {
             var parameters = new object[][]
             {
-                new object[] { "@stores_id", DbType.Int32, storeId },
+                new object[] { "@branches_id", DbType.Int32, storeId },
                 new object[] { "@item_id", DbType.Int32, itemId },
             };
 
-            string query = $"SELECT SUM(quantity) FROM {viewStoreStocks} WHERE stores_id = @stores_id AND item_id = @item_id";
+            string query = $"SELECT COUNT(branches_id) FROM {viewBranchStocks} WHERE branches_id = @branches_id AND item_id = @item_id";
             string result = _dbGenericCommands.ExecuteScalar(query, parameters);
             if (string.IsNullOrWhiteSpace(result)) return 0;
             return Convert.ToDecimal(result);

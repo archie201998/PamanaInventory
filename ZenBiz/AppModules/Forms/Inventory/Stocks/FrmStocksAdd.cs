@@ -38,7 +38,7 @@ namespace ZenBiz.AppModules.Forms.Inventory.Stocks
                 Store = new BranchModel() { Id = storeId }
             };
 
-            _ = Factory.StoreStocksController().Insert(storeStocksModel);
+            _ = Factory.BranchStocksController().Insert(storeStocksModel);
         }
 
         private void InsertWarehouseStock(int stockId, int warehouseId)

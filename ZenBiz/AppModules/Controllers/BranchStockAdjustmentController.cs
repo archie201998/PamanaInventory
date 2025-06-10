@@ -5,13 +5,13 @@ using ZenBiz.AppModules.Models;
 
 namespace ZenBiz.AppModules.Controllers
 {
-    internal class StoreStockAdjustmentController : IStoreStockAdjustment
+    internal class BranchStockAdjustmentController : IStoreStockAdjustment
     {
         private readonly IDbGenericCommands _dbGenericCommands;
-        private const string tblStoreStockAdjustments = "store_stock_adjustments";
-        private const string viewStoreStockAdjustments = "view_store_stock_adjustments";
+        private const string tblStoreStockAdjustments = "branch_stock_adjustments";
+        private const string viewStoreStockAdjustments = "view_branch_stock_adjustments";
 
-        public StoreStockAdjustmentController(IDbGenericCommands dbGenericCommands)
+        public BranchStockAdjustmentController(IDbGenericCommands dbGenericCommands)
         {
             _dbGenericCommands = dbGenericCommands;
         }
@@ -52,7 +52,7 @@ namespace ZenBiz.AppModules.Controllers
                 new object[] { "@items_id", DbType.Int32, itemId },
             };
 
-            string query = $"SELECT id, stores_id, store_name, quantity, reason, date_adjusted FROM {viewStoreStockAdjustments} WHERE items_id = @items_id ORDER BY date_adjusted DESC";
+            string query = $"SELECT id, stores_id, branch_name, quantity, reason, date_adjusted FROM {viewStoreStockAdjustments} WHERE items_id = @items_id ORDER BY date_adjusted DESC";
             return _dbGenericCommands.Fill(query, parameters);
         }
 
@@ -83,7 +83,7 @@ namespace ZenBiz.AppModules.Controllers
                 new object[] { "@id", DbType.Int32,  Id },
             };
 
-            string query = $"SELECT items_id, stores_id, quantity, reason, date_adjusted, created_by, created_time, updated_by, updated_time, store_name FROM {viewStoreStockAdjustments} WHERE id = @id";
+            string query = $"SELECT items_id, stores_id, quantity, reason, date_adjusted, created_by, created_time, updated_by, updated_time, branch_name FROM {viewStoreStockAdjustments} WHERE id = @id";
             using (var reader = _dbGenericCommands.ExecuteReader(query, parameters))
             {
                 if (reader.Rows.Count == 0) return record;
