@@ -1,4 +1,6 @@
-﻿namespace ZenBiz.AppModules.Forms.Inventory.Items
+﻿using System.Windows.Forms;
+
+namespace ZenBiz.AppModules.Forms.Inventory.Items
 {
     public partial class FrmStocksAdd : Form
     {
@@ -12,7 +14,6 @@
             Helper.LoadFormIcon(this);
             uc = ucStocksForm1;
             _dgStocks = dgStocks;
-            Text = isWarehouse ? "Add Warehouse Stock" : "Add Store Stock";
         }
 
         private bool AddStock()
@@ -28,30 +29,41 @@
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            string stockDate = uc.chkStockDate.Checked ? uc.dtpDateAcquired.Value.ToShortDateString() : "";
+            DateTime acquiredDate = uc.dtpDateAcquired.Value;
 
             if (AddStock())
             {
-                var storeWarehouseId = uc.cmbBranch.SelectedValue.ToString();
-                string storeWarehouseText = uc.cmbBranch.Text;
+                var branchId = uc.cmbBranch.SelectedValue.ToString();
+                string branch = uc.cmbBranch.Text;
+                string itemName = string.Empty;
+                string serialNumber = uc.txtSerialNumber.Text.Trim();
+                string model = uc.txtModel.Text.Trim();
+                string operatingSystem = uc.txtOS.Text.Trim();
+                string ram = uc.txtRAM.Text.Trim();
+                string computerName = uc.txtComputerName.Text.Trim();
+                string sophosTamper = uc.txtSophosTamper.Text.Trim();
+                string dateAcquired = uc.dtpDateAcquired.Value.ToString("yyyy-dd-MM");
+                string unitCost = uc.nudUnitCost.Value.ToString("N2");
+                string status = uc.cmbxStatus.Text.Trim();
+                string remarks = uc.txtRemarks.Text.Trim();
+
                 string[] row = new string[]
                 {
-                    stockDate,
-                    storeWarehouseText,
-                    storeWarehouseId,
+                    branch,
+                    itemName,
+                    serialNumber,
+                    model,
+                    operatingSystem,
+                    ram,
+                    computerName,
+                    sophosTamper,
+                    dateAcquired,
+                    unitCost,
+                    status,
+                    remarks,
                 };
 
-                bool storeOrWarehouseExist = false;
-                foreach (DataGridViewRow item in _dgStocks.Rows)
-                {
-                    if (item.Cells["store_warehouse_id"].Value.ToString() == storeWarehouseId)
-                    {
-                        storeOrWarehouseExist = true;
-                        item.Cells["stock_date"].Value = stockDate;
-                    }
-                }
-
-                if (!storeOrWarehouseExist) _dgStocks.Rows.Add(row);
+                _dgStocks.Rows.Add(row);
                 uc.ResetForm();
             }
         }

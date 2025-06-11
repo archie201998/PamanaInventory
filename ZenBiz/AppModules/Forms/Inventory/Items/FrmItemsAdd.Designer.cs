@@ -68,6 +68,7 @@
             // 
             // ucItems1
             // 
+            ucItems1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             ucItems1.Location = new Point(12, 12);
             ucItems1.Name = "ucItems1";
             ucItems1.Size = new Size(983, 514);

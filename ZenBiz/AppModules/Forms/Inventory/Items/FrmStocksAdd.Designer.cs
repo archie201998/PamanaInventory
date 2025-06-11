@@ -88,7 +88,7 @@
             MinimizeBox = false;
             Name = "FrmStocksAdd";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Add Store Stock";
+            Text = "Add Branch Stock";
             Load += FrmStoreStocksAdd_Load;
             flowLayoutPanel1.ResumeLayout(false);
             ResumeLayout(false);

@@ -65,44 +65,44 @@ namespace ZenBiz.AppModules.Controllers
             {
                 new object[] { "@item_id", DbType.Int32, entity.Item.Id },
                 new object[] { "@suppliers_id", DbType.Int32, entity.Supplier.Id },
-                new object[] { "@quantity", DbType.Decimal, entity.Quantity },
-                new object[] { "@stock_date", DbType.Date, entity.StockDate },
-                new object[] { "@expiration", DbType.Date, entity.Expiration },
-                new object[] { "@returned_date", DbType.Date, entity.ReturnedDate },
-                new object[] { "@repaired_date", DbType.Date, entity.RepairedDate },
-                new object[] { "@user", DbType.String, entity.User },
+                new object[] { "@serial_number", DbType.String, entity.SerialNumber },
+                new object[] { "@model", DbType.String, entity.Model },
+                new object[] { "@operating_system", DbType.String, entity.OperatingSystem },
+                new object[] { "@RAM", DbType.String, entity.RAM },
+                new object[] { "@computer_name", DbType.String, entity.ComputerName },
+                new object[] { "@sophos_tamper", DbType.String, entity.SophosTamper },
+                new object[] { "@date_acquired", DbType.DateTime2, entity.DateAcquired },
+                new object[] { "@unit_cost", DbType.Decimal, entity.UnitCost },
                 new object[] { "@status", DbType.String, entity.Status },
                 new object[] { "@remarks", DbType.String, entity.Remarks },
+                new object[] { "@created_by", DbType.String, entity.CreatedBy },
             };
 
-            string query = $"INSERT INTO {tblStocks} (item_id, suppliers_id, quantity, stock_date, expiration, user, status, returned_date, repaired_date, remarks) VALUES (@item_id, @suppliers_id, @quantity, @stock_date, @expiration, @user, @status, @returned_date, @repaired_date, @remarks)";
+            string query = $"INSERT INTO {tblStocks} (suppliers_id, serial_number, model, operating_system, RAM, computer_name, sophos_tamper, date_acquired, unit_cost, status, remarks, created_by) VALUES (@suppliers_id, @serial_number, @model, @operating_system, @RAM, @computer_name, @sophos_tamper, @date_acquired, @unit_cost, @status, @remarks, @created_by)";
             return _dbGenericCommands.ExecuteNonQuery(query, parameters);
         }
 
         public bool Update(StocksModel entity)
         {
             var parameters = new object[][]
-            {
-                new object[] { "@id", DbType.Int32, entity.Id },
+          {
+                new object[] { "@id", DbType.Int32, entity.Id},
                 new object[] { "@item_id", DbType.Int32, entity.Item.Id },
                 new object[] { "@suppliers_id", DbType.Int32, entity.Supplier.Id },
-                new object[] { "@quantity", DbType.Decimal, entity.Quantity },
-                new object[] { "@stock_date", DbType.Date, entity.StockDate },
-                new object[] { "@expiration", DbType.Date, entity.Expiration },
-                new object[] { "@returned_date", DbType.Date, entity.ReturnedDate },
-                new object[] { "@repaired_date", DbType.Date, entity.RepairedDate },
-                new object[] { "@user", DbType.String, entity.User },
+                new object[] { "@serial_number", DbType.String, entity.SerialNumber },
+                new object[] { "@model", DbType.String, entity.Model },
+                new object[] { "@operating_system", DbType.String, entity.OperatingSystem },
+                new object[] { "@RAM", DbType.String, entity.RAM },
+                new object[] { "@computer_name", DbType.String, entity.ComputerName },
+                new object[] { "@sophos_tamper", DbType.String, entity.SophosTamper },
+                new object[] { "@date_acquired", DbType.DateTime2, entity.DateAcquired },
+                new object[] { "@unit_cost", DbType.Decimal, entity.UnitCost },
                 new object[] { "@status", DbType.String, entity.Status },
                 new object[] { "@remarks", DbType.String, entity.Remarks },
-            };
+                new object[] { "@created_by", DbType.String, entity.CreatedBy },
+          };
 
-            string query = $"UPDATE {tblStocks} SET item_id = @item_id, suppliers_id = @suppliers_id, quantity = @quantity, stock_date = @stock_date, " +
-                $"expiration = @expiration, " +
-                $"returned_date = @returned_date," +
-                $"repaired_date = @repaired_date," +
-                $"user = @user, " +
-                $"status = @status," +
-                $"remarks = @remarks WHERE id = @id";
+            string query = $"UPDATE your_table_name SET item_id = @item_id, suppliers_id = @suppliers_id, serial_number = @serial_number, model = @model, operating_system = @operating_system, RAM = @RAM, computer_name = @computer_name, sophos_tamper = @sophos_tamper, date_acquired = @date_acquired, unit_cost = @unit_cost, status = @status, remarks = @remarks, created_by = @created_by WHERE id = @id;";
             return _dbGenericCommands.ExecuteNonQuery(query, parameters);
         }
 

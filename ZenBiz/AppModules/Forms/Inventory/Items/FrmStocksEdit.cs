@@ -24,7 +24,6 @@
             if (!string.IsNullOrWhiteSpace(_data["stock_date"]))
             {
                 uc.dtpDateAcquired.Value = Convert.ToDateTime(_data["stock_date"]);
-                uc.chkStockDate.Checked = true;
                 uc.dtpDateAcquired.Enabled = true;
             }
         }
@@ -47,30 +46,26 @@
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            string stockDate = uc.chkStockDate.Checked ? uc.dtpDateAcquired.Value.ToShortDateString() : "";
+            //if (!UpdateStock()) return;
+            //var storeWarehouseId = uc.cmbBranch.SelectedValue.ToString();
+            //string storeWarehouseText = uc.cmbBranch.Text;
+            //string[] row = new string[]
+            //{
+            //        storeWarehouseId,
+            //};
 
-            if (!UpdateStock()) return;
-            var storeWarehouseId = uc.cmbBranch.SelectedValue.ToString();
-            string storeWarehouseText = uc.cmbBranch.Text;
-            string[] row = new string[]
-            {
-                    stockDate,
-                    storeWarehouseText,
-                    storeWarehouseId,
-            };
+            //bool storeOrWarehouseExist = false;
+            //foreach (DataGridViewRow item in _dgStocks.Rows)
+            //{
+            //    if (item.Cells["store_warehouse_id"].Value.ToString() == storeWarehouseId)
+            //    {
+            //        storeOrWarehouseExist = true;
+            //        item.Cells["stock_date"].Value = stockDate;
+            //    }
+            //}
 
-            bool storeOrWarehouseExist = false;
-            foreach (DataGridViewRow item in _dgStocks.Rows)
-            {
-                if (item.Cells["store_warehouse_id"].Value.ToString() == storeWarehouseId)
-                {
-                    storeOrWarehouseExist = true;
-                    item.Cells["stock_date"].Value = stockDate;
-                }
-            }
-
-            if (!storeOrWarehouseExist) _dgStocks.Rows.Add(row);
-            uc.ResetForm();
+            //if (!storeOrWarehouseExist) _dgStocks.Rows.Add(row);
+            //uc.ResetForm();
         }
     }
 }

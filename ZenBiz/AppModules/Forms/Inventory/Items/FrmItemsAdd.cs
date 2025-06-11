@@ -29,21 +29,25 @@ namespace ZenBiz.AppModules.Forms.Inventory.Items
             return Factory.ItemsController().Insert(itemsModel);
         }
 
-        private void InsertStoreStocks()
+        private void InsertBranchStocks()
         {
             var stocksController = Factory.StocksController();
-            var storeStocksController = Factory.BranchStocksController();
-            foreach (DataGridViewRow item in uc.dgStoreStocks.Rows)
+            var branchStocksController = Factory.BranchStocksController();
+            foreach (DataGridViewRow item in uc.dgBranchStocks.Rows)
             {
-                DateTime? stockDate = !string.IsNullOrWhiteSpace(item.Cells["stock_date"].Value.ToString()) ? Convert.ToDateTime(item.Cells["stock_date"].Value.ToString()) : null;
-                DateTime? expirationDate = !string.IsNullOrWhiteSpace(item.Cells["expiration"].Value.ToString()) ? Convert.ToDateTime(item.Cells["expiration"].Value.ToString()) : null;
-
                 StocksModel stocksModel = new()
                 {
                     Item = new ItemsModel() { Id = Factory.ItemsController().LastInsertedId() },
-                    Quantity = Convert.ToDecimal(item.Cells["stocks"].Value),
-                    StockDate = stockDate,
-                    Expiration = expirationDate,
+                    SerialNumber = item.Cells["serial_number"].Value?.ToString() ?? string.Empty,
+                    Model = item.Cells["model"].Value?.ToString() ?? string.Empty,
+                    OperatingSystem = item.Cells["operating_system"].Value?.ToString() ?? string.Empty,
+                    RAM = item.Cells["ram"].Value?.ToString() ?? string.Empty,
+                    ComputerName = item.Cells["computer_name"].Value?.ToString() ?? string.Empty,
+                    SophosTamper = item.Cells["sophos_tamper"].Value?.ToString() ?? string.Empty,
+                    DateAcquired = item.Cells["date_acquired"].Value != null ? Convert.ToDateTime(item.Cells["date_acquired"].Value) : DateTime.Now,
+                    UnitCost = item.Cells["unit_cost"].Value != null ? Convert.ToDecimal(item.Cells["unit_cost"].Value) : 0,
+                    Status = item.Cells["status"].Value?.ToString() ?? string.Empty,
+                    Remarks = item.Cells["remarks"].Value?.ToString() ?? string.Empty,
                 };
 
                 stocksController.Insert(stocksModel);
@@ -51,14 +55,13 @@ namespace ZenBiz.AppModules.Forms.Inventory.Items
                 BranchStocksModel storeStocksModel = new()
                 {
                     Stock = new StocksModel() { Id = stocksController.LastInsertedId() },
-                    Store = new BranchModel() { Id = Convert.ToInt32(item.Cells["store_warehouse_id"].Value) }
                 };
 
-                storeStocksController.Insert(storeStocksModel);
+                branchStocksController.Insert(storeStocksModel);
             }
         }
 
-      
+
 
         private bool SaveData()
         {
@@ -72,7 +75,7 @@ namespace ZenBiz.AppModules.Forms.Inventory.Items
 
                 using TransactionScope scope = new();
                 _ = InsertItems();
-                //InsertStoreStocks();
+                InsertBranchStocks();
 
                 scope.Complete();
                 return true;
@@ -94,5 +97,6 @@ namespace ZenBiz.AppModules.Forms.Inventory.Items
                 Close();
             }
         }
+
     }
 }

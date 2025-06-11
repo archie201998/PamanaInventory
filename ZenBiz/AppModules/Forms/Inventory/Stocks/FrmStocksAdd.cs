@@ -26,13 +26,13 @@ namespace ZenBiz.AppModules.Forms.Inventory.Stocks
             uc.dtpRepairedDate.Enabled = false;
         }
 
-        private void InsertStoreStock(int stockId, int storeId)
+        private void InsertStoreStock(int stockId, int branchId)
         {
 
             BranchStocksModel storeStocksModel = new()
             {
                 Stock = new StocksModel() { Id = stockId },
-                Store = new BranchModel() { Id = storeId }
+                Store = new BranchModel() { Id = branchId }
             };
 
             _ = Factory.BranchStocksController().Insert(storeStocksModel);
@@ -46,9 +46,9 @@ namespace ZenBiz.AppModules.Forms.Inventory.Stocks
                 Helper.MessageBoxError(uc.GetFormErrors());
                 return false;
             }
-            DateTime? stockDate = uc.chkStockDate.Checked ? uc.dtpDateAcquired.Value : null;
-            DateTime? repairedDate = uc.chkRepairedDate.Checked ? uc.dtpRepairedDate.Value : null;
-            int? suppliersId = uc.chkSupplier.Checked ? (int)uc.cmbSupplier.SelectedValue : null;
+
+            DateTime? dateAcquired = uc.dtpDateAcquired.Value;
+            int? suppliersId = (int)uc.cmbSupplier.SelectedValue;
             string? user = uc.txtUser.Text.Trim();
             string? status = uc.cmbxStatus.Text.Trim();
             string? remarks = uc.txtRemarks.Text.Trim();
@@ -57,18 +57,23 @@ namespace ZenBiz.AppModules.Forms.Inventory.Stocks
             {
                 Item = new ItemsModel() { Id = _itemId },
                 Supplier = new SupplierModel() { Id = suppliersId },
-                StockDate = stockDate,
-                RepairedDate = repairedDate,
-                User = user,
-                Status = status,
-                Remarks = remarks
+                SerialNumber = uc.txtSerialNumber.Text.Trim(),
+                Model = uc.txtModel.Text.Trim(),
+                OperatingSystem = uc.txtOS.Text.Trim(),
+                RAM = uc.txtRAM.Text.Trim(),
+                ComputerName = uc.txtComputerName.Text.Trim(),
+                SophosTamper = uc.txtSophosTamper.Text.Trim(),
+                DateAcquired = dateAcquired ?? DateTime.Now,
+                UnitCost = uc.nudUnitCost.Value,
+                Status = status ?? string.Empty,
+                Remarks = remarks ?? string.Empty,
             };
 
             _ = Factory.StocksController().Insert(stocksModel);
 
             int stocksLastInsertedId = Factory.StocksController().LastInsertedId();
-            int storeWarehouseId = (int)uc.cmbBranch.SelectedValue;
-            InsertStoreStock(stocksLastInsertedId, storeWarehouseId);
+            int branchId = (int)uc.cmbBranch.SelectedValue;
+            InsertStoreStock(stocksLastInsertedId, branchId);
 
             scope.Complete();
             scope.Dispose();

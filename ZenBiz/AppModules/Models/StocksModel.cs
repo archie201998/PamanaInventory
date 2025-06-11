@@ -5,14 +5,17 @@
         public int Id { get; set; }
         public ItemsModel Item { get; set; } = new();
         public SupplierModel Supplier { get; set; } = new();
-        public decimal Quantity { get; set; }
-        public DateTime? StockDate { get; set; }
-        public DateTime? Expiration { get; set; }
-        public DateTime? ReturnedDate { get; set; }
-        public DateTime? RepairedDate { get; set; }
-        public string? User { get; set; }
-        public string? Status { get; set; }
-        public string? Remarks { get; set; }
+        public string SerialNumber { get; set; } = string.Empty;
+        public string Model { get; set; } = string.Empty;
+        public string OperatingSystem { get; set; } = string.Empty;
+        public string RAM { get; set; } = string.Empty;
+        public string ComputerName { get; set; } = string.Empty;
+        public string SophosTamper { get; set; } = string.Empty;
+        public DateTime DateAcquired { get; set; }
+        public Decimal UnitCost { get; set; }
+        public string Status { get; set; } = string.Empty;
+        public string Remarks { get; set; } = string.Empty;
+        public UsersModel CreatedBy { get; set; } = new();
 
     }
 }

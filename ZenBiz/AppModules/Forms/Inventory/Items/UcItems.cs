@@ -9,7 +9,7 @@ namespace ZenBiz.AppModules.Inventory.Items
         public UcItems()
         {
             InitializeComponent();
-            Helper.DatagridDefaultStyle(dgStoreStocks, false, true);
+            Helper.DatagridDefaultStyle(dgBranchStocks, false, true);
 
         }
 
@@ -25,7 +25,7 @@ namespace ZenBiz.AppModules.Inventory.Items
         private void DateTimePickerDgStoreStocks_ValueChange(object sender, EventArgs e)
         {
             DateTimePicker dtp = (DateTimePicker)sender;
-            dgStoreStocks.CurrentCell.Value = dtp.Value;
+            dgBranchStocks.CurrentCell.Value = dtp.Value;
         }
 
 
@@ -42,51 +42,47 @@ namespace ZenBiz.AppModules.Inventory.Items
 
         private void CreateDatagridViewColumnsOnStocks(DataGridView dataGridView, bool isStoreType)
         {
-            string columnName = isStoreType ? "store" : "warehouse";
-            string columnHeaderText = isStoreType ? "Store" : "Warehouse";
+            dataGridView.ColumnCount = 12;
+            dataGridView.Columns[0].Name = "branch";
+            dataGridView.Columns[1].Name = "item";
+            dataGridView.Columns[2].Name = "serial_number";
+            dataGridView.Columns[3].Name = "model";
+            dataGridView.Columns[4].Name = "operating_system";
+            dataGridView.Columns[5].Name = "ram";
+            dataGridView.Columns[6].Name = "computer_name";
+            dataGridView.Columns[7].Name = "sophos_tamper";
+            dataGridView.Columns[8].Name = "date_acquired";
+            dataGridView.Columns[9].Name = "unit_cost";
+            dataGridView.Columns[10].Name = "status";
+            dataGridView.Columns[11].Name = "remarks";
 
-            dataGridView.ColumnCount = 5;
-            dataGridView.Columns[0].Name = "stocks";
-            dataGridView.Columns["stocks"].HeaderText = "Stocks";
-            dataGridView.Columns["stocks"].Width = 70;
-            dataGridView.Columns[1].Name = "expiration";
-            dataGridView.Columns["expiration"].HeaderText = "Expiration";
-            dataGridView.Columns[2].Name = "stock_date";
-            dataGridView.Columns["stock_date"].HeaderText = "Stock Date";
-            dataGridView.Columns[3].Name = columnName;
-            dataGridView.Columns[columnName].HeaderText = columnHeaderText;
-            dataGridView.Columns[columnName].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            dataGridView.Columns[4].Name = "store_warehouse_id";
-            dataGridView.Columns["store_warehouse_id"].Visible = false;
+            dataGridView.Columns["item"].HeaderText = "Item Name";
+            dataGridView.Columns["serial_number"].HeaderText = "Serial Number";
+            dataGridView.Columns["model"].HeaderText = "Model";
+            dataGridView.Columns["operating_system"].HeaderText = "Operating Sys.";
+            dataGridView.Columns["ram"].HeaderText = "RAM";
+            dataGridView.Columns["computer_name"].HeaderText = "Computer Name";
+            dataGridView.Columns["sophos_tamper"].HeaderText = "Sophos Tamper";
+            dataGridView.Columns["date_acquired"].HeaderText = "Date Acquired";
+            dataGridView.Columns["unit_cost"].HeaderText = "Unit Cost";
+            dataGridView.Columns["status"].HeaderText = "Status";
+            dataGridView.Columns["remarks"].HeaderText = "Remarks";
+
+            dataGridView.Columns["branch"].HeaderText = "Branches";
+            dataGridView.Columns["branch"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
         }
 
-        private void LoadCategories()
-        {
-            cmbCategory.DataSource = Factory.CategoriesController().Fetch();
-            cmbCategory.DisplayMember = "name";
-            cmbCategory.ValueMember = "id";
-        }
-
-        private void LoadUnit()
-        {
-            cmbUnit.DataSource = Factory.UnitsOfMeasurementsController().Fetch();
-            cmbUnit.DisplayMember = "name";
-            cmbUnit.ValueMember = "id";
-        }
 
         private void UcItems_Load(object sender, EventArgs e)
         {
             if (!DesignMode)
             {
-                CreateDatagridViewColumnsOnStocks(dgStoreStocks, true);
-                LoadCategories();
-                LoadUnit();
+                CreateDatagridViewColumnsOnStocks(dgBranchStocks, true);
+                Helper.LoadCategories(cmbCategory);
+                Helper.LoadUnit(cmbUnit);
+
                 btnEditStoreStock.Enabled = false;
                 btnDeleteStoreStock.Enabled = false;
-
-                if (Helper.UserType == "Staff")
-                {
-                }
             }
         }
 
@@ -115,7 +111,7 @@ namespace ZenBiz.AppModules.Inventory.Items
             using FrmCategoriesAdd form = new();
             DialogResult dialogResult = form.ShowDialog();
             if (dialogResult == DialogResult.OK)
-                LoadCategories();
+                Helper.LoadCategories(cmbCategory);
 
             form.Dispose();
         }
@@ -125,19 +121,19 @@ namespace ZenBiz.AppModules.Inventory.Items
             using FrmUnitsAdd form = new();
             DialogResult dialogResult = form.ShowDialog();
             if (dialogResult == DialogResult.OK)
-                LoadUnit();
+                Helper.LoadUnit(cmbCategory);
 
             form.Dispose();
         }
 
         private void btnAddStoreStock_Click(object sender, EventArgs e)
         {
-            _ = new FrmStocksAdd(dgStoreStocks, false).ShowDialog();
+            _ = new FrmStocksAdd(dgBranchStocks, false).ShowDialog();
         }
 
         private void dgStoreStocks_SelectionChanged(object sender, EventArgs e)
         {
-            Helper.EnableDisableToolStripButtons(dgStoreStocks, btnEditStoreStock, btnDeleteStoreStock);
+            Helper.EnableDisableToolStripButtons(dgBranchStocks, btnEditStoreStock, btnDeleteStoreStock);
         }
 
         private void RemoveRow(DataGridView dataGridView)
@@ -148,7 +144,7 @@ namespace ZenBiz.AppModules.Inventory.Items
 
         private void btnDeleteStoreStock_Click(object sender, EventArgs e)
         {
-            RemoveRow(dgStoreStocks);
+            RemoveRow(dgBranchStocks);
         }
 
         private void btnDeleteWarehouseStock_Click(object sender, EventArgs e)
@@ -171,7 +167,7 @@ namespace ZenBiz.AppModules.Inventory.Items
 
         private void btnEditStoreStock_Click(object sender, EventArgs e)
         {
-            _ = new FrmStocksEdit(GetSelectedData(dgStoreStocks), dgStoreStocks, false).ShowDialog();
+            _ = new FrmStocksEdit(GetSelectedData(dgBranchStocks), dgBranchStocks, false).ShowDialog();
         }
 
     }

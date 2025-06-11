@@ -34,10 +34,8 @@
             epStockCount = new ErrorProvider(components);
             dtpDateAcquired = new DateTimePicker();
             label3 = new Label();
-            chkStockDate = new CheckBox();
             cmbSupplier = new ComboBox();
             label1 = new Label();
-            chkSupplier = new CheckBox();
             txtUser = new TextBox();
             label5 = new Label();
             label6 = new Label();
@@ -104,16 +102,6 @@
             label3.TabIndex = 6;
             label3.Text = "Date Acquired";
             // 
-            // chkStockDate
-            // 
-            chkStockDate.AutoSize = true;
-            chkStockDate.Location = new Point(417, 213);
-            chkStockDate.Name = "chkStockDate";
-            chkStockDate.Size = new Size(15, 14);
-            chkStockDate.TabIndex = 3;
-            chkStockDate.UseVisualStyleBackColor = true;
-            chkStockDate.CheckedChanged += chkStockDate_CheckedChanged;
-            // 
             // cmbSupplier
             // 
             cmbSupplier.DropDownStyle = ComboBoxStyle.DropDownList;
@@ -131,16 +119,6 @@
             label1.Size = new Size(50, 15);
             label1.TabIndex = 9;
             label1.Text = "Supplier";
-            // 
-            // chkSupplier
-            // 
-            chkSupplier.AutoSize = true;
-            chkSupplier.Location = new Point(417, 298);
-            chkSupplier.Name = "chkSupplier";
-            chkSupplier.Size = new Size(15, 14);
-            chkSupplier.TabIndex = 10;
-            chkSupplier.UseVisualStyleBackColor = true;
-            chkSupplier.CheckedChanged += chkSupplier_CheckedChanged;
             // 
             // txtUser
             // 
@@ -381,10 +359,8 @@
             Controls.Add(txtUser);
             Controls.Add(label5);
             Controls.Add(chkUser);
-            Controls.Add(chkSupplier);
             Controls.Add(label1);
             Controls.Add(cmbSupplier);
-            Controls.Add(chkStockDate);
             Controls.Add(label3);
             Controls.Add(dtpDateAcquired);
             Controls.Add(lblStoreWarehouse);
@@ -404,8 +380,6 @@
         private Label label3;
         internal ComboBox cmbBranch;
         internal DateTimePicker dtpDateAcquired;
-        internal CheckBox chkStockDate;
-        internal CheckBox chkSupplier;
         private Label label1;
         internal ComboBox cmbSupplier;
         internal TextBox txtUser;
@@ -429,8 +403,8 @@
         private Label label13;
         internal TextBox txtComputerName;
         private Label label14;
-        private NumericUpDown nudUnitCost;
         private Label label15;
         internal CheckBox chkUser;
+        internal NumericUpDown nudUnitCost;
     }
 }
