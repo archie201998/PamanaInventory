@@ -10,7 +10,6 @@ namespace ZenBiz.AppModules.Inventory.Items
         {
             InitializeComponent();
             Helper.DatagridDefaultStyle(dgStoreStocks, false, true);
-            Helper.DatagridDefaultStyle(dgWarehouseStocks, false, true);
 
         }
 
@@ -19,7 +18,7 @@ namespace ZenBiz.AppModules.Inventory.Items
             decimal total = 0;
             foreach (DataGridViewRow item in dataGridView.Rows)
                 total += Convert.ToDecimal(item.Cells["stocks"].Value);
-
+                
             lblTotalStocks.Text = total.ToString("N2");
         }
 
@@ -29,11 +28,6 @@ namespace ZenBiz.AppModules.Inventory.Items
             dgStoreStocks.CurrentCell.Value = dtp.Value;
         }
 
-        private void DateTimePickerDgWarehouseStocks_ValueChange(object sender, EventArgs e)
-        {
-            DateTimePicker dtp = (DateTimePicker)sender;
-            dgWarehouseStocks.CurrentCell.Value = dtp.Value;
-        }
 
         internal string GetFormErrors()
         {
@@ -85,13 +79,10 @@ namespace ZenBiz.AppModules.Inventory.Items
             if (!DesignMode)
             {
                 CreateDatagridViewColumnsOnStocks(dgStoreStocks, true);
-                CreateDatagridViewColumnsOnStocks(dgWarehouseStocks, false);
                 LoadCategories();
                 LoadUnit();
                 btnEditStoreStock.Enabled = false;
                 btnDeleteStoreStock.Enabled = false;
-                btnEditWarehouseStock.Enabled = false;
-                btnDeleteWarehouseStock.Enabled = false;
 
                 if (Helper.UserType == "Staff")
                 {
@@ -151,11 +142,6 @@ namespace ZenBiz.AppModules.Inventory.Items
             Helper.EnableDisableToolStripButtons(dgStoreStocks, btnEditStoreStock, btnDeleteStoreStock);
         }
 
-        private void btnAddWarehouseStock_Click(object sender, EventArgs e)
-        {
-            _ = new FrmStocksAdd(dgWarehouseStocks, true).ShowDialog();
-        }
-
         private void RemoveRow(DataGridView dataGridView)
         {
             foreach (DataGridViewRow item in dataGridView.SelectedRows)
@@ -169,7 +155,6 @@ namespace ZenBiz.AppModules.Inventory.Items
 
         private void btnDeleteWarehouseStock_Click(object sender, EventArgs e)
         {
-            RemoveRow(dgWarehouseStocks);
         }
 
         private Dictionary<string, string> GetSelectedData(DataGridView dataGridView)
@@ -191,9 +176,5 @@ namespace ZenBiz.AppModules.Inventory.Items
             _ = new FrmStocksEdit(GetSelectedData(dgStoreStocks), dgStoreStocks, false).ShowDialog();
         }
 
-        private void btnEditWarehouseStock_Click(object sender, EventArgs e)
-        {
-            _ = new FrmStocksEdit(GetSelectedData(dgWarehouseStocks), dgWarehouseStocks, true).ShowDialog();
-        }
     }
 }

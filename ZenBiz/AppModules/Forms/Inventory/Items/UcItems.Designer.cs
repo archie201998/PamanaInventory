@@ -30,12 +30,9 @@
         {
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UcItems));
-            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle9 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle10 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle11 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle12 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             label1 = new Label();
             txtCode = new TextBox();
             cmbCategory = new ComboBox();
@@ -55,13 +52,6 @@
             btnAddStoreStock = new ToolStripButton();
             btnEditStoreStock = new ToolStripButton();
             btnDeleteStoreStock = new ToolStripButton();
-            groupBox2 = new GroupBox();
-            panel2 = new Panel();
-            dgWarehouseStocks = new DataGridView();
-            toolStrip2 = new ToolStrip();
-            btnAddWarehouseStock = new ToolStripButton();
-            btnEditWarehouseStock = new ToolStripButton();
-            btnDeleteWarehouseStock = new ToolStripButton();
             epName = new ErrorProvider(components);
             epCode = new ErrorProvider(components);
             label3 = new Label();
@@ -81,10 +71,6 @@
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgStoreStocks).BeginInit();
             toolStrip1.SuspendLayout();
-            groupBox2.SuspendLayout();
-            panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dgWarehouseStocks).BeginInit();
-            toolStrip2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)epName).BeginInit();
             ((System.ComponentModel.ISupportInitialize)epCode).BeginInit();
             SuspendLayout();
@@ -92,7 +78,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(9, 73);
+            label1.Location = new Point(9, 83);
             label1.Name = "label1";
             label1.Size = new Size(35, 15);
             label1.TabIndex = 0;
@@ -100,7 +86,7 @@
             // 
             // txtCode
             // 
-            txtCode.Location = new Point(132, 70);
+            txtCode.Location = new Point(132, 80);
             txtCode.MaxLength = 20;
             txtCode.Name = "txtCode";
             txtCode.Size = new Size(300, 23);
@@ -112,14 +98,14 @@
             // 
             cmbCategory.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbCategory.FormattingEnabled = true;
-            cmbCategory.Location = new Point(132, 12);
+            cmbCategory.Location = new Point(132, 22);
             cmbCategory.Name = "cmbCategory";
             cmbCategory.Size = new Size(300, 23);
             cmbCategory.TabIndex = 6;
             // 
             // txtName
             // 
-            txtName.Location = new Point(132, 99);
+            txtName.Location = new Point(132, 109);
             txtName.MaxLength = 99;
             txtName.Name = "txtName";
             txtName.Size = new Size(300, 23);
@@ -130,7 +116,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(9, 102);
+            label2.Location = new Point(9, 112);
             label2.Name = "label2";
             label2.Size = new Size(39, 15);
             label2.TabIndex = 3;
@@ -158,7 +144,7 @@
             // label8
             // 
             label8.AutoSize = true;
-            label8.Location = new Point(9, 15);
+            label8.Location = new Point(9, 25);
             label8.Name = "label8";
             label8.Size = new Size(55, 15);
             label8.TabIndex = 15;
@@ -167,7 +153,7 @@
             // label9
             // 
             label9.AutoSize = true;
-            label9.Location = new Point(9, 44);
+            label9.Location = new Point(9, 54);
             label9.Name = "label9";
             label9.Size = new Size(29, 15);
             label9.TabIndex = 17;
@@ -177,7 +163,7 @@
             // 
             cmbUnit.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbUnit.FormattingEnabled = true;
-            cmbUnit.Location = new Point(132, 41);
+            cmbUnit.Location = new Point(132, 51);
             cmbUnit.Name = "cmbUnit";
             cmbUnit.Size = new Size(300, 23);
             cmbUnit.TabIndex = 7;
@@ -185,7 +171,7 @@
             // btnAddCategory
             // 
             btnAddCategory.Image = (Image)resources.GetObject("btnAddCategory.Image");
-            btnAddCategory.Location = new Point(438, 12);
+            btnAddCategory.Location = new Point(438, 22);
             btnAddCategory.Name = "btnAddCategory";
             btnAddCategory.Size = new Size(23, 23);
             btnAddCategory.TabIndex = 18;
@@ -195,7 +181,7 @@
             // btnAddUnit
             // 
             btnAddUnit.Image = (Image)resources.GetObject("btnAddUnit.Image");
-            btnAddUnit.Location = new Point(438, 41);
+            btnAddUnit.Location = new Point(438, 51);
             btnAddUnit.Name = "btnAddUnit";
             btnAddUnit.Size = new Size(23, 23);
             btnAddUnit.TabIndex = 19;
@@ -208,7 +194,7 @@
             groupBox1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
             groupBox1.Location = new Point(476, 3);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(492, 270);
+            groupBox1.Size = new Size(492, 473);
             groupBox1.TabIndex = 9;
             groupBox1.TabStop = false;
             groupBox1.Text = "Branch Stocks";
@@ -221,41 +207,41 @@
             panel1.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             panel1.Location = new Point(3, 19);
             panel1.Name = "panel1";
-            panel1.Size = new Size(486, 248);
+            panel1.Size = new Size(486, 451);
             panel1.TabIndex = 21;
             // 
             // dgStoreStocks
             // 
-            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = SystemColors.Control;
-            dataGridViewCellStyle7.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle7.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle7.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = DataGridViewTriState.True;
-            dgStoreStocks.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = SystemColors.Control;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dgStoreStocks.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgStoreStocks.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = SystemColors.Window;
-            dataGridViewCellStyle8.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle8.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle8.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = DataGridViewTriState.False;
-            dgStoreStocks.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = SystemColors.Window;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            dgStoreStocks.DefaultCellStyle = dataGridViewCellStyle2;
             dgStoreStocks.Dock = DockStyle.Fill;
             dgStoreStocks.Location = new Point(0, 25);
             dgStoreStocks.Name = "dgStoreStocks";
-            dataGridViewCellStyle9.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = SystemColors.Control;
-            dataGridViewCellStyle9.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle9.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle9.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle9.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = DataGridViewTriState.True;
-            dgStoreStocks.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = SystemColors.Control;
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle3.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
+            dgStoreStocks.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             dgStoreStocks.RowTemplate.Height = 25;
-            dgStoreStocks.Size = new Size(486, 223);
+            dgStoreStocks.Size = new Size(486, 426);
             dgStoreStocks.TabIndex = 1;
             dgStoreStocks.SelectionChanged += dgStoreStocks_SelectionChanged;
             // 
@@ -298,102 +284,6 @@
             btnDeleteStoreStock.Size = new Size(23, 22);
             btnDeleteStoreStock.Text = "Delete";
             btnDeleteStoreStock.Click += btnDeleteStoreStock_Click;
-            // 
-            // groupBox2
-            // 
-            groupBox2.Controls.Add(panel2);
-            groupBox2.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            groupBox2.Location = new Point(476, 279);
-            groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(492, 213);
-            groupBox2.TabIndex = 10;
-            groupBox2.TabStop = false;
-            groupBox2.Text = "Warehouse Stocks";
-            // 
-            // panel2
-            // 
-            panel2.Controls.Add(dgWarehouseStocks);
-            panel2.Controls.Add(toolStrip2);
-            panel2.Dock = DockStyle.Fill;
-            panel2.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            panel2.Location = new Point(3, 19);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(486, 191);
-            panel2.TabIndex = 21;
-            // 
-            // dgWarehouseStocks
-            // 
-            dataGridViewCellStyle10.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = SystemColors.Control;
-            dataGridViewCellStyle10.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle10.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle10.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle10.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle10.WrapMode = DataGridViewTriState.True;
-            dgWarehouseStocks.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
-            dgWarehouseStocks.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle11.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = SystemColors.Window;
-            dataGridViewCellStyle11.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle11.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle11.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle11.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle11.WrapMode = DataGridViewTriState.False;
-            dgWarehouseStocks.DefaultCellStyle = dataGridViewCellStyle11;
-            dgWarehouseStocks.Dock = DockStyle.Fill;
-            dgWarehouseStocks.Location = new Point(0, 25);
-            dgWarehouseStocks.Name = "dgWarehouseStocks";
-            dataGridViewCellStyle12.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = SystemColors.Control;
-            dataGridViewCellStyle12.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle12.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle12.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle12.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle12.WrapMode = DataGridViewTriState.True;
-            dgWarehouseStocks.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
-            dgWarehouseStocks.RowTemplate.Height = 25;
-            dgWarehouseStocks.Size = new Size(486, 166);
-            dgWarehouseStocks.TabIndex = 1;
-            // 
-            // toolStrip2
-            // 
-            toolStrip2.GripStyle = ToolStripGripStyle.Hidden;
-            toolStrip2.Items.AddRange(new ToolStripItem[] { btnAddWarehouseStock, btnEditWarehouseStock, btnDeleteWarehouseStock });
-            toolStrip2.Location = new Point(0, 0);
-            toolStrip2.Name = "toolStrip2";
-            toolStrip2.Size = new Size(486, 25);
-            toolStrip2.TabIndex = 0;
-            toolStrip2.Text = "toolStrip2";
-            // 
-            // btnAddWarehouseStock
-            // 
-            btnAddWarehouseStock.DisplayStyle = ToolStripItemDisplayStyle.Image;
-            btnAddWarehouseStock.Image = (Image)resources.GetObject("btnAddWarehouseStock.Image");
-            btnAddWarehouseStock.ImageTransparentColor = Color.Magenta;
-            btnAddWarehouseStock.Name = "btnAddWarehouseStock";
-            btnAddWarehouseStock.Size = new Size(23, 22);
-            btnAddWarehouseStock.Text = "Add";
-            btnAddWarehouseStock.Click += btnAddWarehouseStock_Click;
-            // 
-            // btnEditWarehouseStock
-            // 
-            btnEditWarehouseStock.DisplayStyle = ToolStripItemDisplayStyle.Image;
-            btnEditWarehouseStock.Image = (Image)resources.GetObject("btnEditWarehouseStock.Image");
-            btnEditWarehouseStock.ImageTransparentColor = Color.Magenta;
-            btnEditWarehouseStock.Name = "btnEditWarehouseStock";
-            btnEditWarehouseStock.Size = new Size(23, 22);
-            btnEditWarehouseStock.Text = "Edit";
-            btnEditWarehouseStock.Click += btnEditWarehouseStock_Click;
-            // 
-            // btnDeleteWarehouseStock
-            // 
-            btnDeleteWarehouseStock.DisplayStyle = ToolStripItemDisplayStyle.Image;
-            btnDeleteWarehouseStock.Image = (Image)resources.GetObject("btnDeleteWarehouseStock.Image");
-            btnDeleteWarehouseStock.ImageTransparentColor = Color.Magenta;
-            btnDeleteWarehouseStock.Name = "btnDeleteWarehouseStock";
-            btnDeleteWarehouseStock.Size = new Size(23, 22);
-            btnDeleteWarehouseStock.Text = "Delete";
-            btnDeleteWarehouseStock.Click += btnDeleteWarehouseStock_Click;
             // 
             // epName
             // 
@@ -520,7 +410,6 @@
             Controls.Add(label4);
             Controls.Add(textBox1);
             Controls.Add(label3);
-            Controls.Add(groupBox2);
             Controls.Add(groupBox1);
             Controls.Add(btnAddUnit);
             Controls.Add(btnAddCategory);
@@ -544,12 +433,6 @@
             ((System.ComponentModel.ISupportInitialize)dgStoreStocks).EndInit();
             toolStrip1.ResumeLayout(false);
             toolStrip1.PerformLayout();
-            groupBox2.ResumeLayout(false);
-            panel2.ResumeLayout(false);
-            panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dgWarehouseStocks).EndInit();
-            toolStrip2.ResumeLayout(false);
-            toolStrip2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)epName).EndInit();
             ((System.ComponentModel.ISupportInitialize)epCode).EndInit();
             ResumeLayout(false);
@@ -570,11 +453,6 @@
         private ToolStrip toolStrip1;
         private ToolStripButton btnAddStoreStock;
         private ToolStripButton btnDeleteStoreStock;
-        private GroupBox groupBox2;
-        private Panel panel2;
-        private ToolStrip toolStrip2;
-        private ToolStripButton btnAddWarehouseStock;
-        private ToolStripButton btnDeleteWarehouseStock;
         private ErrorProvider epName;
         public TextBox txtCode;
         public ComboBox cmbCategory;
@@ -582,9 +460,7 @@
         public NumericUpDown nudUnitCost;
         public ComboBox cmbUnit;
         public DataGridView dgStoreStocks;
-        public DataGridView dgWarehouseStocks;
         private ToolStripButton btnEditStoreStock;
-        private ToolStripButton btnEditWarehouseStock;
         private ErrorProvider epCode;
         public TextBox textBox1;
         private Label label3;

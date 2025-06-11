@@ -3,7 +3,6 @@ using ZenBiz.AppModules.Forms.Inventory.Suppliers;
 using ZenBiz.AppModules.Forms.Inventory.UnitOfMeasurements;
 using ZenBiz.AppModules.Inventory.Categories;
 using ZenBiz.AppModules.Inventory.Stores;
-using ZenBiz.AppModules.Inventory.Warehouses;
 
 namespace ZenBiz.AppModules.Inventory
 {
@@ -37,11 +36,6 @@ namespace ZenBiz.AppModules.Inventory
         private void btnStoresForm_Click(object sender, EventArgs e)
         {
             ShowMdiChildForm(new FrmBranches());
-        }
-
-        private void btnWarehousesForm_Click(object sender, EventArgs e)
-        {
-            ShowMdiChildForm(new FrmWarehouses());
         }
 
         private void btnCategoriesForm_Click(object sender, EventArgs e)

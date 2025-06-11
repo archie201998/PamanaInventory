@@ -193,7 +193,6 @@
             btnWarehouseStockDelete.Name = "btnWarehouseStockDelete";
             btnWarehouseStockDelete.Size = new Size(23, 22);
             btnWarehouseStockDelete.Text = "Delete";
-            btnWarehouseStockDelete.Click += btnWarehouseStockDelete_Click;
             // 
             // FrmStockAdjustment
             // 

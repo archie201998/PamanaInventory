@@ -58,34 +58,7 @@ namespace ZenBiz.AppModules.Forms.Inventory.Items
             }
         }
 
-        private void InsertWarehouseStocks()
-        {
-            var stocksController = Factory.StocksController();
-            var warehouseStocksController = Factory.WarehouseStocksController();
-            foreach (DataGridViewRow item in uc.dgWarehouseStocks.Rows)
-            {
-                DateTime? stockDate = !string.IsNullOrWhiteSpace(item.Cells["stock_date"].Value.ToString()) ? Convert.ToDateTime(item.Cells["stock_date"].Value.ToString()) : null;
-                DateTime? expirationDate = !string.IsNullOrWhiteSpace(item.Cells["expiration"].Value.ToString()) ? Convert.ToDateTime(item.Cells["expiration"].Value.ToString()) : null;
-
-                StocksModel stocksModel = new()
-                {
-                    Item = new ItemsModel() { Id = Factory.ItemsController().LastInsertedId() },
-                    Quantity = Convert.ToDecimal(item.Cells["stocks"].Value),
-                    StockDate = stockDate,
-                    Expiration = expirationDate
-                };
-
-                stocksController.Insert(stocksModel);
-
-                WarehouseStocksModel warehouseStocksModel = new()
-                {
-                    Stock = new StocksModel() { Id = stocksController.LastInsertedId() },
-                    Warehouse = new WarehousesModel() { Id = Convert.ToInt32(item.Cells["store_warehouse_id"].Value) }
-                };
-
-                warehouseStocksController.Insert(warehouseStocksModel);
-            }
-        }
+      
 
         private bool SaveData()
         {
@@ -100,7 +73,6 @@ namespace ZenBiz.AppModules.Forms.Inventory.Items
                 using TransactionScope scope = new();
                 _ = InsertItems();
                 InsertStoreStocks();
-                InsertWarehouseStocks();
 
                 scope.Complete();
                 return true;

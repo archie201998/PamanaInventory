@@ -32,21 +32,6 @@ namespace ZenBiz.AppModules.Forms.Inventory.StockAdjustment
             return Factory.StoreStockAdjustmentController().Insert(storeStockAdjustmentsModel);
         }
 
-        private bool InsertWarehouseStockAdjustment()
-        {
-            WarehouseStockAdjustmentsModel warehouseStockAdjustmentsModel = new()
-            {
-                Warehouses = new WarehousesModel() { Id = (int)uc.cmbStoreWarehouse.SelectedValue },
-                Items = new ItemsModel() { Id = _itemId },
-                Quantity = uc.nudQuantity.Value,
-                DateAdjusted = uc.dtpDate.Value,
-                Reason = uc.txtReason.Text.Trim(),
-                Users = new UsersModel() { Id = Helper.UserId }
-            };
-
-            return Factory.WarehouseStockAdjustmentController().Insert(warehouseStockAdjustmentsModel);
-        }
-
         private bool SaveData()
         {
             if (!uc.ValidateChildren())
@@ -55,8 +40,7 @@ namespace ZenBiz.AppModules.Forms.Inventory.StockAdjustment
                 return false;
             }
 
-            if (_isWarehouse) return InsertWarehouseStockAdjustment();
-            else return InsertStoreStockAdjustment();
+           return InsertStoreStockAdjustment();
         }
 
         private void btnSave_Click(object sender, EventArgs e)

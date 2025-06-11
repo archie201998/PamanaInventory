@@ -26,19 +26,9 @@ namespace ZenBiz.AppModules.Forms.Inventory.Stocks
         {
             Dictionary<string, string> dict;
             int storeWarehouseId;
-            if (_isWarehouse)
-            {
-                dict = Factory.WarehouseStocksController().FindByStockId(_stockId);
-                storeWarehouseId = Convert.ToInt32(dict["warehouses_id"]);
-            }
-            else
-            {
-                dict = Factory.BranchStocksController().FindByStockId(_stockId);
-                storeWarehouseId = Convert.ToInt32(dict["stores_id"]);
-            }
+           
+            dict = Factory.BranchStocksController().FindByStockId(_stockId);
 
-
-            uc.cmbStoreWarehouse.SelectedValue = storeWarehouseId;
             uc.nudStockCount.Value = Convert.ToDecimal(dict["quantity"]);
             uc.txtUser.Text = dict["user"];
             uc.txtRemarks.Text = dict["remarks"];
@@ -105,18 +95,6 @@ namespace ZenBiz.AppModules.Forms.Inventory.Stocks
             _ = Factory.BranchStocksController().Update(storeStocksModel);
         }
 
-        private void UpdateWarehouseStock(int stockId, int warehouseId)
-        {
-
-            WarehouseStocksModel warehouseStocksModel = new()
-            {
-                Stock = new StocksModel() { Id = stockId },
-                Warehouse = new WarehousesModel() { Id = warehouseId }
-            };
-
-            _ = Factory.WarehouseStocksController().Update(warehouseStocksModel);
-        }
-
         private bool SaveData()
         {
             using TransactionScope scope = new();
@@ -142,8 +120,7 @@ namespace ZenBiz.AppModules.Forms.Inventory.Stocks
             _ = Factory.StocksController().Update(stocksModel);
 
             int storeWarehouseId = (int)uc.cmbStoreWarehouse.SelectedValue;
-            if (_isWarehouse) UpdateWarehouseStock(_stockId, storeWarehouseId);
-            else UpdateStoreStock(_stockId, storeWarehouseId);
+            UpdateStoreStock(_stockId, storeWarehouseId);
 
             scope.Complete();
             scope.Dispose();

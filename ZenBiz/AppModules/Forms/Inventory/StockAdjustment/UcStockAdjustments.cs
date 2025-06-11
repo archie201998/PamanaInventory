@@ -28,21 +28,11 @@ namespace ZenBiz.AppModules.Forms.Inventory.StockAdjustment
             cmbStoreWarehouse.ValueMember = "id";
             lblStoreWarehouse.Text = "Store";
         }
-
-        internal void LoadWarehouses()
-        {
-            cmbStoreWarehouse.DataSource = Factory.WarehousesController().Fetch();
-            cmbStoreWarehouse.DisplayMember = "name";
-            cmbStoreWarehouse.ValueMember = "id";
-            lblStoreWarehouse.Text = "Warehouse";
-        }
-
         private void UcStockAdjustments_Load(object sender, EventArgs e)
         {
             if (!DesignMode)
             {
-                if (IsWarehouse) LoadWarehouses();
-                else LoadStores();
+                LoadStores();
             }
         }
 

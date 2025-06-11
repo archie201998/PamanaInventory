@@ -318,7 +318,7 @@
             Controls.Add(lblStoreWarehouse);
             Controls.Add(cmbStoreWarehouse);
             Name = "UcStocksForm";
-            Size = new Size(428, 325);
+            Size = new Size(428, 659);
             Load += UcStoreStocks_Load;
             ((System.ComponentModel.ISupportInitialize)nudStockCount).EndInit();
             ((System.ComponentModel.ISupportInitialize)epStockCount).EndInit();

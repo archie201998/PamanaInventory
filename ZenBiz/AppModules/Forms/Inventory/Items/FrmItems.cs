@@ -17,13 +17,9 @@ namespace ZenBiz.AppModules.Forms.Inventory.Items
             Helper.LoadFormIcon(this);
             Helper.DatagridDefaultStyle(dgItems, true);
             Helper.DatagridDefaultStyle(dgBranchStocks);
-            Helper.DatagridDefaultStyle(dgWarehouseStocks);
             CreateStocksColumns(dgBranchStocks, false);
-            CreateStocksColumns(dgWarehouseStocks, true);
             _frmInventory = frmInventory;
         }
-
-
 
         private void CreateStocksColumns(DataGridView dataGrid, bool isWarehouse)
         {
@@ -68,23 +64,6 @@ namespace ZenBiz.AppModules.Forms.Inventory.Items
                 // total stocks + total stock adjusted + total transfer stocks + sold stocks
                 decimal stocksLeft = Factory.BranchStocksController().StocksLeft(storeId, itemId);
                 dgBranchStocks.Rows.Add(storeId, storeName, stocksLeft.ToString("N2"));
-            }
-        }
-
-        // need pa ug minus ang total stocks sa sold
-        private void LoadWarehouses()
-        {
-            dgWarehouseStocks.Rows.Clear();
-            int itemId = (int)dgItems.SelectedCells[0].Value;
-            DataTable dtWarehouse = Factory.WarehouseStocksController().FetchWarehouses(itemId);
-            foreach (DataRow item in dtWarehouse.Rows)
-            {
-                int warehouseId = (int)item["warehouses_id"];
-                string warehouseName = item["warehouse_name"].ToString();
-                decimal totalStocks = Factory.WarehouseStocksController().SumTotalStocks(warehouseId, itemId);
-                decimal totalStocksAdjusted = Factory.WarehouseStockAdjustmentController().SumStockAdjusted(warehouseId, itemId);
-                decimal stocksLeft = totalStocks + totalStocksAdjusted;
-                dgWarehouseStocks.Rows.Add(warehouseId, warehouseName, stocksLeft.ToString("N2"));
             }
         }
 
@@ -147,7 +126,6 @@ namespace ZenBiz.AppModules.Forms.Inventory.Items
             if (dialogResult == DialogResult.OK)
             {
                 LoadBranches();
-                LoadWarehouses();
             }
 
             form.Dispose();
@@ -161,7 +139,6 @@ namespace ZenBiz.AppModules.Forms.Inventory.Items
             if (dialogResult == DialogResult.OK)
             {
                 LoadBranches();
-                LoadWarehouses();
             }
 
             form.Dispose();
@@ -178,14 +155,12 @@ namespace ZenBiz.AppModules.Forms.Inventory.Items
             if (dgItems.SelectedRows.Count == 1)
             {
                 LoadBranches();
-                LoadWarehouses();
                 btnStocks.Enabled = true;
                 btnAdjustStocks.Enabled = true;
                 return;
             }
 
             dgBranchStocks.Rows.Clear();
-            dgWarehouseStocks.Rows.Clear();
             btnStocks.Enabled = false;
             btnAdjustStocks.Enabled = false;
         }

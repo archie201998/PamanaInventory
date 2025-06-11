@@ -35,7 +35,6 @@ namespace ZenBiz.AppModules.Forms.Inventory.StockAdjustment
 
         private void LoadWarehouseData()
         {
-            dgWarehouseStockAdjust.DataSource = Factory.WarehouseStockAdjustmentController().Fetch(_itemId);
             dgWarehouseStockAdjust.Columns["id"].Visible = false;
             dgWarehouseStockAdjust.Columns["warehouses_id"].Visible = false;
             dgWarehouseStockAdjust.Columns["warehouse_name"].HeaderText = "Store";
@@ -138,31 +137,6 @@ namespace ZenBiz.AppModules.Forms.Inventory.StockAdjustment
                 LoadWarehouseData();
 
             form.Dispose();
-        }
-
-        private void btnWarehouseStockDelete_Click(object sender, EventArgs e)
-        {
-            if (dgWarehouseStockAdjust.SelectedRows.Count == 0) return;
-
-            try
-            {
-                List<WarehouseStockAdjustmentsModel> warehouseStockAdjustmentsModels = new();
-                foreach (DataGridViewRow item in dgWarehouseStockAdjust.SelectedRows)
-                    warehouseStockAdjustmentsModels.Add(new WarehouseStockAdjustmentsModel() { Id = Convert.ToInt32(item.Cells["id"].Value) });
-
-                var messageBox = MessageBox.Show("Are you sure you want to delete this data?", "Deleting Stock Adjustment", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if (messageBox != DialogResult.Yes) return;
-
-                _ = Factory.WarehouseStockAdjustmentController().Delete(warehouseStockAdjustmentsModels);
-                LoadWarehouseData();
-            }
-            catch (MySqlException ex)
-            {
-                if (ex.Number == 1451)
-                    Helper.MessageBoxError("Unable to delete the record/s because it is already been referenced to other records.");
-                else
-                    Helper.MessageBoxError(ex.Message);
-            }
         }
 
         private void FrmStockAdjustment_FormClosed(object sender, FormClosedEventArgs e)

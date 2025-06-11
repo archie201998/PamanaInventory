@@ -122,7 +122,6 @@
             stocksPerWarehouseToolStripMenuItem1.Name = "stocksPerWarehouseToolStripMenuItem1";
             stocksPerWarehouseToolStripMenuItem1.Size = new Size(173, 22);
             stocksPerWarehouseToolStripMenuItem1.Text = "Inventory List";
-            stocksPerWarehouseToolStripMenuItem1.Click += stocksPerWarehouseToolStripMenuItem1_Click;
             // 
             // stockAdjustmentWarehouseToolStripMenuItem
             // 

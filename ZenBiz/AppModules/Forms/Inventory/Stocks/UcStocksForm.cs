@@ -42,14 +42,6 @@ namespace ZenBiz.AppModules.Forms.Inventory.Items
             lblStoreWarehouse.Text = "Store";
         }
 
-        internal void LoadWarehouses()
-        {
-            cmbStoreWarehouse.DataSource = Factory.WarehousesController().Fetch();
-            cmbStoreWarehouse.DisplayMember = "name";
-            cmbStoreWarehouse.ValueMember = "id";
-            lblStoreWarehouse.Text = "Warehouse";
-        }
-
         internal void LoadSuppliers()
         {
             cmbSupplier.DataSource = Factory.SuppliersController().Fetch();
@@ -60,9 +52,8 @@ namespace ZenBiz.AppModules.Forms.Inventory.Items
         private void UcStoreStocks_Load(object sender, EventArgs e)
         {
             if (!DesignMode)
-            {
-                if (IsWarehouse) LoadWarehouses();
-                else LoadStores();
+            {   
+                LoadStores();
                 LoadSuppliers();
             }
         }

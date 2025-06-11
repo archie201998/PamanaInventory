@@ -32,7 +32,6 @@
             toolStrip1 = new ToolStrip();
             btnItemsForm = new ToolStripButton();
             btnStoresForm = new ToolStripButton();
-            btnWarehousesForm = new ToolStripButton();
             btnSuppliers = new ToolStripButton();
             btnCategoriesForm = new ToolStripButton();
             btnUnitsForm = new ToolStripButton();
@@ -42,7 +41,7 @@
             // toolStrip1
             // 
             toolStrip1.GripStyle = ToolStripGripStyle.Hidden;
-            toolStrip1.Items.AddRange(new ToolStripItem[] { btnItemsForm, btnStoresForm, btnWarehousesForm, btnSuppliers, btnCategoriesForm, btnUnitsForm });
+            toolStrip1.Items.AddRange(new ToolStripItem[] { btnItemsForm, btnStoresForm, btnSuppliers, btnCategoriesForm, btnUnitsForm });
             toolStrip1.Location = new Point(0, 0);
             toolStrip1.Name = "toolStrip1";
             toolStrip1.Size = new Size(824, 46);
@@ -70,17 +69,6 @@
             btnStoresForm.Text = "Branches";
             btnStoresForm.TextImageRelation = TextImageRelation.ImageAboveText;
             btnStoresForm.Click += btnStoresForm_Click;
-            // 
-            // btnWarehousesForm
-            // 
-            btnWarehousesForm.Image = (Image)resources.GetObject("btnWarehousesForm.Image");
-            btnWarehousesForm.ImageScaling = ToolStripItemImageScaling.None;
-            btnWarehousesForm.ImageTransparentColor = Color.Magenta;
-            btnWarehousesForm.Name = "btnWarehousesForm";
-            btnWarehousesForm.Size = new Size(75, 43);
-            btnWarehousesForm.Text = "Warehouses";
-            btnWarehousesForm.TextImageRelation = TextImageRelation.ImageAboveText;
-            btnWarehousesForm.Click += btnWarehousesForm_Click;
             // 
             // btnSuppliers
             // 
@@ -139,7 +127,6 @@
         private ToolStrip toolStrip1;
         private ToolStripButton btnItemsForm;
         private ToolStripButton btnStoresForm;
-        private ToolStripButton btnWarehousesForm;
         private ToolStripButton btnCategoriesForm;
         private ToolStripButton btnUnitsForm;
         private ToolStripButton btnSuppliers;

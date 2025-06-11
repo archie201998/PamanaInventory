@@ -19,11 +19,6 @@
             ShowMdiForm(new FrmStockPerBranchReport());
         }
 
-        private void stocksPerWarehouseToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            ShowMdiForm(new FrmStockPerWarehouseReport());
-        }
-
         private void stockAdjustmentStoreToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             ShowMdiForm(new FrmStockAdjustmentsReport(false));

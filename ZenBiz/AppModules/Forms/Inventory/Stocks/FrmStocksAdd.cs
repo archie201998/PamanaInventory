@@ -41,18 +41,6 @@ namespace ZenBiz.AppModules.Forms.Inventory.Stocks
             _ = Factory.BranchStocksController().Insert(storeStocksModel);
         }
 
-        private void InsertWarehouseStock(int stockId, int warehouseId)
-        {
-
-            WarehouseStocksModel warehouseStocksModel = new()
-            {
-                Stock = new StocksModel() { Id = stockId },
-                Warehouse = new WarehousesModel() { Id = warehouseId }
-            };
-
-            _ = Factory.WarehouseStocksController().Insert(warehouseStocksModel);
-        }
-
         private bool SaveData()
         {
             using TransactionScope scope = new();
@@ -88,8 +76,7 @@ namespace ZenBiz.AppModules.Forms.Inventory.Stocks
 
             int stocksLastInsertedId = Factory.StocksController().LastInsertedId();
             int storeWarehouseId = (int)uc.cmbStoreWarehouse.SelectedValue;
-            if (_isWarehouse) InsertWarehouseStock(stocksLastInsertedId, storeWarehouseId);
-            else InsertStoreStock(stocksLastInsertedId, storeWarehouseId);
+            InsertStoreStock(stocksLastInsertedId, storeWarehouseId);
 
             scope.Complete();
             scope.Dispose();

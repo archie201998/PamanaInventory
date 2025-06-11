@@ -59,24 +59,12 @@
             lblTotalStoreStocks = new ToolStripLabel();
             toolStripLabel2 = new ToolStripLabel();
             cmbStores = new ToolStripComboBox();
-            tabWarehouses = new TabPage();
-            dgWarehouseStocks = new DataGridView();
-            toolStrip1 = new ToolStrip();
-            btnWarehouseStockAdd = new ToolStripButton();
-            btnWarehouseStockEdit = new ToolStripButton();
-            btnWarehouseStockDelete = new ToolStripButton();
-            lblTotalWarehouseStocks = new ToolStripLabel();
-            toolStripLabel3 = new ToolStripLabel();
-            cmbWarehouses = new ToolStripComboBox();
             groupBox1.SuspendLayout();
             panel1.SuspendLayout();
             tabControl1.SuspendLayout();
             tabStores.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgStoreStocks).BeginInit();
             toolStrip2.SuspendLayout();
-            tabWarehouses.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dgWarehouseStocks).BeginInit();
-            toolStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // groupBox1
@@ -273,7 +261,6 @@
             // tabControl1
             // 
             tabControl1.Controls.Add(tabStores);
-            tabControl1.Controls.Add(tabWarehouses);
             tabControl1.Location = new Point(14, 200);
             tabControl1.Name = "tabControl1";
             tabControl1.SelectedIndex = 0;
@@ -364,90 +351,6 @@
             cmbStores.Name = "cmbStores";
             cmbStores.Size = new Size(121, 25);
             // 
-            // tabWarehouses
-            // 
-            tabWarehouses.Controls.Add(dgWarehouseStocks);
-            tabWarehouses.Controls.Add(toolStrip1);
-            tabWarehouses.Location = new Point(4, 24);
-            tabWarehouses.Name = "tabWarehouses";
-            tabWarehouses.Padding = new Padding(3);
-            tabWarehouses.Size = new Size(833, 272);
-            tabWarehouses.TabIndex = 1;
-            tabWarehouses.Text = "Warehouses";
-            tabWarehouses.UseVisualStyleBackColor = true;
-            // 
-            // dgWarehouseStocks
-            // 
-            dgWarehouseStocks.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgWarehouseStocks.Dock = DockStyle.Fill;
-            dgWarehouseStocks.Location = new Point(3, 28);
-            dgWarehouseStocks.Name = "dgWarehouseStocks";
-            dgWarehouseStocks.RowTemplate.Height = 25;
-            dgWarehouseStocks.Size = new Size(827, 241);
-            dgWarehouseStocks.TabIndex = 2;
-            dgWarehouseStocks.SelectionChanged += dgWarehouseStocks_SelectionChanged;
-            // 
-            // toolStrip1
-            // 
-            toolStrip1.GripStyle = ToolStripGripStyle.Hidden;
-            toolStrip1.Items.AddRange(new ToolStripItem[] { btnWarehouseStockAdd, btnWarehouseStockEdit, btnWarehouseStockDelete, lblTotalWarehouseStocks, toolStripLabel3, cmbWarehouses });
-            toolStrip1.Location = new Point(3, 3);
-            toolStrip1.Name = "toolStrip1";
-            toolStrip1.Size = new Size(827, 25);
-            toolStrip1.TabIndex = 1;
-            toolStrip1.Text = "toolStrip1";
-            // 
-            // btnWarehouseStockAdd
-            // 
-            btnWarehouseStockAdd.DisplayStyle = ToolStripItemDisplayStyle.Image;
-            btnWarehouseStockAdd.Image = (Image)resources.GetObject("btnWarehouseStockAdd.Image");
-            btnWarehouseStockAdd.ImageTransparentColor = Color.Magenta;
-            btnWarehouseStockAdd.Name = "btnWarehouseStockAdd";
-            btnWarehouseStockAdd.Size = new Size(23, 22);
-            btnWarehouseStockAdd.Text = "Add";
-            btnWarehouseStockAdd.Click += btnWarehouseStockAdd_Click;
-            // 
-            // btnWarehouseStockEdit
-            // 
-            btnWarehouseStockEdit.DisplayStyle = ToolStripItemDisplayStyle.Image;
-            btnWarehouseStockEdit.Image = (Image)resources.GetObject("btnWarehouseStockEdit.Image");
-            btnWarehouseStockEdit.ImageTransparentColor = Color.Magenta;
-            btnWarehouseStockEdit.Name = "btnWarehouseStockEdit";
-            btnWarehouseStockEdit.Size = new Size(23, 22);
-            btnWarehouseStockEdit.Text = "Edit";
-            btnWarehouseStockEdit.Click += btnWarehouseStockEdit_Click;
-            // 
-            // btnWarehouseStockDelete
-            // 
-            btnWarehouseStockDelete.DisplayStyle = ToolStripItemDisplayStyle.Image;
-            btnWarehouseStockDelete.Image = (Image)resources.GetObject("btnWarehouseStockDelete.Image");
-            btnWarehouseStockDelete.ImageTransparentColor = Color.Magenta;
-            btnWarehouseStockDelete.Name = "btnWarehouseStockDelete";
-            btnWarehouseStockDelete.Size = new Size(23, 22);
-            btnWarehouseStockDelete.Text = "Delete";
-            btnWarehouseStockDelete.Click += btnWarehouseStockDelete_Click;
-            // 
-            // lblTotalWarehouseStocks
-            // 
-            lblTotalWarehouseStocks.Alignment = ToolStripItemAlignment.Right;
-            lblTotalWarehouseStocks.Name = "lblTotalWarehouseStocks";
-            lblTotalWarehouseStocks.Size = new Size(28, 22);
-            lblTotalWarehouseStocks.Text = "0.00";
-            // 
-            // toolStripLabel3
-            // 
-            toolStripLabel3.Alignment = ToolStripItemAlignment.Right;
-            toolStripLabel3.Name = "toolStripLabel3";
-            toolStripLabel3.Size = new Size(36, 22);
-            toolStripLabel3.Text = "Total:";
-            // 
-            // cmbWarehouses
-            // 
-            cmbWarehouses.Alignment = ToolStripItemAlignment.Right;
-            cmbWarehouses.DropDownStyle = ComboBoxStyle.DropDownList;
-            cmbWarehouses.Name = "cmbWarehouses";
-            cmbWarehouses.Size = new Size(121, 25);
-            // 
             // FrmStocks
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -471,11 +374,6 @@
             ((System.ComponentModel.ISupportInitialize)dgStoreStocks).EndInit();
             toolStrip2.ResumeLayout(false);
             toolStrip2.PerformLayout();
-            tabWarehouses.ResumeLayout(false);
-            tabWarehouses.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dgWarehouseStocks).EndInit();
-            toolStrip1.ResumeLayout(false);
-            toolStrip1.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -503,22 +401,13 @@
         private Label label2;
         private TabControl tabControl1;
         private TabPage tabStores;
-        private TabPage tabWarehouses;
-        private ToolStrip toolStrip1;
-        private ToolStripButton btnWarehouseStockAdd;
-        private ToolStripButton btnWarehouseStockEdit;
-        private ToolStripButton btnWarehouseStockDelete;
         private DataGridView dgStoreStocks;
         private ToolStrip toolStrip2;
         private ToolStripButton btnStoreStockAdd;
         private ToolStripButton btnStoreStockEdit;
         private ToolStripButton btnStoreStockDelete;
-        private DataGridView dgWarehouseStocks;
         private ToolStripLabel lblTotalStoreStocks;
         private ToolStripLabel toolStripLabel2;
         private ToolStripComboBox cmbStores;
-        private ToolStripLabel lblTotalWarehouseStocks;
-        private ToolStripLabel toolStripLabel3;
-        private ToolStripComboBox cmbWarehouses;
     }
 }

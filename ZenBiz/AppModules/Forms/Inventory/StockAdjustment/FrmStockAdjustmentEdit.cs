@@ -29,15 +29,6 @@ namespace ZenBiz.AppModules.Forms.Inventory.StockAdjustment
             uc.txtReason.Text = dict["reason"];
         }
 
-        private void LoadWarehouseStockAdjustment()
-        {
-            var dict = Factory.WarehouseStockAdjustmentController().FindById(_stockAdjustmentId);
-            uc.cmbStoreWarehouse.SelectedValue = Convert.ToInt32(dict["warehouses_id"]);
-            uc.nudQuantity.Value = Convert.ToDecimal(dict["quantity"]);
-            uc.dtpDate.Value = Convert.ToDateTime(dict["date_adjusted"]);
-            uc.txtReason.Text = dict["reason"];
-        }
-
         private bool UpdateStoreStockAdjustment()
         {
             BranchStockAdjustmentsModel storeStockAdjustmentsModel = new()
@@ -54,26 +45,9 @@ namespace ZenBiz.AppModules.Forms.Inventory.StockAdjustment
             return Factory.StoreStockAdjustmentController().Update(storeStockAdjustmentsModel);
         }
 
-        private bool UpdateWarehouseStockAdjustment()
-        {
-            WarehouseStockAdjustmentsModel warehouseStockAdjustmentsModel = new()
-            {
-                Id = _stockAdjustmentId,
-                Warehouses = new WarehousesModel() { Id = (int)uc.cmbStoreWarehouse.SelectedValue },
-                Items = new ItemsModel() { Id = _itemId },
-                Quantity = uc.nudQuantity.Value,
-                DateAdjusted = uc.dtpDate.Value,
-                Reason = uc.txtReason.Text.Trim(),
-                Users = new UsersModel() { Id = Helper.UserId }
-            };
-
-            return Factory.WarehouseStockAdjustmentController().Update(warehouseStockAdjustmentsModel);
-        }
-
         private void FrmStockAdjustmentEdit_Load(object sender, EventArgs e)
         {
-            if (_isWarehouse) LoadWarehouseStockAdjustment();
-            else LoadStoreStockAdjustment();
+           LoadStoreStockAdjustment();
         }
 
         private bool SaveData()
@@ -83,9 +57,7 @@ namespace ZenBiz.AppModules.Forms.Inventory.StockAdjustment
                 Helper.MessageBoxError(uc.GetFormErrors());
                 return false;
             }
-
-            if (_isWarehouse) return UpdateWarehouseStockAdjustment();
-            else return UpdateStoreStockAdjustment();
+            return UpdateStoreStockAdjustment();
         }
 
         private void btnSave_Click(object sender, EventArgs e)

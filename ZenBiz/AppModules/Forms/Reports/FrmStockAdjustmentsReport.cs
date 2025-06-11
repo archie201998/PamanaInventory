@@ -30,21 +30,8 @@ namespace ZenBiz.AppModules.Forms.Reports
             cmbStoreWarehouse.ValueMember = "id";
         }
 
-        private void LoadWarehouses()
-        {
-            cmbStoreWarehouse.DataSource = Factory.WarehousesController().Fetch();
-            cmbStoreWarehouse.DisplayMember = "name";
-            cmbStoreWarehouse.ValueMember = "id";
-        }
-
         private void FrmStockAdjustmentsReport_Load(object sender, EventArgs e)
         {
-            if (_isWarehouse)
-            {
-                LoadWarehouses();
-                return;
-            }
-
             LoadStores();
         }
 
@@ -53,10 +40,8 @@ namespace ZenBiz.AppModules.Forms.Reports
             var dtReport = new DataSet1.StockAdjustmentsDataTable();
             int storeWarehouseId = Convert.ToInt32(cmbStoreWarehouse.SelectedValue);
             DataTable dataTableFromDB;
-            if (_isWarehouse)
-                dataTableFromDB = Factory.WarehouseStockAdjustmentController().Fetch(storeWarehouseId, dtpFrom.Value, dtpTo.Value);
-            else
-                dataTableFromDB = Factory.StoreStockAdjustmentController().Fetch(storeWarehouseId, dtpFrom.Value, dtpTo.Value);
+           
+            dataTableFromDB = Factory.StoreStockAdjustmentController().Fetch(storeWarehouseId, dtpFrom.Value, dtpTo.Value);
 
             foreach (DataRow item in dataTableFromDB.Rows)
             {
