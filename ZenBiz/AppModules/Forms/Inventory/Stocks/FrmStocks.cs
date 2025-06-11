@@ -25,7 +25,6 @@ namespace ZenBiz.AppModules.Forms.Inventory.Stocks
             txtCategory.Text = dict["category_name"];
             txtUnit.Text = dict["unit_name"];
             txtUnitCost.Text = Convert.ToDecimal(dict["unit_cost"]).ToString("N2");
-            txtMinStockThreshold.Text = Convert.ToDecimal(dict["min_threshold_stock"]).ToString("N2");
         }
 
         private void LoadStores()

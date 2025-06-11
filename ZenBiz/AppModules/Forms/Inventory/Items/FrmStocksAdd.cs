@@ -11,7 +11,6 @@
             InitializeComponent();
             Helper.LoadFormIcon(this);
             uc = ucStocksForm1;
-            uc.IsWarehouse = isWarehouse;
             _dgStocks = dgStocks;
             Text = isWarehouse ? "Add Warehouse Stock" : "Add Store Stock";
         }
@@ -29,19 +28,14 @@
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            string expirationDate = uc.chkExpiration.Checked ? uc.dtpExpiration.Value.ToShortDateString() : "";
             string stockDate = uc.chkStockDate.Checked ? uc.dtpStockDate.Value.ToShortDateString() : "";
 
             if (AddStock())
             {
-                var stockCount = uc.nudStockCount.Value.ToString("N2");
                 var storeWarehouseId = uc.cmbStoreWarehouse.SelectedValue.ToString();
                 string storeWarehouseText = uc.cmbStoreWarehouse.Text;
-                string columnName = uc.IsWarehouse ? "warehouse" : "store";
                 string[] row = new string[]
                 {
-                    stockCount,
-                    expirationDate,
                     stockDate,
                     storeWarehouseText,
                     storeWarehouseId,
@@ -53,10 +47,7 @@
                     if (item.Cells["store_warehouse_id"].Value.ToString() == storeWarehouseId)
                     {
                         storeOrWarehouseExist = true;
-                        item.Cells["stocks"].Value = stockCount;
-                        item.Cells["expiration"].Value = expirationDate;
                         item.Cells["stock_date"].Value = stockDate;
-                        item.Cells[columnName].Value = storeWarehouseText;
                     }
                 }
 
@@ -67,7 +58,6 @@
 
         private void FrmStoreStocksAdd_Load(object sender, EventArgs e)
         {
-            uc.dtpExpiration.Enabled = false;
             uc.dtpStockDate.Enabled = false;
         }
     }

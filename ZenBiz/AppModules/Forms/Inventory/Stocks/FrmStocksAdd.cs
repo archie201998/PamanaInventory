@@ -15,18 +15,15 @@ namespace ZenBiz.AppModules.Forms.Inventory.Stocks
             InitializeComponent();
             Helper.LoadFormIcon(this);
             uc = ucStocksForm1;
-            uc.IsWarehouse = isWarehouse;
             _itemId = itemId;
             _isWarehouse = isWarehouse;
         }
 
         private void FrmStocksAdd_Load(object sender, EventArgs e)
         {
-            uc.dtpExpiration.Enabled = false;
             uc.dtpStockDate.Enabled = false;
             uc.cmbSupplier.Enabled = false;
             uc.dtpRepairedDate.Enabled = false;
-            uc.dtpReturnedDate.Enabled = false;
         }
 
         private void InsertStoreStock(int stockId, int storeId)
@@ -50,9 +47,7 @@ namespace ZenBiz.AppModules.Forms.Inventory.Stocks
                 return false;
             }
             DateTime? stockDate = uc.chkStockDate.Checked ? uc.dtpStockDate.Value : null;
-            DateTime? expirationDate = uc.chkExpiration.Checked ? uc.dtpExpiration.Value : null;
             DateTime? repairedDate = uc.chkRepairedDate.Checked ? uc.dtpRepairedDate.Value : null;
-            DateTime? returnedDate = uc.chkReturnedDate.Checked ? uc.dtpReturnedDate.Value : null;
             int? suppliersId = uc.chkSupplier.Checked ? (int)uc.cmbSupplier.SelectedValue : null;
             string? user = uc.txtUser.Text.Trim();
             string? status = uc.cmbxStatus.Text.Trim();
@@ -62,11 +57,8 @@ namespace ZenBiz.AppModules.Forms.Inventory.Stocks
             {
                 Item = new ItemsModel() { Id = _itemId },
                 Supplier = new SupplierModel() { Id = suppliersId },
-                Quantity = uc.nudStockCount.Value,
                 StockDate = stockDate,
-                Expiration = expirationDate,
                 RepairedDate = repairedDate,
-                ReturnedDate = returnedDate,
                 User = user,
                 Status = status,
                 Remarks = remarks

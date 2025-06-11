@@ -4,8 +4,6 @@ namespace ZenBiz.AppModules.Forms.Inventory.Items
 {
     public partial class UcStocksForm : UserControl
     {
-        internal bool IsWarehouse;
-
         public UcStocksForm()
         {
             InitializeComponent();
@@ -15,7 +13,6 @@ namespace ZenBiz.AppModules.Forms.Inventory.Items
         {
             string[] errorArray = new string[]
             {
-                epStockCount.GetError(nudStockCount),
             };
 
             return Helper.GenerateFormErrorMessage(errorArray);
@@ -24,14 +21,9 @@ namespace ZenBiz.AppModules.Forms.Inventory.Items
         internal void ResetForm()
         {
             cmbStoreWarehouse.SelectedIndex = 0;
-            nudStockCount.Value = 0;
-            dtpExpiration.Enabled = false;
-            dtpStockDate.Enabled = false;
-            chkExpiration.Checked = false;
             chkStockDate.Checked = false;
             chkSupplier.Checked = false;
             dtpRepairedDate.Checked = false;
-            dtpReturnedDate.Checked = false;
         }
 
         internal void LoadStores()
@@ -60,17 +52,17 @@ namespace ZenBiz.AppModules.Forms.Inventory.Items
 
         private void nudStockCount_Validating(object sender, CancelEventArgs e)
         {
-            e.Cancel = Helper.ShowErrorNumericUpDownEmpty(epStockCount, nudStockCount, "stocks count");
+            //e.Cancel = Helper.ShowErrorNumericUpDownEmpty(epStockCount, nudStockCount, "stocks count");
         }
 
         private void nudStockCount_Validated(object sender, EventArgs e)
         {
-            Helper.ClearErrorNumericUpDown(epStockCount, nudStockCount);
+            //Helper.ClearErrorNumericUpDown(epStockCount, nudStockCount);
         }
 
         private void chkExpiration_CheckedChanged(object sender, EventArgs e)
         {
-            dtpExpiration.Enabled = chkExpiration.Checked;
+            //dtpExpiration.Enabled = chkExpiration.Checked;
         }
 
         private void chkStockDate_CheckedChanged(object sender, EventArgs e)
@@ -90,7 +82,6 @@ namespace ZenBiz.AppModules.Forms.Inventory.Items
 
         private void chkReturnedDate_CheckedChanged(object sender, EventArgs e)
         {
-            dtpReturnedDate.Enabled = chkReturnedDate.Checked;
         }
     }
 }

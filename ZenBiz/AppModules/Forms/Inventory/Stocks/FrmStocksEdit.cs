@@ -19,7 +19,6 @@ namespace ZenBiz.AppModules.Forms.Inventory.Stocks
             _itemId = itemId;
             _stockId = stockId;
             _isWarehouse = isWarehouse;
-            uc.IsWarehouse = isWarehouse;
         }
 
         private void LoadData()
@@ -29,25 +28,11 @@ namespace ZenBiz.AppModules.Forms.Inventory.Stocks
            
             dict = Factory.BranchStocksController().FindByStockId(_stockId);
 
-            uc.nudStockCount.Value = Convert.ToDecimal(dict["quantity"]);
             uc.txtUser.Text = dict["user"];
             uc.txtRemarks.Text = dict["remarks"];
             uc.cmbxStatus.Text = dict["status"];
 
 
-            if (!string.IsNullOrEmpty(dict["expiration"]))
-            {
-                uc.dtpExpiration.Value = Convert.ToDateTime(dict["expiration"]);
-                uc.chkExpiration.Checked = true;
-                uc.dtpExpiration.Enabled = true;
-            }
-
-            if (!string.IsNullOrEmpty(dict["returned_date"]))
-            {
-                uc.dtpReturnedDate.Value = Convert.ToDateTime(dict["returned_date"]);
-                uc.chkReturnedDate.Checked = true;
-                uc.dtpReturnedDate.Enabled = true;
-            }
 
             if (!string.IsNullOrEmpty(dict["repaired_date"]))
             {
@@ -75,10 +60,8 @@ namespace ZenBiz.AppModules.Forms.Inventory.Stocks
 
         private void FrmStocksEdit_Load(object sender, EventArgs e)
         {
-            uc.dtpExpiration.Enabled = false;
             uc.dtpStockDate.Enabled = false;
             uc.dtpRepairedDate.Enabled = false;
-            uc.dtpReturnedDate.Enabled = false;
             uc.cmbSupplier.Enabled = false;
             LoadData();
         }
@@ -105,16 +88,13 @@ namespace ZenBiz.AppModules.Forms.Inventory.Stocks
             }
 
             DateTime? stockDate = uc.chkStockDate.Checked ? uc.dtpStockDate.Value : null;
-            DateTime? expirationDate = uc.chkExpiration.Checked ? uc.dtpExpiration.Value : null;
             int? suppliersId = uc.chkSupplier.Checked ? (int)uc.cmbSupplier.SelectedValue : null;
             StocksModel stocksModel = new()
             {
                 Id = _stockId,
                 Item = new ItemsModel() { Id = _itemId },
                 Supplier = new SupplierModel() { Id = suppliersId },
-                Quantity = uc.nudStockCount.Value,
                 StockDate = stockDate,
-                Expiration = expirationDate
             };
 
             _ = Factory.StocksController().Update(stocksModel);

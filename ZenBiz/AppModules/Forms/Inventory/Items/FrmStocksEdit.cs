@@ -11,7 +11,6 @@
             InitializeComponent();
             Helper.LoadFormIcon(this);
             uc = ucStocksForm1;
-            uc.IsWarehouse = isWarehouse;
             _data = selectedData;
             _dgStocks = dgStocks;
             Text = isWarehouse ? "Edit Warehouse Stock" : "Edit Store Stock";
@@ -20,14 +19,7 @@
         private void LoadSelectedData()
         {
             uc.cmbStoreWarehouse.SelectedValue = Convert.ToInt32(_data["store_warehouse_id"]);
-            uc.nudStockCount.Value = Convert.ToDecimal(_data["stocks"]);
-            if (!string.IsNullOrEmpty(_data["expiration"]))
-            {
-                uc.dtpExpiration.Value = Convert.ToDateTime(_data["expiration"]);
-                uc.chkExpiration.Checked = true;
-                uc.dtpExpiration.Enabled = true;
-
-            }
+          
 
             if (!string.IsNullOrWhiteSpace(_data["stock_date"]))
             {
@@ -39,7 +31,6 @@
 
         private void FrmStocksEdit_Load(object sender, EventArgs e)
         {
-            uc.dtpExpiration.Enabled = false;
             uc.dtpStockDate.Enabled = false;
             LoadSelectedData();
         }
@@ -56,18 +47,13 @@
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            string expirationDate = uc.chkExpiration.Checked ? uc.dtpExpiration.Value.ToShortDateString() : "";
             string stockDate = uc.chkStockDate.Checked ? uc.dtpStockDate.Value.ToShortDateString() : "";
 
             if (!UpdateStock()) return;
-            var stockCount = uc.nudStockCount.Value.ToString("N2");
             var storeWarehouseId = uc.cmbStoreWarehouse.SelectedValue.ToString();
             string storeWarehouseText = uc.cmbStoreWarehouse.Text;
-            string columnName = uc.IsWarehouse ? "warehouse" : "store";
             string[] row = new string[]
             {
-                    stockCount,
-                    expirationDate,
                     stockDate,
                     storeWarehouseText,
                     storeWarehouseId,
@@ -79,10 +65,7 @@
                 if (item.Cells["store_warehouse_id"].Value.ToString() == storeWarehouseId)
                 {
                     storeOrWarehouseExist = true;
-                    item.Cells["stocks"].Value = stockCount;
-                    item.Cells["expiration"].Value = expirationDate;
                     item.Cells["stock_date"].Value = stockDate;
-                    item.Cells[columnName].Value = storeWarehouseText;
                 }
             }
 

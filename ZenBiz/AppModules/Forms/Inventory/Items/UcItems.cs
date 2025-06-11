@@ -86,8 +86,6 @@ namespace ZenBiz.AppModules.Inventory.Items
 
                 if (Helper.UserType == "Staff")
                 {
-                    lblUnitCost.Visible = false;
-                    nudUnitCost.Visible = false;
                 }
             }
         }

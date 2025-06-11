@@ -88,7 +88,7 @@
             // btnStocks
             // 
             btnStocks.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            btnStocks.Location = new Point(988, 162);
+            btnStocks.Location = new Point(988, 274);
             btnStocks.Name = "btnStocks";
             btnStocks.Size = new Size(98, 23);
             btnStocks.TabIndex = 3;
@@ -99,13 +99,12 @@
             // btnAdjustStocks
             // 
             btnAdjustStocks.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            btnAdjustStocks.Location = new Point(988, 191);
+            btnAdjustStocks.Location = new Point(988, 303);
             btnAdjustStocks.Name = "btnAdjustStocks";
             btnAdjustStocks.Size = new Size(98, 23);
             btnAdjustStocks.TabIndex = 4;
             btnAdjustStocks.Text = "Adjust Stocks";
             btnAdjustStocks.UseVisualStyleBackColor = true;
-            btnAdjustStocks.Click += btnAdjustStocks_Click;
             // 
             // dgItems
             // 
@@ -114,7 +113,7 @@
             dgItems.Location = new Point(12, 41);
             dgItems.Name = "dgItems";
             dgItems.RowTemplate.Height = 25;
-            dgItems.Size = new Size(970, 285);
+            dgItems.Size = new Size(970, 220);
             dgItems.TabIndex = 5;
             dgItems.SelectionChanged += dgItems_SelectionChanged;
             // 
@@ -155,11 +154,11 @@
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 20F));
             tableLayoutPanel1.Controls.Add(groupBox1, 0, 0);
-            tableLayoutPanel1.Location = new Point(12, 332);
+            tableLayoutPanel1.Location = new Point(12, 267);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 1;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel1.Size = new Size(970, 203);
+            tableLayoutPanel1.Size = new Size(970, 268);
             tableLayoutPanel1.TabIndex = 8;
             // 
             // groupBox1
@@ -169,7 +168,7 @@
             groupBox1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
             groupBox1.Location = new Point(3, 3);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(964, 197);
+            groupBox1.Size = new Size(964, 262);
             groupBox1.TabIndex = 0;
             groupBox1.TabStop = false;
             groupBox1.Text = "Branch Stocks";
@@ -197,13 +196,13 @@
             dgBranchStocks.Location = new Point(3, 19);
             dgBranchStocks.Name = "dgBranchStocks";
             dgBranchStocks.RowTemplate.Height = 25;
-            dgBranchStocks.Size = new Size(958, 175);
+            dgBranchStocks.Size = new Size(958, 240);
             dgBranchStocks.TabIndex = 0;
             // 
             // btnUsersHistory
             // 
             btnUsersHistory.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            btnUsersHistory.Location = new Point(988, 303);
+            btnUsersHistory.Location = new Point(988, 512);
             btnUsersHistory.Name = "btnUsersHistory";
             btnUsersHistory.Size = new Size(98, 23);
             btnUsersHistory.TabIndex = 10;
@@ -213,7 +212,7 @@
             // btnRepairsHistory
             // 
             btnRepairsHistory.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            btnRepairsHistory.Location = new Point(988, 274);
+            btnRepairsHistory.Location = new Point(988, 483);
             btnRepairsHistory.Name = "btnRepairsHistory";
             btnRepairsHistory.Size = new Size(98, 23);
             btnRepairsHistory.TabIndex = 9;

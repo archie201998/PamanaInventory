@@ -1,6 +1,5 @@
 ﻿using MySql.Data.MySqlClient;
 using System.Data;
-using ZenBiz.AppModules.Forms.Inventory.StockAdjustment;
 using ZenBiz.AppModules.Forms.Inventory.Stocks;
 using ZenBiz.AppModules.Inventory;
 using ZenBiz.AppModules.Models;
@@ -51,7 +50,6 @@ namespace ZenBiz.AppModules.Forms.Inventory.Items
             lblRecordCount.Text = dgItems.Rows.Count.ToString();
         }
 
-        // need pa ug minus ang total stocks sa sold
         private void LoadBranches()
         {
             dgBranchStocks.Rows.Clear();
@@ -122,19 +120,6 @@ namespace ZenBiz.AppModules.Forms.Inventory.Items
         {
             int itemId = (int)dgItems.SelectedCells[0].Value;
             using FrmStocks form = new(itemId);
-            DialogResult dialogResult = form.ShowDialog();
-            if (dialogResult == DialogResult.OK)
-            {
-                LoadBranches();
-            }
-
-            form.Dispose();
-        }
-
-        private void btnAdjustStocks_Click(object sender, EventArgs e)
-        {
-            int itemId = (int)dgItems.SelectedCells[0].Value;
-            using FrmStockAdjustment form = new(itemId);
             DialogResult dialogResult = form.ShowDialog();
             if (dialogResult == DialogResult.OK)
             {

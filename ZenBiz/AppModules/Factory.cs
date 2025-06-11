@@ -12,7 +12,7 @@ namespace ZenBiz.AppModules
         public static IUsers UsersController() => new UsersController(mySQLGenericCommands);
         public static IRoles RolesController() => new RolesController(mySQLGenericCommands);
         public static IStoreStockAdjustment StoreStockAdjustmentController() => new BranchStockAdjustmentController(mySQLGenericCommands);
-        public static IStockAdjustments StockAdjustmentsController() => new StockAdjustmentsController(mySQLGenericCommands);
+
         public static IStocks StocksController() => new StocksController(mySQLGenericCommands);
         public static IItems ItemsController() => new ItemsController(mySQLGenericCommands);
         public static IStore StoresController() => new BranchController(mySQLGenericCommands);

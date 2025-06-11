@@ -38,8 +38,6 @@
             cmbCategory = new ComboBox();
             txtName = new TextBox();
             label2 = new Label();
-            nudUnitCost = new NumericUpDown();
-            lblUnitCost = new Label();
             label8 = new Label();
             label9 = new Label();
             cmbUnit = new ComboBox();
@@ -54,19 +52,6 @@
             btnDeleteStoreStock = new ToolStripButton();
             epName = new ErrorProvider(components);
             epCode = new ErrorProvider(components);
-            label3 = new Label();
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
-            label4 = new Label();
-            textBox3 = new TextBox();
-            label5 = new Label();
-            textBox4 = new TextBox();
-            label6 = new Label();
-            label11 = new Label();
-            textBox6 = new TextBox();
-            label12 = new Label();
-            dateTimePicker1 = new DateTimePicker();
-            ((System.ComponentModel.ISupportInitialize)nudUnitCost).BeginInit();
             groupBox1.SuspendLayout();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgStoreStocks).BeginInit();
@@ -78,7 +63,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(9, 83);
+            label1.Location = new Point(12, 80);
             label1.Name = "label1";
             label1.Size = new Size(35, 15);
             label1.TabIndex = 0;
@@ -86,7 +71,7 @@
             // 
             // txtCode
             // 
-            txtCode.Location = new Point(132, 80);
+            txtCode.Location = new Point(135, 77);
             txtCode.MaxLength = 20;
             txtCode.Name = "txtCode";
             txtCode.Size = new Size(300, 23);
@@ -98,14 +83,14 @@
             // 
             cmbCategory.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbCategory.FormattingEnabled = true;
-            cmbCategory.Location = new Point(132, 22);
+            cmbCategory.Location = new Point(135, 19);
             cmbCategory.Name = "cmbCategory";
             cmbCategory.Size = new Size(300, 23);
             cmbCategory.TabIndex = 6;
             // 
             // txtName
             // 
-            txtName.Location = new Point(132, 109);
+            txtName.Location = new Point(135, 106);
             txtName.MaxLength = 99;
             txtName.Name = "txtName";
             txtName.Size = new Size(300, 23);
@@ -116,35 +101,16 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(9, 112);
+            label2.Location = new Point(12, 109);
             label2.Name = "label2";
             label2.Size = new Size(39, 15);
             label2.TabIndex = 3;
             label2.Text = "Name";
             // 
-            // nudUnitCost
-            // 
-            nudUnitCost.DecimalPlaces = 2;
-            nudUnitCost.Increment = new decimal(new int[] { 1, 0, 0, 131072 });
-            nudUnitCost.Location = new Point(132, 279);
-            nudUnitCost.Maximum = new decimal(new int[] { 10000000, 0, 0, 0 });
-            nudUnitCost.Name = "nudUnitCost";
-            nudUnitCost.Size = new Size(300, 23);
-            nudUnitCost.TabIndex = 8;
-            // 
-            // lblUnitCost
-            // 
-            lblUnitCost.AutoSize = true;
-            lblUnitCost.Location = new Point(9, 281);
-            lblUnitCost.Name = "lblUnitCost";
-            lblUnitCost.Size = new Size(56, 15);
-            lblUnitCost.TabIndex = 6;
-            lblUnitCost.Text = "Unit Cost";
-            // 
             // label8
             // 
             label8.AutoSize = true;
-            label8.Location = new Point(9, 25);
+            label8.Location = new Point(12, 22);
             label8.Name = "label8";
             label8.Size = new Size(55, 15);
             label8.TabIndex = 15;
@@ -153,7 +119,7 @@
             // label9
             // 
             label9.AutoSize = true;
-            label9.Location = new Point(9, 54);
+            label9.Location = new Point(12, 51);
             label9.Name = "label9";
             label9.Size = new Size(29, 15);
             label9.TabIndex = 17;
@@ -163,7 +129,7 @@
             // 
             cmbUnit.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbUnit.FormattingEnabled = true;
-            cmbUnit.Location = new Point(132, 51);
+            cmbUnit.Location = new Point(135, 48);
             cmbUnit.Name = "cmbUnit";
             cmbUnit.Size = new Size(300, 23);
             cmbUnit.TabIndex = 7;
@@ -171,7 +137,7 @@
             // btnAddCategory
             // 
             btnAddCategory.Image = (Image)resources.GetObject("btnAddCategory.Image");
-            btnAddCategory.Location = new Point(438, 22);
+            btnAddCategory.Location = new Point(441, 19);
             btnAddCategory.Name = "btnAddCategory";
             btnAddCategory.Size = new Size(23, 23);
             btnAddCategory.TabIndex = 18;
@@ -181,7 +147,7 @@
             // btnAddUnit
             // 
             btnAddUnit.Image = (Image)resources.GetObject("btnAddUnit.Image");
-            btnAddUnit.Location = new Point(438, 51);
+            btnAddUnit.Location = new Point(441, 48);
             btnAddUnit.Name = "btnAddUnit";
             btnAddUnit.Size = new Size(23, 23);
             btnAddUnit.TabIndex = 19;
@@ -192,9 +158,9 @@
             // 
             groupBox1.Controls.Add(panel1);
             groupBox1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            groupBox1.Location = new Point(476, 3);
+            groupBox1.Location = new Point(9, 138);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(492, 473);
+            groupBox1.Size = new Size(959, 338);
             groupBox1.TabIndex = 9;
             groupBox1.TabStop = false;
             groupBox1.Text = "Branch Stocks";
@@ -207,7 +173,7 @@
             panel1.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             panel1.Location = new Point(3, 19);
             panel1.Name = "panel1";
-            panel1.Size = new Size(486, 451);
+            panel1.Size = new Size(953, 316);
             panel1.TabIndex = 21;
             // 
             // dgStoreStocks
@@ -241,7 +207,7 @@
             dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
             dgStoreStocks.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             dgStoreStocks.RowTemplate.Height = 25;
-            dgStoreStocks.Size = new Size(486, 426);
+            dgStoreStocks.Size = new Size(953, 291);
             dgStoreStocks.TabIndex = 1;
             dgStoreStocks.SelectionChanged += dgStoreStocks_SelectionChanged;
             // 
@@ -251,7 +217,7 @@
             toolStrip1.Items.AddRange(new ToolStripItem[] { btnAddStoreStock, btnEditStoreStock, btnDeleteStoreStock });
             toolStrip1.Location = new Point(0, 0);
             toolStrip1.Name = "toolStrip1";
-            toolStrip1.Size = new Size(486, 25);
+            toolStrip1.Size = new Size(953, 25);
             toolStrip1.TabIndex = 0;
             toolStrip1.Text = "toolStrip1";
             // 
@@ -293,131 +259,16 @@
             // 
             epCode.ContainerControl = this;
             // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Location = new Point(9, 311);
-            label3.Name = "label3";
-            label3.Size = new Size(41, 15);
-            label3.TabIndex = 20;
-            label3.Text = "Model";
-            // 
-            // textBox1
-            // 
-            textBox1.Location = new Point(132, 308);
-            textBox1.MaxLength = 99;
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(300, 23);
-            textBox1.TabIndex = 21;
-            // 
-            // textBox2
-            // 
-            textBox2.Location = new Point(132, 337);
-            textBox2.MaxLength = 99;
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(300, 23);
-            textBox2.TabIndex = 23;
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Location = new Point(9, 340);
-            label4.Name = "label4";
-            label4.Size = new Size(82, 15);
-            label4.TabIndex = 22;
-            label4.Text = "Serial Number";
-            // 
-            // textBox3
-            // 
-            textBox3.Location = new Point(132, 366);
-            textBox3.MaxLength = 99;
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(300, 23);
-            textBox3.TabIndex = 25;
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Location = new Point(9, 369);
-            label5.Name = "label5";
-            label5.Size = new Size(73, 15);
-            label5.TabIndex = 24;
-            label5.Text = "Current User";
-            // 
-            // textBox4
-            // 
-            textBox4.Location = new Point(132, 395);
-            textBox4.MaxLength = 99;
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(300, 23);
-            textBox4.TabIndex = 27;
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Location = new Point(9, 398);
-            label6.Name = "label6";
-            label6.Size = new Size(96, 15);
-            label6.TabIndex = 26;
-            label6.Text = "Computer Name";
-            // 
-            // label11
-            // 
-            label11.AutoSize = true;
-            label11.Location = new Point(9, 427);
-            label11.Name = "label11";
-            label11.Size = new Size(89, 15);
-            label11.TabIndex = 28;
-            label11.Text = "Sophos Tamper";
-            // 
-            // textBox6
-            // 
-            textBox6.Location = new Point(132, 424);
-            textBox6.MaxLength = 99;
-            textBox6.Name = "textBox6";
-            textBox6.Size = new Size(300, 23);
-            textBox6.TabIndex = 29;
-            // 
-            // label12
-            // 
-            label12.AutoSize = true;
-            label12.Location = new Point(9, 459);
-            label12.Name = "label12";
-            label12.Size = new Size(82, 15);
-            label12.TabIndex = 28;
-            label12.Text = "Date Acquired";
-            // 
-            // dateTimePicker1
-            // 
-            dateTimePicker1.Location = new Point(132, 453);
-            dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(300, 23);
-            dateTimePicker1.TabIndex = 30;
-            // 
             // UcItems
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(dateTimePicker1);
-            Controls.Add(label12);
-            Controls.Add(textBox6);
-            Controls.Add(label11);
-            Controls.Add(textBox4);
-            Controls.Add(label6);
-            Controls.Add(textBox3);
-            Controls.Add(label5);
-            Controls.Add(textBox2);
-            Controls.Add(label4);
-            Controls.Add(textBox1);
-            Controls.Add(label3);
             Controls.Add(groupBox1);
             Controls.Add(btnAddUnit);
             Controls.Add(btnAddCategory);
             Controls.Add(label9);
             Controls.Add(cmbUnit);
             Controls.Add(label8);
-            Controls.Add(lblUnitCost);
-            Controls.Add(nudUnitCost);
             Controls.Add(txtName);
             Controls.Add(label2);
             Controls.Add(cmbCategory);
@@ -426,7 +277,6 @@
             Name = "UcItems";
             Size = new Size(971, 495);
             Load += UcItems_Load;
-            ((System.ComponentModel.ISupportInitialize)nudUnitCost).EndInit();
             groupBox1.ResumeLayout(false);
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
@@ -443,7 +293,6 @@
 
         private Label label1;
         private Label label2;
-        private Label lblUnitCost;
         private Label label8;
         private Label label9;
         private Button btnAddCategory;
@@ -457,22 +306,9 @@
         public TextBox txtCode;
         public ComboBox cmbCategory;
         public TextBox txtName;
-        public NumericUpDown nudUnitCost;
         public ComboBox cmbUnit;
         public DataGridView dgStoreStocks;
         private ToolStripButton btnEditStoreStock;
         private ErrorProvider epCode;
-        public TextBox textBox1;
-        private Label label3;
-        public TextBox textBox3;
-        private Label label5;
-        public TextBox textBox2;
-        private Label label4;
-        private Label label12;
-        public TextBox textBox6;
-        private Label label11;
-        public TextBox textBox4;
-        private Label label6;
-        private DateTimePicker dateTimePicker1;
     }
 }

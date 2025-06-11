@@ -122,11 +122,11 @@
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             label5.ForeColor = Color.LightGray;
-            label5.Location = new Point(82, 252);
+            label5.Location = new Point(78, 328);
             label5.Name = "label5";
-            label5.Size = new Size(141, 17);
+            label5.Size = new Size(147, 17);
             label5.TabIndex = 7;
-            label5.Text = "Short Description Here";
+            label5.Text = "DEVELOPMENT SERVER";
             label5.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // label4

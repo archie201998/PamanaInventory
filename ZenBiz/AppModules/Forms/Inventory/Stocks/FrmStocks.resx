@@ -120,31 +120,34 @@
   <metadata name="toolStrip2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
+  <metadata name="toolStrip2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="btnStoreStockAdd.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAtSURBVDhPY2CgJQhc4P8PhNHFiQajBpBgAEwhqZh6BuAC
-        RCvEBUYNoIIBxAAAuih0mbeo3uMAAAAASUVORK5CYII=
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAtSURBVDhPY2CgJQic7/8PhNHFiQajBpBgAEwhqZh6BuAC
+        RCvEBUYNoIIBxAAAUG50ZTB6u4MAAAAASUVORK5CYII=
 </value>
   </data>
   <data name="btnStoreStockEdit.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADcSURBVDhPzZC/DgFBEIcVVLyFhkRUKg21Vivndi65iMQz
-        rN3VaZXoVCjoJJihofAAWu+ByOCaPf8SifiSbXZ+38xkIpFfUpAYFU3sgaa+7+9idv0lLDtmkXQk7T05
-        OYPGrp15CsugaAiatp6mNDcRCsd27iGBzFP5CUWbqsRUXWLCzoZg2dU0CuTb6kSV9ixuZ0PwkUKy+XuZ
-        AYWdb+QaSMwIjYf7xfFj2ZHrLMjVURiaX5s0cfCxzAi9nPLUssETGGzY9Ze4ZpFn0VU4gxbm7PpbXE0l
-        z2DR/v8JF8Bwqctb/YGLAAAAAElFTkSuQmCC
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADdSURBVDhPzZC/DgFBEIcVVLyFhkRUKg21Ui3ndi65iMQz
+        rN3VaZXoVEhEJ8EMDYUH0HoPRAbX7PmXSMSXbLPz+2YmE4n8koLEqGhiDzT1fX8Xs+svYdkxi6Qjae/J
+        yRk0du3MU1gGRUPQtPU0pbmJUDi2cw8JZJ7KTyjaVCWm6hITdjYEy66mUSDfVieqtGdxOxuCjxSSzd/L
+        DCjsfCPXQGJGaDzcL44fy45cZ0GujsLQ/NqkiYOPZUbo5ZSnlg2ewGDDrr/ENYs8i67CGbQwZ9ff4moq
+        eQaL9v9PuACTFKm1zqphDAAAAABJRU5ErkJggg==
 </value>
   </data>
   <data name="btnStoreStockDelete.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACVSURBVEhLY2CAghO+Uf4n/KIPHA0I/LIrMOYfORikF2QG
-        yCyYuWBwPCC6E10xpRhkJtzl6JLUwmCfnAiI3I8uQS0MMpuBkjAnhEFmM6ALUhuPWkAQ09+CKzPmUoT3
-        O/r8xWvBu3fvKMIDbwG6l0nFBC2gNh61gCCmvQU0L65BdSi6BLUwyGyGEwE0rjJpXunDAK2aLQD6O34p
-        IVG2EwAAAABJRU5ErkJggg==
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACVSURBVEhLY2CAghO+Uf4n/KIPHA0I/LIzMOYfORikF2QG
+        yCyYuWBwPCC6E10xpRhkJtzl6JLUwmCfnAiI3I8uQS0MMpuBkjAnhEFmM6ALUhuPWkAQ09+Cy9PnUIT3
+        O3j/xWvB27dvKcIDbwG6l0nFBC2gNh61gCCmvQU0L65BdSi6BLUwyGyGEwE0rjJpXunDAK2aLQAZsHuN
+        4OArrAAAAABJRU5ErkJggg==
 </value>
   </data>
 </root>

@@ -31,14 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmStocks));
             groupBox1 = new GroupBox();
             panel1 = new Panel();
-            txtMinStockThreshold = new TextBox();
-            label7 = new Label();
-            txtSpecialPrice = new TextBox();
-            label8 = new Label();
-            txtWholesalePrice = new TextBox();
-            label9 = new Label();
-            txtRetailPrice = new TextBox();
-            label10 = new Label();
             txtUnitCost = new TextBox();
             label5 = new Label();
             txtUnit = new TextBox();
@@ -80,14 +72,6 @@
             // 
             // panel1
             // 
-            panel1.Controls.Add(txtMinStockThreshold);
-            panel1.Controls.Add(label7);
-            panel1.Controls.Add(txtSpecialPrice);
-            panel1.Controls.Add(label8);
-            panel1.Controls.Add(txtWholesalePrice);
-            panel1.Controls.Add(label9);
-            panel1.Controls.Add(txtRetailPrice);
-            panel1.Controls.Add(label10);
             panel1.Controls.Add(txtUnitCost);
             panel1.Controls.Add(label5);
             panel1.Controls.Add(txtUnit);
@@ -105,80 +89,12 @@
             panel1.Size = new Size(835, 160);
             panel1.TabIndex = 1;
             // 
-            // txtMinStockThreshold
-            // 
-            txtMinStockThreshold.Location = new Point(516, 90);
-            txtMinStockThreshold.Name = "txtMinStockThreshold";
-            txtMinStockThreshold.ReadOnly = true;
-            txtMinStockThreshold.Size = new Size(297, 23);
-            txtMinStockThreshold.TabIndex = 17;
-            // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Location = new Point(392, 93);
-            label7.Name = "label7";
-            label7.Size = new Size(119, 15);
-            label7.TabIndex = 16;
-            label7.Text = "Min. Stock Threshold";
-            // 
-            // txtSpecialPrice
-            // 
-            txtSpecialPrice.Location = new Point(516, 61);
-            txtSpecialPrice.Name = "txtSpecialPrice";
-            txtSpecialPrice.ReadOnly = true;
-            txtSpecialPrice.Size = new Size(297, 23);
-            txtSpecialPrice.TabIndex = 15;
-            // 
-            // label8
-            // 
-            label8.AutoSize = true;
-            label8.Location = new Point(392, 64);
-            label8.Name = "label8";
-            label8.Size = new Size(73, 15);
-            label8.TabIndex = 14;
-            label8.Text = "Special Price";
-            // 
-            // txtWholesalePrice
-            // 
-            txtWholesalePrice.Location = new Point(516, 32);
-            txtWholesalePrice.Name = "txtWholesalePrice";
-            txtWholesalePrice.ReadOnly = true;
-            txtWholesalePrice.Size = new Size(297, 23);
-            txtWholesalePrice.TabIndex = 13;
-            // 
-            // label9
-            // 
-            label9.AutoSize = true;
-            label9.Location = new Point(392, 35);
-            label9.Name = "label9";
-            label9.Size = new Size(90, 15);
-            label9.TabIndex = 12;
-            label9.Text = "Wholesale Price";
-            // 
-            // txtRetailPrice
-            // 
-            txtRetailPrice.Location = new Point(516, 3);
-            txtRetailPrice.Name = "txtRetailPrice";
-            txtRetailPrice.ReadOnly = true;
-            txtRetailPrice.Size = new Size(297, 23);
-            txtRetailPrice.TabIndex = 11;
-            // 
-            // label10
-            // 
-            label10.AutoSize = true;
-            label10.Location = new Point(392, 6);
-            label10.Name = "label10";
-            label10.Size = new Size(65, 15);
-            label10.TabIndex = 10;
-            label10.Text = "Retail Price";
-            // 
             // txtUnitCost
             // 
             txtUnitCost.Location = new Point(65, 119);
             txtUnitCost.Name = "txtUnitCost";
             txtUnitCost.ReadOnly = true;
-            txtUnitCost.Size = new Size(297, 23);
+            txtUnitCost.Size = new Size(176, 23);
             txtUnitCost.TabIndex = 9;
             // 
             // label5
@@ -195,7 +111,7 @@
             txtUnit.Location = new Point(65, 90);
             txtUnit.Name = "txtUnit";
             txtUnit.ReadOnly = true;
-            txtUnit.Size = new Size(297, 23);
+            txtUnit.Size = new Size(176, 23);
             txtUnit.TabIndex = 7;
             // 
             // label4
@@ -212,7 +128,7 @@
             txtCategory.Location = new Point(65, 61);
             txtCategory.Name = "txtCategory";
             txtCategory.ReadOnly = true;
-            txtCategory.Size = new Size(297, 23);
+            txtCategory.Size = new Size(176, 23);
             txtCategory.TabIndex = 5;
             // 
             // label3
@@ -229,7 +145,7 @@
             txtName.Location = new Point(65, 32);
             txtName.Name = "txtName";
             txtName.ReadOnly = true;
-            txtName.Size = new Size(297, 23);
+            txtName.Size = new Size(176, 23);
             txtName.TabIndex = 3;
             // 
             // label2
@@ -246,7 +162,7 @@
             txtCode.Location = new Point(65, 3);
             txtCode.Name = "txtCode";
             txtCode.ReadOnly = true;
-            txtCode.Size = new Size(297, 23);
+            txtCode.Size = new Size(176, 23);
             txtCode.TabIndex = 1;
             // 
             // label1
@@ -383,14 +299,6 @@
         private Panel panel1;
         private TextBox txtCode;
         private Label label1;
-        private TextBox txtMinStockThreshold;
-        private Label label7;
-        private TextBox txtSpecialPrice;
-        private Label label8;
-        private TextBox txtWholesalePrice;
-        private Label label9;
-        private TextBox txtRetailPrice;
-        private Label label10;
         private TextBox txtUnitCost;
         private Label label5;
         private TextBox txtUnit;
