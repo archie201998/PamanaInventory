@@ -23,7 +23,7 @@ namespace ZenBiz.AppModules.Forms.Inventory.Items
                 UnitOfMeasurements = new UnitOfMeasurementsModel() { Id = Convert.ToInt32(uc.cmbUnit.SelectedValue) },
                 Code = uc.txtCode.Text.Trim(),
                 Name = uc.txtName.Text.Trim(),
-                Users = new UsersModel() { Id = 1 }
+                CreatedBy = new UsersModel() { Id = 1 }
             };
 
             return Factory.ItemsController().Insert(itemsModel);
@@ -72,7 +72,7 @@ namespace ZenBiz.AppModules.Forms.Inventory.Items
 
                 using TransactionScope scope = new();
                 _ = InsertItems();
-                InsertStoreStocks();
+                //InsertStoreStocks();
 
                 scope.Complete();
                 return true;

@@ -39,7 +39,7 @@
             // 
             ucStocksForm1.Location = new Point(12, 12);
             ucStocksForm1.Name = "ucStocksForm1";
-            ucStocksForm1.Size = new Size(428, 320);
+            ucStocksForm1.Size = new Size(448, 456);
             ucStocksForm1.TabIndex = 0;
             // 
             // flowLayoutPanel1
@@ -48,15 +48,15 @@
             flowLayoutPanel1.Controls.Add(btnCancel);
             flowLayoutPanel1.Controls.Add(btnSave);
             flowLayoutPanel1.Dock = DockStyle.Bottom;
-            flowLayoutPanel1.Location = new Point(0, 338);
+            flowLayoutPanel1.Location = new Point(0, 456);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
             flowLayoutPanel1.RightToLeft = RightToLeft.Yes;
-            flowLayoutPanel1.Size = new Size(446, 30);
+            flowLayoutPanel1.Size = new Size(461, 30);
             flowLayoutPanel1.TabIndex = 3;
             // 
             // btnCancel
             // 
-            btnCancel.Location = new Point(368, 3);
+            btnCancel.Location = new Point(383, 3);
             btnCancel.Name = "btnCancel";
             btnCancel.Size = new Size(75, 23);
             btnCancel.TabIndex = 1;
@@ -65,7 +65,7 @@
             // 
             // btnSave
             // 
-            btnSave.Location = new Point(287, 3);
+            btnSave.Location = new Point(302, 3);
             btnSave.Name = "btnSave";
             btnSave.Size = new Size(75, 23);
             btnSave.TabIndex = 0;
@@ -80,7 +80,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             AutoValidate = AutoValidate.EnableAllowFocusChange;
             CancelButton = btnCancel;
-            ClientSize = new Size(446, 368);
+            ClientSize = new Size(461, 486);
             Controls.Add(flowLayoutPanel1);
             Controls.Add(ucStocksForm1);
             FormBorderStyle = FormBorderStyle.FixedToolWindow;

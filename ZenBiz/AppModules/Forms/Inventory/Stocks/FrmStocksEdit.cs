@@ -45,9 +45,9 @@ namespace ZenBiz.AppModules.Forms.Inventory.Stocks
 
             if (!string.IsNullOrWhiteSpace(dict["stock_date"]))
             {
-                uc.dtpStockDate.Value = Convert.ToDateTime(dict["stock_date"]);
+                uc.dtpDateAcquired.Value = Convert.ToDateTime(dict["stock_date"]);
                 uc.chkStockDate.Checked = true;
-                uc.dtpStockDate.Enabled = true;
+                uc.dtpDateAcquired.Enabled = true;
             }
 
             if (!string.IsNullOrWhiteSpace(dict["suppliers_id"]))
@@ -60,7 +60,7 @@ namespace ZenBiz.AppModules.Forms.Inventory.Stocks
 
         private void FrmStocksEdit_Load(object sender, EventArgs e)
         {
-            uc.dtpStockDate.Enabled = false;
+            uc.dtpDateAcquired.Enabled = false;
             uc.dtpRepairedDate.Enabled = false;
             uc.cmbSupplier.Enabled = false;
             LoadData();
@@ -87,7 +87,7 @@ namespace ZenBiz.AppModules.Forms.Inventory.Stocks
                 return false;
             }
 
-            DateTime? stockDate = uc.chkStockDate.Checked ? uc.dtpStockDate.Value : null;
+            DateTime? stockDate = uc.chkStockDate.Checked ? uc.dtpDateAcquired.Value : null;
             int? suppliersId = uc.chkSupplier.Checked ? (int)uc.cmbSupplier.SelectedValue : null;
             StocksModel stocksModel = new()
             {
@@ -99,7 +99,7 @@ namespace ZenBiz.AppModules.Forms.Inventory.Stocks
 
             _ = Factory.StocksController().Update(stocksModel);
 
-            int storeWarehouseId = (int)uc.cmbStoreWarehouse.SelectedValue;
+            int storeWarehouseId = (int)uc.cmbBranch.SelectedValue;
             UpdateStoreStock(_stockId, storeWarehouseId);
 
             scope.Complete();

@@ -1,4 +1,6 @@
-﻿using System.Text;
+﻿using Org.BouncyCastle.Math.EC.Multiplier;
+using System.Text;
+using ZenBiz.AppModules;
 
 namespace ZenBiz
 {
@@ -296,6 +298,21 @@ namespace ZenBiz
             }
 
             return sb.ToString();
+        }
+
+        public static void LoadCategories(ComboBox combobox)
+        {
+            combobox.DataSource = Factory.CategoriesController().Fetch();
+            combobox.DisplayMember = "name";
+            combobox.ValueMember = "id";
+        }
+
+
+        public static void LoadUnit(ComboBox combobox)
+        {
+            combobox.DataSource = Factory.UnitsOfMeasurementsController().Fetch();
+            combobox.DisplayMember = "name";
+            combobox.ValueMember = "id";
         }
     }
 }

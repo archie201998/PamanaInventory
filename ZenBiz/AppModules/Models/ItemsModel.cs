@@ -7,7 +7,7 @@
         public UnitOfMeasurementsModel UnitOfMeasurements { get; set; } = new();
         public string Code { get; set; } = string.Empty;
         public string Name { get; set; } = string.Empty;
-        public UsersModel Users { get; set; } = new();
+        public UsersModel CreatedBy { get; set; } = new();
 
     }
 }

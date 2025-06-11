@@ -103,7 +103,8 @@ namespace ZenBiz.AppModules.Controllers
                 new object[] { "@categories_id", DbType.Int32, entity.Categories.Id},
                 new object[] { "@unit_measurements_id", DbType.Int32, entity.UnitOfMeasurements.Id},
                 new object[] { "@name", DbType.String, entity.Name },
-                new object[] { "@created_by", DbType.Int32, entity.Users.Id},
+                new object[] { "@code", DbType.String, entity.Code },
+                new object[] { "@created_by", DbType.Int32, entity.CreatedBy.Id},
             };
 
             string query = $"INSERT INTO {tblItems} (categories_id, unit_measurements_id, code, name, created_by) VALUES (@categories_id, @unit_measurements_id, @code, @name, @created_by)";
@@ -116,9 +117,10 @@ namespace ZenBiz.AppModules.Controllers
             {
                 new object[] { "@id", DbType.Int32, entity.Id},
                 new object[] { "@unit_measurements_id", DbType.Int32, entity.UnitOfMeasurements.Id},
+                new object[] { "@categories_id", DbType.Int32, entity.Categories.Id},
                 new object[] { "@name", DbType.String, entity.Name },
                 new object[] { "@code", DbType.String, entity.Code },
-                new object[] { "@created_by", DbType.Int32, entity.Users.Id},
+                new object[] { "@updated_by", DbType.Int32, entity.CreatedBy.Id},
             };
 
             string query = $"UPDATE {tblItems} SET categories_id = @categories_id, unit_measurements_id = @unit_measurements_id, name = @name, code = @code, updated_by = @updated_by WHERE id = @id";

@@ -18,10 +18,8 @@ namespace ZenBiz.AppModules.Forms.Inventory.Items
         private void LoadSelectedItemsData()
         {
             var data = Factory.ItemsController().FindById(_id);
-            uc.txtCode.Text = data["sku_code"];
+            uc.txtCode.Text = data["code"];
             uc.txtName.Text = data["name"];
-            uc.nudMinStockThreshold.Value = Convert.ToDecimal(data["min_threshold_stock"]);
-            uc.nudUnitCost.Value = Convert.ToDecimal(data["unit_cost"]);
             uc.cmbCategory.SelectedValue = Convert.ToInt32(data["categories_id"]);
             uc.cmbUnit.SelectedValue = Convert.ToInt32(data["unit_measurements_id"]);
         }
@@ -46,7 +44,7 @@ namespace ZenBiz.AppModules.Forms.Inventory.Items
                 UnitOfMeasurements = new UnitOfMeasurementsModel() { Id = Convert.ToInt32(uc.cmbUnit.SelectedValue) },
                 Code = uc.txtCode.Text.Trim(),
                 Name = uc.txtName.Text.Trim(),
-                Users = new UsersModel() { Id = Helper.UserId }
+                CreatedBy = new UsersModel() { Id = Helper.UserId }
             };
 
             return Factory.ItemsController().Update(itemsModel);

@@ -30,8 +30,6 @@
         {
             groupBox1 = new GroupBox();
             panel1 = new Panel();
-            txtMinStockThreshold = new TextBox();
-            label7 = new Label();
             txtUnitCost = new TextBox();
             label5 = new Label();
             txtUnit = new TextBox();
@@ -60,8 +58,6 @@
             // 
             // panel1
             // 
-            panel1.Controls.Add(txtMinStockThreshold);
-            panel1.Controls.Add(label7);
             panel1.Controls.Add(txtUnitCost);
             panel1.Controls.Add(label5);
             panel1.Controls.Add(txtUnit);
@@ -78,23 +74,6 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(847, 166);
             panel1.TabIndex = 0;
-            // 
-            // txtMinStockThreshold
-            // 
-            txtMinStockThreshold.Location = new Point(523, 6);
-            txtMinStockThreshold.Name = "txtMinStockThreshold";
-            txtMinStockThreshold.ReadOnly = true;
-            txtMinStockThreshold.Size = new Size(297, 23);
-            txtMinStockThreshold.TabIndex = 35;
-            // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Location = new Point(399, 9);
-            label7.Name = "label7";
-            label7.Size = new Size(119, 15);
-            label7.TabIndex = 34;
-            label7.Text = "Min. Stock Threshold";
             // 
             // txtUnitCost
             // 
@@ -199,8 +178,6 @@
 
         private GroupBox groupBox1;
         private Panel panel1;
-        private TextBox txtMinStockThreshold;
-        private Label label7;
         private TextBox txtUnitCost;
         private Label label5;
         private TextBox txtUnit;

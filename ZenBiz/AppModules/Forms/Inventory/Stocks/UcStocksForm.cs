@@ -20,7 +20,7 @@ namespace ZenBiz.AppModules.Forms.Inventory.Items
 
         internal void ResetForm()
         {
-            cmbStoreWarehouse.SelectedIndex = 0;
+            cmbBranch.SelectedIndex = 0;
             chkStockDate.Checked = false;
             chkSupplier.Checked = false;
             dtpRepairedDate.Checked = false;
@@ -28,9 +28,9 @@ namespace ZenBiz.AppModules.Forms.Inventory.Items
 
         internal void LoadStores()
         {
-            cmbStoreWarehouse.DataSource = Factory.StoresController().Fetch();
-            cmbStoreWarehouse.DisplayMember = "name";
-            cmbStoreWarehouse.ValueMember = "id";
+            cmbBranch.DataSource = Factory.StoresController().Fetch();
+            cmbBranch.DisplayMember = "name";
+            cmbBranch.ValueMember = "id";
             lblStoreWarehouse.Text = "Store";
         }
 
@@ -67,7 +67,7 @@ namespace ZenBiz.AppModules.Forms.Inventory.Items
 
         private void chkStockDate_CheckedChanged(object sender, EventArgs e)
         {
-            dtpStockDate.Enabled = chkStockDate.Checked;
+            dtpDateAcquired.Enabled = chkStockDate.Checked;
         }
 
         private void chkSupplier_CheckedChanged(object sender, EventArgs e)

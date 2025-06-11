@@ -28,12 +28,12 @@
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            string stockDate = uc.chkStockDate.Checked ? uc.dtpStockDate.Value.ToShortDateString() : "";
+            string stockDate = uc.chkStockDate.Checked ? uc.dtpDateAcquired.Value.ToShortDateString() : "";
 
             if (AddStock())
             {
-                var storeWarehouseId = uc.cmbStoreWarehouse.SelectedValue.ToString();
-                string storeWarehouseText = uc.cmbStoreWarehouse.Text;
+                var storeWarehouseId = uc.cmbBranch.SelectedValue.ToString();
+                string storeWarehouseText = uc.cmbBranch.Text;
                 string[] row = new string[]
                 {
                     stockDate,
@@ -58,7 +58,7 @@
 
         private void FrmStoreStocksAdd_Load(object sender, EventArgs e)
         {
-            uc.dtpStockDate.Enabled = false;
+            uc.dtpDateAcquired.Enabled = false;
         }
     }
 }

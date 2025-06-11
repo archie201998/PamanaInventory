@@ -158,7 +158,7 @@
             // 
             groupBox1.Controls.Add(panel1);
             groupBox1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            groupBox1.Location = new Point(9, 138);
+            groupBox1.Location = new Point(9, 152);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(959, 338);
             groupBox1.TabIndex = 9;
@@ -275,7 +275,7 @@
             Controls.Add(txtCode);
             Controls.Add(label1);
             Name = "UcItems";
-            Size = new Size(971, 495);
+            Size = new Size(971, 503);
             Load += UcItems_Load;
             groupBox1.ResumeLayout(false);
             panel1.ResumeLayout(false);

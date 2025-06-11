@@ -21,7 +21,7 @@ namespace ZenBiz.AppModules.Forms.Inventory.Stocks
 
         private void FrmStocksAdd_Load(object sender, EventArgs e)
         {
-            uc.dtpStockDate.Enabled = false;
+            uc.dtpDateAcquired.Enabled = false;
             uc.cmbSupplier.Enabled = false;
             uc.dtpRepairedDate.Enabled = false;
         }
@@ -46,7 +46,7 @@ namespace ZenBiz.AppModules.Forms.Inventory.Stocks
                 Helper.MessageBoxError(uc.GetFormErrors());
                 return false;
             }
-            DateTime? stockDate = uc.chkStockDate.Checked ? uc.dtpStockDate.Value : null;
+            DateTime? stockDate = uc.chkStockDate.Checked ? uc.dtpDateAcquired.Value : null;
             DateTime? repairedDate = uc.chkRepairedDate.Checked ? uc.dtpRepairedDate.Value : null;
             int? suppliersId = uc.chkSupplier.Checked ? (int)uc.cmbSupplier.SelectedValue : null;
             string? user = uc.txtUser.Text.Trim();
@@ -67,7 +67,7 @@ namespace ZenBiz.AppModules.Forms.Inventory.Stocks
             _ = Factory.StocksController().Insert(stocksModel);
 
             int stocksLastInsertedId = Factory.StocksController().LastInsertedId();
-            int storeWarehouseId = (int)uc.cmbStoreWarehouse.SelectedValue;
+            int storeWarehouseId = (int)uc.cmbBranch.SelectedValue;
             InsertStoreStock(stocksLastInsertedId, storeWarehouseId);
 
             scope.Complete();

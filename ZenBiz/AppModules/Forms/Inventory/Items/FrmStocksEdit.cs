@@ -18,20 +18,20 @@
 
         private void LoadSelectedData()
         {
-            uc.cmbStoreWarehouse.SelectedValue = Convert.ToInt32(_data["store_warehouse_id"]);
+            uc.cmbBranch.SelectedValue = Convert.ToInt32(_data["store_warehouse_id"]);
           
 
             if (!string.IsNullOrWhiteSpace(_data["stock_date"]))
             {
-                uc.dtpStockDate.Value = Convert.ToDateTime(_data["stock_date"]);
+                uc.dtpDateAcquired.Value = Convert.ToDateTime(_data["stock_date"]);
                 uc.chkStockDate.Checked = true;
-                uc.dtpStockDate.Enabled = true;
+                uc.dtpDateAcquired.Enabled = true;
             }
         }
 
         private void FrmStocksEdit_Load(object sender, EventArgs e)
         {
-            uc.dtpStockDate.Enabled = false;
+            uc.dtpDateAcquired.Enabled = false;
             LoadSelectedData();
         }
 
@@ -47,11 +47,11 @@
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            string stockDate = uc.chkStockDate.Checked ? uc.dtpStockDate.Value.ToShortDateString() : "";
+            string stockDate = uc.chkStockDate.Checked ? uc.dtpDateAcquired.Value.ToShortDateString() : "";
 
             if (!UpdateStock()) return;
-            var storeWarehouseId = uc.cmbStoreWarehouse.SelectedValue.ToString();
-            string storeWarehouseText = uc.cmbStoreWarehouse.Text;
+            var storeWarehouseId = uc.cmbBranch.SelectedValue.ToString();
+            string storeWarehouseText = uc.cmbBranch.Text;
             string[] row = new string[]
             {
                     stockDate,

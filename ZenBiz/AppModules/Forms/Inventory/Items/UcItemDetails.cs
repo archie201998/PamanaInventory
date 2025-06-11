@@ -15,31 +15,19 @@ namespace ZenBiz.AppModules.Forms.Inventory.Items
             {
                 epName.GetError(txtName),
                 epCode.GetError(txtCode),
+                epCategory.GetError(cmbCategory),
+                epUOM.GetError(cmbUnit)
             };
 
             return Helper.GenerateFormErrorMessage(errorArray);
-        }
-
-        private void LoadCategories()
-        {
-            cmbCategory.DataSource = Factory.CategoriesController().Fetch();
-            cmbCategory.DisplayMember = "name";
-            cmbCategory.ValueMember = "id";
-        }
-
-        private void LoadUnit()
-        {
-            cmbUnit.DataSource = Factory.UnitsOfMeasurementsController().Fetch();
-            cmbUnit.DisplayMember = "name";
-            cmbUnit.ValueMember = "id";
         }
 
         private void UcItemDetails_Load(object sender, EventArgs e)
         {
             if (!DesignMode)
             {
-                LoadCategories();
-                LoadUnit();
+                Helper.LoadCategories(cmbCategory);
+                Helper.LoadUnit(cmbUnit);
             }
         }
 
