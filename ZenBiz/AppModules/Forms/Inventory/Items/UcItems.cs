@@ -40,9 +40,9 @@ namespace ZenBiz.AppModules.Inventory.Items
             return Helper.GenerateFormErrorMessage(errorArray);
         }
 
-        private void CreateDatagridViewColumnsOnStocks(DataGridView dataGridView, bool isStoreType)
+        private void CreateDatagridViewColumnsOnStocks(DataGridView dataGridView)
         {
-            dataGridView.ColumnCount = 12;
+            dataGridView.ColumnCount = 13;
             dataGridView.Columns[0].Name = "branch";
             dataGridView.Columns[1].Name = "item";
             dataGridView.Columns[2].Name = "serial_number";
@@ -55,7 +55,9 @@ namespace ZenBiz.AppModules.Inventory.Items
             dataGridView.Columns[9].Name = "unit_cost";
             dataGridView.Columns[10].Name = "status";
             dataGridView.Columns[11].Name = "remarks";
+            dataGridView.Columns[12].Name = "branch_id";
 
+            //dataGridView.Columns["branch_id"].Visible = false;
             dataGridView.Columns["item"].HeaderText = "Item Name";
             dataGridView.Columns["serial_number"].HeaderText = "Serial Number";
             dataGridView.Columns["model"].HeaderText = "Model";
@@ -77,7 +79,7 @@ namespace ZenBiz.AppModules.Inventory.Items
         {
             if (!DesignMode)
             {
-                CreateDatagridViewColumnsOnStocks(dgBranchStocks, true);
+                CreateDatagridViewColumnsOnStocks(dgBranchStocks);
                 Helper.LoadCategories(cmbCategory);
                 Helper.LoadUnit(cmbUnit);
 

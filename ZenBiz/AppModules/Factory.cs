@@ -15,7 +15,7 @@ namespace ZenBiz.AppModules
 
         public static IStocks StocksController() => new StocksController(mySQLGenericCommands);
         public static IItems ItemsController() => new ItemsController(mySQLGenericCommands);
-        public static IStore StoresController() => new BranchController(mySQLGenericCommands);
+        public static IStore BranchesController() => new BranchController(mySQLGenericCommands);
         public static IStoreStocks BranchStocksController() => new BranchStocksController(mySQLGenericCommands);
         public static ICategories CategoriesController() => new CategoriesController(mySQLGenericCommands);
         public static ISupplier SuppliersController() => new SuppliersController(mySQLGenericCommands);

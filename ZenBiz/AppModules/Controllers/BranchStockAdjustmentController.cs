@@ -8,7 +8,6 @@ namespace ZenBiz.AppModules.Controllers
     internal class BranchStockAdjustmentController : IStoreStockAdjustment
     {
         private readonly IDbGenericCommands _dbGenericCommands;
-        private const string tblStoreStockAdjustments = "branch_stock_adjustments";
         private const string viewStoreStockAdjustments = "view_branch_stock_adjustments";
 
         public BranchStockAdjustmentController(IDbGenericCommands dbGenericCommands)
@@ -23,20 +22,6 @@ namespace ZenBiz.AppModules.Controllers
 
         public bool Delete(List<BranchStockAdjustmentsModel> entityList)
         {
-            using var scope = new TransactionScope();
-            foreach (var entity in entityList)
-            {
-                var parameters = new object[][]
-                {
-                    new object[] { "@id", DbType.Int32, entity.Id},
-                };
-
-                string query = $"DELETE FROM {tblStoreStockAdjustments} WHERE id = @id";
-                _ = _dbGenericCommands.ExecuteNonQuery(query, parameters);
-            }
-
-            scope.Complete();
-            scope.Dispose();
             return true;
         }
 
@@ -101,51 +86,17 @@ namespace ZenBiz.AppModules.Controllers
 
         public bool Insert(BranchStockAdjustmentsModel entity)
         {
-            var parameters = new object[][]
-            {
-                new object[] { "@items_id", DbType.Int32, entity.Items.Id },
-                new object[] { "@stores_id", DbType.Int32, entity.Stores.Id },
-                new object[] { "@quantity", DbType.Decimal, entity.Quantity },
-                new object[] { "@reason", DbType.String, entity.Reason },
-                new object[] { "@date_adjusted", DbType.Date, entity.DateAdjusted },
-                new object[] { "@created_by", DbType.Int32, entity.Users.Id }
-            };
-
-            string query = $"INSERT INTO {tblStoreStockAdjustments} (items_id, stores_id, quantity, reason, date_adjusted, created_by) VALUES (@items_id, @stores_id, @quantity, @reason,  @date_adjusted, @created_by)";
-            return _dbGenericCommands.ExecuteNonQuery(query, parameters);
+            return false;
         }
 
         public bool Update(BranchStockAdjustmentsModel entity)
         {
-            var parameters = new object[][]
-            {
-                new object[] { "@id", DbType.Int32, entity.Id },
-                new object[] { "@items_id", DbType.Int32, entity.Items.Id },
-                new object[] { "@stores_id", DbType.Int32, entity.Stores.Id },
-                new object[] { "@quantity", DbType.Decimal, entity.Quantity },
-                new object[] { "@reason", DbType.String, entity.Reason },
-                new object[] { "@date_adjusted", DbType.Date, entity.DateAdjusted },
-                new object[] { "@updated_by", DbType.Int32, entity.Users.Id }
-            };
-
-            string query = $"UPDATE {tblStoreStockAdjustments} SET items_id = @items_id, stores_id = @stores_id, quantity = @quantity, reason = @reason, date_adjusted = @date_adjusted, updated_by = @updated_by WHERE id = @id";
-            return _dbGenericCommands.ExecuteNonQuery(query, parameters);
+            throw new NotImplementedException();
         }
 
         public decimal SumStockAdjusted(int storeId, int itemId)
         {
-            var parameters = new object[][]
-            {
-                new object[] { "@stores_id", DbType.Int32, storeId },
-                new object[] { "@items_id", DbType.Int32, itemId },
-            };
-
-            string query = $"SELECT SUM(quantity) FROM {tblStoreStockAdjustments} WHERE items_id = @items_id AND stores_id = @stores_id";
-            string result = _dbGenericCommands.ExecuteScalar(query, parameters);
-            if (string.IsNullOrWhiteSpace(result)) return 0;
-
-            return Convert.ToDecimal(result);
-
+            throw new NotImplementedException();
         }
     }
 }

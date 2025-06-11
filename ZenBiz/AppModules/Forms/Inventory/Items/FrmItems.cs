@@ -28,7 +28,7 @@ namespace ZenBiz.AppModules.Forms.Inventory.Items
             dataGrid.Columns[2].Name = "stocks_left";
             dataGrid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGrid.Columns["id"].Visible = false;
-            dataGrid.Columns["name"].HeaderText = isWarehouse ? "Warehouse" : "Branch";
+            dataGrid.Columns["name"].HeaderText = "Branch";
             dataGrid.Columns["stocks_left"].HeaderText = "Stocks Left";
             dataGrid.Columns["stocks_left"].DefaultCellStyle.Format = "N2";
             dataGrid.Columns["stocks_left"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
@@ -57,11 +57,10 @@ namespace ZenBiz.AppModules.Forms.Inventory.Items
             DataTable dtBranhes = Factory.BranchStocksController().FetchBranches(itemId);
             foreach (DataRow item in dtBranhes.Rows)
             {
-                int storeId = (int)item["branches_id"];
+                int branchId = (int)item["branches_id"];
                 string storeName = item["branch_name"].ToString();
-                // total stocks + total stock adjusted + total transfer stocks + sold stocks
-                decimal stocksLeft = Factory.BranchStocksController().StocksLeft(storeId, itemId);
-                dgBranchStocks.Rows.Add(storeId, storeName, stocksLeft.ToString("N2"));
+                decimal stocksLeft = 0;
+                dgBranchStocks.Rows.Add(branchId, storeName, stocksLeft.ToString("N2"));
             }
         }
 

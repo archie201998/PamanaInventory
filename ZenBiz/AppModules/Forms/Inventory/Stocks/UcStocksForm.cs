@@ -13,6 +13,7 @@ namespace ZenBiz.AppModules.Forms.Inventory.Items
         {
             string[] errorArray = new string[]
             {
+                epStockCount.GetError(nudUnitCost)
             };
 
             return Helper.GenerateFormErrorMessage(errorArray);
@@ -24,9 +25,9 @@ namespace ZenBiz.AppModules.Forms.Inventory.Items
             dtpRepairedDate.Checked = false;
         }
 
-        internal void LoadStores()
+        internal void LoadBranches()
         {
-            cmbBranch.DataSource = Factory.StoresController().Fetch();
+            cmbBranch.DataSource = Factory.BranchesController().Fetch();
             cmbBranch.DisplayMember = "name";
             cmbBranch.ValueMember = "id";
         }
@@ -42,32 +43,24 @@ namespace ZenBiz.AppModules.Forms.Inventory.Items
         {
             if (!DesignMode)
             {   
-                LoadStores();
+                LoadBranches();
                 LoadSuppliers();
             }
         }
 
         private void nudStockCount_Validating(object sender, CancelEventArgs e)
         {
-            //e.Cancel = Helper.ShowErrorNumericUpDownEmpty(epStockCount, nudStockCount, "stocks count");
+            e.Cancel = Helper.ShowErrorNumericUpDownEmpty(epStockCount, nudUnitCost, "unit cost");
         }
 
         private void nudStockCount_Validated(object sender, EventArgs e)
         {
-            //Helper.ClearErrorNumericUpDown(epStockCount, nudStockCount);
-        }
-
-        private void chkExpiration_CheckedChanged(object sender, EventArgs e)
-        {
-            //dtpExpiration.Enabled = chkExpiration.Checked;
-        }
-
-        private void chkStockDate_CheckedChanged(object sender, EventArgs e)
-        {
+            Helper.ClearErrorNumericUpDown(epStockCount, nudUnitCost);
         }
 
         private void chkSupplier_CheckedChanged(object sender, EventArgs e)
         {
+            txtUser.Enabled = chkUser.Checked;
         }
 
         private void chkRepairedDate_CheckedChanged(object sender, EventArgs e)
@@ -75,8 +68,5 @@ namespace ZenBiz.AppModules.Forms.Inventory.Items
             dtpRepairedDate.Enabled = chkRepairedDate.Checked;
         }
 
-        private void chkReturnedDate_CheckedChanged(object sender, EventArgs e)
-        {
-        }
     }
 }

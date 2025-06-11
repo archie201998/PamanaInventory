@@ -88,23 +88,25 @@
             // btnStocks
             // 
             btnStocks.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            btnStocks.Location = new Point(988, 274);
+            btnStocks.Location = new Point(988, 289);
             btnStocks.Name = "btnStocks";
             btnStocks.Size = new Size(98, 23);
             btnStocks.TabIndex = 3;
             btnStocks.Text = "Stocks";
             btnStocks.UseVisualStyleBackColor = true;
+            btnStocks.Visible = false;
             btnStocks.Click += btnStocks_Click;
             // 
             // btnAdjustStocks
             // 
             btnAdjustStocks.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            btnAdjustStocks.Location = new Point(988, 303);
+            btnAdjustStocks.Location = new Point(988, 318);
             btnAdjustStocks.Name = "btnAdjustStocks";
             btnAdjustStocks.Size = new Size(98, 23);
             btnAdjustStocks.TabIndex = 4;
             btnAdjustStocks.Text = "Adjust Stocks";
             btnAdjustStocks.UseVisualStyleBackColor = true;
+            btnAdjustStocks.Visible = false;
             // 
             // dgItems
             // 

@@ -13,7 +13,5 @@ namespace ZenBiz.AppModules.Interfaces
         DataTable FetchStocks(int storeId, int itemId);
         DataTable FetchBranches(int itemId);
         Dictionary<string, string> FindByStockId(int stockId);
-        decimal StocksLeft(int storeId, int itemId);
-        decimal SumTotalStocks(int storeId, int itemId);
     }
 }

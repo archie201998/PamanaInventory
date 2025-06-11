@@ -25,7 +25,7 @@ namespace ZenBiz.AppModules.Forms.Reports
 
         private void LoadStores()
         {
-            cmbStoreWarehouse.DataSource = Factory.StoresController().Fetch();
+            cmbStoreWarehouse.DataSource = Factory.BranchesController().Fetch();
             cmbStoreWarehouse.DisplayMember = "name";
             cmbStoreWarehouse.ValueMember = "id";
         }

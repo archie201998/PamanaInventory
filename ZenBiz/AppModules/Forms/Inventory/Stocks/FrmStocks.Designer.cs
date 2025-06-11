@@ -31,8 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmStocks));
             groupBox1 = new GroupBox();
             panel1 = new Panel();
-            txtUnitCost = new TextBox();
-            label5 = new Label();
             txtUnit = new TextBox();
             label4 = new Label();
             txtCategory = new TextBox();
@@ -43,7 +41,7 @@
             label1 = new Label();
             tabControl1 = new TabControl();
             tabStores = new TabPage();
-            dgStoreStocks = new DataGridView();
+            dgBranchStocks = new DataGridView();
             toolStrip2 = new ToolStrip();
             btnStoreStockAdd = new ToolStripButton();
             btnStoreStockEdit = new ToolStripButton();
@@ -55,7 +53,7 @@
             panel1.SuspendLayout();
             tabControl1.SuspendLayout();
             tabStores.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dgStoreStocks).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgBranchStocks).BeginInit();
             toolStrip2.SuspendLayout();
             SuspendLayout();
             // 
@@ -66,15 +64,13 @@
             groupBox1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
             groupBox1.Location = new Point(12, 12);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(841, 182);
+            groupBox1.Size = new Size(852, 112);
             groupBox1.TabIndex = 0;
             groupBox1.TabStop = false;
             groupBox1.Text = "Item Details";
             // 
             // panel1
             // 
-            panel1.Controls.Add(txtUnitCost);
-            panel1.Controls.Add(label5);
             panel1.Controls.Add(txtUnit);
             panel1.Controls.Add(label4);
             panel1.Controls.Add(txtCategory);
@@ -87,38 +83,21 @@
             panel1.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             panel1.Location = new Point(3, 19);
             panel1.Name = "panel1";
-            panel1.Size = new Size(835, 160);
+            panel1.Size = new Size(846, 90);
             panel1.TabIndex = 1;
-            // 
-            // txtUnitCost
-            // 
-            txtUnitCost.Location = new Point(65, 119);
-            txtUnitCost.Name = "txtUnitCost";
-            txtUnitCost.ReadOnly = true;
-            txtUnitCost.Size = new Size(176, 23);
-            txtUnitCost.TabIndex = 9;
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Location = new Point(3, 122);
-            label5.Name = "label5";
-            label5.Size = new Size(56, 15);
-            label5.TabIndex = 8;
-            label5.Text = "Unit Cost";
             // 
             // txtUnit
             // 
-            txtUnit.Location = new Point(65, 90);
+            txtUnit.Location = new Point(100, 47);
             txtUnit.Name = "txtUnit";
             txtUnit.ReadOnly = true;
-            txtUnit.Size = new Size(176, 23);
+            txtUnit.Size = new Size(207, 23);
             txtUnit.TabIndex = 7;
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(3, 93);
+            label4.Location = new Point(38, 50);
             label4.Name = "label4";
             label4.Size = new Size(29, 15);
             label4.TabIndex = 6;
@@ -126,16 +105,16 @@
             // 
             // txtCategory
             // 
-            txtCategory.Location = new Point(65, 61);
+            txtCategory.Location = new Point(100, 18);
             txtCategory.Name = "txtCategory";
             txtCategory.ReadOnly = true;
-            txtCategory.Size = new Size(176, 23);
+            txtCategory.Size = new Size(207, 23);
             txtCategory.TabIndex = 5;
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(3, 64);
+            label3.Location = new Point(38, 21);
             label3.Name = "label3";
             label3.Size = new Size(55, 15);
             label3.TabIndex = 4;
@@ -143,16 +122,16 @@
             // 
             // txtName
             // 
-            txtName.Location = new Point(65, 32);
+            txtName.Location = new Point(529, 50);
             txtName.Name = "txtName";
             txtName.ReadOnly = true;
-            txtName.Size = new Size(176, 23);
+            txtName.Size = new Size(207, 23);
             txtName.TabIndex = 3;
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(3, 35);
+            label2.Location = new Point(467, 53);
             label2.Name = "label2";
             label2.Size = new Size(39, 15);
             label2.TabIndex = 2;
@@ -160,16 +139,16 @@
             // 
             // txtCode
             // 
-            txtCode.Location = new Point(65, 3);
+            txtCode.Location = new Point(529, 21);
             txtCode.Name = "txtCode";
             txtCode.ReadOnly = true;
-            txtCode.Size = new Size(176, 23);
+            txtCode.Size = new Size(207, 23);
             txtCode.TabIndex = 1;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(3, 6);
+            label1.Location = new Point(467, 24);
             label1.Name = "label1";
             label1.Size = new Size(35, 15);
             label1.TabIndex = 0;
@@ -179,34 +158,34 @@
             // 
             tabControl1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             tabControl1.Controls.Add(tabStores);
-            tabControl1.Location = new Point(14, 200);
+            tabControl1.Location = new Point(12, 130);
             tabControl1.Name = "tabControl1";
             tabControl1.SelectedIndex = 0;
-            tabControl1.Size = new Size(841, 300);
+            tabControl1.Size = new Size(852, 370);
             tabControl1.TabIndex = 1;
             // 
             // tabStores
             // 
-            tabStores.Controls.Add(dgStoreStocks);
+            tabStores.Controls.Add(dgBranchStocks);
             tabStores.Controls.Add(toolStrip2);
             tabStores.Location = new Point(4, 24);
             tabStores.Name = "tabStores";
             tabStores.Padding = new Padding(3);
-            tabStores.Size = new Size(833, 272);
+            tabStores.Size = new Size(844, 342);
             tabStores.TabIndex = 0;
             tabStores.Text = "Branches";
             tabStores.UseVisualStyleBackColor = true;
             // 
-            // dgStoreStocks
+            // dgBranchStocks
             // 
-            dgStoreStocks.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgStoreStocks.Dock = DockStyle.Fill;
-            dgStoreStocks.Location = new Point(3, 28);
-            dgStoreStocks.Name = "dgStoreStocks";
-            dgStoreStocks.RowTemplate.Height = 25;
-            dgStoreStocks.Size = new Size(827, 241);
-            dgStoreStocks.TabIndex = 3;
-            dgStoreStocks.SelectionChanged += dgStoreStocks_SelectionChanged;
+            dgBranchStocks.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgBranchStocks.Dock = DockStyle.Fill;
+            dgBranchStocks.Location = new Point(3, 28);
+            dgBranchStocks.Name = "dgBranchStocks";
+            dgBranchStocks.RowTemplate.Height = 25;
+            dgBranchStocks.Size = new Size(838, 311);
+            dgBranchStocks.TabIndex = 3;
+            dgBranchStocks.SelectionChanged += dgStoreStocks_SelectionChanged;
             // 
             // toolStrip2
             // 
@@ -214,7 +193,7 @@
             toolStrip2.Items.AddRange(new ToolStripItem[] { btnStoreStockAdd, btnStoreStockEdit, btnStoreStockDelete, lblTotalStoreStocks, toolStripLabel2, cmbStores });
             toolStrip2.Location = new Point(3, 3);
             toolStrip2.Name = "toolStrip2";
-            toolStrip2.Size = new Size(827, 25);
+            toolStrip2.Size = new Size(838, 25);
             toolStrip2.TabIndex = 2;
             toolStrip2.Text = "toolStrip2";
             // 
@@ -289,7 +268,7 @@
             tabControl1.ResumeLayout(false);
             tabStores.ResumeLayout(false);
             tabStores.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dgStoreStocks).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgBranchStocks).EndInit();
             toolStrip2.ResumeLayout(false);
             toolStrip2.PerformLayout();
             ResumeLayout(false);
@@ -301,8 +280,6 @@
         private Panel panel1;
         private TextBox txtCode;
         private Label label1;
-        private TextBox txtUnitCost;
-        private Label label5;
         private TextBox txtUnit;
         private Label label4;
         private TextBox txtCategory;
@@ -311,7 +288,7 @@
         private Label label2;
         private TabControl tabControl1;
         private TabPage tabStores;
-        private DataGridView dgStoreStocks;
+        private DataGridView dgBranchStocks;
         private ToolStrip toolStrip2;
         private ToolStripButton btnStoreStockAdd;
         private ToolStripButton btnStoreStockEdit;

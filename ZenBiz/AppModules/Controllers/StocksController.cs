@@ -71,14 +71,14 @@ namespace ZenBiz.AppModules.Controllers
                 new object[] { "@RAM", DbType.String, entity.RAM },
                 new object[] { "@computer_name", DbType.String, entity.ComputerName },
                 new object[] { "@sophos_tamper", DbType.String, entity.SophosTamper },
-                new object[] { "@date_acquired", DbType.DateTime2, entity.DateAcquired },
+                new object[] { "@date_acquired", DbType.Date, entity.DateAcquired },
                 new object[] { "@unit_cost", DbType.Decimal, entity.UnitCost },
                 new object[] { "@status", DbType.String, entity.Status },
                 new object[] { "@remarks", DbType.String, entity.Remarks },
-                new object[] { "@created_by", DbType.String, entity.CreatedBy },
+                new object[] { "@created_by", DbType.Int32, 1 },
             };
 
-            string query = $"INSERT INTO {tblStocks} (suppliers_id, serial_number, model, operating_system, RAM, computer_name, sophos_tamper, date_acquired, unit_cost, status, remarks, created_by) VALUES (@suppliers_id, @serial_number, @model, @operating_system, @RAM, @computer_name, @sophos_tamper, @date_acquired, @unit_cost, @status, @remarks, @created_by)";
+            string query = $"INSERT INTO {tblStocks} (item_id, suppliers_id, serial_number, model, operating_system, RAM, computer_name, sophos_tamper, date_acquired, unit_cost, status, remarks, created_by) VALUES (@item_id, @suppliers_id, @serial_number, @model, @operating_system, @RAM, @computer_name, @sophos_tamper, @date_acquired, @unit_cost, @status, @remarks, @created_by)";
             return _dbGenericCommands.ExecuteNonQuery(query, parameters);
         }
 

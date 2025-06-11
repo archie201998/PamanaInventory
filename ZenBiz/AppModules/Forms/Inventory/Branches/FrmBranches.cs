@@ -19,7 +19,7 @@ namespace ZenBiz.AppModules.Inventory.Stores
 
         private void FetchData()
         {
-            dgStores.DataSource = Factory.StoresController().Fetch();
+            dgStores.DataSource = Factory.BranchesController().Fetch();
             dgStores.Columns["id"].Visible = false;
             dgStores.Columns["name"].HeaderText = "Name";
             dgStores.Columns["address"].HeaderText = "Address";
@@ -59,7 +59,7 @@ namespace ZenBiz.AppModules.Inventory.Stores
                 var messageBox = MessageBox.Show("Are you sure you want to delete this data?", "Deleting Stores", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (messageBox != DialogResult.Yes) return;
 
-                _ = Factory.StoresController().Delete(storeModelList);
+                _ = Factory.BranchesController().Delete(storeModelList);
                 FetchData();
             }
             catch (MySqlException ex)

@@ -8,31 +8,27 @@ namespace ZenBiz.AppModules.Forms.Inventory.Stocks
     {
         private readonly UcStocksForm uc;
         private readonly int _itemId;
-        private readonly bool _isWarehouse;
 
-        public FrmStocksAdd(int itemId, bool isWarehouse)
+        public FrmStocksAdd(int itemId)
         {
             InitializeComponent();
             Helper.LoadFormIcon(this);
             uc = ucStocksForm1;
             _itemId = itemId;
-            _isWarehouse = isWarehouse;
         }
 
         private void FrmStocksAdd_Load(object sender, EventArgs e)
         {
-            uc.dtpDateAcquired.Enabled = false;
-            uc.cmbSupplier.Enabled = false;
-            uc.dtpRepairedDate.Enabled = false;
+
         }
 
-        private void InsertStoreStock(int stockId, int branchId)
+        private void InsertBranchStock(int stockId, int branchId)
         {
 
             BranchStocksModel storeStocksModel = new()
             {
                 Stock = new StocksModel() { Id = stockId },
-                Store = new BranchModel() { Id = branchId }
+                Branch = new BranchModel() { Id = branchId }
             };
 
             _ = Factory.BranchStocksController().Insert(storeStocksModel);
@@ -73,7 +69,7 @@ namespace ZenBiz.AppModules.Forms.Inventory.Stocks
 
             int stocksLastInsertedId = Factory.StocksController().LastInsertedId();
             int branchId = (int)uc.cmbBranch.SelectedValue;
-            InsertStoreStock(stocksLastInsertedId, branchId);
+            InsertBranchStock(stocksLastInsertedId, branchId);
 
             scope.Complete();
             scope.Dispose();

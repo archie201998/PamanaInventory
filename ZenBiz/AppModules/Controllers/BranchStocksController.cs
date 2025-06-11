@@ -138,8 +138,8 @@ namespace ZenBiz.AppModules.Controllers
         {
             var parameters = new object[][]
             {
-                new object[] { "@branches_id", DbType.String, entity.Store.Id },
                 new object[] { "@stocks_id", DbType.String, entity.Stock.Id },
+                new object[] { "@branches_id", DbType.String, entity.Branch.Id },
             };
 
             string query = $"INSERT INTO {branchStocks} (stocks_id, branches_id) VALUES (@stocks_id, @branches_id)";
@@ -150,7 +150,7 @@ namespace ZenBiz.AppModules.Controllers
         {
             var parameters = new object[][]
             {
-                new object[] { "@branches_id", DbType.String, entity.Store.Id },
+                new object[] { "@branches_id", DbType.String, entity.Branch.Id },
                 new object[] { "@stocks_id", DbType.String, entity.Stock.Id },
             };
 
@@ -184,11 +184,5 @@ namespace ZenBiz.AppModules.Controllers
             return Convert.ToDecimal(result);
         }
 
-        public decimal StocksLeft(int storeId, int itemId)
-        {
-            decimal totalStocks = SumTotalStocks(storeId, itemId);
-            decimal totalStocksAdjusted = Factory.StoreStockAdjustmentController().SumStockAdjusted(storeId, itemId);
-            return totalStocks + totalStocksAdjusted ;
-        }
     }
 }

@@ -33,6 +33,7 @@ namespace ZenBiz.AppModules.Forms.Inventory.Items
         {
             var stocksController = Factory.StocksController();
             var branchStocksController = Factory.BranchStocksController();
+
             foreach (DataGridViewRow item in uc.dgBranchStocks.Rows)
             {
                 StocksModel stocksModel = new()
@@ -52,12 +53,13 @@ namespace ZenBiz.AppModules.Forms.Inventory.Items
 
                 stocksController.Insert(stocksModel);
 
-                BranchStocksModel storeStocksModel = new()
+                BranchStocksModel branchStocksModel = new()
                 {
                     Stock = new StocksModel() { Id = stocksController.LastInsertedId() },
+                    Branch = new BranchModel() { Id = Convert.ToInt32(item.Cells["branch_id"].Value) }
                 };
 
-                branchStocksController.Insert(storeStocksModel);
+                branchStocksController.Insert(branchStocksModel);
             }
         }
 

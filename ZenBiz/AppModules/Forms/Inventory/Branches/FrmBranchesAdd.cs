@@ -26,7 +26,7 @@ namespace ZenBiz.AppModules.Inventory.Stores
                 Address = uc.txtAddress.Text.Trim()
             };
 
-            return Factory.StoresController().Insert(storesModel);
+            return Factory.BranchesController().Insert(storesModel);
         }
 
         private void btnSave_Click(object sender, EventArgs e)

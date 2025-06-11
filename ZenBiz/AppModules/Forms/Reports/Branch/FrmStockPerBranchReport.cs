@@ -20,7 +20,7 @@ namespace ZenBiz.AppModules.Forms.Reports
 
         private void LoadStores()
         {
-            cmbStores.DataSource = Factory.StoresController().Fetch();
+            cmbStores.DataSource = Factory.BranchesController().Fetch();
             cmbStores.DisplayMember = "name";
             cmbStores.ValueMember = "id";
         }
@@ -48,30 +48,30 @@ namespace ZenBiz.AppModules.Forms.Reports
         private DataTable DataTableStocks()
         {
             var dtReport = new DataSet1.StocksPerStoreDataTable();
-            int storeId = Convert.ToInt32(cmbStores.SelectedValue);
-            int categoriesId = Convert.ToInt32(cmbCategories.SelectedValue);
-            DataTable dataTableFromDB;
+            //int storeId = Convert.ToInt32(cmbStores.SelectedValue);
+            //int categoriesId = Convert.ToInt32(cmbCategories.SelectedValue);
+            //DataTable dataTableFromDB;
 
-            if (categoriesId == 0)
-                dataTableFromDB = Factory.BranchStocksController().FetchItemsGroupByItem(storeId);
-            else
-                dataTableFromDB = Factory.BranchStocksController().FetchItemsGroupByItem(storeId, categoriesId);
+            //if (categoriesId == 0)
+            //    dataTableFromDB = Factory.BranchStocksController().FetchItemsGroupByItem(storeId);
+            //else
+            //    dataTableFromDB = Factory.BranchStocksController().FetchItemsGroupByItem(storeId, categoriesId);
 
-            foreach (DataRow item in dataTableFromDB.Rows)
-            {
-                decimal stocksLeft = Factory.BranchStocksController().StocksLeft(storeId, Convert.ToInt32(item["item_id"]));
-                DataRow row = dtReport.NewRow();
-                row["sku_code"] = item["sku_code"];
-                row["item_name"] = item["item_name"];
-                row["category"] = item["category_name"];
-                row["unit"] = item["unit_name"];
-                row["retail_price"] = item["retail_price"];
-                row["wholesale_price"] = item["wholesale_price"];
-                row["special_price"] = item["special_price"];
-                row["stocks_left"] = stocksLeft;
+            //foreach (DataRow item in dataTableFromDB.Rows)
+            //{
+            //    decimal stocksLeft = Factory.BranchStocksController().StocksLeft(storeId, Convert.ToInt32(item["item_id"]));
+            //    DataRow row = dtReport.NewRow();
+            //    row["sku_code"] = item["sku_code"];
+            //    row["item_name"] = item["item_name"];
+            //    row["category"] = item["category_name"];
+            //    row["unit"] = item["unit_name"];
+            //    row["retail_price"] = item["retail_price"];
+            //    row["wholesale_price"] = item["wholesale_price"];
+            //    row["special_price"] = item["special_price"];
+            //    row["stocks_left"] = stocksLeft;
 
-                dtReport.Rows.Add(row);
-            }
+            //    dtReport.Rows.Add(row);
+            //}
 
             return dtReport;
         }

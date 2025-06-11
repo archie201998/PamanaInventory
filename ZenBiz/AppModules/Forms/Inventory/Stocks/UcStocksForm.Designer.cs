@@ -91,7 +91,7 @@
             dtpDateAcquired.Location = new Point(111, 207);
             dtpDateAcquired.Name = "dtpDateAcquired";
             dtpDateAcquired.Size = new Size(300, 23);
-            dtpDateAcquired.TabIndex = 2;
+            dtpDateAcquired.TabIndex = 7;
             // 
             // label3
             // 
@@ -109,7 +109,7 @@
             cmbSupplier.Location = new Point(111, 294);
             cmbSupplier.Name = "cmbSupplier";
             cmbSupplier.Size = new Size(300, 23);
-            cmbSupplier.TabIndex = 8;
+            cmbSupplier.TabIndex = 10;
             // 
             // label1
             // 
@@ -122,6 +122,7 @@
             // 
             // txtUser
             // 
+            txtUser.Enabled = false;
             txtUser.Location = new Point(111, 322);
             txtUser.MaxLength = 45;
             txtUser.Name = "txtUser";
@@ -154,7 +155,7 @@
             cmbxStatus.Location = new Point(111, 265);
             cmbxStatus.Name = "cmbxStatus";
             cmbxStatus.Size = new Size(300, 23);
-            cmbxStatus.TabIndex = 15;
+            cmbxStatus.TabIndex = 9;
             // 
             // txtRemarks
             // 
@@ -163,7 +164,7 @@
             txtRemarks.Multiline = true;
             txtRemarks.Name = "txtRemarks";
             txtRemarks.Size = new Size(300, 46);
-            txtRemarks.TabIndex = 16;
+            txtRemarks.TabIndex = 13;
             // 
             // label7
             // 
@@ -185,10 +186,11 @@
             // 
             // dtpRepairedDate
             // 
+            dtpRepairedDate.Enabled = false;
             dtpRepairedDate.Location = new Point(111, 351);
             dtpRepairedDate.Name = "dtpRepairedDate";
             dtpRepairedDate.Size = new Size(300, 23);
-            dtpRepairedDate.TabIndex = 18;
+            dtpRepairedDate.TabIndex = 12;
             // 
             // chkRepairedDate
             // 
@@ -206,7 +208,7 @@
             txtSerialNumber.MaxLength = 45;
             txtSerialNumber.Name = "txtSerialNumber";
             txtSerialNumber.Size = new Size(300, 23);
-            txtSerialNumber.TabIndex = 24;
+            txtSerialNumber.TabIndex = 1;
             // 
             // label2
             // 
@@ -223,7 +225,7 @@
             txtOS.MaxLength = 45;
             txtOS.Name = "txtOS";
             txtOS.Size = new Size(300, 23);
-            txtOS.TabIndex = 26;
+            txtOS.TabIndex = 3;
             // 
             // label10
             // 
@@ -240,7 +242,7 @@
             txtModel.MaxLength = 45;
             txtModel.Name = "txtModel";
             txtModel.Size = new Size(300, 23);
-            txtModel.TabIndex = 28;
+            txtModel.TabIndex = 2;
             // 
             // label11
             // 
@@ -266,7 +268,7 @@
             txtRAM.MaxLength = 45;
             txtRAM.Name = "txtRAM";
             txtRAM.Size = new Size(300, 23);
-            txtRAM.TabIndex = 26;
+            txtRAM.TabIndex = 4;
             // 
             // txtSophosTamper
             // 
@@ -274,7 +276,7 @@
             txtSophosTamper.MaxLength = 45;
             txtSophosTamper.Name = "txtSophosTamper";
             txtSophosTamper.Size = new Size(300, 23);
-            txtSophosTamper.TabIndex = 30;
+            txtSophosTamper.TabIndex = 6;
             // 
             // label13
             // 
@@ -291,7 +293,7 @@
             txtComputerName.MaxLength = 45;
             txtComputerName.Name = "txtComputerName";
             txtComputerName.Size = new Size(300, 23);
-            txtComputerName.TabIndex = 31;
+            txtComputerName.TabIndex = 5;
             // 
             // label14
             // 
@@ -307,10 +309,13 @@
             nudUnitCost.DecimalPlaces = 2;
             nudUnitCost.Increment = new decimal(new int[] { 1, 0, 0, 131072 });
             nudUnitCost.Location = new Point(111, 236);
-            nudUnitCost.Maximum = new decimal(new int[] { 9999, 0, 0, 0 });
+            nudUnitCost.Maximum = new decimal(new int[] { 99999, 0, 0, 0 });
             nudUnitCost.Name = "nudUnitCost";
             nudUnitCost.Size = new Size(300, 23);
-            nudUnitCost.TabIndex = 35;
+            nudUnitCost.TabIndex = 8;
+            nudUnitCost.ThousandsSeparator = true;
+            nudUnitCost.Validating += nudStockCount_Validating;
+            nudUnitCost.Validated += nudStockCount_Validated;
             // 
             // label15
             // 

@@ -16,7 +16,7 @@ namespace ZenBiz.AppModules.Inventory.Stores
 
         private void LoadData()
         {
-            var dict = Factory.StoresController().FindById(uc.storeId);
+            var dict = Factory.BranchesController().FindById(uc.storeId);
             uc.txtName.Text = dict["name"];
             uc.txtAddress.Text = dict["address"];
         }
@@ -41,7 +41,7 @@ namespace ZenBiz.AppModules.Inventory.Stores
                 Address = uc.txtAddress.Text.Trim()
             };
 
-            return Factory.StoresController().Update(storesModel);
+            return Factory.BranchesController().Update(storesModel);
         }
 
         private void btnSave_Click(object sender, EventArgs e)

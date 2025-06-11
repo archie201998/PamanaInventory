@@ -12,7 +12,7 @@ namespace ZenBiz.AppModules.Forms.Inventory.Stocks
         {
             InitializeComponent();
             Helper.LoadFormIcon(this);
-            Helper.DatagridDefaultStyle(dgStoreStocks);
+            Helper.DatagridDefaultStyle(dgBranchStocks);
             _itemId = itemId;
             cmbStores.ComboBox.SelectionChangeCommitted += cmbStores_SelectionChangeCommitted;
         }
@@ -24,15 +24,14 @@ namespace ZenBiz.AppModules.Forms.Inventory.Stocks
             txtName.Text = dict["name"];
             txtCategory.Text = dict["category_name"];
             txtUnit.Text = dict["unit_name"];
-            txtUnitCost.Text = Convert.ToDecimal(dict["unit_cost"]).ToString("N2");
         }
 
-        private void LoadStores()
+        private void LoadBranches()
         {
             Dictionary<int, string> storesDict = new();
-            DataTable dtStores = Factory.StoresController().Fetch();
+            DataTable dtBranches = Factory.BranchesController().Fetch();
             storesDict.Add(0, "All Branches");
-            foreach (DataRow item in dtStores.Rows)
+            foreach (DataRow item in dtBranches.Rows)
                 storesDict.Add(Convert.ToInt32(item["id"]), item["name"].ToString());
 
             cmbStores.ComboBox.DataSource = new BindingSource(storesDict, null);
@@ -43,16 +42,8 @@ namespace ZenBiz.AppModules.Forms.Inventory.Stocks
         private void FrmStocks_Load(object sender, EventArgs e)
         {
             LoadItemDetails();
-            LoadStores();
-            LoadStoresStocks();
-
-            if (dgStoreStocks.Rows.Count == 0)
-            {
-                btnStoreStockEdit.Enabled = false;
-                btnStoreStockDelete.Enabled = false;
-            }
-
-
+            LoadBranches();
+            LoadBranchesStocks();
         }
 
         private decimal SumDatagridViewStocks(DataGridView dataGridView)
@@ -66,40 +57,44 @@ namespace ZenBiz.AppModules.Forms.Inventory.Stocks
             return total;
         }
 
-        private void LoadStoresStocks()
+        private void LoadBranchesStocks()
         {
-            int storeId = (int)cmbStores.ComboBox.SelectedValue;
-            if (storeId == 0) dgStoreStocks.DataSource = Factory.BranchStocksController().Fetch(_itemId);
-            else dgStoreStocks.DataSource = Factory.BranchStocksController().Fetch(storeId, _itemId);
-            dgStoreStocks.Columns["id"].Visible = false;
-            dgStoreStocks.Columns["stocks_id"].Visible = false;
-            dgStoreStocks.Columns["branch_name"].HeaderText = "Branches";
-            dgStoreStocks.Columns["quantity"].HeaderText = "Quantity";
-            dgStoreStocks.Columns["quantity"].DefaultCellStyle.Format = "N2";
-            dgStoreStocks.Columns["stock_date"].HeaderText = "Stock Date";
-            dgStoreStocks.Columns["stock_date"].DefaultCellStyle.Format = "MMM dd, yyyy";
-            dgStoreStocks.Columns["expiration"].HeaderText = "Expiration";
-            dgStoreStocks.Columns["expiration"].DefaultCellStyle.Format = "MMM dd, yyyy";
-            dgStoreStocks.Columns["suppliers_name"].HeaderText = "Supplier";
-            dgStoreStocks.Columns["repaired_date"].HeaderText = "Repaired Date";
-            dgStoreStocks.Columns["repaired_date"].DefaultCellStyle.Format = "MMM dd, yyyy";
-            dgStoreStocks.Columns["returned_date"].HeaderText = "Returned Date";
-            dgStoreStocks.Columns["returned_date"].DefaultCellStyle.Format = "MMM dd, yyyy";
-            dgStoreStocks.Columns["user"].HeaderText = "User";
-            dgStoreStocks.Columns["status"].HeaderText = "Status";
-            dgStoreStocks.Columns["remarks"].HeaderText = "Remarks";
+            int branchId = (int)cmbStores.ComboBox.SelectedValue;
 
-            lblTotalStoreStocks.Text = SumDatagridViewStocks(dgStoreStocks).ToString("N2");
+            if (branchId == 0) 
+                dgBranchStocks.DataSource = Factory.BranchStocksController().Fetch(_itemId);
+            else 
+                dgBranchStocks.DataSource = Factory.BranchStocksController().Fetch(branchId, _itemId);
+
+            dgBranchStocks.Columns["id"].Visible = false;
+            dgBranchStocks.Columns["stocks_id"].Visible = false;
+            dgBranchStocks.Columns["branch_name"].HeaderText = "Branches";
+            dgBranchStocks.Columns["quantity"].HeaderText = "Quantity";
+            dgBranchStocks.Columns["quantity"].DefaultCellStyle.Format = "N2";
+            dgBranchStocks.Columns["stock_date"].HeaderText = "Stock Date";
+            dgBranchStocks.Columns["stock_date"].DefaultCellStyle.Format = "MMM dd, yyyy";
+            dgBranchStocks.Columns["expiration"].HeaderText = "Expiration";
+            dgBranchStocks.Columns["expiration"].DefaultCellStyle.Format = "MMM dd, yyyy";
+            dgBranchStocks.Columns["suppliers_name"].HeaderText = "Supplier";
+            dgBranchStocks.Columns["repaired_date"].HeaderText = "Repaired Date";
+            dgBranchStocks.Columns["repaired_date"].DefaultCellStyle.Format = "MMM dd, yyyy";
+            dgBranchStocks.Columns["returned_date"].HeaderText = "Returned Date";
+            dgBranchStocks.Columns["returned_date"].DefaultCellStyle.Format = "MMM dd, yyyy";
+            dgBranchStocks.Columns["user"].HeaderText = "User";
+            dgBranchStocks.Columns["status"].HeaderText = "Status";
+            dgBranchStocks.Columns["remarks"].HeaderText = "Remarks";
+
+            lblTotalStoreStocks.Text = SumDatagridViewStocks(dgBranchStocks).ToString("N2");
         }
 
         
 
         private void btnStoreStockAdd_Click(object sender, EventArgs e)
         {
-            using FrmStocksAdd form = new(_itemId, false);
+            using FrmStocksAdd form = new(_itemId);
             DialogResult dialogResult = form.ShowDialog();
             if (dialogResult == DialogResult.OK)
-                LoadStoresStocks();
+                LoadBranchesStocks();
 
             form.Dispose();
         }
@@ -132,30 +127,30 @@ namespace ZenBiz.AppModules.Forms.Inventory.Stocks
 
         private void btnStoreStockEdit_Click(object sender, EventArgs e)
         {
-            int rowIndex = dgStoreStocks.CurrentCell.RowIndex;
-            int stockId = (int)dgStoreStocks.Rows[rowIndex].Cells["stocks_id"].Value;
+            int rowIndex = dgBranchStocks.CurrentCell.RowIndex;
+            int stockId = (int)dgBranchStocks.Rows[rowIndex].Cells["stocks_id"].Value;
             using FrmStocksEdit form = new(_itemId, stockId, false);
             DialogResult dialogResult = form.ShowDialog();
             if (dialogResult == DialogResult.OK)
-                LoadStoresStocks();
+                LoadBranchesStocks();
 
             form.Dispose();
         }
 
         private void btnStoreStockDelete_Click(object sender, EventArgs e)
         {
-            if (DeleteStocks(dgStoreStocks)) LoadStoresStocks();
+            if (DeleteStocks(dgBranchStocks)) LoadBranchesStocks();
         }
 
 
         private void cmbStores_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            LoadStoresStocks();
+            LoadBranchesStocks();
         }
 
         private void dgStoreStocks_SelectionChanged(object sender, EventArgs e)
         {
-            Helper.EnableDisableToolStripButtons(dgStoreStocks, btnStoreStockEdit, btnStoreStockDelete);
+            Helper.EnableDisableToolStripButtons(dgBranchStocks, btnStoreStockEdit, btnStoreStockDelete);
         }
 
         private void FrmStocks_FormClosed(object sender, FormClosedEventArgs e)

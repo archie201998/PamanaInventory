@@ -46,7 +46,6 @@ namespace ZenBiz.AppModules.Forms.Inventory.Stocks
             if (!string.IsNullOrWhiteSpace(dict["stock_date"]))
             {
                 uc.dtpDateAcquired.Value = Convert.ToDateTime(dict["stock_date"]);
-                uc.dtpDateAcquired.Enabled = true;
             }
 
             if (!string.IsNullOrWhiteSpace(dict["suppliers_id"]))
@@ -58,9 +57,6 @@ namespace ZenBiz.AppModules.Forms.Inventory.Stocks
 
         private void FrmStocksEdit_Load(object sender, EventArgs e)
         {
-            uc.dtpDateAcquired.Enabled = false;
-            uc.dtpRepairedDate.Enabled = false;
-            uc.cmbSupplier.Enabled = false;
             LoadData();
         }
 
@@ -70,7 +66,7 @@ namespace ZenBiz.AppModules.Forms.Inventory.Stocks
             BranchStocksModel storeStocksModel = new()
             {
                 Stock = new StocksModel() { Id = stockId },
-                Store = new BranchModel() { Id = storeId }
+                Branch = new BranchModel() { Id = storeId }
             };
 
             _ = Factory.BranchStocksController().Update(storeStocksModel);

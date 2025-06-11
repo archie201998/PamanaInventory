@@ -33,7 +33,7 @@ namespace ZenBiz.AppModules.Forms.Inventory.Items
 
             if (AddStock())
             {
-                var branchId = uc.cmbBranch.SelectedValue.ToString();
+                string branchId = uc.cmbBranch.SelectedValue.ToString();
                 string branch = uc.cmbBranch.Text;
                 string itemName = string.Empty;
                 string serialNumber = uc.txtSerialNumber.Text.Trim();
@@ -61,6 +61,7 @@ namespace ZenBiz.AppModules.Forms.Inventory.Items
                     unitCost,
                     status,
                     remarks,
+                    branchId,
                 };
 
                 _dgStocks.Rows.Add(row);
