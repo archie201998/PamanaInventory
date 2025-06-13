@@ -42,9 +42,11 @@ namespace ZenBiz.AppModules.Forms.Inventory.Items
                 string ram = uc.txtRAM.Text.Trim();
                 string computerName = uc.txtComputerName.Text.Trim();
                 string sophosTamper = uc.txtSophosTamper.Text.Trim();
-                string dateAcquired = uc.dtpDateAcquired.Value.ToString("yyyy-dd-MM");
+                string dateAcquired = uc.dtpDateAcquired.Value.ToString("yyyy-MM-dd");
                 string unitCost = uc.nudUnitCost.Value.ToString("N2");
                 string status = uc.cmbxStatus.Text.Trim();
+                string user = uc.txtUser.Text.Trim();
+                string dateRepaired = uc.dtpRepairedDate.Value.ToString("yyyy-MM-dd");
                 string remarks = uc.txtRemarks.Text.Trim();
 
                 string[] row = new string[]
@@ -60,6 +62,8 @@ namespace ZenBiz.AppModules.Forms.Inventory.Items
                     dateAcquired,
                     unitCost,
                     status,
+                    user,
+                    dateRepaired,
                     remarks,
                     branchId,
                 };
@@ -71,7 +75,7 @@ namespace ZenBiz.AppModules.Forms.Inventory.Items
 
         private void FrmStoreStocksAdd_Load(object sender, EventArgs e)
         {
-            uc.dtpDateAcquired.Enabled = false;
+
         }
     }
 }

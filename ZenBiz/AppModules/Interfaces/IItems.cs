@@ -7,5 +7,6 @@ namespace ZenBiz.AppModules.Interfaces
     {
         DataTable Fetch(int storeId);
         public int LastInsertedId();
+        DataTable SearchItemByCode(string itemCode);
     }
 }

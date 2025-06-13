@@ -43,11 +43,13 @@ namespace ZenBiz.AppModules.Forms.Inventory.Stocks
                 return false;
             }
 
-            DateTime? dateAcquired = uc.dtpDateAcquired.Value;
-            int? suppliersId = (int)uc.cmbSupplier.SelectedValue;
-            string? user = uc.txtUser.Text.Trim();
-            string? status = uc.cmbxStatus.Text.Trim();
-            string? remarks = uc.txtRemarks.Text.Trim();
+            int suppliersId = (int)uc.cmbSupplier.SelectedValue;
+            string user = uc.txtUser.Text.Trim();
+            string status = uc.cmbxStatus.Text.Trim();
+            string remarks = uc.txtRemarks.Text.Trim();
+            DateTime dateAcquired = uc.dtpDateAcquired.Value;
+            string? dateRepaired = uc.dtpRepairedDate.Value.ToString("yyyy-MM-dd");
+
 
             StocksModel stocksModel = new()
             {
@@ -59,10 +61,12 @@ namespace ZenBiz.AppModules.Forms.Inventory.Stocks
                 RAM = uc.txtRAM.Text.Trim(),
                 ComputerName = uc.txtComputerName.Text.Trim(),
                 SophosTamper = uc.txtSophosTamper.Text.Trim(),
-                DateAcquired = dateAcquired ?? DateTime.Now,
+                DateAcquired = dateAcquired,
                 UnitCost = uc.nudUnitCost.Value,
-                Status = status ?? string.Empty,
-                Remarks = remarks ?? string.Empty,
+                Status = status,
+                User = user ?? string.Empty,
+                DateRepaired = dateRepaired ?? string.Empty,
+                Remarks = remarks,
             };
 
             _ = Factory.StocksController().Insert(stocksModel);

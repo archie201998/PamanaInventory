@@ -314,5 +314,19 @@ namespace ZenBiz
             combobox.DisplayMember = "name";
             combobox.ValueMember = "id";
         }
+
+        public static void LoadBranches(ComboBox combobox)
+        {
+            combobox.DataSource = Factory.BranchesController().Fetch();
+            combobox.DisplayMember = "name";
+            combobox.ValueMember = "id";
+        }
+
+        public static void LoadSuppliers(ComboBox combobox)
+        {
+            combobox.DataSource = Factory.SuppliersController().Fetch();
+            combobox.DisplayMember = "name";
+            combobox.ValueMember = "id";
+        }
     }
 }

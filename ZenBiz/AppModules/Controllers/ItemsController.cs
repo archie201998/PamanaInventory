@@ -132,5 +132,16 @@ namespace ZenBiz.AppModules.Controllers
             string query = $"SELECT MAX(id) FROM {tblItems}";
             return Convert.ToInt32(_dbGenericCommands.ExecuteScalar(query));
         }
+
+        public DataTable SearchItemByCode(string itemCode)
+        {
+            var parameters = new object[][]
+            {
+                new object[] { "@code", DbType.String, itemCode},
+            };
+
+            string query = $"SELECT * FROM {viewItems} WHERE code = @code";
+            return _dbGenericCommands.Fill(query, parameters);
+        }
     }
 }

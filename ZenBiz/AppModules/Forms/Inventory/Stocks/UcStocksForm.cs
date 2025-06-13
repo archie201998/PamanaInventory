@@ -21,8 +21,23 @@ namespace ZenBiz.AppModules.Forms.Inventory.Items
 
         internal void ResetForm()
         {
-            cmbBranch.SelectedIndex = 0;
-            dtpRepairedDate.Checked = false;
+            nudUnitCost.Value = 0;
+            cmbSupplier.SelectedIndex = -1;
+            cmbxStatus.SelectedIndex = -1;
+            txtUser.Text = string.Empty;
+            chkUser.Checked = false;
+            chkRepairedDate.Checked = false;
+            dtpRepairedDate.Value = DateTime.Now;
+            dtpRepairedDate.Enabled = false;
+            epStockCount.Clear();
+            txtSerialNumber.Clear();
+            txtModel.Clear();
+            txtOS.Clear();
+            txtRAM.Clear();
+            txtComputerName.Clear();
+            txtSophosTamper.Clear();
+            dtpDateAcquired.Value = DateTime.Now;
+            txtRemarks.Clear();
         }
 
         internal void LoadBranches()
@@ -43,8 +58,8 @@ namespace ZenBiz.AppModules.Forms.Inventory.Items
         {
             if (!DesignMode)
             {   
-                LoadBranches();
-                LoadSuppliers();
+                Helper.LoadBranches(cmbBranch);
+                Helper.LoadSuppliers(cmbSupplier);  
             }
         }
 

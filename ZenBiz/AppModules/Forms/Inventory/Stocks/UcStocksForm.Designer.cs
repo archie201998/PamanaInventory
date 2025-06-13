@@ -151,7 +151,7 @@
             // 
             cmbxStatus.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbxStatus.FormattingEnabled = true;
-            cmbxStatus.Items.AddRange(new object[] { "Working", "Defective", "Repaired" });
+            cmbxStatus.Items.AddRange(new object[] { "Working", "Defective" });
             cmbxStatus.Location = new Point(111, 265);
             cmbxStatus.Name = "cmbxStatus";
             cmbxStatus.Size = new Size(300, 23);
@@ -309,7 +309,7 @@
             nudUnitCost.DecimalPlaces = 2;
             nudUnitCost.Increment = new decimal(new int[] { 1, 0, 0, 131072 });
             nudUnitCost.Location = new Point(111, 236);
-            nudUnitCost.Maximum = new decimal(new int[] { 99999, 0, 0, 0 });
+            nudUnitCost.Maximum = new decimal(new int[] { 9999999, 0, 0, 0 });
             nudUnitCost.Name = "nudUnitCost";
             nudUnitCost.Size = new Size(300, 23);
             nudUnitCost.TabIndex = 8;

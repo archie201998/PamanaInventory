@@ -1,4 +1,5 @@
-﻿using ZenBiz.AppModules.Forms.Inventory.Items;
+﻿using System.Data;
+using ZenBiz.AppModules.Forms.Inventory.Items;
 using ZenBiz.AppModules.Forms.Inventory.UnitOfMeasurements;
 using ZenBiz.AppModules.Inventory.Categories;
 
@@ -28,7 +29,6 @@ namespace ZenBiz.AppModules.Inventory.Items
             dgBranchStocks.CurrentCell.Value = dtp.Value;
         }
 
-
         internal string GetFormErrors()
         {
             string[] errorArray = new string[]
@@ -42,7 +42,7 @@ namespace ZenBiz.AppModules.Inventory.Items
 
         private void CreateDatagridViewColumnsOnStocks(DataGridView dataGridView)
         {
-            dataGridView.ColumnCount = 13;
+            dataGridView.ColumnCount = 15;
             dataGridView.Columns[0].Name = "branch";
             dataGridView.Columns[1].Name = "item";
             dataGridView.Columns[2].Name = "serial_number";
@@ -54,10 +54,13 @@ namespace ZenBiz.AppModules.Inventory.Items
             dataGridView.Columns[8].Name = "date_acquired";
             dataGridView.Columns[9].Name = "unit_cost";
             dataGridView.Columns[10].Name = "status";
-            dataGridView.Columns[11].Name = "remarks";
-            dataGridView.Columns[12].Name = "branch_id";
+            dataGridView.Columns[11].Name = "date_repaired";
+            dataGridView.Columns[12].Name = "user";
+            dataGridView.Columns[13].Name = "remarks";
+            dataGridView.Columns[14].Name = "branch_id";
 
-            //dataGridView.Columns["branch_id"].Visible = false;
+            dataGridView.Columns["branch_id"].Visible = false;
+            dataGridView.Columns["branch"].HeaderText = "Branches";
             dataGridView.Columns["item"].HeaderText = "Item Name";
             dataGridView.Columns["serial_number"].HeaderText = "Serial Number";
             dataGridView.Columns["model"].HeaderText = "Model";
@@ -68,10 +71,10 @@ namespace ZenBiz.AppModules.Inventory.Items
             dataGridView.Columns["date_acquired"].HeaderText = "Date Acquired";
             dataGridView.Columns["unit_cost"].HeaderText = "Unit Cost";
             dataGridView.Columns["status"].HeaderText = "Status";
+            dataGridView.Columns["date_repaired"].HeaderText = "Date Repaired";
+            dataGridView.Columns["user"].HeaderText = "User";
             dataGridView.Columns["remarks"].HeaderText = "Remarks";
-
-            dataGridView.Columns["branch"].HeaderText = "Branches";
-            dataGridView.Columns["branch"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dataGridView.Columns["item"].AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
         }
 
 
@@ -90,7 +93,25 @@ namespace ZenBiz.AppModules.Inventory.Items
 
         private void txtCode_Validating(object sender, System.ComponentModel.CancelEventArgs e)
         {
+            epCode.SetError(txtCode, "");
+
+
+
             e.Cancel = Helper.ShowErrorTextBoxEmpty(epCode, txtCode, "code");
+
+
+            string itemCode = txtCode.Text.Trim();
+            DataTable dataTable = Factory.ItemsController().SearchItemByCode(itemCode);
+
+            if (dataTable != null && dataTable.Rows.Count > 0)
+            {
+                epCode.SetError(txtCode, "Item code already exists.");
+                e.Cancel = true;
+                return;
+            }
+
+            epCode.SetError(txtCode, "");
+            e.Cancel = false;
         }
 
         private void txtCode_Validated(object sender, EventArgs e)
