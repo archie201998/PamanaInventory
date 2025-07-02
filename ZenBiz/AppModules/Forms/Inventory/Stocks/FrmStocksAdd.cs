@@ -50,7 +50,6 @@ namespace ZenBiz.AppModules.Forms.Inventory.Stocks
             DateTime dateAcquired = uc.dtpDateAcquired.Value;
             string? dateRepaired = uc.dtpRepairedDate.Value.ToString("yyyy-MM-dd");
 
-
             StocksModel stocksModel = new()
             {
                 Item = new ItemsModel() { Id = _itemId },

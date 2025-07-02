@@ -55,7 +55,7 @@
             // btnAdd
             // 
             btnAdd.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            btnAdd.Location = new Point(988, 37);
+            btnAdd.Location = new Point(988, 40);
             btnAdd.Name = "btnAdd";
             btnAdd.Size = new Size(98, 23);
             btnAdd.TabIndex = 0;
@@ -66,7 +66,7 @@
             // btnEdit
             // 
             btnEdit.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            btnEdit.Location = new Point(988, 66);
+            btnEdit.Location = new Point(988, 69);
             btnEdit.Name = "btnEdit";
             btnEdit.Size = new Size(98, 23);
             btnEdit.TabIndex = 1;
@@ -77,7 +77,7 @@
             // btnDelete
             // 
             btnDelete.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            btnDelete.Location = new Point(988, 95);
+            btnDelete.Location = new Point(988, 98);
             btnDelete.Name = "btnDelete";
             btnDelete.Size = new Size(98, 23);
             btnDelete.TabIndex = 2;
@@ -88,25 +88,23 @@
             // btnStocks
             // 
             btnStocks.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            btnStocks.Location = new Point(988, 289);
+            btnStocks.Location = new Point(988, 282);
             btnStocks.Name = "btnStocks";
             btnStocks.Size = new Size(98, 23);
             btnStocks.TabIndex = 3;
             btnStocks.Text = "Stocks";
             btnStocks.UseVisualStyleBackColor = true;
-            btnStocks.Visible = false;
             btnStocks.Click += btnStocks_Click;
             // 
             // btnAdjustStocks
             // 
             btnAdjustStocks.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            btnAdjustStocks.Location = new Point(988, 318);
+            btnAdjustStocks.Location = new Point(988, 311);
             btnAdjustStocks.Name = "btnAdjustStocks";
             btnAdjustStocks.Size = new Size(98, 23);
             btnAdjustStocks.TabIndex = 4;
             btnAdjustStocks.Text = "Adjust Stocks";
             btnAdjustStocks.UseVisualStyleBackColor = true;
-            btnAdjustStocks.Visible = false;
             // 
             // dgItems
             // 
@@ -115,7 +113,7 @@
             dgItems.Location = new Point(12, 41);
             dgItems.Name = "dgItems";
             dgItems.RowTemplate.Height = 25;
-            dgItems.Size = new Size(970, 220);
+            dgItems.Size = new Size(970, 213);
             dgItems.TabIndex = 5;
             dgItems.SelectionChanged += dgItems_SelectionChanged;
             // 
@@ -131,7 +129,7 @@
             // statusStrip1
             // 
             statusStrip1.Items.AddRange(new ToolStripItem[] { toolStripStatusLabel1, lblRecordCount });
-            statusStrip1.Location = new Point(0, 538);
+            statusStrip1.Location = new Point(0, 618);
             statusStrip1.Name = "statusStrip1";
             statusStrip1.Size = new Size(1098, 22);
             statusStrip1.TabIndex = 7;
@@ -156,21 +154,21 @@
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 20F));
             tableLayoutPanel1.Controls.Add(groupBox1, 0, 0);
-            tableLayoutPanel1.Location = new Point(12, 267);
+            tableLayoutPanel1.Location = new Point(12, 260);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 1;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel1.Size = new Size(970, 268);
+            tableLayoutPanel1.Size = new Size(970, 355);
             tableLayoutPanel1.TabIndex = 8;
             // 
             // groupBox1
             // 
+            groupBox1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             groupBox1.Controls.Add(dgBranchStocks);
-            groupBox1.Dock = DockStyle.Fill;
             groupBox1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
             groupBox1.Location = new Point(3, 3);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(964, 262);
+            groupBox1.Size = new Size(964, 349);
             groupBox1.TabIndex = 0;
             groupBox1.TabStop = false;
             groupBox1.Text = "Branch Stocks";
@@ -198,23 +196,24 @@
             dgBranchStocks.Location = new Point(3, 19);
             dgBranchStocks.Name = "dgBranchStocks";
             dgBranchStocks.RowTemplate.Height = 25;
-            dgBranchStocks.Size = new Size(958, 240);
+            dgBranchStocks.Size = new Size(958, 327);
             dgBranchStocks.TabIndex = 0;
             // 
             // btnUsersHistory
             // 
             btnUsersHistory.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            btnUsersHistory.Location = new Point(988, 512);
+            btnUsersHistory.Location = new Point(988, 587);
             btnUsersHistory.Name = "btnUsersHistory";
             btnUsersHistory.Size = new Size(98, 23);
             btnUsersHistory.TabIndex = 10;
             btnUsersHistory.Text = "Users History";
             btnUsersHistory.UseVisualStyleBackColor = true;
+            btnUsersHistory.Click += btnUsersHistory_Click;
             // 
             // btnRepairsHistory
             // 
             btnRepairsHistory.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            btnRepairsHistory.Location = new Point(988, 483);
+            btnRepairsHistory.Location = new Point(988, 558);
             btnRepairsHistory.Name = "btnRepairsHistory";
             btnRepairsHistory.Size = new Size(98, 23);
             btnRepairsHistory.TabIndex = 9;
@@ -226,7 +225,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1098, 560);
+            ClientSize = new Size(1098, 640);
             Controls.Add(btnUsersHistory);
             Controls.Add(btnRepairsHistory);
             Controls.Add(tableLayoutPanel1);

@@ -14,13 +14,13 @@ namespace ZenBiz.AppModules.Forms.Inventory.Stocks
             Helper.LoadFormIcon(this);
             Helper.DatagridDefaultStyle(dgBranchStocks);
             _itemId = itemId;
-            cmbStores.ComboBox.SelectionChangeCommitted += cmbStores_SelectionChangeCommitted;
+            cmbBranches.ComboBox.SelectionChangeCommitted += cmbStores_SelectionChangeCommitted;
         }
 
         private void LoadItemDetails()
         {
             var dict = Factory.ItemsController().FindById(_itemId);
-            txtCode.Text = dict["sku_code"];
+            txtCode.Text = dict["code"];
             txtName.Text = dict["name"];
             txtCategory.Text = dict["category_name"];
             txtUnit.Text = dict["unit_name"];
@@ -34,9 +34,9 @@ namespace ZenBiz.AppModules.Forms.Inventory.Stocks
             foreach (DataRow item in dtBranches.Rows)
                 storesDict.Add(Convert.ToInt32(item["id"]), item["name"].ToString());
 
-            cmbStores.ComboBox.DataSource = new BindingSource(storesDict, null);
-            cmbStores.ComboBox.DisplayMember = "Value";
-            cmbStores.ComboBox.ValueMember = "key";
+            cmbBranches.ComboBox.DataSource = new BindingSource(storesDict, null);
+            cmbBranches.ComboBox.DisplayMember = "Value";
+            cmbBranches.ComboBox.ValueMember = "key";
         }
 
         private void FrmStocks_Load(object sender, EventArgs e)
@@ -48,46 +48,46 @@ namespace ZenBiz.AppModules.Forms.Inventory.Stocks
 
         private decimal SumDatagridViewStocks(DataGridView dataGridView)
         {
-            decimal total = 0;
-            foreach (DataGridViewRow item in dataGridView.Rows)
-            {
-                total += Convert.ToDecimal(item.Cells["quantity"].Value);
-            }
-
-            return total;
+            return dataGridView.Rows.Count;
         }
 
         private void LoadBranchesStocks()
         {
-            int branchId = (int)cmbStores.ComboBox.SelectedValue;
-
-            if (branchId == 0) 
+            int branchId = (int)cmbBranches.ComboBox.SelectedValue;
+            if (branchId == 0)
                 dgBranchStocks.DataSource = Factory.BranchStocksController().Fetch(_itemId);
-            else 
+            else
                 dgBranchStocks.DataSource = Factory.BranchStocksController().Fetch(branchId, _itemId);
 
-            dgBranchStocks.Columns["id"].Visible = false;
             dgBranchStocks.Columns["stocks_id"].Visible = false;
-            dgBranchStocks.Columns["branch_name"].HeaderText = "Branches";
-            dgBranchStocks.Columns["quantity"].HeaderText = "Quantity";
-            dgBranchStocks.Columns["quantity"].DefaultCellStyle.Format = "N2";
-            dgBranchStocks.Columns["stock_date"].HeaderText = "Stock Date";
-            dgBranchStocks.Columns["stock_date"].DefaultCellStyle.Format = "MMM dd, yyyy";
-            dgBranchStocks.Columns["expiration"].HeaderText = "Expiration";
-            dgBranchStocks.Columns["expiration"].DefaultCellStyle.Format = "MMM dd, yyyy";
-            dgBranchStocks.Columns["suppliers_name"].HeaderText = "Supplier";
-            dgBranchStocks.Columns["repaired_date"].HeaderText = "Repaired Date";
-            dgBranchStocks.Columns["repaired_date"].DefaultCellStyle.Format = "MMM dd, yyyy";
-            dgBranchStocks.Columns["returned_date"].HeaderText = "Returned Date";
-            dgBranchStocks.Columns["returned_date"].DefaultCellStyle.Format = "MMM dd, yyyy";
-            dgBranchStocks.Columns["user"].HeaderText = "User";
-            dgBranchStocks.Columns["status"].HeaderText = "Status";
-            dgBranchStocks.Columns["remarks"].HeaderText = "Remarks";
+            dgBranchStocks.Columns["item_id"].Visible = false;
+            dgBranchStocks.Columns["suppliers_id"].Visible = false;
+            dgBranchStocks.Columns["branches_id"].Visible = false;
+            dgBranchStocks.Columns["created_at"].Visible = false;
+            dgBranchStocks.Columns["created_by"].Visible = false;
+            dgBranchStocks.Columns["updated_at"].Visible = false;
+            dgBranchStocks.Columns["updated_by"].Visible = false;
 
-            lblTotalStoreStocks.Text = SumDatagridViewStocks(dgBranchStocks).ToString("N2");
+            dgBranchStocks.Columns["branch_name"].HeaderText = "Branches";
+            dgBranchStocks.Columns["serial_number"].HeaderText = "Serial Number";
+            dgBranchStocks.Columns["model"].HeaderText = "Model";
+            dgBranchStocks.Columns["operating_system"].HeaderText = "Operating System";
+            dgBranchStocks.Columns["ram"].HeaderText = "RAM";
+            dgBranchStocks.Columns["computer_name"].HeaderText = "Computer Name";
+            dgBranchStocks.Columns["sophos_tamper"].HeaderText = "Sophos Tamper";
+            dgBranchStocks.Columns["unit_cost"].HeaderText = "Unit Cost";
+            dgBranchStocks.Columns["date_acquired"].HeaderText = "Date Acquired";
+            dgBranchStocks.Columns["date_acquired"].DefaultCellStyle.Format = "MMM dd, yyyy";
+            dgBranchStocks.Columns["suppliers_name"].HeaderText = "Supplier";
+            dgBranchStocks.Columns["suppliers_address"].HeaderText = "Supplier Address";
+            dgBranchStocks.Columns["status"].HeaderText = "Status";
+            //dgBranchStocks.Columns["user"].HeaderText = "User";
+            //dgBranchStocks.Columns["remarks"].HeaderText = "Remarks";
+
+            lblTotalStoreStocks.Text = dgBranchStocks.Rows.Count.ToString();
         }
 
-        
+
 
         private void btnStoreStockAdd_Click(object sender, EventArgs e)
         {
@@ -156,6 +156,11 @@ namespace ZenBiz.AppModules.Forms.Inventory.Stocks
         private void FrmStocks_FormClosed(object sender, FormClosedEventArgs e)
         {
             DialogResult = DialogResult.OK;
+        }
+
+        private void cmbBranches_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

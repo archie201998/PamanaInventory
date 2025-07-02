@@ -88,6 +88,7 @@
             Name = "FrmItemsAdd";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Add Item";
+            Load += FrmItemsAdd_Load;
             flowLayoutPanel1.ResumeLayout(false);
             ResumeLayout(false);
         }

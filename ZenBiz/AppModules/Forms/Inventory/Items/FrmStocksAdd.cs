@@ -33,9 +33,8 @@ namespace ZenBiz.AppModules.Forms.Inventory.Items
 
             if (AddStock())
             {
-                string branchId = uc.cmbBranch.SelectedValue.ToString();
+                int branchId = Convert.ToInt32(uc.cmbBranch.SelectedValue);
                 string branch = uc.cmbBranch.Text;
-                string itemName = string.Empty;
                 string serialNumber = uc.txtSerialNumber.Text.Trim();
                 string model = uc.txtModel.Text.Trim();
                 string operatingSystem = uc.txtOS.Text.Trim();
@@ -45,6 +44,8 @@ namespace ZenBiz.AppModules.Forms.Inventory.Items
                 string dateAcquired = uc.dtpDateAcquired.Value.ToString("yyyy-MM-dd");
                 string unitCost = uc.nudUnitCost.Value.ToString("N2");
                 string status = uc.cmbxStatus.Text.Trim();
+                int suppliersId = uc.cmbSupplier.SelectedValue != null ? Convert.ToInt32(uc.cmbSupplier.SelectedValue) : 0;
+                string supplier = uc.cmbSupplier.Text;
                 string user = uc.txtUser.Text.Trim();
                 string dateRepaired = uc.dtpRepairedDate.Value.ToString("yyyy-MM-dd");
                 string remarks = uc.txtRemarks.Text.Trim();
@@ -52,20 +53,21 @@ namespace ZenBiz.AppModules.Forms.Inventory.Items
                 string[] row = new string[]
                 {
                     branch,
-                    itemName,
+                    branchId.ToString(),
                     serialNumber,
                     model,
-                    operatingSystem,
-                    ram,
                     computerName,
+                    ram,
+                    operatingSystem,
                     sophosTamper,
                     dateAcquired,
+                    user,
                     unitCost,
                     status,
-                    user,
+                    suppliersId.ToString(),
+                    supplier,
                     dateRepaired,
                     remarks,
-                    branchId,
                 };
 
                 _dgStocks.Rows.Add(row);

@@ -41,6 +41,7 @@
             ucStocksForm1.Name = "ucStocksForm1";
             ucStocksForm1.Size = new Size(450, 435);
             ucStocksForm1.TabIndex = 0;
+            ucStocksForm1.Load += ucStocksForm1_Load;
             // 
             // flowLayoutPanel1
             // 
@@ -69,7 +70,7 @@
             btnSave.Name = "btnSave";
             btnSave.Size = new Size(75, 23);
             btnSave.TabIndex = 0;
-            btnSave.Text = "Save";
+            btnSave.Text = "Update";
             btnSave.UseVisualStyleBackColor = true;
             btnSave.Click += btnSave_Click;
             // 

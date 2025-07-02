@@ -80,7 +80,7 @@ namespace ZenBiz.AppModules.Controllers
                 new object[] { "@id", DbType.Int32,  Id },
             };
 
-            string query = $"SELECT categories_id, unit_measurements_id,  name, code, created_by, created_time, updated_by, updated_time, category_name, unit_abbreviation, unit_name FROM {viewItems} WHERE id = @id";
+            string query = $"SELECT id, categories_id, unit_measurements_id,  name, code, created_by, created_time, updated_by, updated_time, category_name, unit_abbreviation, unit_name FROM {viewItems} WHERE id = @id";
             using (var reader = _dbGenericCommands.ExecuteReader(query, parameters))
             {
                 if (reader.Rows.Count == 0) return record;

@@ -42,26 +42,26 @@ namespace ZenBiz.AppModules.Inventory.Items
 
         private void CreateDatagridViewColumnsOnStocks(DataGridView dataGridView)
         {
-            dataGridView.ColumnCount = 15;
+            dataGridView.ColumnCount = 16;
             dataGridView.Columns[0].Name = "branch";
-            dataGridView.Columns[1].Name = "item";
+            dataGridView.Columns[1].Name = "branch_id";
             dataGridView.Columns[2].Name = "serial_number";
             dataGridView.Columns[3].Name = "model";
-            dataGridView.Columns[4].Name = "operating_system";
+            dataGridView.Columns[4].Name = "computer_name";
             dataGridView.Columns[5].Name = "ram";
-            dataGridView.Columns[6].Name = "computer_name";
+            dataGridView.Columns[6].Name = "operating_system";
             dataGridView.Columns[7].Name = "sophos_tamper";
             dataGridView.Columns[8].Name = "date_acquired";
-            dataGridView.Columns[9].Name = "unit_cost";
-            dataGridView.Columns[10].Name = "status";
-            dataGridView.Columns[11].Name = "date_repaired";
-            dataGridView.Columns[12].Name = "user";
-            dataGridView.Columns[13].Name = "remarks";
-            dataGridView.Columns[14].Name = "branch_id";
+            dataGridView.Columns[9].Name = "user";
+            dataGridView.Columns[10].Name = "unit_cost";
+            dataGridView.Columns[11].Name = "status";
+            dataGridView.Columns[12].Name = "suppliers_id";
+            dataGridView.Columns[13].Name = "suppliers";
+            dataGridView.Columns[14].Name = "date_repaired";
+            dataGridView.Columns[15].Name = "remarks";
 
-            dataGridView.Columns["branch_id"].Visible = false;
+            dataGridView.Columns["branch_id"].Visible = true;
             dataGridView.Columns["branch"].HeaderText = "Branches";
-            dataGridView.Columns["item"].HeaderText = "Item Name";
             dataGridView.Columns["serial_number"].HeaderText = "Serial Number";
             dataGridView.Columns["model"].HeaderText = "Model";
             dataGridView.Columns["operating_system"].HeaderText = "Operating Sys.";
@@ -71,10 +71,12 @@ namespace ZenBiz.AppModules.Inventory.Items
             dataGridView.Columns["date_acquired"].HeaderText = "Date Acquired";
             dataGridView.Columns["unit_cost"].HeaderText = "Unit Cost";
             dataGridView.Columns["status"].HeaderText = "Status";
+            dataGridView.Columns["suppliers_id"].HeaderText = "Supplier ID";
+            dataGridView.Columns["suppliers"].HeaderText = "Supplier ID";
             dataGridView.Columns["date_repaired"].HeaderText = "Date Repaired";
             dataGridView.Columns["user"].HeaderText = "User";
             dataGridView.Columns["remarks"].HeaderText = "Remarks";
-            dataGridView.Columns["item"].AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
+            dataGridView.Columns["computer_name"].AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
         }
 
 
@@ -179,10 +181,22 @@ namespace ZenBiz.AppModules.Inventory.Items
             int rowIndex = dataGridView.CurrentCell.RowIndex;
             Dictionary<string, string> data = new()
             {
-                { "stocks", dataGridView.Rows[rowIndex].Cells["stocks"].Value.ToString() },
-                { "expiration", dataGridView.Rows[rowIndex].Cells["expiration"].Value.ToString() },
-                { "stock_date", dataGridView.Rows[rowIndex].Cells["stock_date"].Value.ToString() },
-                { "store_warehouse_id", dataGridView.Rows[rowIndex].Cells["store_warehouse_id"].Value.ToString() },
+                { "branch_id", dataGridView.Rows[rowIndex].Cells["branch_id"].Value?.ToString() ?? "" },
+                { "branch", dataGridView.Rows[rowIndex].Cells["branch"].Value?.ToString() ?? "" },
+                { "item", dataGridView.Rows[rowIndex].Cells["item"].Value?.ToString() ?? "" },
+                { "serial_number", dataGridView.Rows[rowIndex].Cells["serial_number"].Value?.ToString() ?? "" },
+                { "model", dataGridView.Rows[rowIndex].Cells["model"].Value?.ToString() ?? "" },
+                { "operating_system", dataGridView.Rows[rowIndex].Cells["operating_system"].Value?.ToString() ?? "" },
+                { "ram", dataGridView.Rows[rowIndex].Cells["ram"].Value?.ToString() ?? "" },
+                { "computer_name", dataGridView.Rows[rowIndex].Cells["computer_name"].Value?.ToString() ?? "" },
+                { "sophos_tamper", dataGridView.Rows[rowIndex].Cells["sophos_tamper"].Value?.ToString() ?? "" },
+                { "date_acquired", dataGridView.Rows[rowIndex].Cells["date_acquired"].Value?.ToString() ?? "" },
+                { "unit_cost", dataGridView.Rows[rowIndex].Cells["unit_cost"].Value?.ToString() ?? "" },
+                { "suppliers_id", dataGridView.Rows[rowIndex].Cells["suppliers_id"].Value?.ToString() ?? "" },
+                { "status", dataGridView.Rows[rowIndex].Cells["suppliers"].Value?.ToString() ?? "" },
+                { "date_repaired", dataGridView.Rows[rowIndex].Cells["date_repaired"].Value?.ToString() ?? "" },
+                { "user", dataGridView.Rows[rowIndex].Cells["user"].Value?.ToString() ?? "" },
+                { "remarks", dataGridView.Rows[rowIndex].Cells["remarks"].Value?.ToString() ?? "" }
             };
 
             return data;
@@ -190,7 +204,7 @@ namespace ZenBiz.AppModules.Inventory.Items
 
         private void btnEditStoreStock_Click(object sender, EventArgs e)
         {
-            _ = new FrmStocksEdit(GetSelectedData(dgBranchStocks), dgBranchStocks, false).ShowDialog();
+            _ = new FrmStocksEdit(GetSelectedData(dgBranchStocks), dgBranchStocks).ShowDialog();
         }
 
     }

@@ -50,16 +50,16 @@ namespace ZenBiz.AppModules.Forms.Inventory.Items
             lblRecordCount.Text = dgItems.Rows.Count.ToString();
         }
 
-        private void LoadBranches()
+        private void LoadBranchesStocks()
         {
             dgBranchStocks.Rows.Clear();
             int itemId = (int)dgItems.SelectedCells[0].Value;
-            DataTable dtBranhes = Factory.BranchStocksController().FetchBranches(itemId);
+            DataTable dtBranhes = Factory.BranchStocksController().FetchBranchesStocks(itemId);
             foreach (DataRow item in dtBranhes.Rows)
             {
                 int branchId = (int)item["branches_id"];
                 string storeName = item["branch_name"].ToString();
-                decimal stocksLeft = 0;
+                decimal stocksLeft = Factory.BranchStocksController().SumTotalStocks(branchId, itemId); 
                 dgBranchStocks.Rows.Add(branchId, storeName, stocksLeft.ToString("N2"));
             }
         }
@@ -122,7 +122,7 @@ namespace ZenBiz.AppModules.Forms.Inventory.Items
             DialogResult dialogResult = form.ShowDialog();
             if (dialogResult == DialogResult.OK)
             {
-                LoadBranches();
+                LoadBranchesStocks();
             }
 
             form.Dispose();
@@ -138,7 +138,7 @@ namespace ZenBiz.AppModules.Forms.Inventory.Items
             Helper.EnableDisableButtons(dgItems, btnEdit, btnDelete);
             if (dgItems.SelectedRows.Count == 1)
             {
-                LoadBranches();
+                LoadBranchesStocks();
                 btnStocks.Enabled = true;
                 btnAdjustStocks.Enabled = true;
                 return;
@@ -150,6 +150,11 @@ namespace ZenBiz.AppModules.Forms.Inventory.Items
         }
 
         private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnUsersHistory_Click(object sender, EventArgs e)
         {
 
         }

@@ -60,20 +60,20 @@ namespace ZenBiz.AppModules.Controllers
                 new object[] { "@item_id", DbType.String, itemId },
             };
 
-            string query = $"SELECT id, stocks_id, branch_name, quantity, stock_date, expiration, suppliers_name, user, status, repaired_date, returned_date, remarks FROM {viewBranchStocks} WHERE item_id = @item_id";
+            string query = $"SELECT * FROM {viewBranchStocks} WHERE item_id = @item_id";
             return _dbGenericCommands.Fill(query, parameters);
         }
 
-        public DataTable Fetch(int storeId, int itemId)
+        public DataTable Fetch(int branchId, int itemId)
         {
-            var parameters = new object[][]
+            var parameters = new object[][]               
             {
-                new object[] { "@branches_id", DbType.String, storeId },
+                new object[] { "@branches_id", DbType.String, branchId   },
                 new object[] { "@item_id", DbType.String, itemId },
             };
 
-            string query = $"SELECT id, stocks_id, branch_name, quantity, stock_date, expiration, suppliers_name FROM {viewBranchStocks} WHERE branches_id = @branches_id AND item_id = @item_id";
-            return _dbGenericCommands.Fill(query, parameters);
+            string query = $"SELECT * FROM {viewBranchStocks} WHERE branches_id = @branches_id AND item_id = @item_id";
+            return _dbGenericCommands.Fill(query, parameters);              
         }
 
         public DataTable Fetch(int storeId, string searchText)
@@ -88,7 +88,7 @@ namespace ZenBiz.AppModules.Controllers
             return _dbGenericCommands.Fill(query, parameters);
         }
 
-        public DataTable FetchBranches(int itemId)
+        public DataTable FetchBranchesStocks(int itemId)
         {
             var parameters = new object[][]
             {
@@ -118,7 +118,7 @@ namespace ZenBiz.AppModules.Controllers
                 new object[] { "@stocks_id", DbType.Int32, stockId },
             };
 
-            string query = $"SELECT branches_id, suppliers_id, branch_name, store_address, item_id, quantity, stock_date, expiration, suppliers_name, user, status, repaired_date, returned_date, remarks FROM {viewBranchStocks} WHERE stocks_id = @stocks_id";
+            string query = $"SELECT * FROM {viewBranchStocks} WHERE stocks_id = @stocks_id";
             using (var reader = _dbGenericCommands.ExecuteReader(query, parameters))
             {
                 if (reader.Rows.Count == 0) return record;
@@ -166,7 +166,7 @@ namespace ZenBiz.AppModules.Controllers
                 new object[] { "@item_id", DbType.String, itemId },
             };
 
-            string query = $"SELECT id, stocks_id, branch_name, store_address, quantity, stock_date, expiration FROM {viewBranchStocks} WHERE branches_id = @branches_id AND item_id = @item_id";
+            string query = $"SELECT id* FROM {viewBranchStocks} WHERE branches_id = @branches_id AND item_id = @item_id";
             return _dbGenericCommands.Fill(query, parameters);
         }
 

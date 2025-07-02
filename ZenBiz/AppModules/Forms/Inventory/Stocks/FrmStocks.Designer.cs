@@ -48,7 +48,7 @@
             btnStoreStockDelete = new ToolStripButton();
             lblTotalStoreStocks = new ToolStripLabel();
             toolStripLabel2 = new ToolStripLabel();
-            cmbStores = new ToolStripComboBox();
+            cmbBranches = new ToolStripComboBox();
             groupBox1.SuspendLayout();
             panel1.SuspendLayout();
             tabControl1.SuspendLayout();
@@ -190,7 +190,7 @@
             // toolStrip2
             // 
             toolStrip2.GripStyle = ToolStripGripStyle.Hidden;
-            toolStrip2.Items.AddRange(new ToolStripItem[] { btnStoreStockAdd, btnStoreStockEdit, btnStoreStockDelete, lblTotalStoreStocks, toolStripLabel2, cmbStores });
+            toolStrip2.Items.AddRange(new ToolStripItem[] { btnStoreStockAdd, btnStoreStockEdit, btnStoreStockDelete, lblTotalStoreStocks, toolStripLabel2, cmbBranches });
             toolStrip2.Location = new Point(3, 3);
             toolStrip2.Name = "toolStrip2";
             toolStrip2.Size = new Size(838, 25);
@@ -241,12 +241,13 @@
             toolStripLabel2.Size = new Size(36, 22);
             toolStripLabel2.Text = "Total:";
             // 
-            // cmbStores
+            // cmbBranches
             // 
-            cmbStores.Alignment = ToolStripItemAlignment.Right;
-            cmbStores.DropDownStyle = ComboBoxStyle.DropDownList;
-            cmbStores.Name = "cmbStores";
-            cmbStores.Size = new Size(121, 25);
+            cmbBranches.Alignment = ToolStripItemAlignment.Right;
+            cmbBranches.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbBranches.Name = "cmbBranches";
+            cmbBranches.Size = new Size(200, 25);
+            cmbBranches.Click += cmbBranches_Click;
             // 
             // FrmStocks
             // 
@@ -295,6 +296,6 @@
         private ToolStripButton btnStoreStockDelete;
         private ToolStripLabel lblTotalStoreStocks;
         private ToolStripLabel toolStripLabel2;
-        private ToolStripComboBox cmbStores;
+        private ToolStripComboBox cmbBranches;
     }
 }

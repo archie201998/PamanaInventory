@@ -39,6 +39,7 @@ namespace ZenBiz.AppModules.Forms.Inventory.Items
                 StocksModel stocksModel = new()
                 {
                     Item = new ItemsModel() { Id = Factory.ItemsController().LastInsertedId() },
+                    Supplier = new SupplierModel() { Id = Convert.ToInt32(item.Cells["suppliers_id"].Value) },
                     SerialNumber = item.Cells["serial_number"].Value?.ToString() ?? string.Empty,
                     Model = item.Cells["model"].Value?.ToString() ?? string.Empty,
                     OperatingSystem = item.Cells["operating_system"].Value?.ToString() ?? string.Empty,
@@ -67,20 +68,23 @@ namespace ZenBiz.AppModules.Forms.Inventory.Items
 
         private bool SaveData()
         {
+            if (!uc.ValidateChildren())
+            {
+                Helper.MessageBoxError(uc.GetFormErrors());
+                return false;
+            }
+
+            using TransactionScope scope = new();
+            _ = InsertItems();
+            InsertBranchStocks();
+
+            scope.Complete();
+            return true;
+
+
             try
             {
-                if (!uc.ValidateChildren())
-                {
-                    Helper.MessageBoxError(uc.GetFormErrors());
-                    return false;
-                }
 
-                using TransactionScope scope = new();
-                _ = InsertItems();
-                InsertBranchStocks();
-
-                scope.Complete();
-                return true;
             }
             catch (Exception ex)
             {
@@ -100,5 +104,9 @@ namespace ZenBiz.AppModules.Forms.Inventory.Items
             }
         }
 
+        private void FrmItemsAdd_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
