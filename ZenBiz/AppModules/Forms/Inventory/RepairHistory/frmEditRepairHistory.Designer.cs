@@ -1,6 +1,6 @@
-﻿namespace ZenBiz.AppModules.Forms.Inventory.Items
+﻿namespace PamanaWaterInventory.AppModules.Forms.Inventory.RepairHistory
 {
-    partial class FrmItemsEdit
+    partial class frmEditRepairHistory
     {
         /// <summary>
         /// Required designer variable.
@@ -31,7 +31,7 @@
             flowLayoutPanel1 = new FlowLayoutPanel();
             btnCancel = new Button();
             btnSave = new Button();
-            ucItemDetails1 = new UcItemDetails();
+            ucRepairHistory1 = new ucRepairHistory();
             flowLayoutPanel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -41,15 +41,15 @@
             flowLayoutPanel1.Controls.Add(btnCancel);
             flowLayoutPanel1.Controls.Add(btnSave);
             flowLayoutPanel1.Dock = DockStyle.Bottom;
-            flowLayoutPanel1.Location = new Point(0, 159);
+            flowLayoutPanel1.Location = new Point(0, 324);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
             flowLayoutPanel1.RightToLeft = RightToLeft.Yes;
-            flowLayoutPanel1.Size = new Size(461, 30);
-            flowLayoutPanel1.TabIndex = 3;
+            flowLayoutPanel1.Size = new Size(472, 30);
+            flowLayoutPanel1.TabIndex = 6;
             // 
             // btnCancel
             // 
-            btnCancel.Location = new Point(383, 3);
+            btnCancel.Location = new Point(394, 3);
             btnCancel.Name = "btnCancel";
             btnCancel.Size = new Size(75, 23);
             btnCancel.TabIndex = 1;
@@ -58,44 +58,40 @@
             // 
             // btnSave
             // 
-            btnSave.Location = new Point(302, 3);
+            btnSave.Location = new Point(313, 3);
             btnSave.Name = "btnSave";
             btnSave.Size = new Size(75, 23);
             btnSave.TabIndex = 0;
             btnSave.Text = "Save";
             btnSave.UseVisualStyleBackColor = true;
-            btnSave.Click += btnSave_Click;
             // 
-            // ucItemDetails1
+            // ucRepairHistory1
             // 
-            ucItemDetails1.Location = new Point(12, 12);
-            ucItemDetails1.Name = "ucItemDetails1";
-            ucItemDetails1.Size = new Size(452, 153);
-            ucItemDetails1.TabIndex = 4;
+            ucRepairHistory1.Location = new Point(4, 6);
+            ucRepairHistory1.Name = "ucRepairHistory1";
+            ucRepairHistory1.Size = new Size(465, 303);
+            ucRepairHistory1.TabIndex = 7;
             // 
-            // FrmItemsEdit
+            // frmEditRepairHistory
             // 
-            AcceptButton = btnSave;
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            AutoValidate = AutoValidate.EnableAllowFocusChange;
-            CancelButton = btnCancel;
-            ClientSize = new Size(461, 189);
-            Controls.Add(ucItemDetails1);
+            ClientSize = new Size(472, 354);
+            Controls.Add(ucRepairHistory1);
             Controls.Add(flowLayoutPanel1);
             FormBorderStyle = FormBorderStyle.FixedToolWindow;
-            Name = "FrmItemsEdit";
+            Name = "frmEditRepairHistory";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Edt Item";
-            Load += FrmItemsEdit_Load;
+            Text = "Edit Repair History";
             flowLayoutPanel1.ResumeLayout(false);
             ResumeLayout(false);
         }
 
         #endregion
+
         private FlowLayoutPanel flowLayoutPanel1;
         private Button btnCancel;
         private Button btnSave;
-        private UcItemDetails ucItemDetails1;
+        private ucRepairHistory ucRepairHistory1;
     }
 }

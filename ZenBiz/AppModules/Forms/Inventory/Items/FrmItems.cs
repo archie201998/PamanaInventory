@@ -1,4 +1,5 @@
 ﻿using MySql.Data.MySqlClient;
+using PamanaWaterInventory.AppModules.Forms.Inventory.RepairHistory;
 using System.Data;
 using ZenBiz.AppModules.Forms.Inventory.Stocks;
 using ZenBiz.AppModules.Inventory;
@@ -151,7 +152,7 @@ namespace ZenBiz.AppModules.Forms.Inventory.Items
 
         private void button2_Click(object sender, EventArgs e)
         {
-
+            _ = new frmRepairHistory().ShowDialog();
         }
 
         private void btnUsersHistory_Click(object sender, EventArgs e)

@@ -105,6 +105,7 @@
             btnAdjustStocks.TabIndex = 4;
             btnAdjustStocks.Text = "Adjust Stocks";
             btnAdjustStocks.UseVisualStyleBackColor = true;
+            btnAdjustStocks.Visible = false;
             // 
             // dgItems
             // 
