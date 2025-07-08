@@ -67,6 +67,7 @@ namespace PamanaWaterInventory.AppModules.Forms.Inventory.RepairHistory
             int rowIndex = dgRepairHistory.CurrentCell.RowIndex;
             int repairId = Convert.ToInt32(dgRepairHistory.Rows[rowIndex].Cells["id"].Value);
             _ = new frmEditRepairHistory(_stocksId, repairId).ShowDialog();
+            LoadRepairHistory();
         }
 
         private void btnDeleteStoreStock_Click(object sender, EventArgs e)

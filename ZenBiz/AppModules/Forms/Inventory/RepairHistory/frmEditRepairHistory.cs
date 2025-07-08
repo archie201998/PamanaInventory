@@ -65,6 +65,7 @@ namespace PamanaWaterInventory.AppModules.Forms.Inventory.RepairHistory
                 OtherDetails = otherDetails,
                 StockID = stocksId,
                 Id = repairId   
+
             };
 
             return Factory.RepairedHistoryController().Update(repairedHistoryModel);

@@ -110,6 +110,7 @@ namespace PamanaWaterInventory.AppModules.Controllers
         {
             var parameters = new object[][]
             {
+                new object[] { "@id", DbType.String, entity.Id },
                 new object[] { "@reported_by", DbType.String, entity.ReportedBy },
                 new object[] { "@issue_description", DbType.String, entity.IssueDescription },
                 new object[] { "@repair_action", DbType.String, entity.RepairedAction },
