@@ -1,4 +1,5 @@
 ﻿using MySql.Data.MySqlClient;
+using PamanaWaterInventory.AppModules.Forms.Inventory.RepairHistory;
 using System.Data;
 using ZenBiz.AppModules.Models;
 
@@ -44,11 +45,6 @@ namespace ZenBiz.AppModules.Forms.Inventory.Stocks
             LoadItemDetails();
             LoadBranches();
             LoadBranchesStocks();
-        }
-
-        private decimal SumDatagridViewStocks(DataGridView dataGridView)
-        {
-            return dataGridView.Rows.Count;
         }
 
         private void LoadBranchesStocks()
@@ -162,5 +158,30 @@ namespace ZenBiz.AppModules.Forms.Inventory.Stocks
         {
 
         }
+
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            if (dgBranchStocks.CurrentCell != null && dgBranchStocks.CurrentCell.RowIndex >= 0)
+            {
+                int rowIndex = dgBranchStocks.CurrentCell.RowIndex;
+                object stockIdValue = dgBranchStocks.Rows[rowIndex].Cells["stocks_id"].Value;
+                string serialNumber = dgBranchStocks.Rows[rowIndex].Cells["serial_number"].Value?.ToString() ?? string.Empty;
+
+
+                if (stockIdValue != null && int.TryParse(stockIdValue.ToString(), out int stockId))
+                {
+                    _ = new frmRepairHistory(stockId, serialNumber).ShowDialog();
+                }
+                else
+                {
+                    MessageBox.Show("Invalid or missing stock ID.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please select a valid row first.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
     }
 }

@@ -17,6 +17,11 @@ namespace PamanaWaterInventory.AppModules.Forms.Inventory.RepairHistory
             InitializeComponent();
         }
 
+        internal string GetFormErrors()
+        {
+            throw new NotImplementedException();
+        }
+
         private void ucRepairHistory_Load(object sender, EventArgs e)
         {
             if (!DesignMode)

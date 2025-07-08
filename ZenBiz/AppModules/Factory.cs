@@ -1,4 +1,6 @@
-﻿using ZenBiz.AppModules.Controllers;
+﻿using PamanaWaterInventory.AppModules.Controllers;
+using PamanaWaterInventory.AppModules.Interfaces;
+using ZenBiz.AppModules.Controllers;
 using ZenBiz.AppModules.Interfaces;
 
 namespace ZenBiz.AppModules
@@ -19,7 +21,7 @@ namespace ZenBiz.AppModules
         public static ICategories CategoriesController() => new CategoriesController(mySQLGenericCommands);
         public static ISupplier SuppliersController() => new SuppliersController(mySQLGenericCommands);
         public static IUnitsOfMeasurements UnitsOfMeasurementsController() => new UnitsOfMeasurementsController(mySQLGenericCommands);
-
         public static IPersonnel PersonnelController() => new PersonnelController(mySQLGenericCommands);
+        public static IRepairedHistory RepairedHistoryController() => new RepairedHistoryController(mySQLGenericCommands);
     }
 }

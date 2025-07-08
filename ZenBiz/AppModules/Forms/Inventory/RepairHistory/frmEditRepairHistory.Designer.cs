@@ -31,7 +31,7 @@
             flowLayoutPanel1 = new FlowLayoutPanel();
             btnCancel = new Button();
             btnSave = new Button();
-            ucRepairHistory1 = new ucRepairHistory();
+            ucRepairHistory2 = new ucRepairHistory();
             flowLayoutPanel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -62,27 +62,30 @@
             btnSave.Name = "btnSave";
             btnSave.Size = new Size(75, 23);
             btnSave.TabIndex = 0;
-            btnSave.Text = "Save";
+            btnSave.Text = "Update";
             btnSave.UseVisualStyleBackColor = true;
+            btnSave.Click += btnSave_Click;
             // 
-            // ucRepairHistory1
+            // ucRepairHistory2
             // 
-            ucRepairHistory1.Location = new Point(4, 6);
-            ucRepairHistory1.Name = "ucRepairHistory1";
-            ucRepairHistory1.Size = new Size(465, 303);
-            ucRepairHistory1.TabIndex = 7;
+            ucRepairHistory2.Dock = DockStyle.Fill;
+            ucRepairHistory2.Location = new Point(0, 0);
+            ucRepairHistory2.Name = "ucRepairHistory2";
+            ucRepairHistory2.Size = new Size(472, 324);
+            ucRepairHistory2.TabIndex = 7;
             // 
             // frmEditRepairHistory
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(472, 354);
-            Controls.Add(ucRepairHistory1);
+            Controls.Add(ucRepairHistory2);
             Controls.Add(flowLayoutPanel1);
             FormBorderStyle = FormBorderStyle.FixedToolWindow;
             Name = "frmEditRepairHistory";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Edit Repair History";
+            Load += frmEditRepairHistory_Load;
             flowLayoutPanel1.ResumeLayout(false);
             ResumeLayout(false);
         }
@@ -91,7 +94,8 @@
 
         private FlowLayoutPanel flowLayoutPanel1;
         private Button btnCancel;
-        private Button btnSave;
         private ucRepairHistory ucRepairHistory1;
+        private ucRepairHistory ucRepairHistory2;
+        private Button btnSave;
     }
 }

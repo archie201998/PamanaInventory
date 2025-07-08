@@ -49,6 +49,9 @@
             lblTotalStoreStocks = new ToolStripLabel();
             toolStripLabel2 = new ToolStripLabel();
             cmbBranches = new ToolStripComboBox();
+            toolStripSeparator1 = new ToolStripSeparator();
+            toolStripButton1 = new ToolStripButton();
+            toolStripButton2 = new ToolStripButton();
             groupBox1.SuspendLayout();
             panel1.SuspendLayout();
             tabControl1.SuspendLayout();
@@ -64,7 +67,7 @@
             groupBox1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
             groupBox1.Location = new Point(12, 12);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(852, 112);
+            groupBox1.Size = new Size(1090, 112);
             groupBox1.TabIndex = 0;
             groupBox1.TabStop = false;
             groupBox1.Text = "Item Details";
@@ -83,7 +86,7 @@
             panel1.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             panel1.Location = new Point(3, 19);
             panel1.Name = "panel1";
-            panel1.Size = new Size(846, 90);
+            panel1.Size = new Size(1084, 90);
             panel1.TabIndex = 1;
             // 
             // txtUnit
@@ -122,7 +125,7 @@
             // 
             // txtName
             // 
-            txtName.Location = new Point(529, 50);
+            txtName.Location = new Point(386, 47);
             txtName.Name = "txtName";
             txtName.ReadOnly = true;
             txtName.Size = new Size(207, 23);
@@ -131,7 +134,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(467, 53);
+            label2.Location = new Point(324, 50);
             label2.Name = "label2";
             label2.Size = new Size(39, 15);
             label2.TabIndex = 2;
@@ -139,7 +142,7 @@
             // 
             // txtCode
             // 
-            txtCode.Location = new Point(529, 21);
+            txtCode.Location = new Point(386, 18);
             txtCode.Name = "txtCode";
             txtCode.ReadOnly = true;
             txtCode.Size = new Size(207, 23);
@@ -148,7 +151,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(467, 24);
+            label1.Location = new Point(324, 21);
             label1.Name = "label1";
             label1.Size = new Size(35, 15);
             label1.TabIndex = 0;
@@ -161,7 +164,7 @@
             tabControl1.Location = new Point(12, 130);
             tabControl1.Name = "tabControl1";
             tabControl1.SelectedIndex = 0;
-            tabControl1.Size = new Size(852, 370);
+            tabControl1.Size = new Size(1090, 370);
             tabControl1.TabIndex = 1;
             // 
             // tabStores
@@ -171,7 +174,7 @@
             tabStores.Location = new Point(4, 24);
             tabStores.Name = "tabStores";
             tabStores.Padding = new Padding(3);
-            tabStores.Size = new Size(844, 342);
+            tabStores.Size = new Size(1082, 342);
             tabStores.TabIndex = 0;
             tabStores.Text = "Branches";
             tabStores.UseVisualStyleBackColor = true;
@@ -180,65 +183,65 @@
             // 
             dgBranchStocks.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgBranchStocks.Dock = DockStyle.Fill;
-            dgBranchStocks.Location = new Point(3, 28);
+            dgBranchStocks.Location = new Point(3, 41);
             dgBranchStocks.Name = "dgBranchStocks";
             dgBranchStocks.RowTemplate.Height = 25;
-            dgBranchStocks.Size = new Size(838, 311);
+            dgBranchStocks.Size = new Size(1076, 298);
             dgBranchStocks.TabIndex = 3;
             dgBranchStocks.SelectionChanged += dgStoreStocks_SelectionChanged;
             // 
             // toolStrip2
             // 
             toolStrip2.GripStyle = ToolStripGripStyle.Hidden;
-            toolStrip2.Items.AddRange(new ToolStripItem[] { btnStoreStockAdd, btnStoreStockEdit, btnStoreStockDelete, lblTotalStoreStocks, toolStripLabel2, cmbBranches });
+            toolStrip2.Items.AddRange(new ToolStripItem[] { btnStoreStockAdd, btnStoreStockEdit, btnStoreStockDelete, lblTotalStoreStocks, toolStripLabel2, cmbBranches, toolStripSeparator1, toolStripButton1, toolStripButton2 });
             toolStrip2.Location = new Point(3, 3);
             toolStrip2.Name = "toolStrip2";
-            toolStrip2.Size = new Size(838, 25);
+            toolStrip2.Size = new Size(1076, 38);
             toolStrip2.TabIndex = 2;
             toolStrip2.Text = "toolStrip2";
             // 
             // btnStoreStockAdd
             // 
-            btnStoreStockAdd.DisplayStyle = ToolStripItemDisplayStyle.Image;
             btnStoreStockAdd.Image = (Image)resources.GetObject("btnStoreStockAdd.Image");
             btnStoreStockAdd.ImageTransparentColor = Color.Magenta;
             btnStoreStockAdd.Name = "btnStoreStockAdd";
-            btnStoreStockAdd.Size = new Size(23, 22);
+            btnStoreStockAdd.Size = new Size(33, 35);
             btnStoreStockAdd.Text = "Add";
+            btnStoreStockAdd.TextImageRelation = TextImageRelation.ImageAboveText;
             btnStoreStockAdd.Click += btnStoreStockAdd_Click;
             // 
             // btnStoreStockEdit
             // 
-            btnStoreStockEdit.DisplayStyle = ToolStripItemDisplayStyle.Image;
             btnStoreStockEdit.Image = (Image)resources.GetObject("btnStoreStockEdit.Image");
             btnStoreStockEdit.ImageTransparentColor = Color.Magenta;
             btnStoreStockEdit.Name = "btnStoreStockEdit";
-            btnStoreStockEdit.Size = new Size(23, 22);
+            btnStoreStockEdit.Size = new Size(31, 35);
             btnStoreStockEdit.Text = "Edit";
+            btnStoreStockEdit.TextImageRelation = TextImageRelation.ImageAboveText;
             btnStoreStockEdit.Click += btnStoreStockEdit_Click;
             // 
             // btnStoreStockDelete
             // 
-            btnStoreStockDelete.DisplayStyle = ToolStripItemDisplayStyle.Image;
             btnStoreStockDelete.Image = (Image)resources.GetObject("btnStoreStockDelete.Image");
             btnStoreStockDelete.ImageTransparentColor = Color.Magenta;
             btnStoreStockDelete.Name = "btnStoreStockDelete";
-            btnStoreStockDelete.Size = new Size(23, 22);
+            btnStoreStockDelete.Size = new Size(44, 35);
             btnStoreStockDelete.Text = "Delete";
+            btnStoreStockDelete.TextImageRelation = TextImageRelation.ImageAboveText;
             btnStoreStockDelete.Click += btnStoreStockDelete_Click;
             // 
             // lblTotalStoreStocks
             // 
             lblTotalStoreStocks.Alignment = ToolStripItemAlignment.Right;
             lblTotalStoreStocks.Name = "lblTotalStoreStocks";
-            lblTotalStoreStocks.Size = new Size(28, 22);
+            lblTotalStoreStocks.Size = new Size(28, 35);
             lblTotalStoreStocks.Text = "0.00";
             // 
             // toolStripLabel2
             // 
             toolStripLabel2.Alignment = ToolStripItemAlignment.Right;
             toolStripLabel2.Name = "toolStripLabel2";
-            toolStripLabel2.Size = new Size(36, 22);
+            toolStripLabel2.Size = new Size(36, 35);
             toolStripLabel2.Text = "Total:";
             // 
             // cmbBranches
@@ -246,21 +249,45 @@
             cmbBranches.Alignment = ToolStripItemAlignment.Right;
             cmbBranches.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbBranches.Name = "cmbBranches";
-            cmbBranches.Size = new Size(200, 25);
+            cmbBranches.Size = new Size(200, 38);
             cmbBranches.Click += cmbBranches_Click;
+            // 
+            // toolStripSeparator1
+            // 
+            toolStripSeparator1.Name = "toolStripSeparator1";
+            toolStripSeparator1.Size = new Size(6, 38);
+            // 
+            // toolStripButton1
+            // 
+            toolStripButton1.Image = PamanaWaterInventory.Properties.Resources.icons8_tools_24;
+            toolStripButton1.ImageTransparentColor = Color.Magenta;
+            toolStripButton1.Name = "toolStripButton1";
+            toolStripButton1.Size = new Size(49, 35);
+            toolStripButton1.Text = "Repairs";
+            toolStripButton1.TextImageRelation = TextImageRelation.ImageAboveText;
+            toolStripButton1.Click += toolStripButton1_Click;
+            // 
+            // toolStripButton2
+            // 
+            toolStripButton2.Image = PamanaWaterInventory.Properties.Resources.icons8_user_24;
+            toolStripButton2.ImageTransparentColor = Color.Magenta;
+            toolStripButton2.Name = "toolStripButton2";
+            toolStripButton2.Size = new Size(39, 35);
+            toolStripButton2.Text = "Users";
+            toolStripButton2.TextImageRelation = TextImageRelation.ImageAboveText;
             // 
             // FrmStocks
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(876, 510);
+            ClientSize = new Size(1114, 510);
             Controls.Add(tabControl1);
             Controls.Add(groupBox1);
             FormBorderStyle = FormBorderStyle.FixedSingle;
-            MaximizeBox = false;
             Name = "FrmStocks";
             StartPosition = FormStartPosition.CenterParent;
             Text = "Stocks";
+            WindowState = FormWindowState.Maximized;
             FormClosed += FrmStocks_FormClosed;
             Load += FrmStocks_Load;
             groupBox1.ResumeLayout(false);
@@ -297,5 +324,8 @@
         private ToolStripLabel lblTotalStoreStocks;
         private ToolStripLabel toolStripLabel2;
         private ToolStripComboBox cmbBranches;
+        private ToolStripSeparator toolStripSeparator1;
+        private ToolStripButton toolStripButton1;
+        private ToolStripButton toolStripButton2;
     }
 }

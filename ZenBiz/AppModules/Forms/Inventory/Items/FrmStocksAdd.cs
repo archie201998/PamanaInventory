@@ -46,8 +46,6 @@ namespace ZenBiz.AppModules.Forms.Inventory.Items
                 string status = uc.cmbxStatus.Text.Trim();
                 int suppliersId = uc.cmbSupplier.SelectedValue != null ? Convert.ToInt32(uc.cmbSupplier.SelectedValue) : 0;
                 string supplier = uc.cmbSupplier.Text;
-                string user = uc.txtUser.Text.Trim();
-                string dateRepaired = uc.dtpRepairedDate.Value.ToString("yyyy-MM-dd");
                 string remarks = uc.txtRemarks.Text.Trim();
 
                 string[] row = new string[]
@@ -61,12 +59,10 @@ namespace ZenBiz.AppModules.Forms.Inventory.Items
                     operatingSystem,
                     sophosTamper,
                     dateAcquired,
-                    user,
                     unitCost,
                     status,
                     suppliersId.ToString(),
                     supplier,
-                    dateRepaired,
                     remarks,
                 };
 

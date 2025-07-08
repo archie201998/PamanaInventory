@@ -44,11 +44,9 @@ namespace ZenBiz.AppModules.Forms.Inventory.Stocks
             }
 
             int suppliersId = (int)uc.cmbSupplier.SelectedValue;
-            string user = uc.txtUser.Text.Trim();
             string status = uc.cmbxStatus.Text.Trim();
             string remarks = uc.txtRemarks.Text.Trim();
             DateTime dateAcquired = uc.dtpDateAcquired.Value;
-            string? dateRepaired = uc.dtpRepairedDate.Value.ToString("yyyy-MM-dd");
 
             StocksModel stocksModel = new()
             {
@@ -63,8 +61,6 @@ namespace ZenBiz.AppModules.Forms.Inventory.Stocks
                 DateAcquired = dateAcquired,
                 UnitCost = uc.nudUnitCost.Value,
                 Status = status,
-                User = user ?? string.Empty,
-                DateRepaired = dateRepaired ?? string.Empty,
                 Remarks = remarks,
             };
 

@@ -34,7 +34,6 @@ namespace ZenBiz.AppModules.Forms.Inventory.Items
             uc.nudUnitCost.Value = Convert.ToDecimal(_data["unit_cost"]);
             //uc.cmbSupplier.SelectedValue = Convert.ToInt32(_data["suppliers_id"]);
             uc.cmbxStatus.SelectedValue = _data["status"];
-            uc.txtUser.Text = _data["user"];
             //uc.dtpRepairedDate.Enabled = Convert.ToBoolean(_data["date_repaired"]);
             uc.txtRemarks.Text = _data["remarks"];
 
@@ -83,8 +82,6 @@ namespace ZenBiz.AppModules.Forms.Inventory.Items
                 string dateAcquired = uc.dtpDateAcquired.Value.ToString("yyyy-MM-dd");
                 string unitCost = uc.nudUnitCost.Value.ToString("N2");
                 string status = uc.cmbxStatus.Text.Trim();
-                string user = uc.txtUser.Text.Trim();
-                string dateRepaired = uc.dtpRepairedDate.Value.ToString("yyyy-MM-dd");
                 string remarks = uc.txtRemarks.Text.Trim();
 
                 string[] row = new string[]
@@ -100,8 +97,6 @@ namespace ZenBiz.AppModules.Forms.Inventory.Items
                     dateAcquired,
                     unitCost,
                     status,
-                    user,
-                    dateRepaired,
                     remarks,
                 };
 

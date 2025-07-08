@@ -64,15 +64,17 @@
             btnSave.TabIndex = 0;
             btnSave.Text = "Save";
             btnSave.UseVisualStyleBackColor = true;
+            btnSave.Click += btnSave_Click;
             // 
             // ucRepairHistory1
             // 
-            ucRepairHistory1.Location = new Point(4, 6);
+            ucRepairHistory1.Dock = DockStyle.Fill;
+            ucRepairHistory1.Location = new Point(0, 0);
             ucRepairHistory1.Name = "ucRepairHistory1";
-            ucRepairHistory1.Size = new Size(465, 303);
+            ucRepairHistory1.Size = new Size(472, 324);
             ucRepairHistory1.TabIndex = 6;
             // 
-            // frmAddRepair
+            // frmAddRepairHistory
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -82,7 +84,7 @@
             FormBorderStyle = FormBorderStyle.FixedToolWindow;
             MaximizeBox = false;
             MinimizeBox = false;
-            Name = "frmAddRepair";
+            Name = "frmAddRepairHistory";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Add Repair History";
             flowLayoutPanel1.ResumeLayout(false);

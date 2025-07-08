@@ -60,7 +60,7 @@ namespace ZenBiz.AppModules.Forms.Inventory.Items
             {
                 int branchId = (int)item["branches_id"];
                 string storeName = item["branch_name"].ToString();
-                decimal stocksLeft = Factory.BranchStocksController().SumTotalStocks(branchId, itemId); 
+                decimal stocksLeft = Factory.BranchStocksController().SumTotalStocks(branchId, itemId);
                 dgBranchStocks.Rows.Add(branchId, storeName, stocksLeft.ToString("N2"));
             }
         }
@@ -141,23 +141,12 @@ namespace ZenBiz.AppModules.Forms.Inventory.Items
             {
                 LoadBranchesStocks();
                 btnStocks.Enabled = true;
-                btnAdjustStocks.Enabled = true;
                 return;
             }
 
             dgBranchStocks.Rows.Clear();
             btnStocks.Enabled = false;
-            btnAdjustStocks.Enabled = false;
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-            _ = new frmRepairHistory().ShowDialog();
-        }
-
-        private void btnUsersHistory_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

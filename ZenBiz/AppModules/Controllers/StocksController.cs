@@ -9,6 +9,7 @@ namespace ZenBiz.AppModules.Controllers
     {
         private readonly IDbGenericCommands _dbGenericCommands;
         private const string tblStocks = "stocks";
+        private const string viewStocks = "view_stocks";
 
         public StocksController(IDbGenericCommands dbGenericCommands)
         {
@@ -51,7 +52,22 @@ namespace ZenBiz.AppModules.Controllers
 
         public Dictionary<string, string> FindById(int Id)
         {
-            throw new NotImplementedException();
+            Dictionary<string, string> record = new();
+
+            var parameters = new object[][]
+            {
+                new object[] { "@id", DbType.Int32,  Id },
+            };
+
+            string query = $"SELECT * FROM {viewStocks} WHERE id = @id";
+            using (var reader = _dbGenericCommands.ExecuteReader(query, parameters))
+            {
+                if (reader.Rows.Count == 0) return record;
+                foreach (DataColumn column in reader.Columns)
+                    record.Add(column.ColumnName, reader.Rows[0][column.ColumnName].ToString());
+            }
+
+            return record;
         }
 
         public bool IdExist(int id)
@@ -84,7 +100,7 @@ namespace ZenBiz.AppModules.Controllers
 
         public bool Update(StocksModel entity)
         {
-            var parameters = new object[][]
+          var parameters = new object[][]
           {
                 new object[] { "@id", DbType.Int32, entity.Id},
                 new object[] { "@item_id", DbType.Int32, entity.Item.Id },

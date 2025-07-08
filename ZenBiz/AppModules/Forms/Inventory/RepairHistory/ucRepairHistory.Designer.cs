@@ -89,7 +89,7 @@
             dtpDateRepaired.Location = new Point(130, 142);
             dtpDateRepaired.Name = "dtpDateRepaired";
             dtpDateRepaired.Size = new Size(300, 23);
-            dtpDateRepaired.TabIndex = 36;
+            dtpDateRepaired.TabIndex = 3;
             // 
             // nudRepairCost
             // 
@@ -99,7 +99,7 @@
             nudRepairCost.Maximum = new decimal(new int[] { 9999999, 0, 0, 0 });
             nudRepairCost.Name = "nudRepairCost";
             nudRepairCost.Size = new Size(300, 23);
-            nudRepairCost.TabIndex = 43;
+            nudRepairCost.TabIndex = 5;
             nudRepairCost.ThousandsSeparator = true;
             // 
             // label2
@@ -118,7 +118,7 @@
             txtOtherDetails.Multiline = true;
             txtOtherDetails.Name = "txtOtherDetails";
             txtOtherDetails.Size = new Size(300, 64);
-            txtOtherDetails.TabIndex = 46;
+            txtOtherDetails.TabIndex = 6;
             // 
             // label4
             // 
@@ -136,7 +136,7 @@
             txtIssueDescription.Multiline = true;
             txtIssueDescription.Name = "txtIssueDescription";
             txtIssueDescription.Size = new Size(300, 55);
-            txtIssueDescription.TabIndex = 48;
+            txtIssueDescription.TabIndex = 0;
             // 
             // txtReportedBy
             // 
@@ -144,7 +144,7 @@
             txtReportedBy.MaxLength = 99;
             txtReportedBy.Name = "txtReportedBy";
             txtReportedBy.Size = new Size(300, 23);
-            txtReportedBy.TabIndex = 49;
+            txtReportedBy.TabIndex = 1;
             // 
             // txtRepairAction
             // 
@@ -152,7 +152,7 @@
             txtRepairAction.MaxLength = 99;
             txtRepairAction.Name = "txtRepairAction";
             txtRepairAction.Size = new Size(300, 23);
-            txtRepairAction.TabIndex = 49;
+            txtRepairAction.TabIndex = 4;
             // 
             // txtRepairedBy
             // 
@@ -160,7 +160,7 @@
             txtRepairedBy.MaxLength = 99;
             txtRepairedBy.Name = "txtRepairedBy";
             txtRepairedBy.Size = new Size(300, 23);
-            txtRepairedBy.TabIndex = 51;
+            txtRepairedBy.TabIndex = 2;
             // 
             // label5
             // 

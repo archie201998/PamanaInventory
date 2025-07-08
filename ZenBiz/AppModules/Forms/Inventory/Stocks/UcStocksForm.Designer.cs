@@ -36,15 +36,10 @@
             label3 = new Label();
             cmbSupplier = new ComboBox();
             label1 = new Label();
-            txtUser = new TextBox();
-            label5 = new Label();
             label6 = new Label();
             cmbxStatus = new ComboBox();
             txtRemarks = new TextBox();
             label7 = new Label();
-            label9 = new Label();
-            dtpRepairedDate = new DateTimePicker();
-            chkRepairedDate = new CheckBox();
             txtSerialNumber = new TextBox();
             label2 = new Label();
             txtOS = new TextBox();
@@ -59,7 +54,6 @@
             label14 = new Label();
             nudUnitCost = new NumericUpDown();
             label15 = new Label();
-            chkUser = new CheckBox();
             ((System.ComponentModel.ISupportInitialize)epStockCount).BeginInit();
             ((System.ComponentModel.ISupportInitialize)nudUnitCost).BeginInit();
             SuspendLayout();
@@ -120,24 +114,6 @@
             label1.TabIndex = 9;
             label1.Text = "Supplier";
             // 
-            // txtUser
-            // 
-            txtUser.Enabled = false;
-            txtUser.Location = new Point(111, 322);
-            txtUser.MaxLength = 45;
-            txtUser.Name = "txtUser";
-            txtUser.Size = new Size(300, 23);
-            txtUser.TabIndex = 11;
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Location = new Point(5, 324);
-            label5.Name = "label5";
-            label5.Size = new Size(30, 15);
-            label5.TabIndex = 12;
-            label5.Text = "User";
-            // 
             // label6
             // 
             label6.AutoSize = true;
@@ -159,7 +135,7 @@
             // 
             // txtRemarks
             // 
-            txtRemarks.Location = new Point(111, 380);
+            txtRemarks.Location = new Point(111, 323);
             txtRemarks.MaxLength = 45;
             txtRemarks.Multiline = true;
             txtRemarks.Name = "txtRemarks";
@@ -169,38 +145,11 @@
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(5, 383);
+            label7.Location = new Point(5, 326);
             label7.Name = "label7";
             label7.Size = new Size(52, 15);
             label7.TabIndex = 17;
             label7.Text = "Remarks";
-            // 
-            // label9
-            // 
-            label9.AutoSize = true;
-            label9.Location = new Point(5, 356);
-            label9.Name = "label9";
-            label9.Size = new Size(79, 15);
-            label9.TabIndex = 20;
-            label9.Text = "Repaired date";
-            // 
-            // dtpRepairedDate
-            // 
-            dtpRepairedDate.Enabled = false;
-            dtpRepairedDate.Location = new Point(111, 351);
-            dtpRepairedDate.Name = "dtpRepairedDate";
-            dtpRepairedDate.Size = new Size(300, 23);
-            dtpRepairedDate.TabIndex = 12;
-            // 
-            // chkRepairedDate
-            // 
-            chkRepairedDate.AutoSize = true;
-            chkRepairedDate.Location = new Point(417, 358);
-            chkRepairedDate.Name = "chkRepairedDate";
-            chkRepairedDate.Size = new Size(15, 14);
-            chkRepairedDate.TabIndex = 22;
-            chkRepairedDate.UseVisualStyleBackColor = true;
-            chkRepairedDate.CheckedChanged += chkRepairedDate_CheckedChanged;
             // 
             // txtSerialNumber
             // 
@@ -326,16 +275,6 @@
             label15.TabIndex = 34;
             label15.Text = "Unit Cost";
             // 
-            // chkUser
-            // 
-            chkUser.AutoSize = true;
-            chkUser.Location = new Point(417, 326);
-            chkUser.Name = "chkUser";
-            chkUser.Size = new Size(15, 14);
-            chkUser.TabIndex = 10;
-            chkUser.UseVisualStyleBackColor = true;
-            chkUser.CheckedChanged += chkSupplier_CheckedChanged;
-            // 
             // UcStocksForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -354,16 +293,10 @@
             Controls.Add(label10);
             Controls.Add(txtSerialNumber);
             Controls.Add(label2);
-            Controls.Add(chkRepairedDate);
-            Controls.Add(label9);
-            Controls.Add(dtpRepairedDate);
             Controls.Add(txtRemarks);
             Controls.Add(label7);
             Controls.Add(cmbxStatus);
             Controls.Add(label6);
-            Controls.Add(txtUser);
-            Controls.Add(label5);
-            Controls.Add(chkUser);
             Controls.Add(label1);
             Controls.Add(cmbSupplier);
             Controls.Add(label3);
@@ -371,7 +304,7 @@
             Controls.Add(lblStoreWarehouse);
             Controls.Add(cmbBranch);
             Name = "UcStocksForm";
-            Size = new Size(442, 435);
+            Size = new Size(442, 376);
             Load += UcStoreStocks_Load;
             ((System.ComponentModel.ISupportInitialize)epStockCount).EndInit();
             ((System.ComponentModel.ISupportInitialize)nudUnitCost).EndInit();
@@ -387,15 +320,10 @@
         internal DateTimePicker dtpDateAcquired;
         private Label label1;
         internal ComboBox cmbSupplier;
-        internal TextBox txtUser;
-        private Label label5;
         internal ComboBox cmbxStatus;
         private Label label6;
         internal TextBox txtRemarks;
         private Label label7;
-        private Label label9;
-        internal DateTimePicker dtpRepairedDate;
-        internal CheckBox chkRepairedDate;
         internal TextBox txtSerialNumber;
         private Label label2;
         internal TextBox txtModel;
@@ -409,7 +337,6 @@
         internal TextBox txtComputerName;
         private Label label14;
         private Label label15;
-        internal CheckBox chkUser;
         internal NumericUpDown nudUnitCost;
     }
 }

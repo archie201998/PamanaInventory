@@ -24,11 +24,6 @@ namespace ZenBiz.AppModules.Forms.Inventory.Items
             nudUnitCost.Value = 0;
             cmbSupplier.SelectedIndex = -1;
             cmbxStatus.SelectedIndex = -1;
-            txtUser.Text = string.Empty;
-            chkUser.Checked = false;
-            chkRepairedDate.Checked = false;
-            dtpRepairedDate.Value = DateTime.Now;
-            dtpRepairedDate.Enabled = false;
             epStockCount.Clear();
             txtSerialNumber.Clear();
             txtModel.Clear();
@@ -71,16 +66,6 @@ namespace ZenBiz.AppModules.Forms.Inventory.Items
         private void nudStockCount_Validated(object sender, EventArgs e)
         {
             Helper.ClearErrorNumericUpDown(epStockCount, nudUnitCost);
-        }
-
-        private void chkSupplier_CheckedChanged(object sender, EventArgs e)
-        {
-            txtUser.Enabled = chkUser.Checked;
-        }
-
-        private void chkRepairedDate_CheckedChanged(object sender, EventArgs e)
-        {
-            dtpRepairedDate.Enabled = chkRepairedDate.Checked;
         }
 
     }

@@ -34,7 +34,6 @@
             btnEdit = new Button();
             btnDelete = new Button();
             btnStocks = new Button();
-            btnAdjustStocks = new Button();
             dgItems = new DataGridView();
             txtSearch = new TextBox();
             statusStrip1 = new StatusStrip();
@@ -43,8 +42,6 @@
             tableLayoutPanel1 = new TableLayoutPanel();
             groupBox1 = new GroupBox();
             dgBranchStocks = new DataGridView();
-            btnUsersHistory = new Button();
-            btnRepairsHistory = new Button();
             ((System.ComponentModel.ISupportInitialize)dgItems).BeginInit();
             statusStrip1.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
@@ -90,22 +87,11 @@
             btnStocks.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             btnStocks.Location = new Point(988, 282);
             btnStocks.Name = "btnStocks";
-            btnStocks.Size = new Size(98, 23);
+            btnStocks.Size = new Size(98, 46);
             btnStocks.TabIndex = 3;
-            btnStocks.Text = "Stocks";
+            btnStocks.Text = "Stocks Management";
             btnStocks.UseVisualStyleBackColor = true;
             btnStocks.Click += btnStocks_Click;
-            // 
-            // btnAdjustStocks
-            // 
-            btnAdjustStocks.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            btnAdjustStocks.Location = new Point(988, 311);
-            btnAdjustStocks.Name = "btnAdjustStocks";
-            btnAdjustStocks.Size = new Size(98, 23);
-            btnAdjustStocks.TabIndex = 4;
-            btnAdjustStocks.Text = "Adjust Stocks";
-            btnAdjustStocks.UseVisualStyleBackColor = true;
-            btnAdjustStocks.Visible = false;
             // 
             // dgItems
             // 
@@ -200,40 +186,15 @@
             dgBranchStocks.Size = new Size(958, 327);
             dgBranchStocks.TabIndex = 0;
             // 
-            // btnUsersHistory
-            // 
-            btnUsersHistory.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            btnUsersHistory.Location = new Point(988, 587);
-            btnUsersHistory.Name = "btnUsersHistory";
-            btnUsersHistory.Size = new Size(98, 23);
-            btnUsersHistory.TabIndex = 10;
-            btnUsersHistory.Text = "Users History";
-            btnUsersHistory.UseVisualStyleBackColor = true;
-            btnUsersHistory.Click += btnUsersHistory_Click;
-            // 
-            // btnRepairsHistory
-            // 
-            btnRepairsHistory.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            btnRepairsHistory.Location = new Point(988, 558);
-            btnRepairsHistory.Name = "btnRepairsHistory";
-            btnRepairsHistory.Size = new Size(98, 23);
-            btnRepairsHistory.TabIndex = 9;
-            btnRepairsHistory.Text = "Repairs History";
-            btnRepairsHistory.UseVisualStyleBackColor = true;
-            btnRepairsHistory.Click += button2_Click;
-            // 
             // FrmItems
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1098, 640);
-            Controls.Add(btnUsersHistory);
-            Controls.Add(btnRepairsHistory);
             Controls.Add(tableLayoutPanel1);
             Controls.Add(statusStrip1);
             Controls.Add(txtSearch);
             Controls.Add(dgItems);
-            Controls.Add(btnAdjustStocks);
             Controls.Add(btnStocks);
             Controls.Add(btnDelete);
             Controls.Add(btnEdit);
@@ -257,7 +218,6 @@
         private Button btnEdit;
         private Button btnDelete;
         private Button btnStocks;
-        private Button btnAdjustStocks;
         private DataGridView dgItems;
         private TextBox txtSearch;
         private StatusStrip statusStrip1;
@@ -266,8 +226,6 @@
         private GroupBox groupBox1;
         private DataGridView dgStoreStocks;
         private ToolStripStatusLabel lblRecordCount;
-        private Button btnUsersHistory;
-        private Button btnRepairsHistory;
         private DataGridView dgBranchStocks;
     }
 }

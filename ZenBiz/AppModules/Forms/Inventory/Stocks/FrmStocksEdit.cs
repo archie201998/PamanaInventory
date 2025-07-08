@@ -24,23 +24,11 @@ namespace ZenBiz.AppModules.Forms.Inventory.Stocks
         private void LoadData()
         {
             Dictionary<string, string> dict;
-            int storeWarehouseId;
-           
+
             dict = Factory.BranchStocksController().FindByStockId(_stockId);
 
-            uc.txtUser.Text = dict["user"];
             uc.txtRemarks.Text = dict["remarks"];
             uc.cmbxStatus.Text = dict["status"];
-
-
-
-            if (!string.IsNullOrEmpty(dict["repaired_date"]))
-            {
-                uc.dtpRepairedDate.Value = Convert.ToDateTime(dict["returned_date"]);
-                uc.chkRepairedDate.Checked = true;
-                uc.dtpRepairedDate.Enabled = true;
-            }
-
 
 
             if (!string.IsNullOrWhiteSpace(dict["stock_date"]))
