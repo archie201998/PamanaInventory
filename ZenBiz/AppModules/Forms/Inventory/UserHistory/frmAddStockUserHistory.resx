@@ -117,34 +117,4 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="toolStrip2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="btnStoreStockAdd.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAtSURBVDhPY2CgJQic4P8PhNHFiQajBpBgAEwhqZh6BuAC
-        RCvEBUYNoIIBxAAAHi5xWYGnVS4AAAAASUVORK5CYII=
-</value>
-  </data>
-  <data name="btnStoreStockEdit.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADeSURBVDhPzZC/DgFBEIcVVLyFhkRUKg2JzjPIuZ1LLiLx
-        DGt3dVolEoUKjU6CGRoKD6D1HogMrtnzL5GIL9lm5/fNTCYS+SUFiVHRxB5o6vv+LmbXX8KyYxZJR9Le
-        k4MzaOzamaewDIpGoGnraUpzE6FwYuceEsg8lZ9QtKlKTNUlJuxsCJZdTeNAvq1OVGnP4nY2BB8pJJu/
-        lxlQ2PlGroHEjNB4uF8cP5Yduc6CXB2Fofm1SROHH8uM0MspTy0ZPIHBhl1/iWsWeRZdhTNoYc6uv8XV
-        VPYMFu3/n3AB6oOoawCM+QYAAAAASUVORK5CYII=
-</value>
-  </data>
-  <data name="btnStoreStockDelete.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACVSURBVEhLY2CAghO+Uf4n/KIPHA0I/LIqMOYfORikF2QG
-        yCyYuWBwPCC6E10xpRhkJtzl6JLUwmCfnAiI3I8uQS0MMpuBkjAnhEFmM6ALUhuPWkAQ09+CIx29FOH9
-        9vZ/8Vpw7949ivDAW4DuZVIxQQuojUctIIhpbwHNi2tQHYouQS0MMpvhRACNq0yaV/owQKtmCwAdFVSt
-        vV/3VwAAAABJRU5ErkJggg==
-</value>
-  </data>
 </root>

@@ -60,7 +60,8 @@ namespace ZenBiz.AppModules.Inventory.Items
             dataGridView.Columns[14].Name = "date_repaired";
             dataGridView.Columns[15].Name = "remarks";
 
-            dataGridView.Columns["branch_id"].Visible = true;
+            dataGridView.Columns["branch_id"].Visible = false;
+            dataGridView.Columns["suppliers_id"].Visible = false;
             dataGridView.Columns["branch"].HeaderText = "Branches";
             dataGridView.Columns["serial_number"].HeaderText = "Serial Number";
             dataGridView.Columns["model"].HeaderText = "Model";
@@ -72,7 +73,7 @@ namespace ZenBiz.AppModules.Inventory.Items
             dataGridView.Columns["unit_cost"].HeaderText = "Unit Cost";
             dataGridView.Columns["status"].HeaderText = "Status";
             dataGridView.Columns["suppliers_id"].HeaderText = "Supplier ID";
-            dataGridView.Columns["suppliers"].HeaderText = "Supplier ID";
+            dataGridView.Columns["suppliers"].HeaderText = "Supplier";
             dataGridView.Columns["date_repaired"].HeaderText = "Date Repaired";
             dataGridView.Columns["user"].HeaderText = "User";
             dataGridView.Columns["remarks"].HeaderText = "Remarks";

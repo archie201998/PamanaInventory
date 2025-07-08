@@ -41,15 +41,15 @@
             flowLayoutPanel1.Controls.Add(btnCancel);
             flowLayoutPanel1.Controls.Add(btnSave);
             flowLayoutPanel1.Dock = DockStyle.Bottom;
-            flowLayoutPanel1.Location = new Point(0, 461);
+            flowLayoutPanel1.Location = new Point(0, 383);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
             flowLayoutPanel1.RightToLeft = RightToLeft.Yes;
-            flowLayoutPanel1.Size = new Size(462, 30);
+            flowLayoutPanel1.Size = new Size(439, 30);
             flowLayoutPanel1.TabIndex = 3;
             // 
             // btnCancel
             // 
-            btnCancel.Location = new Point(384, 3);
+            btnCancel.Location = new Point(361, 3);
             btnCancel.Name = "btnCancel";
             btnCancel.Size = new Size(75, 23);
             btnCancel.TabIndex = 1;
@@ -58,7 +58,7 @@
             // 
             // btnSave
             // 
-            btnSave.Location = new Point(303, 3);
+            btnSave.Location = new Point(280, 3);
             btnSave.Name = "btnSave";
             btnSave.Size = new Size(75, 23);
             btnSave.TabIndex = 0;
@@ -68,9 +68,10 @@
             // 
             // ucStocksForm1
             // 
-            ucStocksForm1.Location = new Point(12, 12);
+            ucStocksForm1.Dock = DockStyle.Fill;
+            ucStocksForm1.Location = new Point(0, 0);
             ucStocksForm1.Name = "ucStocksForm1";
-            ucStocksForm1.Size = new Size(440, 443);
+            ucStocksForm1.Size = new Size(439, 383);
             ucStocksForm1.TabIndex = 4;
             // 
             // FrmStocksAdd
@@ -80,7 +81,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             AutoValidate = AutoValidate.EnableAllowFocusChange;
             CancelButton = btnCancel;
-            ClientSize = new Size(462, 491);
+            ClientSize = new Size(439, 413);
             Controls.Add(ucStocksForm1);
             Controls.Add(flowLayoutPanel1);
             FormBorderStyle = FormBorderStyle.FixedToolWindow;

@@ -1,5 +1,6 @@
 ﻿using MySql.Data.MySqlClient;
 using PamanaWaterInventory.AppModules.Forms.Inventory.RepairHistory;
+using PamanaWaterInventory.AppModules.Forms.Inventory.UserHistory;
 using System.Data;
 using ZenBiz.AppModules.Models;
 
@@ -77,10 +78,14 @@ namespace ZenBiz.AppModules.Forms.Inventory.Stocks
             dgBranchStocks.Columns["suppliers_name"].HeaderText = "Supplier";
             dgBranchStocks.Columns["suppliers_address"].HeaderText = "Supplier Address";
             dgBranchStocks.Columns["status"].HeaderText = "Status";
-            //dgBranchStocks.Columns["user"].HeaderText = "User";
+            //dgBranchStocks.Columns["user"].HeaderText = "Current User";
             //dgBranchStocks.Columns["remarks"].HeaderText = "Remarks";
 
             lblTotalStoreStocks.Text = dgBranchStocks.Rows.Count.ToString();
+
+            // Auto adjust columns size
+            dgBranchStocks.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dgBranchStocks.AutoResizeColumns();
         }
 
 
@@ -183,5 +188,16 @@ namespace ZenBiz.AppModules.Forms.Inventory.Stocks
             }
         }
 
+        private void toolStripButton2_Click(object sender, EventArgs e)
+        {
+            int rowIndex = dgBranchStocks.CurrentCell.RowIndex;
+            object stockIdValue = dgBranchStocks.Rows[rowIndex].Cells["stocks_id"].Value;
+            string serialNumber = dgBranchStocks.Rows[rowIndex].Cells["serial_number"].Value?.ToString() ?? string.Empty;
+          
+            if (stockIdValue != null && int.TryParse(stockIdValue.ToString(), out int stockId))
+            {
+                _ = new frmStockUserHistory(stockId, serialNumber).ShowDialog();
+            }
+        }
     }
 }

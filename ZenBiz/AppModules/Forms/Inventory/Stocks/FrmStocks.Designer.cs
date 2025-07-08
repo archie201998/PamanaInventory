@@ -275,6 +275,7 @@
             toolStripButton2.Size = new Size(39, 35);
             toolStripButton2.Text = "Users";
             toolStripButton2.TextImageRelation = TextImageRelation.ImageAboveText;
+            toolStripButton2.Click += toolStripButton2_Click;
             // 
             // FrmStocks
             // 

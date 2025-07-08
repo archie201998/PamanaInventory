@@ -37,9 +37,10 @@
             // 
             // ucStocksForm1
             // 
-            ucStocksForm1.Location = new Point(12, 12);
+            ucStocksForm1.Dock = DockStyle.Fill;
+            ucStocksForm1.Location = new Point(0, 0);
             ucStocksForm1.Name = "ucStocksForm1";
-            ucStocksForm1.Size = new Size(450, 435);
+            ucStocksForm1.Size = new Size(441, 415);
             ucStocksForm1.TabIndex = 0;
             ucStocksForm1.Load += ucStocksForm1_Load;
             // 
@@ -49,15 +50,15 @@
             flowLayoutPanel1.Controls.Add(btnCancel);
             flowLayoutPanel1.Controls.Add(btnSave);
             flowLayoutPanel1.Dock = DockStyle.Bottom;
-            flowLayoutPanel1.Location = new Point(0, 458);
+            flowLayoutPanel1.Location = new Point(0, 385);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
             flowLayoutPanel1.RightToLeft = RightToLeft.Yes;
-            flowLayoutPanel1.Size = new Size(460, 30);
+            flowLayoutPanel1.Size = new Size(441, 30);
             flowLayoutPanel1.TabIndex = 4;
             // 
             // btnCancel
             // 
-            btnCancel.Location = new Point(382, 3);
+            btnCancel.Location = new Point(363, 3);
             btnCancel.Name = "btnCancel";
             btnCancel.Size = new Size(75, 23);
             btnCancel.TabIndex = 1;
@@ -66,7 +67,7 @@
             // 
             // btnSave
             // 
-            btnSave.Location = new Point(301, 3);
+            btnSave.Location = new Point(282, 3);
             btnSave.Name = "btnSave";
             btnSave.Size = new Size(75, 23);
             btnSave.TabIndex = 0;
@@ -81,7 +82,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             AutoValidate = AutoValidate.EnableAllowFocusChange;
             CancelButton = btnCancel;
-            ClientSize = new Size(460, 488);
+            ClientSize = new Size(441, 415);
             Controls.Add(flowLayoutPanel1);
             Controls.Add(ucStocksForm1);
             FormBorderStyle = FormBorderStyle.FixedToolWindow;
@@ -89,7 +90,7 @@
             MinimizeBox = false;
             Name = "FrmStocksEdit";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "FrmStocksEdit";
+            Text = "Edit Branch Stock";
             Load += FrmStocksEdit_Load;
             flowLayoutPanel1.ResumeLayout(false);
             ResumeLayout(false);

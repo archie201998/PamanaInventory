@@ -1,6 +1,6 @@
-﻿namespace ZenBiz.AppModules.Forms.Inventory.Stocks
+﻿namespace PamanaWaterInventory.AppModules.Forms.Inventory.UserHistory
 {
-    partial class FrmStocksEdit
+    partial class frmAddStockUserHistory
     {
         /// <summary>
         /// Required designer variable.
@@ -28,12 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
+            ucStockUserHistory1 = new ucStockUserHistory();
             flowLayoutPanel1 = new FlowLayoutPanel();
             btnCancel = new Button();
             btnSave = new Button();
-            ucStocksForm1 = new ZenBiz.AppModules.Forms.Inventory.Items.UcStocksForm();
             flowLayoutPanel1.SuspendLayout();
             SuspendLayout();
+            // 
+            // ucStockUserHistory1
+            // 
+            ucStockUserHistory1.Dock = DockStyle.Fill;
+            ucStockUserHistory1.Location = new Point(0, 0);
+            ucStockUserHistory1.Name = "ucStockUserHistory1";
+            ucStockUserHistory1.Size = new Size(440, 173);
+            ucStockUserHistory1.TabIndex = 0;
             // 
             // flowLayoutPanel1
             // 
@@ -41,15 +49,15 @@
             flowLayoutPanel1.Controls.Add(btnCancel);
             flowLayoutPanel1.Controls.Add(btnSave);
             flowLayoutPanel1.Dock = DockStyle.Bottom;
-            flowLayoutPanel1.Location = new Point(0, 387);
+            flowLayoutPanel1.Location = new Point(0, 143);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
             flowLayoutPanel1.RightToLeft = RightToLeft.Yes;
-            flowLayoutPanel1.Size = new Size(441, 30);
-            flowLayoutPanel1.TabIndex = 4;
+            flowLayoutPanel1.Size = new Size(440, 30);
+            flowLayoutPanel1.TabIndex = 5;
             // 
             // btnCancel
             // 
-            btnCancel.Location = new Point(363, 3);
+            btnCancel.Location = new Point(362, 3);
             btnCancel.Name = "btnCancel";
             btnCancel.Size = new Size(75, 23);
             btnCancel.TabIndex = 1;
@@ -58,48 +66,33 @@
             // 
             // btnSave
             // 
-            btnSave.Location = new Point(282, 3);
+            btnSave.Location = new Point(281, 3);
             btnSave.Name = "btnSave";
             btnSave.Size = new Size(75, 23);
             btnSave.TabIndex = 0;
-            btnSave.Text = "Update";
+            btnSave.Text = "Save";
             btnSave.UseVisualStyleBackColor = true;
-            btnSave.Click += btnSave_Click;
             // 
-            // ucStocksForm1
+            // frmAddStockUserHistory
             // 
-            ucStocksForm1.Dock = DockStyle.Fill;
-            ucStocksForm1.Location = new Point(0, 0);
-            ucStocksForm1.Name = "ucStocksForm1";
-            ucStocksForm1.Size = new Size(441, 387);
-            ucStocksForm1.TabIndex = 5;
-            // 
-            // FrmStocksEdit
-            // 
-            AcceptButton = btnSave;
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            AutoValidate = AutoValidate.EnableAllowFocusChange;
-            CancelButton = btnCancel;
-            ClientSize = new Size(441, 417);
-            Controls.Add(ucStocksForm1);
+            ClientSize = new Size(440, 173);
             Controls.Add(flowLayoutPanel1);
+            Controls.Add(ucStockUserHistory1);
             FormBorderStyle = FormBorderStyle.FixedToolWindow;
-            MaximizeBox = false;
-            MinimizeBox = false;
-            Name = "FrmStocksEdit";
+            Name = "frmAddStockUserHistory";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Edit Stock";
-            Load += FrmStocksEdit_Load;
+            Text = "Add Stock User History";
             flowLayoutPanel1.ResumeLayout(false);
             ResumeLayout(false);
         }
 
         #endregion
 
+        private ucStockUserHistory ucStockUserHistory1;
         private FlowLayoutPanel flowLayoutPanel1;
         private Button btnCancel;
         private Button btnSave;
-        private Items.UcStocksForm ucStocksForm1;
     }
 }

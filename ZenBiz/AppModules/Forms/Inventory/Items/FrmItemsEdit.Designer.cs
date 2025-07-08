@@ -41,7 +41,7 @@
             flowLayoutPanel1.Controls.Add(btnCancel);
             flowLayoutPanel1.Controls.Add(btnSave);
             flowLayoutPanel1.Dock = DockStyle.Bottom;
-            flowLayoutPanel1.Location = new Point(0, 159);
+            flowLayoutPanel1.Location = new Point(0, 130);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
             flowLayoutPanel1.RightToLeft = RightToLeft.Yes;
             flowLayoutPanel1.Size = new Size(461, 30);
@@ -68,9 +68,10 @@
             // 
             // ucItemDetails1
             // 
-            ucItemDetails1.Location = new Point(12, 12);
+            ucItemDetails1.Dock = DockStyle.Fill;
+            ucItemDetails1.Location = new Point(0, 0);
             ucItemDetails1.Name = "ucItemDetails1";
-            ucItemDetails1.Size = new Size(452, 153);
+            ucItemDetails1.Size = new Size(461, 130);
             ucItemDetails1.TabIndex = 4;
             // 
             // FrmItemsEdit
@@ -80,7 +81,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             AutoValidate = AutoValidate.EnableAllowFocusChange;
             CancelButton = btnCancel;
-            ClientSize = new Size(461, 189);
+            ClientSize = new Size(461, 160);
             Controls.Add(ucItemDetails1);
             Controls.Add(flowLayoutPanel1);
             FormBorderStyle = FormBorderStyle.FixedToolWindow;
