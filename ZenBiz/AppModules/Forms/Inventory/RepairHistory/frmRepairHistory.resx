@@ -124,27 +124,27 @@
   <data name="btnAddStoreStock.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAtSURBVDhPY2CgJQhs8P8HwujiRINRA0gwAKaQVEw9A3AB
-        ohXiAqMGUMEAYgAAgiVuGXt49bUAAAAASUVORK5CYII=
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAtSURBVDhPY2CgJQis9/8HwujiRINRA0gwAKaQVEw9A3AB
+        ohXiAqMGUMEAYgAAGGtt5W4Nn0wAAAAASUVORK5CYII=
 </value>
   </data>
   <data name="btnEditStoreStock.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADdSURBVDhPzZC/DgFBEIcVVLyFhkRUKs2pPYOc27lEROIZ
-        1u7qNAolOhUa3SWYoaHwAFrvgcjgmj3/Eon4km12ft/MZGKxX+JIjIsWDkDTsFbbJez6S1h2zSLtStr7
+        1u7qFBolOhUa3SWYoaHwAFrvgcjgmj3/Eon4km12ft/MZGKxX+JIjIsWDkDTsFbbJez6S1h2zSLtStr7
         snsGjX078xSWQdEYNG19TVluIhRO7dxDQpmn8hOKNlWJmYbElJ2NwLKnaRLKt9WJKp0gaWcj8JEisvl7
         mQGFvW/kOkjMCY2H+8XxY9mV6zzI1VEYml+btHD0scwIvZzxVMfgCQw27fpLPLMosugpDKCNBbv+Fk9T
-        2TdYsv9/wgX9A6cP4kFRmgAAAABJRU5ErkJggg==
+        2TdYsv9/wgXRVKb7oZZ/5AAAAABJRU5ErkJggg==
 </value>
   </data>
   <data name="btnDeleteStoreStock.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACVSURBVEhLY2CAghO+Uf4n/KIPHA0I/DIzMOYfORikF2QG
-        yCyYuWBwPCC6E10xpRhkJtzl6JLUwmCfnAiI3I8uQS0MMpuBkjAnhEFmM6ALUhuPWkAQ09+CzfX1FOH9
-        9vZ/8Vpw9uxZivDAW4DuZVIxQQuojUctIIhpbwHNi2tQHYouQS0MMpvhRACNq0yaV/owQKtmCwDMkSo5
-        tZxhhQAAAABJRU5ErkJggg==
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACVSURBVEhLY2CAghO+Uf4n/KIPHA0I/DIjMOYfORikF2QG
+        yCyYuWBwPCC6E10xpRhkJtzl6JLUwmCfnAiI3I8uQS0MMpuBkjAnhEFmM6ALUhuPWkAQ09+CTfX1FOH9
+        9vZ/8Vpw5swZivDAW4DuZVIxQQuojUctIIhpbwHNi2tQHYouQS0MMpvhRACNq0yaV/owQKtmCwAyZSfl
+        Xi/CwwAAAABJRU5ErkJggg==
 </value>
   </data>
 </root>

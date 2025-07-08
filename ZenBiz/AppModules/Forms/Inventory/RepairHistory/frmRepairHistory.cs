@@ -1,4 +1,7 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using PamanaWaterInventory.AppModules.Interfaces;
+using PamanaWaterInventory.AppModules.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -9,6 +12,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using ZenBiz;
 using ZenBiz.AppModules;
+using ZenBiz.AppModules.Models;
 
 namespace PamanaWaterInventory.AppModules.Forms.Inventory.RepairHistory
 {
@@ -21,7 +25,7 @@ namespace PamanaWaterInventory.AppModules.Forms.Inventory.RepairHistory
             InitializeComponent();
             Helper.LoadFormIcon(this);
             _stocksId = stockId;
-            _serialNumber = serialNumber;   
+            _serialNumber = serialNumber;
         }
 
         private void frmRepairHistory_Load(object sender, EventArgs e)
@@ -34,7 +38,7 @@ namespace PamanaWaterInventory.AppModules.Forms.Inventory.RepairHistory
         private void LoadRepairHistory()
         {
             int stockId = _stocksId;
-       
+
             dgRepairHistory.DataSource = Factory.RepairedHistoryController().GetViewRecordsByStockId(stockId);
 
             dgRepairHistory.Columns["id"].Visible = false;
@@ -65,9 +69,36 @@ namespace PamanaWaterInventory.AppModules.Forms.Inventory.RepairHistory
             _ = new frmEditRepairHistory(_stocksId, repairId).ShowDialog();
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
+        private void btnDeleteStoreStock_Click(object sender, EventArgs e)
         {
+            if (DeleteRepairHistory(dgRepairHistory)) LoadRepairHistory();
+        }
 
+        
+        private bool DeleteRepairHistory(DataGridView dataGrid)
+        {
+            if (dataGrid.SelectedRows.Count == 0) return false;
+
+            try
+            {
+                List<RepairedHistoryModel> repairHistoryModelList = new();
+                foreach (DataGridViewRow item in dataGrid.SelectedRows)
+                    repairHistoryModelList.Add(new RepairedHistoryModel() { Id = Convert.ToInt32(item.Cells["stocks_id"].Value) });
+
+                var messageBox = MessageBox.Show("Are you sure you want to delete this data?", "Deleting Repair History", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (messageBox != DialogResult.Yes) return false;
+
+                return Factory.RepairedHistoryController().Delete(repairHistoryModelList);
+            }
+            catch (MySqlException ex)
+            {
+                if (ex.Number == 1451)
+                    Helper.MessageBoxError("Unable to delete the record/s because it is already been referenced to other records.");
+                else
+                    Helper.MessageBoxError(ex.Message);
+            }
+
+            return false;
         }
     }
 }

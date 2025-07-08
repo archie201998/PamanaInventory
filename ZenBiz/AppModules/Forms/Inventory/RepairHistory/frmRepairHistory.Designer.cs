@@ -140,6 +140,7 @@
             btnDeleteStoreStock.Name = "btnDeleteStoreStock";
             btnDeleteStoreStock.Size = new Size(23, 22);
             btnDeleteStoreStock.Text = "Delete";
+            btnDeleteStoreStock.Click += btnDeleteStoreStock_Click;
             // 
             // frmRepairHistory
             // 

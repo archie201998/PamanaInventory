@@ -1,6 +1,7 @@
 ﻿using PamanaWaterInventory.AppModules.Interfaces;
 using PamanaWaterInventory.AppModules.Models;
 using System.Data;
+using System.Transactions;
 using ZenBiz.AppModules;
 
 namespace PamanaWaterInventory.AppModules.Controllers
@@ -24,7 +25,21 @@ namespace PamanaWaterInventory.AppModules.Controllers
 
         public bool Delete(List<RepairedHistoryModel> entityList)
         {
-            throw new NotImplementedException();
+            using var scope = new TransactionScope();
+            foreach (var entity in entityList)
+            {
+                var parameters = new object[][]
+                {
+                    new object[] { "@stocks_id", DbType.Int32, entity.Id},
+                };
+
+                string query = $"DELETE FROM {tblRepairedHistory} WHERE stocks_id = @stocks_id";
+                _ = _dbGenericCommands.ExecuteNonQuery(query, parameters);
+            }
+
+            scope.Complete();
+            scope.Dispose();
+            return true;
         }
 
         public DataTable Fetch()
