@@ -46,6 +46,7 @@ namespace ZenBiz.AppModules.Forms.Inventory.Items
             dgItems.Columns["name"].Width = 300;
             CountRecords();
         }
+
         private void CountRecords()
         {
             lblRecordCount.Text = dgItems.Rows.Count.ToString();
@@ -119,7 +120,8 @@ namespace ZenBiz.AppModules.Forms.Inventory.Items
         private void btnStocks_Click(object sender, EventArgs e)
         {
             int itemId = (int)dgItems.SelectedCells[0].Value;
-            using FrmStocks form = new(itemId);
+            int branchId =(int)dgBranchStocks.SelectedCells[0].Value;   
+            using FrmStocks form = new(branchId, itemId);
             DialogResult dialogResult = form.ShowDialog();
             if (dialogResult == DialogResult.OK)
             {

@@ -27,19 +27,22 @@ namespace ZenBiz.AppModules.Forms.Inventory.Stocks
 
             dict = Factory.BranchStocksController().FindByStockId(_stockId);
 
-            uc.txtRemarks.Text = dict["remarks"];
-            uc.cmbxStatus.Text = dict["status"];
-
-
-            if (!string.IsNullOrWhiteSpace(dict["stock_date"]))
+            if (dict.Count != 0)
             {
-                uc.dtpDateAcquired.Value = Convert.ToDateTime(dict["stock_date"]);
-            }
-
-            if (!string.IsNullOrWhiteSpace(dict["suppliers_id"]))
-            {
+                uc.cmbBranch.SelectedValue = Convert.ToInt32(dict["branches_id"]);
+                uc.cmbBranch.Text = dict["branch_name"].ToString();
+                uc.txtSerialNumber.Text = dict["serial_number"].ToString();
+                uc.txtModel.Text = dict["model"].ToString();
+                uc.txtOS.Text = dict["operating_system"].ToString();
+                uc.txtRAM.Text = dict["ram"].ToString();
+                uc.txtComputerName.Text = dict["computer_name"].ToString();
+                uc.txtSophosTamper.Text = dict["sophos_tamper"].ToString();
+                uc.dtpDateAcquired.Value = DateTime.Parse(dict["date_acquired"].ToString());
+                uc.nudUnitCost.Value = decimal.Parse(dict["unit_cost"].ToString());
+                uc.cmbxStatus.Text = dict["status"].ToString();
                 uc.cmbSupplier.SelectedValue = Convert.ToInt32(dict["suppliers_id"]);
-                uc.cmbSupplier.Enabled = true;
+                uc.cmbSupplier.Text = dict["status"].ToString();
+                uc.txtRemarks.Text = dict["remarks"].ToString();
             }
         }
 
@@ -50,7 +53,6 @@ namespace ZenBiz.AppModules.Forms.Inventory.Stocks
 
         private void UpdateStoreStock(int stockId, int storeId)
         {
-
             BranchStocksModel storeStocksModel = new()
             {
                 Stock = new StocksModel() { Id = stockId },
@@ -69,14 +71,26 @@ namespace ZenBiz.AppModules.Forms.Inventory.Stocks
                 return false;
             }
 
-            DateTime dateAcquired = Convert.ToDateTime(uc.dtpDateAcquired.Value);
-            int suppliersId = Convert.ToInt32(uc.cmbSupplier.SelectedValue);
+            int suppliersId = (int)uc.cmbSupplier.SelectedValue;
+            string status = uc.cmbxStatus.Text.Trim();
+            string remarks = uc.txtRemarks.Text.Trim();
+            DateTime dateAcquired = uc.dtpDateAcquired.Value;
+
             StocksModel stocksModel = new()
             {
                 Id = _stockId,
                 Item = new ItemsModel() { Id = _itemId },
                 Supplier = new SupplierModel() { Id = suppliersId },
+                SerialNumber = uc.txtSerialNumber.Text.Trim(),
+                Model = uc.txtModel.Text.Trim(),
+                OperatingSystem = uc.txtOS.Text.Trim(),
+                RAM = uc.txtRAM.Text.Trim(),
+                ComputerName = uc.txtComputerName.Text.Trim(),
+                SophosTamper = uc.txtSophosTamper.Text.Trim(),
                 DateAcquired = dateAcquired,
+                UnitCost = uc.nudUnitCost.Value,
+                Status = status,
+                Remarks = remarks,
             };
 
             _ = Factory.StocksController().Update(stocksModel);
@@ -93,7 +107,7 @@ namespace ZenBiz.AppModules.Forms.Inventory.Stocks
         {
             if (SaveData())
             {
-                Helper.MessageBoxSuccess("Stock has been saved.");
+                Helper.MessageBoxSuccess("Stock has been updated.");
                 DialogResult = DialogResult.OK;
                 Close();
             }

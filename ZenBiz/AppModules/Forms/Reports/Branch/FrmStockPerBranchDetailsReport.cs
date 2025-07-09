@@ -1,15 +1,13 @@
 ﻿using Microsoft.Reporting.WinForms;
 using PamanaWaterInventory.AppModules.RDLC;
 using System.Data;
-using ZenBiz.AppModules.RDLC;
 
-namespace ZenBiz.AppModules.Forms.Reports
+namespace ZenBiz.AppModules.Forms.Reports.Store
 {
-    public partial class FrmStockPerBranchReport : Form
+    public partial class FrmStockPerBranchDetailsReport : Form
     {
         private readonly ReportViewer reportViewer;
-
-        public FrmStockPerBranchReport()
+        public FrmStockPerBranchDetailsReport()
         {
             InitializeComponent();
 
@@ -18,6 +16,10 @@ namespace ZenBiz.AppModules.Forms.Reports
             panel1.Controls.Add(reportViewer);
         }
 
+        private void FrmStockAdjustmentStoreReport_Load(object sender, EventArgs e)
+        {
+            LoadBranches();
+        }
         private void LoadBranches()
         {
             cmbBranches.DataSource = Factory.BranchesController().Fetch();
@@ -25,50 +27,33 @@ namespace ZenBiz.AppModules.Forms.Reports
             cmbBranches.ValueMember = "id";
         }
 
-        private void LoadCategories()
-        {
-            Dictionary<int, string> dict = new();
-            DataTable dt = Factory.CategoriesController().Fetch();
-            dict.Add(0, "All");
-            foreach (DataRow item in dt.Rows)
-            {
-                dict.Add(Convert.ToInt32(item["id"]), item["name"].ToString());
-            }
-            cmbCategories.DataSource = new BindingSource(dict, null);
-            cmbCategories.DisplayMember = "Value";
-            cmbCategories.ValueMember = "Key";
-        }
-
-        private void FrmStockPerStoreReport_Load(object sender, EventArgs e)
-        {
-            LoadBranches();
-            LoadCategories();
-        }
-
         private DataTable DataTableStocks()
         {
-            var dtReport = new DataSet1.StocksPerBranchDataTable();
-            int branchId = Convert.ToInt32(cmbBranches.SelectedValue);    
-            int categoriesId = Convert.ToInt32(cmbCategories.SelectedValue);    
+            var dtReport = new DataSet1.StockPerBranchDetailsDataTable();
+            int branchId = Convert.ToInt32(cmbBranches.SelectedValue);
 
             DataTable dataTableFromDB;
 
-            if (categoriesId == 0)
-                dataTableFromDB = Factory.BranchStocksController().FetchItemsGroupByItem(branchId);
-            else
-                dataTableFromDB = Factory.BranchStocksController().FetchItemsGroupByItem(branchId, categoriesId);
+            dataTableFromDB = Factory.BranchStocksController().FetchBranchesStocksByBranchId(branchId);
 
             foreach (DataRow item in dataTableFromDB.Rows)
             {
-                decimal stocksLeft = Factory.BranchStocksController().SumTotalStocks(branchId, Convert.ToInt32(item["item_id"]));
                 DataRow row = dtReport.NewRow();
 
-
-                row["item_code"] = item["item_code"];
+                row["item_code"] = item["item_code"];   
                 row["item_name"] = item["item_name"];
                 row["category_name"] = item["category_name"];
                 row["abbreviation"] = item["abbreviation"];
-                row["stocks"] = stocksLeft;
+                row["serial_number"] = item["serial_number"];
+                row["model"] = item["model"];
+                row["operating_system"] = item["operating_system"];
+                row["ram"] = item["ram"];
+                row["computer_name"] = item["computer_name"];
+                row["sophos_tamper"] = item["sophos_tamper"];
+                row["date_acquired"] = item["date_acquired"];
+                row["unit_cost"] = item["unit_cost"];
+                row["status"] = item["status"];
+                row["remarks"] = item["remarks"];
                 dtReport.Rows.Add(row);
             }
 
@@ -88,9 +73,9 @@ namespace ZenBiz.AppModules.Forms.Reports
                     new ReportParameter("paramTIN", dict["tin"]),
                 };
 
-                report.ReportPath = $"{Application.StartupPath}\\AppModules\\RDLC\\stocks-per-branch.rdlc";
+                report.ReportPath = $"{Application.StartupPath}\\AppModules\\RDLC\\stocks-per-branch-details.rdlc";
                 report.DataSources.Clear();
-                report.DataSources.Add(new ReportDataSource("StocksPerBranch", DataTableStocks()));
+                report.DataSources.Add(new ReportDataSource("StocksPerBranchDetails", DataTableStocks()));
                 report.SetParameters(parameters);
             }
             catch (Exception ex)

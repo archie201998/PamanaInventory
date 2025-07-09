@@ -43,25 +43,20 @@ namespace ZenBiz.AppModules.Forms.Inventory.Stocks
                 return false;
             }
 
-            int suppliersId = (int)uc.cmbSupplier.SelectedValue;
-            string status = uc.cmbxStatus.Text.Trim();
-            string remarks = uc.txtRemarks.Text.Trim();
-            DateTime dateAcquired = uc.dtpDateAcquired.Value;
-
             StocksModel stocksModel = new()
             {
                 Item = new ItemsModel() { Id = _itemId },
-                Supplier = new SupplierModel() { Id = suppliersId },
+                Supplier = new SupplierModel() { Id = (int)uc.cmbSupplier.SelectedValue },
                 SerialNumber = uc.txtSerialNumber.Text.Trim(),
                 Model = uc.txtModel.Text.Trim(),
                 OperatingSystem = uc.txtOS.Text.Trim(),
                 RAM = uc.txtRAM.Text.Trim(),
                 ComputerName = uc.txtComputerName.Text.Trim(),
                 SophosTamper = uc.txtSophosTamper.Text.Trim(),
-                DateAcquired = dateAcquired,
+                DateAcquired = uc.dtpDateAcquired.Value,
                 UnitCost = uc.nudUnitCost.Value,
-                Status = status,
-                Remarks = remarks,
+                Status = uc.cmbxStatus.Text.Trim(),
+                Remarks = uc.txtRemarks.Text.Trim()
             };
 
             _ = Factory.StocksController().Insert(stocksModel);

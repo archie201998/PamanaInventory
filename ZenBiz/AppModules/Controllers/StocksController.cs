@@ -103,23 +103,23 @@ namespace ZenBiz.AppModules.Controllers
           var parameters = new object[][]
           {
                 new object[] { "@id", DbType.Int32, entity.Id},
-                new object[] { "@item_id", DbType.Int32, entity.Item.Id },
                 new object[] { "@suppliers_id", DbType.Int32, entity.Supplier.Id },
+                new object[] { "@item_id", DbType.Int32, entity.Item.Id },
                 new object[] { "@serial_number", DbType.String, entity.SerialNumber },
                 new object[] { "@model", DbType.String, entity.Model },
                 new object[] { "@operating_system", DbType.String, entity.OperatingSystem },
                 new object[] { "@RAM", DbType.String, entity.RAM },
                 new object[] { "@computer_name", DbType.String, entity.ComputerName },
                 new object[] { "@sophos_tamper", DbType.String, entity.SophosTamper },
-                new object[] { "@date_acquired", DbType.DateTime2, entity.DateAcquired },
+                new object[] { "@date_acquired", DbType.Date, entity.DateAcquired },
                 new object[] { "@unit_cost", DbType.Decimal, entity.UnitCost },
                 new object[] { "@status", DbType.String, entity.Status },
                 new object[] { "@remarks", DbType.String, entity.Remarks },
-                new object[] { "@created_by", DbType.String, entity.CreatedBy },
+                new object[] { "@updated_by", DbType.Int32, 1 },
           };
 
-            string query = $"UPDATE your_table_name SET item_id = @item_id, suppliers_id = @suppliers_id, serial_number = @serial_number, model = @model, operating_system = @operating_system, RAM = @RAM, computer_name = @computer_name, sophos_tamper = @sophos_tamper, date_acquired = @date_acquired, unit_cost = @unit_cost, status = @status, remarks = @remarks, created_by = @created_by WHERE id = @id;";
-            return _dbGenericCommands.ExecuteNonQuery(query, parameters);
+          string query = $"UPDATE {tblStocks} SET item_id = @item_id, suppliers_id = @suppliers_id, serial_number = @serial_number, model = @model, operating_system = @operating_system, RAM = @RAM, computer_name = @computer_name, sophos_tamper = @sophos_tamper, date_acquired = @date_acquired, unit_cost = @unit_cost, status = @status, remarks = @remarks, updated_by = @updated_by WHERE id = @id;";
+          return _dbGenericCommands.ExecuteNonQuery(query, parameters);
         }
 
         public int LastInsertedId()

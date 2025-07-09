@@ -33,6 +33,7 @@
             storeToolStripMenuItem = new ToolStripMenuItem();
             stocksPerStoreToolStripMenuItem = new ToolStripMenuItem();
             fastSlowMovingStocksToolStripMenuItem = new ToolStripMenuItem();
+            itemToolStripMenuItem = new ToolStripMenuItem();
             salesToolStripMenuItem = new ToolStripMenuItem();
             grossIncomeToolStripMenuItem = new ToolStripMenuItem();
             soldItemsToolStripMenuItem = new ToolStripMenuItem();
@@ -40,7 +41,7 @@
             statementOfAcocuntToolStripMenuItem = new ToolStripMenuItem();
             payablesToolStripMenuItem = new ToolStripMenuItem();
             accountsReceivableToolStripMenuItem = new ToolStripMenuItem();
-            itemToolStripMenuItem = new ToolStripMenuItem();
+            itemListToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -62,7 +63,7 @@
             // 
             // storeToolStripMenuItem
             // 
-            storeToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { stocksPerStoreToolStripMenuItem });
+            storeToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { stocksPerStoreToolStripMenuItem, itemListToolStripMenuItem });
             storeToolStripMenuItem.Name = "storeToolStripMenuItem";
             storeToolStripMenuItem.Size = new Size(180, 22);
             storeToolStripMenuItem.Text = "Branch";
@@ -80,6 +81,12 @@
             fastSlowMovingStocksToolStripMenuItem.Size = new Size(180, 22);
             fastSlowMovingStocksToolStripMenuItem.Text = "Defective Items";
             // 
+            // itemToolStripMenuItem
+            // 
+            itemToolStripMenuItem.Name = "itemToolStripMenuItem";
+            itemToolStripMenuItem.Size = new Size(180, 22);
+            itemToolStripMenuItem.Text = "Stock Item History";
+            // 
             // salesToolStripMenuItem
             // 
             salesToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { grossIncomeToolStripMenuItem, soldItemsToolStripMenuItem, dueReportToolStripMenuItem });
@@ -91,19 +98,19 @@
             // grossIncomeToolStripMenuItem
             // 
             grossIncomeToolStripMenuItem.Name = "grossIncomeToolStripMenuItem";
-            grossIncomeToolStripMenuItem.Size = new Size(146, 22);
+            grossIncomeToolStripMenuItem.Size = new Size(180, 22);
             grossIncomeToolStripMenuItem.Text = "Gross Income";
             // 
             // soldItemsToolStripMenuItem
             // 
             soldItemsToolStripMenuItem.Name = "soldItemsToolStripMenuItem";
-            soldItemsToolStripMenuItem.Size = new Size(146, 22);
+            soldItemsToolStripMenuItem.Size = new Size(180, 22);
             soldItemsToolStripMenuItem.Text = "Sold Items";
             // 
             // dueReportToolStripMenuItem
             // 
             dueReportToolStripMenuItem.Name = "dueReportToolStripMenuItem";
-            dueReportToolStripMenuItem.Size = new Size(146, 22);
+            dueReportToolStripMenuItem.Size = new Size(180, 22);
             dueReportToolStripMenuItem.Text = "Due Report";
             // 
             // statementOfAcocuntToolStripMenuItem
@@ -127,11 +134,12 @@
             accountsReceivableToolStripMenuItem.Text = "Aging Accounts Receivable";
             accountsReceivableToolStripMenuItem.Visible = false;
             // 
-            // itemToolStripMenuItem
+            // itemListToolStripMenuItem
             // 
-            itemToolStripMenuItem.Name = "itemToolStripMenuItem";
-            itemToolStripMenuItem.Size = new Size(171, 22);
-            itemToolStripMenuItem.Text = "Stock Item History";
+            itemListToolStripMenuItem.Name = "itemListToolStripMenuItem";
+            itemListToolStripMenuItem.Size = new Size(180, 22);
+            itemListToolStripMenuItem.Text = "Stock Details";
+            itemListToolStripMenuItem.Click += itemListToolStripMenuItem_Click;
             // 
             // FrmReports
             // 
@@ -165,5 +173,6 @@
         private ToolStripMenuItem accountsReceivableToolStripMenuItem;
         private ToolStripMenuItem dueReportToolStripMenuItem;
         private ToolStripMenuItem itemToolStripMenuItem;
+        private ToolStripMenuItem itemListToolStripMenuItem;
     }
 }

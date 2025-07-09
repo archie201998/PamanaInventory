@@ -184,6 +184,15 @@ namespace ZenBiz.AppModules.Controllers
             return Convert.ToDecimal(result);
         }
 
-       
+        public DataTable FetchBranchesStocksByBranchId(int branchId)
+        {
+            var parameters = new object[][]
+            {
+                new object[] { "@branches_id", DbType.Int32, branchId },
+            };
+
+            string query = $"SELECT * FROM {viewBranchStocks} WHERE branches_id = @branches_id ";
+            return _dbGenericCommands.Fill(query, parameters);
+        }
     }
 }

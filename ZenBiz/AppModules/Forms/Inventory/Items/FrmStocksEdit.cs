@@ -32,26 +32,13 @@ namespace ZenBiz.AppModules.Forms.Inventory.Items
             uc.txtComputerName.Text = _data["computer_name"];
             uc.txtSophosTamper.Text = _data["sophos_tamper"];
             uc.nudUnitCost.Value = Convert.ToDecimal(_data["unit_cost"]);
-            //uc.cmbSupplier.SelectedValue = Convert.ToInt32(_data["suppliers_id"]);
             uc.cmbxStatus.SelectedValue = _data["status"];
-            //uc.dtpRepairedDate.Enabled = Convert.ToBoolean(_data["date_repaired"]);
             uc.txtRemarks.Text = _data["remarks"];
-
         }
 
         private void FrmStocksEdit_Load(object sender, EventArgs e)
         {
             LoadSelectedData();
-        }
-
-        private bool UpdateStock()
-        {
-            if (!uc.ValidateChildren())
-            {
-                Helper.MessageBoxError(uc.GetFormErrors());
-            }
-
-            return true;
         }
 
         private bool AddStock()
@@ -67,14 +54,12 @@ namespace ZenBiz.AppModules.Forms.Inventory.Items
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-         
-
             if (AddStock())
             {
                 string branchId = uc.cmbBranch.SelectedValue.ToString();
                 string branch = uc.cmbBranch.Text;
                 string serialNumber = uc.txtSerialNumber.Text.Trim();
-                string model = uc.txtModel.Text.Trim();
+                string model = uc.txtModel.Text.Trim(); 
                 string operatingSystem = uc.txtOS.Text.Trim();
                 string ram = uc.txtRAM.Text.Trim();
                 string computerName = uc.txtComputerName.Text.Trim();

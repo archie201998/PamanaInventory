@@ -133,6 +133,28 @@ namespace ZenBiz
             }
         }
 
+
+        public static void EnableDisableToolStripButtons_Repair_User_History(DataGridView dgv, ToolStripButton tsBtnEdit, ToolStripButton tsBtnDelete)
+        {
+            int SelectedRows = dgv.SelectedRows.Count;
+            if (SelectedRows == 1)
+            {
+                tsBtnEdit.Enabled = true;
+                tsBtnDelete.Enabled = true;
+
+            }
+            else if (SelectedRows > 1)
+            {
+                tsBtnEdit.Enabled = false;
+                tsBtnDelete.Enabled = true;
+            }
+            else
+            {
+                tsBtnEdit.Enabled = false;
+                tsBtnDelete.Enabled = false;
+            }
+
+        }
         public static void EnableDisableToolStripButtons(DataGridView dgv, ToolStripButton tsBtnEdit, ToolStripButton tsBtnDelete)
         {
             int SelectedRows = dgv.SelectedRows.Count;

@@ -35,6 +35,7 @@ namespace PamanaWaterInventory.AppModules.Forms.Inventory.UserHistory
         private void btnAddStoreStock_Click(object sender, EventArgs e)
         {
             _ = new frmAddStockUserHistory(_stockId).ShowDialog();
+            LoadStockUserHistory();
         }
 
         private void btnEditStoreStock_Click(object sender, EventArgs e)
@@ -43,7 +44,7 @@ namespace PamanaWaterInventory.AppModules.Forms.Inventory.UserHistory
             {
                 int rowIndex = dgUserHistory.CurrentCell.RowIndex;
                 int repairId = Convert.ToInt32(dgUserHistory.Rows[rowIndex].Cells["id"].Value);
-                _ = new frmEditRepairHistory(_stockId, repairId).ShowDialog();
+                _ = new frmEditStockUserHistory(_stockId, repairId).ShowDialog();
                 LoadStockUserHistory();
             }
             catch (Exception)
@@ -79,6 +80,11 @@ namespace PamanaWaterInventory.AppModules.Forms.Inventory.UserHistory
         private void dgUserHistory_SelectionChanged(object sender, EventArgs e)
         {
             Helper.EnableDisableToolStripButtons(dgUserHistory, btnEditStoreStock, btnDeleteStoreStock);
+        }
+
+        private void btnDeleteStoreStock_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

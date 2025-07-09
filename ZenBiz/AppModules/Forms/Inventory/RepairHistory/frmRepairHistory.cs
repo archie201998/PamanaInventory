@@ -39,6 +39,7 @@ namespace PamanaWaterInventory.AppModules.Forms.Inventory.RepairHistory
         {
             try
             {
+                dgRepairHistory.ClearSelection();
                 int stockId = _stocksId;
 
                 dgRepairHistory.DataSource = Factory.RepairedHistoryController().GetViewRecordsByStockId(stockId);
@@ -69,10 +70,18 @@ namespace PamanaWaterInventory.AppModules.Forms.Inventory.RepairHistory
 
         private void btnEditStoreStock_Click(object sender, EventArgs e)
         {
-            int rowIndex = dgRepairHistory.CurrentCell.RowIndex;
-            int repairId = Convert.ToInt32(dgRepairHistory.Rows[rowIndex].Cells["id"].Value);
-            _ = new frmEditRepairHistory(_stocksId, repairId).ShowDialog();
-            LoadRepairHistory();
+            try
+            {
+                int rowIndex = dgRepairHistory.CurrentCell.RowIndex;
+                int repairId = Convert.ToInt32(dgRepairHistory.Rows[rowIndex].Cells["id"].Value);
+                _ = new frmEditRepairHistory(_stocksId, repairId).ShowDialog();
+                LoadRepairHistory();
+            }
+            catch (Exception)
+            {
+                Helper.MessageBoxInformation("Please select a record first.");
+            }
+           
         }
 
         private void btnDeleteStoreStock_Click(object sender, EventArgs e)

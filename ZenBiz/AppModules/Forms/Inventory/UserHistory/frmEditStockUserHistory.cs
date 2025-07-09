@@ -69,10 +69,13 @@ namespace PamanaWaterInventory.AppModules.Forms.Inventory.UserHistory
         {
             Dictionary<string, string> dict;
 
-            dict = Factory.RepairedHistoryController().FindById(_stockId);
+            dict = Factory.StockUserHistoryController().FindById(_stockId);
 
-            uc.cmbBranch.SelectedValue = dict["reported_by"]; 
-
+            uc.cmbBranch.SelectedValue = dict["branches_id"];
+            uc.txtUser.Text = dict["user"];
+            uc.dtpDateAssigned.Value = Convert.ToDateTime(dict["assigned_date"]);
+            uc.dtpDateReturned.Value = string.IsNullOrEmpty(dict["unassigned_date"]) ? DateTime.Now : Convert.ToDateTime(dict["unassigned_date"]);
+            uc.cbxCurrentUser.Checked = Convert.ToBoolean(dict["is_current_user"]); 
         }
 
         private void frmEditStockUserHistory_Load(object sender, EventArgs e)

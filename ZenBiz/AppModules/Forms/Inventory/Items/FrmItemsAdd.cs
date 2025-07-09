@@ -64,8 +64,6 @@ namespace ZenBiz.AppModules.Forms.Inventory.Items
             }
         }
 
-
-
         private bool SaveData()
         {
             if (!uc.ValidateChildren())
@@ -80,8 +78,6 @@ namespace ZenBiz.AppModules.Forms.Inventory.Items
 
             scope.Complete();
             return true;
-
-
             try
             {
 

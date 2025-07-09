@@ -1,4 +1,6 @@
-﻿namespace ZenBiz.AppModules.Forms.Reports
+﻿using ZenBiz.AppModules.Forms.Reports.Store;
+
+namespace ZenBiz.AppModules.Forms.Reports
 {
     public partial class FrmReports : Form
     {
@@ -29,5 +31,9 @@
             ShowMdiForm(new FrmStockAdjustmentsReport(true));
         }
 
+        private void itemListToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ShowMdiForm(new FrmStockPerBranchDetailsReport());
+        }
     }
 }

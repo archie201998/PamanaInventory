@@ -50,8 +50,8 @@
             toolStripLabel2 = new ToolStripLabel();
             cmbBranches = new ToolStripComboBox();
             toolStripSeparator1 = new ToolStripSeparator();
-            toolStripButton1 = new ToolStripButton();
-            toolStripButton2 = new ToolStripButton();
+            btnRepairs = new ToolStripButton();
+            btnUsersHistory = new ToolStripButton();
             groupBox1.SuspendLayout();
             panel1.SuspendLayout();
             tabControl1.SuspendLayout();
@@ -193,7 +193,7 @@
             // toolStrip2
             // 
             toolStrip2.GripStyle = ToolStripGripStyle.Hidden;
-            toolStrip2.Items.AddRange(new ToolStripItem[] { btnStoreStockAdd, btnStoreStockEdit, btnStoreStockDelete, lblTotalStoreStocks, toolStripLabel2, cmbBranches, toolStripSeparator1, toolStripButton1, toolStripButton2 });
+            toolStrip2.Items.AddRange(new ToolStripItem[] { btnStoreStockAdd, btnStoreStockEdit, btnStoreStockDelete, lblTotalStoreStocks, toolStripLabel2, cmbBranches, toolStripSeparator1, btnRepairs, btnUsersHistory });
             toolStrip2.Location = new Point(3, 3);
             toolStrip2.Name = "toolStrip2";
             toolStrip2.Size = new Size(1076, 38);
@@ -248,6 +248,7 @@
             // 
             cmbBranches.Alignment = ToolStripItemAlignment.Right;
             cmbBranches.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbBranches.Enabled = false;
             cmbBranches.Name = "cmbBranches";
             cmbBranches.Size = new Size(200, 38);
             cmbBranches.Click += cmbBranches_Click;
@@ -257,25 +258,25 @@
             toolStripSeparator1.Name = "toolStripSeparator1";
             toolStripSeparator1.Size = new Size(6, 38);
             // 
-            // toolStripButton1
+            // btnRepairs
             // 
-            toolStripButton1.Image = PamanaWaterInventory.Properties.Resources.icons8_tools_24;
-            toolStripButton1.ImageTransparentColor = Color.Magenta;
-            toolStripButton1.Name = "toolStripButton1";
-            toolStripButton1.Size = new Size(49, 35);
-            toolStripButton1.Text = "Repairs";
-            toolStripButton1.TextImageRelation = TextImageRelation.ImageAboveText;
-            toolStripButton1.Click += toolStripButton1_Click;
+            btnRepairs.Image = PamanaWaterInventory.Properties.Resources.icons8_tools_24;
+            btnRepairs.ImageTransparentColor = Color.Magenta;
+            btnRepairs.Name = "btnRepairs";
+            btnRepairs.Size = new Size(77, 35);
+            btnRepairs.Text = "View Repairs";
+            btnRepairs.TextImageRelation = TextImageRelation.ImageAboveText;
+            btnRepairs.Click += toolStripButton1_Click;
             // 
-            // toolStripButton2
+            // btnUsersHistory
             // 
-            toolStripButton2.Image = PamanaWaterInventory.Properties.Resources.icons8_user_24;
-            toolStripButton2.ImageTransparentColor = Color.Magenta;
-            toolStripButton2.Name = "toolStripButton2";
-            toolStripButton2.Size = new Size(39, 35);
-            toolStripButton2.Text = "Users";
-            toolStripButton2.TextImageRelation = TextImageRelation.ImageAboveText;
-            toolStripButton2.Click += toolStripButton2_Click;
+            btnUsersHistory.Image = PamanaWaterInventory.Properties.Resources.icons8_user_24;
+            btnUsersHistory.ImageTransparentColor = Color.Magenta;
+            btnUsersHistory.Name = "btnUsersHistory";
+            btnUsersHistory.Size = new Size(67, 35);
+            btnUsersHistory.Text = "View Users";
+            btnUsersHistory.TextImageRelation = TextImageRelation.ImageAboveText;
+            btnUsersHistory.Click += toolStripButton2_Click;
             // 
             // FrmStocks
             // 
@@ -326,7 +327,7 @@
         private ToolStripLabel toolStripLabel2;
         private ToolStripComboBox cmbBranches;
         private ToolStripSeparator toolStripSeparator1;
-        private ToolStripButton toolStripButton1;
-        private ToolStripButton toolStripButton2;
+        private ToolStripButton btnRepairs;
+        private ToolStripButton btnUsersHistory;
     }
 }

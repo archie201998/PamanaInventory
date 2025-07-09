@@ -9,13 +9,15 @@ namespace ZenBiz.AppModules.Forms.Inventory.Stocks
     public partial class FrmStocks : Form
     {
         private readonly int _itemId;
+        private readonly int _branchId;
 
-        public FrmStocks(int itemId)
+        public FrmStocks(int branchId, int itemId)
         {
             InitializeComponent();
             Helper.LoadFormIcon(this);
             Helper.DatagridDefaultStyle(dgBranchStocks);
             _itemId = itemId;
+            _branchId = branchId;   
             cmbBranches.ComboBox.SelectionChangeCommitted += cmbStores_SelectionChangeCommitted;
         }
 
@@ -39,6 +41,8 @@ namespace ZenBiz.AppModules.Forms.Inventory.Stocks
             cmbBranches.ComboBox.DataSource = new BindingSource(storesDict, null);
             cmbBranches.ComboBox.DisplayMember = "Value";
             cmbBranches.ComboBox.ValueMember = "key";
+
+            cmbBranches.ComboBox.SelectedValue = _branchId; 
         }
 
         private void FrmStocks_Load(object sender, EventArgs e)
@@ -80,11 +84,13 @@ namespace ZenBiz.AppModules.Forms.Inventory.Stocks
             dgBranchStocks.Columns["computer_name"].HeaderText = "Computer Name";
             dgBranchStocks.Columns["sophos_tamper"].HeaderText = "Sophos Tamper";
             dgBranchStocks.Columns["unit_cost"].HeaderText = "Unit Cost";
+            dgBranchStocks.Columns["unit_cost"].DefaultCellStyle.Format = "N2";
             dgBranchStocks.Columns["date_acquired"].HeaderText = "Date Acquired";
             dgBranchStocks.Columns["date_acquired"].DefaultCellStyle.Format = "MMM dd, yyyy";
             dgBranchStocks.Columns["suppliers_name"].HeaderText = "Supplier";
             dgBranchStocks.Columns["suppliers_address"].HeaderText = "Supplier Address";
             dgBranchStocks.Columns["status"].HeaderText = "Status";
+            dgBranchStocks.Columns["remarks"].HeaderText = "Remarks";
             //dgBranchStocks.Columns["user"].HeaderText = "Current User";
             //dgBranchStocks.Columns["remarks"].HeaderText = "Remarks";
 
@@ -93,6 +99,8 @@ namespace ZenBiz.AppModules.Forms.Inventory.Stocks
             // Auto adjust columns size
             dgBranchStocks.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             dgBranchStocks.AutoResizeColumns();
+
+            dgBranchStocks.ClearSelection();
         }
 
 
@@ -159,6 +167,7 @@ namespace ZenBiz.AppModules.Forms.Inventory.Stocks
         private void dgStoreStocks_SelectionChanged(object sender, EventArgs e)
         {
             Helper.EnableDisableToolStripButtons(dgBranchStocks, btnStoreStockEdit, btnStoreStockDelete);
+            Helper.EnableDisableToolStripButtons_Repair_User_History(dgBranchStocks, btnRepairs, btnUsersHistory);
         }
 
         private void FrmStocks_FormClosed(object sender, FormClosedEventArgs e)
@@ -197,14 +206,19 @@ namespace ZenBiz.AppModules.Forms.Inventory.Stocks
 
         private void toolStripButton2_Click(object sender, EventArgs e)
         {
-            int rowIndex = dgBranchStocks.CurrentCell.RowIndex;
-            object stockIdValue = dgBranchStocks.Rows[rowIndex].Cells["stocks_id"].Value;
-            string serialNumber = dgBranchStocks.Rows[rowIndex].Cells["serial_number"].Value?.ToString() ?? string.Empty;
-          
-            if (stockIdValue != null && int.TryParse(stockIdValue.ToString(), out int stockId))
+            dgBranchStocks.ClearSelection();
+            if (dgBranchStocks.CurrentCell != null)
             {
-                _ = new frmStockUserHistory(stockId, serialNumber).ShowDialog();
+                int rowIndex = dgBranchStocks.CurrentCell.RowIndex;
+                object stockIdValue = dgBranchStocks.Rows[rowIndex].Cells["stocks_id"].Value;
+                string serialNumber = dgBranchStocks.Rows[rowIndex].Cells["serial_number"].Value?.ToString() ?? string.Empty;
+
+                if (stockIdValue != null && int.TryParse(stockIdValue.ToString(), out int stockId))
+                {
+                    _ = new frmStockUserHistory(stockId, serialNumber).ShowDialog();
+                }
             }
         }
+           
     }
 }

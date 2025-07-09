@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
-            cmbStores = new ComboBox();
+            cmbBranches = new ComboBox();
             label1 = new Label();
             groupBox1 = new GroupBox();
             panel2 = new Panel();
@@ -48,14 +48,14 @@
             panel1.Size = new Size(1139, 491);
             panel1.TabIndex = 0;
             // 
-            // cmbStores
+            // cmbBranches
             // 
-            cmbStores.DropDownStyle = ComboBoxStyle.DropDownList;
-            cmbStores.FormattingEnabled = true;
-            cmbStores.Location = new Point(63, 3);
-            cmbStores.Name = "cmbStores";
-            cmbStores.Size = new Size(155, 23);
-            cmbStores.TabIndex = 1;
+            cmbBranches.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbBranches.FormattingEnabled = true;
+            cmbBranches.Location = new Point(63, 3);
+            cmbBranches.Name = "cmbBranches";
+            cmbBranches.Size = new Size(155, 23);
+            cmbBranches.TabIndex = 1;
             // 
             // label1
             // 
@@ -84,7 +84,7 @@
             panel2.Controls.Add(label2);
             panel2.Controls.Add(cmbCategories);
             panel2.Controls.Add(label1);
-            panel2.Controls.Add(cmbStores);
+            panel2.Controls.Add(cmbBranches);
             panel2.Dock = DockStyle.Fill;
             panel2.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             panel2.Location = new Point(3, 19);
@@ -141,7 +141,7 @@
 
         private Panel panel1;
         private Label label1;
-        private ComboBox cmbStores;
+        private ComboBox cmbBranches;
         private GroupBox groupBox1;
         private Panel panel2;
         private Label label2;
