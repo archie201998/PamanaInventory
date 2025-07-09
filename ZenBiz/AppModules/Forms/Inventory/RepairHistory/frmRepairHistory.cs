@@ -37,23 +37,28 @@ namespace PamanaWaterInventory.AppModules.Forms.Inventory.RepairHistory
 
         private void LoadRepairHistory()
         {
-            int stockId = _stocksId;
+            try
+            {
+                int stockId = _stocksId;
 
-            dgRepairHistory.DataSource = Factory.RepairedHistoryController().GetViewRecordsByStockId(stockId);
+                dgRepairHistory.DataSource = Factory.RepairedHistoryController().GetViewRecordsByStockId(stockId);
 
-            dgRepairHistory.Columns["id"].Visible = false;
-            dgRepairHistory.Columns["stocks_id"].Visible = false;
+                dgRepairHistory.Columns["id"].Visible = false;
+                dgRepairHistory.Columns["stocks_id"].Visible = false;
 
-            dgRepairHistory.Columns["reported_by"].HeaderText = "Reported By";
-            dgRepairHistory.Columns["repair_date"].HeaderText = "Date Repaired";
-            dgRepairHistory.Columns["repaired_by"].HeaderText = "Repaired By";
-            dgRepairHistory.Columns["cost"].HeaderText = "Cost";
-            dgRepairHistory.Columns["issue_description"].HeaderText = "Issue Description";
-            dgRepairHistory.Columns["repair_action"].HeaderText = "Repair Action";
-            dgRepairHistory.Columns["cost"].HeaderText = "Repair Cost";
-            dgRepairHistory.Columns["other_details"].HeaderText = "Other Details";
-            dgRepairHistory.Columns["other_details"].AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
-
+                dgRepairHistory.Columns["reported_by"].HeaderText = "Reported By";
+                dgRepairHistory.Columns["repair_date"].HeaderText = "Date Repaired";
+                dgRepairHistory.Columns["repaired_by"].HeaderText = "Repaired By";
+                dgRepairHistory.Columns["cost"].HeaderText = "Cost";
+                dgRepairHistory.Columns["issue_description"].HeaderText = "Issue Description";
+                dgRepairHistory.Columns["repair_action"].HeaderText = "Repair Action";
+                dgRepairHistory.Columns["cost"].HeaderText = "Repair Cost";
+                dgRepairHistory.Columns["other_details"].HeaderText = "Other Details";
+                dgRepairHistory.Columns["other_details"].AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
+            }
+            catch (Exception)
+            {
+            }
         }
 
         private void btnAddStoreStock_Click(object sender, EventArgs e)
@@ -75,7 +80,7 @@ namespace PamanaWaterInventory.AppModules.Forms.Inventory.RepairHistory
             if (DeleteRepairHistory(dgRepairHistory)) LoadRepairHistory();
         }
 
-        
+
         private bool DeleteRepairHistory(DataGridView dataGrid)
         {
             if (dataGrid.SelectedRows.Count == 0) return false;
@@ -88,7 +93,7 @@ namespace PamanaWaterInventory.AppModules.Forms.Inventory.RepairHistory
 
                 var messageBox = MessageBox.Show("Are you sure you want to delete this data?", "Deleting Repair History", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (messageBox != DialogResult.Yes) return false;
-
+                %
                 return Factory.RepairedHistoryController().Delete(repairHistoryModelList);
             }
             catch (MySqlException ex)
@@ -100,6 +105,11 @@ namespace PamanaWaterInventory.AppModules.Forms.Inventory.RepairHistory
             }
 
             return false;
+        }
+
+        private void dgRepairHistory_SelectionChanged(object sender, EventArgs e)
+        {
+            Helper.EnableDisableToolStripButtons(dgRepairHistory, btnEditStoreStock, btnDeleteStoreStock);
         }
     }
 }

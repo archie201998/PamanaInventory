@@ -40,7 +40,7 @@
             ucStockUserHistory1.Dock = DockStyle.Fill;
             ucStockUserHistory1.Location = new Point(0, 0);
             ucStockUserHistory1.Name = "ucStockUserHistory1";
-            ucStockUserHistory1.Size = new Size(440, 173);
+            ucStockUserHistory1.Size = new Size(440, 183);
             ucStockUserHistory1.TabIndex = 0;
             // 
             // flowLayoutPanel1
@@ -49,7 +49,7 @@
             flowLayoutPanel1.Controls.Add(btnCancel);
             flowLayoutPanel1.Controls.Add(btnSave);
             flowLayoutPanel1.Dock = DockStyle.Bottom;
-            flowLayoutPanel1.Location = new Point(0, 143);
+            flowLayoutPanel1.Location = new Point(0, 153);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
             flowLayoutPanel1.RightToLeft = RightToLeft.Yes;
             flowLayoutPanel1.Size = new Size(440, 30);
@@ -72,16 +72,18 @@
             btnSave.TabIndex = 0;
             btnSave.Text = "Save";
             btnSave.UseVisualStyleBackColor = true;
+            btnSave.Click += btnSave_Click;
             // 
             // frmAddStockUserHistory
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(440, 173);
+            ClientSize = new Size(440, 183);
             Controls.Add(flowLayoutPanel1);
             Controls.Add(ucStockUserHistory1);
             FormBorderStyle = FormBorderStyle.FixedToolWindow;
             Name = "frmAddStockUserHistory";
+            ShowInTaskbar = false;
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Add Stock User History";
             flowLayoutPanel1.ResumeLayout(false);

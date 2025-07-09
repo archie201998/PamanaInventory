@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ZenBiz;
 
 namespace PamanaWaterInventory.AppModules.Forms.Inventory.UserHistory
 {
@@ -21,13 +22,23 @@ namespace PamanaWaterInventory.AppModules.Forms.Inventory.UserHistory
         {
             if (!DesignMode)
             {
-
+                Helper.LoadBranches(cmbBranch);
             }
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
-            dtpDateReturned.Enabled = checkBox1.Checked;    
+            dtpDateReturned.Enabled = checkBox1.Checked;
+        }
+
+        internal string GetFormErrors()
+        {
+            throw new NotImplementedException();
+        }
+
+        private void cbxCurrentUser_CheckedChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

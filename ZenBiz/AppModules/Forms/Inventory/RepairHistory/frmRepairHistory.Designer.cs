@@ -101,6 +101,7 @@
             dgRepairHistory.RowTemplate.Height = 25;
             dgRepairHistory.Size = new Size(928, 413);
             dgRepairHistory.TabIndex = 1;
+            dgRepairHistory.SelectionChanged += dgRepairHistory_SelectionChanged;
             // 
             // toolStrip1
             // 
@@ -150,6 +151,7 @@
             Controls.Add(groupBox2);
             MaximizeBox = false;
             Name = "frmRepairHistory";
+            ShowInTaskbar = false;
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Item Repair History";
             Load += frmRepairHistory_Load;

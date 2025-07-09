@@ -41,7 +41,7 @@
             flowLayoutPanel1.Controls.Add(btnCancel);
             flowLayoutPanel1.Controls.Add(btnSave);
             flowLayoutPanel1.Dock = DockStyle.Bottom;
-            flowLayoutPanel1.Location = new Point(0, 324);
+            flowLayoutPanel1.Location = new Point(0, 314);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
             flowLayoutPanel1.RightToLeft = RightToLeft.Yes;
             flowLayoutPanel1.Size = new Size(472, 30);
@@ -71,20 +71,21 @@
             ucRepairHistory1.Dock = DockStyle.Fill;
             ucRepairHistory1.Location = new Point(0, 0);
             ucRepairHistory1.Name = "ucRepairHistory1";
-            ucRepairHistory1.Size = new Size(472, 324);
+            ucRepairHistory1.Size = new Size(472, 314);
             ucRepairHistory1.TabIndex = 6;
             // 
             // frmAddRepairHistory
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(472, 354);
+            ClientSize = new Size(472, 344);
             Controls.Add(ucRepairHistory1);
             Controls.Add(flowLayoutPanel1);
             FormBorderStyle = FormBorderStyle.FixedToolWindow;
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "frmAddRepairHistory";
+            ShowInTaskbar = false;
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Add Repair History";
             flowLayoutPanel1.ResumeLayout(false);

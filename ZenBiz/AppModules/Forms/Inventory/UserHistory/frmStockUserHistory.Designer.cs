@@ -34,14 +34,14 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmStockUserHistory));
             groupBox2 = new GroupBox();
             panel2 = new Panel();
-            dgRepairHistory = new DataGridView();
+            dgUserHistory = new DataGridView();
             toolStrip1 = new ToolStrip();
             btnAddStoreStock = new ToolStripButton();
             btnEditStoreStock = new ToolStripButton();
             btnDeleteStoreStock = new ToolStripButton();
             groupBox2.SuspendLayout();
             panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dgRepairHistory).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgUserHistory).BeginInit();
             toolStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -59,7 +59,7 @@
             // 
             // panel2
             // 
-            panel2.Controls.Add(dgRepairHistory);
+            panel2.Controls.Add(dgUserHistory);
             panel2.Controls.Add(toolStrip1);
             panel2.Dock = DockStyle.Fill;
             panel2.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
@@ -68,7 +68,7 @@
             panel2.Size = new Size(816, 371);
             panel2.TabIndex = 21;
             // 
-            // dgRepairHistory
+            // dgUserHistory
             // 
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = SystemColors.Control;
@@ -77,8 +77,8 @@
             dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            dgRepairHistory.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            dgRepairHistory.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgUserHistory.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dgUserHistory.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = SystemColors.Window;
             dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
@@ -86,10 +86,10 @@
             dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
             dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
-            dgRepairHistory.DefaultCellStyle = dataGridViewCellStyle2;
-            dgRepairHistory.Dock = DockStyle.Fill;
-            dgRepairHistory.Location = new Point(0, 25);
-            dgRepairHistory.Name = "dgRepairHistory";
+            dgUserHistory.DefaultCellStyle = dataGridViewCellStyle2;
+            dgUserHistory.Dock = DockStyle.Fill;
+            dgUserHistory.Location = new Point(0, 25);
+            dgUserHistory.Name = "dgUserHistory";
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = SystemColors.Control;
             dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
@@ -97,10 +97,12 @@
             dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
             dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
-            dgRepairHistory.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            dgRepairHistory.RowTemplate.Height = 25;
-            dgRepairHistory.Size = new Size(816, 346);
-            dgRepairHistory.TabIndex = 1;
+            dgUserHistory.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dgUserHistory.RowTemplate.Height = 25;
+            dgUserHistory.Size = new Size(816, 346);
+            dgUserHistory.TabIndex = 1;
+            dgUserHistory.CellContentClick += dgUserHistory_CellContentClick;
+            dgUserHistory.SelectionChanged += dgUserHistory_SelectionChanged;
             // 
             // toolStrip1
             // 
@@ -130,6 +132,7 @@
             btnEditStoreStock.Name = "btnEditStoreStock";
             btnEditStoreStock.Size = new Size(23, 22);
             btnEditStoreStock.Text = "Edit";
+            btnEditStoreStock.Click += btnEditStoreStock_Click;
             // 
             // btnDeleteStoreStock
             // 
@@ -148,13 +151,14 @@
             Controls.Add(groupBox2);
             MaximizeBox = false;
             Name = "frmStockUserHistory";
+            ShowInTaskbar = false;
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Stock User History";
             Load += frmStockUserHistory_Load;
             groupBox2.ResumeLayout(false);
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dgRepairHistory).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgUserHistory).EndInit();
             toolStrip1.ResumeLayout(false);
             toolStrip1.PerformLayout();
             ResumeLayout(false);
@@ -164,7 +168,7 @@
 
         private GroupBox groupBox2;
         private Panel panel2;
-        public DataGridView dgRepairHistory;
+        public DataGridView dgUserHistory;
         private ToolStrip toolStrip1;
         private ToolStripButton btnAddStoreStock;
         private ToolStripButton btnEditStoreStock;

@@ -14,28 +14,31 @@ using ZenBiz.AppModules;
 
 namespace PamanaWaterInventory.AppModules.Forms.Inventory.UserHistory
 {
-    public partial class frmAddStockUserHistory : Form
+    public partial class frmEditStockUserHistory : Form
     {
         private readonly ucStockUserHistory uc;
         private int _stockId;
-        public frmAddStockUserHistory(int stockId)
+        private int _stockUserHistoryId;
+
+        public frmEditStockUserHistory(int stockId, int stockUserHistoryId)
         {
             InitializeComponent();
             uc = ucStockUserHistory1;
             _stockId = stockId;
+            _stockUserHistoryId = stockUserHistoryId;
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if (SaveData())
+            if (UpdateData())
             {
-                Helper.MessageBoxSuccess("User has been saved.");
+                Helper.MessageBoxSuccess("User history has been updated.");
                 DialogResult = DialogResult.OK;
                 Close();
             }
         }
 
-        private bool SaveData()
+        private bool UpdateData()
         {
             if (!uc.ValidateChildren())
             {
@@ -47,20 +50,34 @@ namespace PamanaWaterInventory.AppModules.Forms.Inventory.UserHistory
             string user = uc.txtUser.Text.Trim();
             DateTime assignedDate = uc.dtpDateAssigned.Value;
             DateTime returnedDate = uc.dtpDateReturned.Value;
-            bool currentUser = uc.cbxCurrentUser.Checked;    
 
             StockUserHistoryModel stockUserHistoryModel = new()
             {
+                Id = _stockUserHistoryId,
                 User = user,
                 AssignedDate = assignedDate,
                 ReturnedDate = uc.checkBox1.Checked ? returnedDate : DateTime.MinValue,
                 BranchID = uc.cmbBranch.SelectedValue != null ? Convert.ToInt32(uc.cmbBranch.SelectedValue) : 0,
-                StockID = stocksId,
-                IsCurrentUser = currentUser
+                StockID = stocksId
             };
 
             return Factory.StockUserHistoryController().Insert(stockUserHistoryModel);
+
         }
 
+        private void LoadData()
+        {
+            Dictionary<string, string> dict;
+
+            dict = Factory.RepairedHistoryController().FindById(_stockId);
+
+            uc.cmbBranch.SelectedValue = dict["reported_by"]; 
+
+        }
+
+        private void frmEditStockUserHistory_Load(object sender, EventArgs e)
+        {
+            LoadData();
+        }
     }
 }

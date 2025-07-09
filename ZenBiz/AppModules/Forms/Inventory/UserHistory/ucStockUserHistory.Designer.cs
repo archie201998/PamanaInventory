@@ -39,6 +39,7 @@
             label4 = new Label();
             errorProvider1 = new ErrorProvider(components);
             checkBox1 = new CheckBox();
+            cbxCurrentUser = new CheckBox();
             ((System.ComponentModel.ISupportInitialize)errorProvider1).BeginInit();
             SuspendLayout();
             // 
@@ -126,10 +127,22 @@
             checkBox1.UseVisualStyleBackColor = true;
             checkBox1.CheckedChanged += checkBox1_CheckedChanged;
             // 
+            // cbxCurrentUser
+            // 
+            cbxCurrentUser.AutoSize = true;
+            cbxCurrentUser.Location = new Point(104, 130);
+            cbxCurrentUser.Name = "cbxCurrentUser";
+            cbxCurrentUser.Size = new Size(92, 19);
+            cbxCurrentUser.TabIndex = 35;
+            cbxCurrentUser.Text = "Current User";
+            cbxCurrentUser.UseVisualStyleBackColor = true;
+            cbxCurrentUser.CheckedChanged += cbxCurrentUser_CheckedChanged;
+            // 
             // ucStockUserHistory
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(cbxCurrentUser);
             Controls.Add(checkBox1);
             Controls.Add(label4);
             Controls.Add(cmbBranch);
@@ -140,7 +153,7 @@
             Controls.Add(label1);
             Controls.Add(label2);
             Name = "ucStockUserHistory";
-            Size = new Size(430, 133);
+            Size = new Size(430, 155);
             Load += ucStockUserHistory_Load;
             ((System.ComponentModel.ISupportInitialize)errorProvider1).EndInit();
             ResumeLayout(false);
@@ -151,13 +164,14 @@
 
         internal TextBox txtUser;
         private Label label2;
-        private DateTimePicker dtpDateAssigned;
         private Label label1;
-        private DateTimePicker dtpDateReturned;
         private Label label3;
         internal ComboBox cmbBranch;
         private Label label4;
         private ErrorProvider errorProvider1;
-        private CheckBox checkBox1;
+        internal DateTimePicker dtpDateAssigned;
+        internal DateTimePicker dtpDateReturned;
+        internal CheckBox checkBox1;
+        internal CheckBox cbxCurrentUser;
     }
 }

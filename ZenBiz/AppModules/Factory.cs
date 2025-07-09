@@ -23,5 +23,6 @@ namespace ZenBiz.AppModules
         public static IUnitsOfMeasurements UnitsOfMeasurementsController() => new UnitsOfMeasurementsController(mySQLGenericCommands);
         public static IPersonnel PersonnelController() => new PersonnelController(mySQLGenericCommands);
         public static IRepairedHistory RepairedHistoryController() => new RepairedHistoryController(mySQLGenericCommands);
+        public static IStockUserHistory StockUserHistoryController() => new StockUserHistoryController(mySQLGenericCommands);
     }
 }
