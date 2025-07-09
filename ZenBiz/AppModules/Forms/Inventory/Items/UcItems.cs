@@ -99,7 +99,6 @@ namespace ZenBiz.AppModules.Inventory.Items
             epCode.SetError(txtCode, "");
 
 
-
             e.Cancel = Helper.ShowErrorTextBoxEmpty(epCode, txtCode, "code");
 
 

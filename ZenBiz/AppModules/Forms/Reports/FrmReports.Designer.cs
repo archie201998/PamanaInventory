@@ -29,21 +29,18 @@
         private void InitializeComponent()
         {
             menuStrip1 = new MenuStrip();
+            inventoryToolStripMenuItem = new ToolStripMenuItem();
+            storeToolStripMenuItem = new ToolStripMenuItem();
+            stocksPerStoreToolStripMenuItem = new ToolStripMenuItem();
+            fastSlowMovingStocksToolStripMenuItem = new ToolStripMenuItem();
             salesToolStripMenuItem = new ToolStripMenuItem();
             grossIncomeToolStripMenuItem = new ToolStripMenuItem();
             soldItemsToolStripMenuItem = new ToolStripMenuItem();
             dueReportToolStripMenuItem = new ToolStripMenuItem();
-            inventoryToolStripMenuItem = new ToolStripMenuItem();
-            storeToolStripMenuItem = new ToolStripMenuItem();
-            stocksPerStoreToolStripMenuItem = new ToolStripMenuItem();
-            stockAdjustmentStoreToolStripMenuItem1 = new ToolStripMenuItem();
-            warehouseToolStripMenuItem = new ToolStripMenuItem();
-            stocksPerWarehouseToolStripMenuItem1 = new ToolStripMenuItem();
-            stockAdjustmentWarehouseToolStripMenuItem = new ToolStripMenuItem();
-            fastSlowMovingStocksToolStripMenuItem = new ToolStripMenuItem();
             statementOfAcocuntToolStripMenuItem = new ToolStripMenuItem();
             payablesToolStripMenuItem = new ToolStripMenuItem();
             accountsReceivableToolStripMenuItem = new ToolStripMenuItem();
+            itemToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -55,6 +52,33 @@
             menuStrip1.Size = new Size(1184, 24);
             menuStrip1.TabIndex = 1;
             menuStrip1.Text = "menuStrip1";
+            // 
+            // inventoryToolStripMenuItem
+            // 
+            inventoryToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { storeToolStripMenuItem, fastSlowMovingStocksToolStripMenuItem, itemToolStripMenuItem });
+            inventoryToolStripMenuItem.Name = "inventoryToolStripMenuItem";
+            inventoryToolStripMenuItem.Size = new Size(69, 20);
+            inventoryToolStripMenuItem.Text = "Inventory";
+            // 
+            // storeToolStripMenuItem
+            // 
+            storeToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { stocksPerStoreToolStripMenuItem });
+            storeToolStripMenuItem.Name = "storeToolStripMenuItem";
+            storeToolStripMenuItem.Size = new Size(180, 22);
+            storeToolStripMenuItem.Text = "Branch";
+            // 
+            // stocksPerStoreToolStripMenuItem
+            // 
+            stocksPerStoreToolStripMenuItem.Name = "stocksPerStoreToolStripMenuItem";
+            stocksPerStoreToolStripMenuItem.Size = new Size(180, 22);
+            stocksPerStoreToolStripMenuItem.Text = "Inventory List";
+            stocksPerStoreToolStripMenuItem.Click += stocksPerStoreToolStripMenuItem_Click_1;
+            // 
+            // fastSlowMovingStocksToolStripMenuItem
+            // 
+            fastSlowMovingStocksToolStripMenuItem.Name = "fastSlowMovingStocksToolStripMenuItem";
+            fastSlowMovingStocksToolStripMenuItem.Size = new Size(180, 22);
+            fastSlowMovingStocksToolStripMenuItem.Text = "Defective Items";
             // 
             // salesToolStripMenuItem
             // 
@@ -82,60 +106,6 @@
             dueReportToolStripMenuItem.Size = new Size(146, 22);
             dueReportToolStripMenuItem.Text = "Due Report";
             // 
-            // inventoryToolStripMenuItem
-            // 
-            inventoryToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { storeToolStripMenuItem, warehouseToolStripMenuItem, fastSlowMovingStocksToolStripMenuItem });
-            inventoryToolStripMenuItem.Name = "inventoryToolStripMenuItem";
-            inventoryToolStripMenuItem.Size = new Size(69, 20);
-            inventoryToolStripMenuItem.Text = "Inventory";
-            // 
-            // storeToolStripMenuItem
-            // 
-            storeToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { stocksPerStoreToolStripMenuItem, stockAdjustmentStoreToolStripMenuItem1 });
-            storeToolStripMenuItem.Name = "storeToolStripMenuItem";
-            storeToolStripMenuItem.Size = new Size(217, 22);
-            storeToolStripMenuItem.Text = "Branch";
-            // 
-            // stocksPerStoreToolStripMenuItem
-            // 
-            stocksPerStoreToolStripMenuItem.Name = "stocksPerStoreToolStripMenuItem";
-            stocksPerStoreToolStripMenuItem.Size = new Size(173, 22);
-            stocksPerStoreToolStripMenuItem.Text = "Inventory List";
-            stocksPerStoreToolStripMenuItem.Click += stocksPerStoreToolStripMenuItem_Click_1;
-            // 
-            // stockAdjustmentStoreToolStripMenuItem1
-            // 
-            stockAdjustmentStoreToolStripMenuItem1.Name = "stockAdjustmentStoreToolStripMenuItem1";
-            stockAdjustmentStoreToolStripMenuItem1.Size = new Size(173, 22);
-            stockAdjustmentStoreToolStripMenuItem1.Text = "Stock Adjustments";
-            stockAdjustmentStoreToolStripMenuItem1.Click += stockAdjustmentStoreToolStripMenuItem1_Click;
-            // 
-            // warehouseToolStripMenuItem
-            // 
-            warehouseToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { stocksPerWarehouseToolStripMenuItem1, stockAdjustmentWarehouseToolStripMenuItem });
-            warehouseToolStripMenuItem.Name = "warehouseToolStripMenuItem";
-            warehouseToolStripMenuItem.Size = new Size(217, 22);
-            warehouseToolStripMenuItem.Text = "Warehouse";
-            // 
-            // stocksPerWarehouseToolStripMenuItem1
-            // 
-            stocksPerWarehouseToolStripMenuItem1.Name = "stocksPerWarehouseToolStripMenuItem1";
-            stocksPerWarehouseToolStripMenuItem1.Size = new Size(173, 22);
-            stocksPerWarehouseToolStripMenuItem1.Text = "Inventory List";
-            // 
-            // stockAdjustmentWarehouseToolStripMenuItem
-            // 
-            stockAdjustmentWarehouseToolStripMenuItem.Name = "stockAdjustmentWarehouseToolStripMenuItem";
-            stockAdjustmentWarehouseToolStripMenuItem.Size = new Size(173, 22);
-            stockAdjustmentWarehouseToolStripMenuItem.Text = "Stock Adjustments";
-            stockAdjustmentWarehouseToolStripMenuItem.Click += stockAdjustmentWarehouseToolStripMenuItem_Click;
-            // 
-            // fastSlowMovingStocksToolStripMenuItem
-            // 
-            fastSlowMovingStocksToolStripMenuItem.Name = "fastSlowMovingStocksToolStripMenuItem";
-            fastSlowMovingStocksToolStripMenuItem.Size = new Size(217, 22);
-            fastSlowMovingStocksToolStripMenuItem.Text = "Fast && Slow Moving Stocks";
-            // 
             // statementOfAcocuntToolStripMenuItem
             // 
             statementOfAcocuntToolStripMenuItem.Name = "statementOfAcocuntToolStripMenuItem";
@@ -156,6 +126,12 @@
             accountsReceivableToolStripMenuItem.Size = new Size(163, 20);
             accountsReceivableToolStripMenuItem.Text = "Aging Accounts Receivable";
             accountsReceivableToolStripMenuItem.Visible = false;
+            // 
+            // itemToolStripMenuItem
+            // 
+            itemToolStripMenuItem.Name = "itemToolStripMenuItem";
+            itemToolStripMenuItem.Size = new Size(171, 22);
+            itemToolStripMenuItem.Text = "Stock Item History";
             // 
             // FrmReports
             // 
@@ -184,13 +160,10 @@
         private ToolStripMenuItem fastSlowMovingStocksToolStripMenuItem;
         private ToolStripMenuItem storeToolStripMenuItem;
         private ToolStripMenuItem stocksPerStoreToolStripMenuItem;
-        private ToolStripMenuItem warehouseToolStripMenuItem;
-        private ToolStripMenuItem stocksPerWarehouseToolStripMenuItem1;
-        private ToolStripMenuItem stockAdjustmentStoreToolStripMenuItem1;
-        private ToolStripMenuItem stockAdjustmentWarehouseToolStripMenuItem;
         private ToolStripMenuItem statementOfAcocuntToolStripMenuItem;
         private ToolStripMenuItem payablesToolStripMenuItem;
         private ToolStripMenuItem accountsReceivableToolStripMenuItem;
         private ToolStripMenuItem dueReportToolStripMenuItem;
+        private ToolStripMenuItem itemToolStripMenuItem;
     }
 }

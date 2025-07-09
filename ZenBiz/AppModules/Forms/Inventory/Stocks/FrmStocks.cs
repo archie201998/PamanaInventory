@@ -59,13 +59,20 @@ namespace ZenBiz.AppModules.Forms.Inventory.Stocks
             dgBranchStocks.Columns["stocks_id"].Visible = false;
             dgBranchStocks.Columns["item_id"].Visible = false;
             dgBranchStocks.Columns["suppliers_id"].Visible = false;
+            dgBranchStocks.Columns["item_code"].Visible = false;
+            dgBranchStocks.Columns["item_name"].Visible = false;
+            dgBranchStocks.Columns["category_name"].Visible = false;
+            dgBranchStocks.Columns["categories_id"].Visible = false;
+            dgBranchStocks.Columns["abbreviation"].Visible = false;
+            dgBranchStocks.Columns["unit_measurements_name"].Visible = false;
             dgBranchStocks.Columns["branches_id"].Visible = false;
             dgBranchStocks.Columns["created_at"].Visible = false;
             dgBranchStocks.Columns["created_by"].Visible = false;
             dgBranchStocks.Columns["updated_at"].Visible = false;
             dgBranchStocks.Columns["updated_by"].Visible = false;
+            dgBranchStocks.Columns["updated_by"].Visible = false;
 
-            dgBranchStocks.Columns["branch_name"].HeaderText = "Branches";
+            dgBranchStocks.Columns["branch_name"].HeaderText = "Branch";
             dgBranchStocks.Columns["serial_number"].HeaderText = "Serial Number";
             dgBranchStocks.Columns["model"].HeaderText = "Model";
             dgBranchStocks.Columns["operating_system"].HeaderText = "Operating System";

@@ -52,7 +52,7 @@
             // 
             cmbStores.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbStores.FormattingEnabled = true;
-            cmbStores.Location = new Point(48, 3);
+            cmbStores.Location = new Point(63, 3);
             cmbStores.Name = "cmbStores";
             cmbStores.Size = new Size(155, 23);
             cmbStores.TabIndex = 1;
@@ -62,9 +62,9 @@
             label1.AutoSize = true;
             label1.Location = new Point(4, 6);
             label1.Name = "label1";
-            label1.Size = new Size(34, 15);
+            label1.Size = new Size(55, 15);
             label1.TabIndex = 2;
-            label1.Text = "Store";
+            label1.Text = "Branches";
             // 
             // groupBox1
             // 

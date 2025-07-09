@@ -47,31 +47,30 @@ namespace ZenBiz.AppModules.Forms.Reports
 
         private DataTable DataTableStocks()
         {
-            var dtReport = new DataSet1.StocksPerStoreDataTable();
-            //int storeId = Convert.ToInt32(cmbStores.SelectedValue);
-            //int categoriesId = Convert.ToInt32(cmbCategories.SelectedValue);
-            //DataTable dataTableFromDB;
+            var dtReport = new DataSet1.StocksPerBranchDataTable();
+            int branchId = Convert.ToInt32(cmbStores.SelectedValue);    
+            int categoriesId = Convert.ToInt32(cmbCategories.SelectedValue);    
 
-            //if (categoriesId == 0)
-            //    dataTableFromDB = Factory.BranchStocksController().FetchItemsGroupByItem(storeId);
-            //else
-            //    dataTableFromDB = Factory.BranchStocksController().FetchItemsGroupByItem(storeId, categoriesId);
+            DataTable dataTableFromDB;
 
-            //foreach (DataRow item in dataTableFromDB.Rows)
-            //{
-            //    decimal stocksLeft = Factory.BranchStocksController().StocksLeft(storeId, Convert.ToInt32(item["item_id"]));
-            //    DataRow row = dtReport.NewRow();
-            //    row["sku_code"] = item["sku_code"];
-            //    row["item_name"] = item["item_name"];
-            //    row["category"] = item["category_name"];
-            //    row["unit"] = item["unit_name"];
-            //    row["retail_price"] = item["retail_price"];
-            //    row["wholesale_price"] = item["wholesale_price"];
-            //    row["special_price"] = item["special_price"];
-            //    row["stocks_left"] = stocksLeft;
+            if (categoriesId == 0)
+                dataTableFromDB = Factory.BranchStocksController().FetchItemsGroupByItem(branchId);
+            else
+                dataTableFromDB = Factory.BranchStocksController().FetchItemsGroupByItem(branchId, categoriesId);
 
-            //    dtReport.Rows.Add(row);
-            //}
+            foreach (DataRow item in dataTableFromDB.Rows)
+            {
+                decimal stocksLeft = Factory.BranchStocksController().SumTotalStocks(branchId, Convert.ToInt32(item["item_id"]));
+                DataRow row = dtReport.NewRow();
+
+
+                row["item_code"] = item["item_code"];
+                row["item_name"] = item["item_name"];
+                row["category_name"] = item["category_name"];
+                row["abbreviation"] = item["abbreviation"];
+                row["stocks"] = stocksLeft;
+                dtReport.Rows.Add(row);
+            }
 
             return dtReport;
         }
@@ -82,16 +81,16 @@ namespace ZenBiz.AppModules.Forms.Reports
             {
                 var dict = Factory.BusinessDetailsController().FindById(1);
                 var parameters = new[] {
-                    new ReportParameter("storeName", cmbStores.Text),
+                    new ReportParameter("paramBranchName", cmbStores.Text),
                     new ReportParameter("paramBusinessName", dict["name"]),
                     new ReportParameter("paramAddress", dict["address"]),
                     new ReportParameter("paramPermitNo", dict["permit_no"]),
                     new ReportParameter("paramTIN", dict["tin"]),
                 };
 
-                report.ReportPath = $"{Application.StartupPath}\\AppModules\\RDLC\\stocks-per-store.rdlc";
+                report.ReportPath = $"{Application.StartupPath}\\AppModules\\RDLC\\stocks-per-branch.rdlc";
                 report.DataSources.Clear();
-                report.DataSources.Add(new ReportDataSource("StocksPerStore", DataTableStocks()));
+                report.DataSources.Add(new ReportDataSource("StocksPerBranch", DataTableStocks()));
                 report.SetParameters(parameters);
             }
             catch (Exception ex)

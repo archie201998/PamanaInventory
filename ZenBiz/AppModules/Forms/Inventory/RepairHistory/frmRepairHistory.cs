@@ -93,7 +93,7 @@ namespace PamanaWaterInventory.AppModules.Forms.Inventory.RepairHistory
 
                 var messageBox = MessageBox.Show("Are you sure you want to delete this data?", "Deleting Repair History", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (messageBox != DialogResult.Yes) return false;
-                %
+
                 return Factory.RepairedHistoryController().Delete(repairHistoryModelList);
             }
             catch (MySqlException ex)

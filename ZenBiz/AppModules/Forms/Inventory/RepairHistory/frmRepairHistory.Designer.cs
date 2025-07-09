@@ -150,6 +150,7 @@
             ClientSize = new Size(958, 499);
             Controls.Add(groupBox2);
             MaximizeBox = false;
+            MinimizeBox = false;
             Name = "frmRepairHistory";
             ShowInTaskbar = false;
             StartPosition = FormStartPosition.CenterScreen;

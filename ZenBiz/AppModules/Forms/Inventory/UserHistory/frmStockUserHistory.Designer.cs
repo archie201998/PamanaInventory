@@ -150,6 +150,7 @@
             ClientSize = new Size(844, 413);
             Controls.Add(groupBox2);
             MaximizeBox = false;
+            MinimizeBox = false;
             Name = "frmStockUserHistory";
             ShowInTaskbar = false;
             StartPosition = FormStartPosition.CenterScreen;

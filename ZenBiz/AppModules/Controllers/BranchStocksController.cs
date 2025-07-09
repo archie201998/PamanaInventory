@@ -38,7 +38,7 @@ namespace ZenBiz.AppModules.Controllers
                 new object[] { "@categories_id", DbType.Int32, categoriesId },
             };
 
-            string query = $"SELECT item_id, item_name, category_name, unit_name, unit_cost FROM {viewBranchStocks} WHERE branches_id = @branches_id AND categories_id = @categories_id GROUP BY item_id";
+            string query = $"SELECT item_id, item_name, item_code, category_name, unit_measurements_name, abbreviation FROM {viewBranchStocks} WHERE branches_id = @branches_id AND categories_id = @categories_id GROUP BY item_id";
             return _dbGenericCommands.Fill(query, parameters);
         }
 
@@ -49,7 +49,7 @@ namespace ZenBiz.AppModules.Controllers
                 new object[] { "@branches_id", DbType.Int32, storesId },
             };
 
-            string query = $"SELECT item_id, sku_code, item_name, category_name, unit_name, unit_cost FROM {viewBranchStocks} WHERE branches_id = @branches_id GROUP BY item_id";
+            string query = $"SELECT item_id, item_name, item_code, category_name, unit_measurements_name, abbreviation FROM {viewBranchStocks} WHERE branches_id = @branches_id GROUP BY item_id";
             return _dbGenericCommands.Fill(query, parameters);
         }
 
@@ -84,7 +84,7 @@ namespace ZenBiz.AppModules.Controllers
                 new object[] { "@search_text", DbType.String, $"%{searchText}%"},
             };
 
-            string query = $"SELECT id, item_id, sku_code, item_name, SUM(quantity) AS total_quantity FROM {viewBranchStocks} WHERE branches_id = @branches_id AND item_name LIKE @search_text GROUP BY branches_id, item_id";
+            string query = $"SELECT id, item_id, item_name, SUM(quantity) AS total_quantity FROM {viewBranchStocks} WHERE branches_id = @branches_id AND item_name LIKE @search_text GROUP BY branches_id, item_id";
             return _dbGenericCommands.Fill(query, parameters);
         }
 
@@ -184,5 +184,6 @@ namespace ZenBiz.AppModules.Controllers
             return Convert.ToDecimal(result);
         }
 
+       
     }
 }

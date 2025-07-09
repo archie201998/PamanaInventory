@@ -24,7 +24,7 @@ namespace PamanaWaterInventory.AppModules.RDLC {
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
     public partial class DataSet1 : global::System.Data.DataSet {
         
-        private StocksPerStoreDataTable tableStocksPerStore;
+        private StocksPerBranchDataTable tableStocksPerBranch;
         
         private StockAdjustmentsDataTable tableStockAdjustments;
         
@@ -72,8 +72,8 @@ namespace PamanaWaterInventory.AppModules.RDLC {
             if ((this.DetermineSchemaSerializationMode(info, context) == global::System.Data.SchemaSerializationMode.IncludeSchema)) {
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXmlSchema(new global::System.Xml.XmlTextReader(new global::System.IO.StringReader(strSchema)));
-                if ((ds.Tables["StocksPerStore"] != null)) {
-                    base.Tables.Add(new StocksPerStoreDataTable(ds.Tables["StocksPerStore"]));
+                if ((ds.Tables["StocksPerBranch"] != null)) {
+                    base.Tables.Add(new StocksPerBranchDataTable(ds.Tables["StocksPerBranch"]));
                 }
                 if ((ds.Tables["StockAdjustments"] != null)) {
                     base.Tables.Add(new StockAdjustmentsDataTable(ds.Tables["StockAdjustments"]));
@@ -124,9 +124,9 @@ namespace PamanaWaterInventory.AppModules.RDLC {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public StocksPerStoreDataTable StocksPerStore {
+        public StocksPerBranchDataTable StocksPerBranch {
             get {
-                return this.tableStocksPerStore;
+                return this.tableStocksPerBranch;
             }
         }
         
@@ -287,8 +287,8 @@ namespace PamanaWaterInventory.AppModules.RDLC {
                 this.Reset();
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXml(reader);
-                if ((ds.Tables["StocksPerStore"] != null)) {
-                    base.Tables.Add(new StocksPerStoreDataTable(ds.Tables["StocksPerStore"]));
+                if ((ds.Tables["StocksPerBranch"] != null)) {
+                    base.Tables.Add(new StocksPerBranchDataTable(ds.Tables["StocksPerBranch"]));
                 }
                 if ((ds.Tables["StockAdjustments"] != null)) {
                     base.Tables.Add(new StockAdjustmentsDataTable(ds.Tables["StockAdjustments"]));
@@ -350,10 +350,10 @@ namespace PamanaWaterInventory.AppModules.RDLC {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         internal void InitVars(bool initTable) {
-            this.tableStocksPerStore = ((StocksPerStoreDataTable)(base.Tables["StocksPerStore"]));
+            this.tableStocksPerBranch = ((StocksPerBranchDataTable)(base.Tables["StocksPerBranch"]));
             if ((initTable == true)) {
-                if ((this.tableStocksPerStore != null)) {
-                    this.tableStocksPerStore.InitVars();
+                if ((this.tableStocksPerBranch != null)) {
+                    this.tableStocksPerBranch.InitVars();
                 }
             }
             this.tableStockAdjustments = ((StockAdjustmentsDataTable)(base.Tables["StockAdjustments"]));
@@ -420,8 +420,8 @@ namespace PamanaWaterInventory.AppModules.RDLC {
             this.Namespace = "http://tempuri.org/DataSet1.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
-            this.tableStocksPerStore = new StocksPerStoreDataTable();
-            base.Tables.Add(this.tableStocksPerStore);
+            this.tableStocksPerBranch = new StocksPerBranchDataTable();
+            base.Tables.Add(this.tableStocksPerBranch);
             this.tableStockAdjustments = new StockAdjustmentsDataTable();
             base.Tables.Add(this.tableStockAdjustments);
             this.tableGrossIncome = new GrossIncomeDataTable();
@@ -444,7 +444,7 @@ namespace PamanaWaterInventory.AppModules.RDLC {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private bool ShouldSerializeStocksPerStore() {
+        private bool ShouldSerializeStocksPerBranch() {
             return false;
         }
         
@@ -558,7 +558,7 @@ namespace PamanaWaterInventory.AppModules.RDLC {
         }
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public delegate void StocksPerStoreRowChangeEventHandler(object sender, StocksPerStoreRowChangeEvent e);
+        public delegate void StocksPerBranchRowChangeEventHandler(object sender, StocksPerBranchRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         public delegate void StockAdjustmentsRowChangeEventHandler(object sender, StockAdjustmentsRowChangeEvent e);
@@ -592,28 +592,22 @@ namespace PamanaWaterInventory.AppModules.RDLC {
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class StocksPerStoreDataTable : global::System.Data.TypedTableBase<StocksPerStoreRow> {
+        public partial class StocksPerBranchDataTable : global::System.Data.TypedTableBase<StocksPerBranchRow> {
             
-            private global::System.Data.DataColumn columnsku_code;
+            private global::System.Data.DataColumn columnitem_code;
             
             private global::System.Data.DataColumn columnitem_name;
             
-            private global::System.Data.DataColumn columncategory;
+            private global::System.Data.DataColumn columnabbreviation;
             
-            private global::System.Data.DataColumn columnunit;
+            private global::System.Data.DataColumn columnstocks;
             
-            private global::System.Data.DataColumn columnretail_price;
-            
-            private global::System.Data.DataColumn columnwholesale_price;
-            
-            private global::System.Data.DataColumn columnspecial_price;
-            
-            private global::System.Data.DataColumn columnstocks_left;
+            private global::System.Data.DataColumn columncategory_name;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public StocksPerStoreDataTable() {
-                this.TableName = "StocksPerStore";
+            public StocksPerBranchDataTable() {
+                this.TableName = "StocksPerBranch";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -621,7 +615,7 @@ namespace PamanaWaterInventory.AppModules.RDLC {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            internal StocksPerStoreDataTable(global::System.Data.DataTable table) {
+            internal StocksPerBranchDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -638,16 +632,16 @@ namespace PamanaWaterInventory.AppModules.RDLC {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected StocksPerStoreDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected StocksPerBranchDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn sku_codeColumn {
+            public global::System.Data.DataColumn item_codeColumn {
                 get {
-                    return this.columnsku_code;
+                    return this.columnitem_code;
                 }
             }
             
@@ -661,49 +655,25 @@ namespace PamanaWaterInventory.AppModules.RDLC {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn categoryColumn {
+            public global::System.Data.DataColumn abbreviationColumn {
                 get {
-                    return this.columncategory;
+                    return this.columnabbreviation;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn unitColumn {
+            public global::System.Data.DataColumn stocksColumn {
                 get {
-                    return this.columnunit;
+                    return this.columnstocks;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn retail_priceColumn {
+            public global::System.Data.DataColumn category_nameColumn {
                 get {
-                    return this.columnretail_price;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn wholesale_priceColumn {
-                get {
-                    return this.columnwholesale_price;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn special_priceColumn {
-                get {
-                    return this.columnspecial_price;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn stocks_leftColumn {
-                get {
-                    return this.columnstocks_left;
+                    return this.columncategory_name;
                 }
             }
             
@@ -718,52 +688,49 @@ namespace PamanaWaterInventory.AppModules.RDLC {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public StocksPerStoreRow this[int index] {
+            public StocksPerBranchRow this[int index] {
                 get {
-                    return ((StocksPerStoreRow)(this.Rows[index]));
+                    return ((StocksPerBranchRow)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event StocksPerStoreRowChangeEventHandler StocksPerStoreRowChanging;
+            public event StocksPerBranchRowChangeEventHandler StocksPerBranchRowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event StocksPerStoreRowChangeEventHandler StocksPerStoreRowChanged;
+            public event StocksPerBranchRowChangeEventHandler StocksPerBranchRowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event StocksPerStoreRowChangeEventHandler StocksPerStoreRowDeleting;
+            public event StocksPerBranchRowChangeEventHandler StocksPerBranchRowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event StocksPerStoreRowChangeEventHandler StocksPerStoreRowDeleted;
+            public event StocksPerBranchRowChangeEventHandler StocksPerBranchRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void AddStocksPerStoreRow(StocksPerStoreRow row) {
+            public void AddStocksPerBranchRow(StocksPerBranchRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public StocksPerStoreRow AddStocksPerStoreRow(string sku_code, string item_name, string category, string unit, decimal retail_price, decimal wholesale_price, decimal special_price, decimal stocks_left) {
-                StocksPerStoreRow rowStocksPerStoreRow = ((StocksPerStoreRow)(this.NewRow()));
+            public StocksPerBranchRow AddStocksPerBranchRow(string item_code, string item_name, string abbreviation, string stocks, string category_name) {
+                StocksPerBranchRow rowStocksPerBranchRow = ((StocksPerBranchRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        sku_code,
+                        item_code,
                         item_name,
-                        category,
-                        unit,
-                        retail_price,
-                        wholesale_price,
-                        special_price,
-                        stocks_left};
-                rowStocksPerStoreRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowStocksPerStoreRow);
-                return rowStocksPerStoreRow;
+                        abbreviation,
+                        stocks,
+                        category_name};
+                rowStocksPerBranchRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowStocksPerBranchRow);
+                return rowStocksPerBranchRow;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                StocksPerStoreDataTable cln = ((StocksPerStoreDataTable)(base.Clone()));
+                StocksPerBranchDataTable cln = ((StocksPerBranchDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -771,67 +738,58 @@ namespace PamanaWaterInventory.AppModules.RDLC {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new StocksPerStoreDataTable();
+                return new StocksPerBranchDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             internal void InitVars() {
-                this.columnsku_code = base.Columns["sku_code"];
+                this.columnitem_code = base.Columns["item_code"];
                 this.columnitem_name = base.Columns["item_name"];
-                this.columncategory = base.Columns["category"];
-                this.columnunit = base.Columns["unit"];
-                this.columnretail_price = base.Columns["retail_price"];
-                this.columnwholesale_price = base.Columns["wholesale_price"];
-                this.columnspecial_price = base.Columns["special_price"];
-                this.columnstocks_left = base.Columns["stocks_left"];
+                this.columnabbreviation = base.Columns["abbreviation"];
+                this.columnstocks = base.Columns["stocks"];
+                this.columncategory_name = base.Columns["category_name"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             private void InitClass() {
-                this.columnsku_code = new global::System.Data.DataColumn("sku_code", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnsku_code);
+                this.columnitem_code = new global::System.Data.DataColumn("item_code", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnitem_code);
                 this.columnitem_name = new global::System.Data.DataColumn("item_name", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnitem_name);
-                this.columncategory = new global::System.Data.DataColumn("category", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columncategory);
-                this.columnunit = new global::System.Data.DataColumn("unit", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnunit);
-                this.columnretail_price = new global::System.Data.DataColumn("retail_price", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnretail_price);
-                this.columnwholesale_price = new global::System.Data.DataColumn("wholesale_price", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnwholesale_price);
-                this.columnspecial_price = new global::System.Data.DataColumn("special_price", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnspecial_price);
-                this.columnstocks_left = new global::System.Data.DataColumn("stocks_left", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnstocks_left);
+                this.columnabbreviation = new global::System.Data.DataColumn("abbreviation", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnabbreviation);
+                this.columnstocks = new global::System.Data.DataColumn("stocks", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnstocks);
+                this.columncategory_name = new global::System.Data.DataColumn("category_name", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncategory_name);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public StocksPerStoreRow NewStocksPerStoreRow() {
-                return ((StocksPerStoreRow)(this.NewRow()));
+            public StocksPerBranchRow NewStocksPerBranchRow() {
+                return ((StocksPerBranchRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new StocksPerStoreRow(builder);
+                return new StocksPerBranchRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(StocksPerStoreRow);
+                return typeof(StocksPerBranchRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.StocksPerStoreRowChanged != null)) {
-                    this.StocksPerStoreRowChanged(this, new StocksPerStoreRowChangeEvent(((StocksPerStoreRow)(e.Row)), e.Action));
+                if ((this.StocksPerBranchRowChanged != null)) {
+                    this.StocksPerBranchRowChanged(this, new StocksPerBranchRowChangeEvent(((StocksPerBranchRow)(e.Row)), e.Action));
                 }
             }
             
@@ -839,8 +797,8 @@ namespace PamanaWaterInventory.AppModules.RDLC {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.StocksPerStoreRowChanging != null)) {
-                    this.StocksPerStoreRowChanging(this, new StocksPerStoreRowChangeEvent(((StocksPerStoreRow)(e.Row)), e.Action));
+                if ((this.StocksPerBranchRowChanging != null)) {
+                    this.StocksPerBranchRowChanging(this, new StocksPerBranchRowChangeEvent(((StocksPerBranchRow)(e.Row)), e.Action));
                 }
             }
             
@@ -848,8 +806,8 @@ namespace PamanaWaterInventory.AppModules.RDLC {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.StocksPerStoreRowDeleted != null)) {
-                    this.StocksPerStoreRowDeleted(this, new StocksPerStoreRowChangeEvent(((StocksPerStoreRow)(e.Row)), e.Action));
+                if ((this.StocksPerBranchRowDeleted != null)) {
+                    this.StocksPerBranchRowDeleted(this, new StocksPerBranchRowChangeEvent(((StocksPerBranchRow)(e.Row)), e.Action));
                 }
             }
             
@@ -857,14 +815,14 @@ namespace PamanaWaterInventory.AppModules.RDLC {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.StocksPerStoreRowDeleting != null)) {
-                    this.StocksPerStoreRowDeleting(this, new StocksPerStoreRowChangeEvent(((StocksPerStoreRow)(e.Row)), e.Action));
+                if ((this.StocksPerBranchRowDeleting != null)) {
+                    this.StocksPerBranchRowDeleting(this, new StocksPerBranchRowChangeEvent(((StocksPerBranchRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void RemoveStocksPerStoreRow(StocksPerStoreRow row) {
+            public void RemoveStocksPerBranchRow(StocksPerBranchRow row) {
                 this.Rows.Remove(row);
             }
             
@@ -891,7 +849,7 @@ namespace PamanaWaterInventory.AppModules.RDLC {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "StocksPerStoreDataTable";
+                attribute2.FixedValue = "StocksPerBranchDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -3956,30 +3914,30 @@ namespace PamanaWaterInventory.AppModules.RDLC {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class StocksPerStoreRow : global::System.Data.DataRow {
+        public partial class StocksPerBranchRow : global::System.Data.DataRow {
             
-            private StocksPerStoreDataTable tableStocksPerStore;
+            private StocksPerBranchDataTable tableStocksPerBranch;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            internal StocksPerStoreRow(global::System.Data.DataRowBuilder rb) : 
+            internal StocksPerBranchRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tableStocksPerStore = ((StocksPerStoreDataTable)(this.Table));
+                this.tableStocksPerBranch = ((StocksPerBranchDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string sku_code {
+            public string item_code {
                 get {
                     try {
-                        return ((string)(this[this.tableStocksPerStore.sku_codeColumn]));
+                        return ((string)(this[this.tableStocksPerBranch.item_codeColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'sku_code\' in table \'StocksPerStore\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'item_code\' in table \'StocksPerBranch\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableStocksPerStore.sku_codeColumn] = value;
+                    this[this.tableStocksPerBranch.item_codeColumn] = value;
                 }
             }
             
@@ -3988,207 +3946,123 @@ namespace PamanaWaterInventory.AppModules.RDLC {
             public string item_name {
                 get {
                     try {
-                        return ((string)(this[this.tableStocksPerStore.item_nameColumn]));
+                        return ((string)(this[this.tableStocksPerBranch.item_nameColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'item_name\' in table \'StocksPerStore\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'item_name\' in table \'StocksPerBranch\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableStocksPerStore.item_nameColumn] = value;
+                    this[this.tableStocksPerBranch.item_nameColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string category {
+            public string abbreviation {
                 get {
                     try {
-                        return ((string)(this[this.tableStocksPerStore.categoryColumn]));
+                        return ((string)(this[this.tableStocksPerBranch.abbreviationColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'category\' in table \'StocksPerStore\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'abbreviation\' in table \'StocksPerBranch\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableStocksPerStore.categoryColumn] = value;
+                    this[this.tableStocksPerBranch.abbreviationColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string unit {
+            public string stocks {
                 get {
                     try {
-                        return ((string)(this[this.tableStocksPerStore.unitColumn]));
+                        return ((string)(this[this.tableStocksPerBranch.stocksColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'unit\' in table \'StocksPerStore\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'stocks\' in table \'StocksPerBranch\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableStocksPerStore.unitColumn] = value;
+                    this[this.tableStocksPerBranch.stocksColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public decimal retail_price {
+            public string category_name {
                 get {
                     try {
-                        return ((decimal)(this[this.tableStocksPerStore.retail_priceColumn]));
+                        return ((string)(this[this.tableStocksPerBranch.category_nameColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'retail_price\' in table \'StocksPerStore\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'category_name\' in table \'StocksPerBranch\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableStocksPerStore.retail_priceColumn] = value;
+                    this[this.tableStocksPerBranch.category_nameColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public decimal wholesale_price {
-                get {
-                    try {
-                        return ((decimal)(this[this.tableStocksPerStore.wholesale_priceColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'wholesale_price\' in table \'StocksPerStore\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableStocksPerStore.wholesale_priceColumn] = value;
-                }
+            public bool Isitem_codeNull() {
+                return this.IsNull(this.tableStocksPerBranch.item_codeColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public decimal special_price {
-                get {
-                    try {
-                        return ((decimal)(this[this.tableStocksPerStore.special_priceColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'special_price\' in table \'StocksPerStore\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableStocksPerStore.special_priceColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public decimal stocks_left {
-                get {
-                    try {
-                        return ((decimal)(this[this.tableStocksPerStore.stocks_leftColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'stocks_left\' in table \'StocksPerStore\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableStocksPerStore.stocks_leftColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool Issku_codeNull() {
-                return this.IsNull(this.tableStocksPerStore.sku_codeColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void Setsku_codeNull() {
-                this[this.tableStocksPerStore.sku_codeColumn] = global::System.Convert.DBNull;
+            public void Setitem_codeNull() {
+                this[this.tableStocksPerBranch.item_codeColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool Isitem_nameNull() {
-                return this.IsNull(this.tableStocksPerStore.item_nameColumn);
+                return this.IsNull(this.tableStocksPerBranch.item_nameColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void Setitem_nameNull() {
-                this[this.tableStocksPerStore.item_nameColumn] = global::System.Convert.DBNull;
+                this[this.tableStocksPerBranch.item_nameColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IscategoryNull() {
-                return this.IsNull(this.tableStocksPerStore.categoryColumn);
+            public bool IsabbreviationNull() {
+                return this.IsNull(this.tableStocksPerBranch.abbreviationColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetcategoryNull() {
-                this[this.tableStocksPerStore.categoryColumn] = global::System.Convert.DBNull;
+            public void SetabbreviationNull() {
+                this[this.tableStocksPerBranch.abbreviationColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsunitNull() {
-                return this.IsNull(this.tableStocksPerStore.unitColumn);
+            public bool IsstocksNull() {
+                return this.IsNull(this.tableStocksPerBranch.stocksColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetunitNull() {
-                this[this.tableStocksPerStore.unitColumn] = global::System.Convert.DBNull;
+            public void SetstocksNull() {
+                this[this.tableStocksPerBranch.stocksColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool Isretail_priceNull() {
-                return this.IsNull(this.tableStocksPerStore.retail_priceColumn);
+            public bool Iscategory_nameNull() {
+                return this.IsNull(this.tableStocksPerBranch.category_nameColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void Setretail_priceNull() {
-                this[this.tableStocksPerStore.retail_priceColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool Iswholesale_priceNull() {
-                return this.IsNull(this.tableStocksPerStore.wholesale_priceColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void Setwholesale_priceNull() {
-                this[this.tableStocksPerStore.wholesale_priceColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool Isspecial_priceNull() {
-                return this.IsNull(this.tableStocksPerStore.special_priceColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void Setspecial_priceNull() {
-                this[this.tableStocksPerStore.special_priceColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool Isstocks_leftNull() {
-                return this.IsNull(this.tableStocksPerStore.stocks_leftColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void Setstocks_leftNull() {
-                this[this.tableStocksPerStore.stocks_leftColumn] = global::System.Convert.DBNull;
+            public void Setcategory_nameNull() {
+                this[this.tableStocksPerBranch.category_nameColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -6184,22 +6058,22 @@ namespace PamanaWaterInventory.AppModules.RDLC {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public class StocksPerStoreRowChangeEvent : global::System.EventArgs {
+        public class StocksPerBranchRowChangeEvent : global::System.EventArgs {
             
-            private StocksPerStoreRow eventRow;
+            private StocksPerBranchRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public StocksPerStoreRowChangeEvent(StocksPerStoreRow row, global::System.Data.DataRowAction action) {
+            public StocksPerBranchRowChangeEvent(StocksPerBranchRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public StocksPerStoreRow Row {
+            public StocksPerBranchRow Row {
                 get {
                     return this.eventRow;
                 }
