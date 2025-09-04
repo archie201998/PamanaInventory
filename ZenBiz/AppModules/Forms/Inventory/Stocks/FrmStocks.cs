@@ -41,7 +41,6 @@ namespace ZenBiz.AppModules.Forms.Inventory.Stocks
             cmbBranches.ComboBox.DataSource = new BindingSource(storesDict, null);
             cmbBranches.ComboBox.DisplayMember = "Value";
             cmbBranches.ComboBox.ValueMember = "key";
-
             cmbBranches.ComboBox.SelectedValue = _branchId; 
         }
 
@@ -97,7 +96,7 @@ namespace ZenBiz.AppModules.Forms.Inventory.Stocks
             lblTotalStoreStocks.Text = dgBranchStocks.Rows.Count.ToString();
 
             // Auto adjust columns size
-            dgBranchStocks.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dgBranchStocks.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgBranchStocks.AutoResizeColumns();
 
             dgBranchStocks.ClearSelection();

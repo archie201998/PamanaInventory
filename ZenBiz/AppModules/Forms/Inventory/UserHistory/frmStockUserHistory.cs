@@ -68,7 +68,7 @@ namespace PamanaWaterInventory.AppModules.Forms.Inventory.UserHistory
             dgUserHistory.Columns["is_current_user"].HeaderText = "Current User";
 
             // Auto adjust columns size
-            dgUserHistory.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dgUserHistory.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgUserHistory.AutoResizeColumns();
         }
 
