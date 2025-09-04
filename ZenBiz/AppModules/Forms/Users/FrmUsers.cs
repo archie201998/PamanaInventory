@@ -26,6 +26,8 @@ namespace ZenBiz.AppModules.Forms.Users
             foreach (DataGridViewRow item in dgUsers.Rows)
                 if (item.Cells["role_name"].Value.ToString() == "Store Manager")
                     dgUsers.Rows.Remove(item);
+
+            dgUsers.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
 
         private void FrmUsers_Load(object sender, EventArgs e)

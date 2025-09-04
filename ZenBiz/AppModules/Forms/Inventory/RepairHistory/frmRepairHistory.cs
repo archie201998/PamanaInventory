@@ -56,6 +56,7 @@ namespace PamanaWaterInventory.AppModules.Forms.Inventory.RepairHistory
                 dgRepairHistory.Columns["cost"].HeaderText = "Repair Cost";
                 dgRepairHistory.Columns["other_details"].HeaderText = "Other Details";
                 dgRepairHistory.Columns["other_details"].AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
+                dgRepairHistory.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             }
             catch (Exception)
             {

@@ -43,7 +43,8 @@ namespace ZenBiz.AppModules.Forms.Inventory.Items
             dgItems.Columns["name"].HeaderText = "Item";
             dgItems.Columns["category_name"].HeaderText = "Category";
             dgItems.Columns["unit_name"].HeaderText = "Unit";
-            dgItems.Columns["name"].Width = 300;
+            dgItems.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
             CountRecords();
         }
 
@@ -63,7 +64,10 @@ namespace ZenBiz.AppModules.Forms.Inventory.Items
                 string storeName = item["branch_name"].ToString();
                 decimal stocksLeft = Factory.BranchStocksController().SumTotalStocks(branchId, itemId);
                 dgBranchStocks.Rows.Add(branchId, storeName, stocksLeft.ToString("N2"));
+                dgBranchStocks.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             }
+
+
         }
 
         private void FrmItems_Load(object sender, EventArgs e)
