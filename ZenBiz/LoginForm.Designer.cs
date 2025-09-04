@@ -121,11 +121,11 @@
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             label5.ForeColor = Color.LightGray;
-            label5.Location = new Point(103, 328);
+            label5.Location = new Point(89, 328);
             label5.Name = "label5";
-            label5.Size = new Size(93, 17);
+            label5.Size = new Size(127, 17);
             label5.TabIndex = 7;
-            label5.Text = "TEST VERSION";
+            label5.Text = "TEST VERSION - 001";
             label5.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // label4

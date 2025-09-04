@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<configuration>
+	<connectionStrings>
+		<add name="PamanaWaterInventoryInstance"
+		   connectionString="server=localhost;database=pamanawater_inventory;user id=pamanawater_inventory;password=@pamanawater_inventory123"
+			providerName="MySql.Data.MySqlClient" />
+	</connectionStrings>
+</configuration> 
