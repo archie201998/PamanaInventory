@@ -9,7 +9,6 @@ namespace ZenBiz
             InitializeComponent();
             Helper.LoadFormIcon(this);
             Helper.FormDialogDefaults(this, true, true);
-            lblVersion.Text = $"Version {Application.ProductVersion}";
         }
 
         private void btnVerify_Click(object sender, EventArgs e)

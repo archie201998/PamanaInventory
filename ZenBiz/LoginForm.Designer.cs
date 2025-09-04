@@ -41,7 +41,6 @@
             btnVerify = new Button();
             label6 = new Label();
             label7 = new Label();
-            lblVersion = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel1.SuspendLayout();
             SuspendLayout();
@@ -122,11 +121,11 @@
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             label5.ForeColor = Color.LightGray;
-            label5.Location = new Point(78, 328);
+            label5.Location = new Point(103, 328);
             label5.Name = "label5";
-            label5.Size = new Size(147, 17);
+            label5.Size = new Size(93, 17);
             label5.TabIndex = 7;
-            label5.Text = "DEVELOPMENT SERVER";
+            label5.Text = "TEST VERSION";
             label5.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // label4
@@ -175,24 +174,12 @@
             label7.TabIndex = 9;
             label7.Text = "Enter your login details below";
             // 
-            // lblVersion
-            // 
-            lblVersion.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            lblVersion.ForeColor = SystemColors.ControlText;
-            lblVersion.Location = new Point(589, 328);
-            lblVersion.Name = "lblVersion";
-            lblVersion.Size = new Size(121, 15);
-            lblVersion.TabIndex = 10;
-            lblVersion.Text = "Version 1.0.0.0";
-            lblVersion.TextAlign = ContentAlignment.MiddleRight;
-            // 
             // LoginForm
             // 
             AcceptButton = btnVerify;
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(745, 352);
-            Controls.Add(lblVersion);
             Controls.Add(label7);
             Controls.Add(label6);
             Controls.Add(btnVerify);
@@ -225,6 +212,5 @@
         private Button btnVerify;
         private Label label6;
         private Label label7;
-        private Label lblVersion;
     }
 }
