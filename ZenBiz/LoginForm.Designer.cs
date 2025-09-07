@@ -113,7 +113,7 @@
             panel1.Controls.Add(label3);
             panel1.Location = new Point(-4, -2);
             panel1.Name = "panel1";
-            panel1.Size = new Size(324, 361);
+            panel1.Size = new Size(324, 346);
             panel1.TabIndex = 6;
             // 
             // label5
@@ -121,7 +121,7 @@
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             label5.ForeColor = Color.LightGray;
-            label5.Location = new Point(89, 328);
+            label5.Location = new Point(92, 313);
             label5.Name = "label5";
             label5.Size = new Size(127, 17);
             label5.TabIndex = 7;
@@ -179,7 +179,7 @@
             AcceptButton = btnVerify;
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(745, 352);
+            ClientSize = new Size(745, 337);
             Controls.Add(label7);
             Controls.Add(label6);
             Controls.Add(btnVerify);
