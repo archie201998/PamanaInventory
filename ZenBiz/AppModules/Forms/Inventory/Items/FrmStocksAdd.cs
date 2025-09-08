@@ -48,6 +48,7 @@ namespace ZenBiz.AppModules.Forms.Inventory.Items
                 string supplier = uc.cmbSupplier.Text;
                 string remarks = uc.txtRemarks.Text.Trim();
 
+
                 string[] row = new string[]
                 {
                     branch,
@@ -59,10 +60,12 @@ namespace ZenBiz.AppModules.Forms.Inventory.Items
                     operatingSystem,
                     sophosTamper,
                     dateAcquired,
+                    string.Empty,
                     unitCost,
                     status,
                     suppliersId.ToString(),
                     supplier,
+                    string.Empty,
                     remarks,
                 };
 

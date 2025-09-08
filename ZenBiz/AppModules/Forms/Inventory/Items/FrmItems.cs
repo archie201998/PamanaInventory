@@ -123,6 +123,12 @@ namespace ZenBiz.AppModules.Forms.Inventory.Items
 
         private void btnStocks_Click(object sender, EventArgs e)
         {
+            if (dgBranchStocks.Rows.Count == 0)
+            {
+                Helper.MessageBoxInformation("No stocks available. Please add stocks first.");
+                return;
+            }
+
             int itemId = (int)dgItems.SelectedCells[0].Value;
             int branchId =(int)dgBranchStocks.SelectedCells[0].Value;   
             using FrmStocks form = new(branchId, itemId);

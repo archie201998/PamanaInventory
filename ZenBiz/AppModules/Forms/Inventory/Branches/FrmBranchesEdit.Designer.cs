@@ -28,68 +28,68 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.ucStore1 = new ZenBiz.AppModules.Inventory.Stores.UcBranches();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.btnCancel = new System.Windows.Forms.Button();
-            this.btnSave = new System.Windows.Forms.Button();
-            this.flowLayoutPanel1.SuspendLayout();
-            this.SuspendLayout();
+            ucStore1 = new UcBranches();
+            flowLayoutPanel1 = new FlowLayoutPanel();
+            btnCancel = new Button();
+            btnSave = new Button();
+            flowLayoutPanel1.SuspendLayout();
+            SuspendLayout();
             // 
             // ucStore1
             // 
-            this.ucStore1.Location = new System.Drawing.Point(12, 12);
-            this.ucStore1.Name = "ucStore1";
-            this.ucStore1.Size = new System.Drawing.Size(389, 66);
-            this.ucStore1.TabIndex = 0;
+            ucStore1.Location = new Point(12, 12);
+            ucStore1.Name = "ucStore1";
+            ucStore1.Size = new Size(389, 66);
+            ucStore1.TabIndex = 0;
             // 
             // flowLayoutPanel1
             // 
-            this.flowLayoutPanel1.BackColor = System.Drawing.Color.White;
-            this.flowLayoutPanel1.Controls.Add(this.btnCancel);
-            this.flowLayoutPanel1.Controls.Add(this.btnSave);
-            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 94);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(398, 30);
-            this.flowLayoutPanel1.TabIndex = 2;
+            flowLayoutPanel1.BackColor = Color.White;
+            flowLayoutPanel1.Controls.Add(btnCancel);
+            flowLayoutPanel1.Controls.Add(btnSave);
+            flowLayoutPanel1.Dock = DockStyle.Bottom;
+            flowLayoutPanel1.Location = new Point(0, 94);
+            flowLayoutPanel1.Name = "flowLayoutPanel1";
+            flowLayoutPanel1.RightToLeft = RightToLeft.Yes;
+            flowLayoutPanel1.Size = new Size(398, 30);
+            flowLayoutPanel1.TabIndex = 2;
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(320, 3);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(75, 23);
-            this.btnCancel.TabIndex = 1;
-            this.btnCancel.Text = "Cancel";
-            this.btnCancel.UseVisualStyleBackColor = true;
+            btnCancel.Location = new Point(320, 3);
+            btnCancel.Name = "btnCancel";
+            btnCancel.Size = new Size(75, 23);
+            btnCancel.TabIndex = 1;
+            btnCancel.Text = "Cancel";
+            btnCancel.UseVisualStyleBackColor = true;
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(239, 3);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(75, 23);
-            this.btnSave.TabIndex = 0;
-            this.btnSave.Text = "Save";
-            this.btnSave.UseVisualStyleBackColor = true;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            btnSave.Location = new Point(239, 3);
+            btnSave.Name = "btnSave";
+            btnSave.Size = new Size(75, 23);
+            btnSave.TabIndex = 0;
+            btnSave.Text = "Save";
+            btnSave.UseVisualStyleBackColor = true;
+            btnSave.Click += btnSave_Click;
             // 
-            // FrmStoresEdit
+            // FrmBranchesEdit
             // 
-            this.AcceptButton = this.btnSave;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
-            this.CancelButton = this.btnCancel;
-            this.ClientSize = new System.Drawing.Size(398, 124);
-            this.Controls.Add(this.flowLayoutPanel1);
-            this.Controls.Add(this.ucStore1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Name = "FrmStoresEdit";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Edit Stores";
-            this.Load += new System.EventHandler(this.FrmStoresEdit_Load);
-            this.flowLayoutPanel1.ResumeLayout(false);
-            this.ResumeLayout(false);
+            AcceptButton = btnSave;
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            AutoValidate = AutoValidate.EnableAllowFocusChange;
+            CancelButton = btnCancel;
+            ClientSize = new Size(398, 124);
+            Controls.Add(flowLayoutPanel1);
+            Controls.Add(ucStore1);
+            FormBorderStyle = FormBorderStyle.FixedToolWindow;
+            Name = "FrmBranchesEdit";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Edit Branch";
+            Load += FrmStoresEdit_Load;
+            flowLayoutPanel1.ResumeLayout(false);
+            ResumeLayout(false);
 
         }
 
