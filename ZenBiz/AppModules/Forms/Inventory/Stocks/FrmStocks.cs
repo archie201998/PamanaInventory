@@ -46,63 +46,110 @@ namespace ZenBiz.AppModules.Forms.Inventory.Stocks
 
         private void FrmStocks_Load(object sender, EventArgs e)
         {
-            LoadItemDetails();
             LoadBranches();
             LoadBranchesStocks();
+            LoadItemDetails();
         }
 
         private void LoadBranchesStocks()
         {
-            int branchId = (int)cmbBranches.ComboBox.SelectedValue;
-            if (branchId == 0)
-                dgBranchStocks.DataSource = Factory.BranchStocksController().Fetch(_itemId);
-            else
-                dgBranchStocks.DataSource = Factory.BranchStocksController().Fetch(branchId, _itemId);
+            try
+            {
+                int branchId = 0;
+                if (cmbBranches.ComboBox.SelectedValue != null)
+                {
+                    branchId = (int)cmbBranches.ComboBox.SelectedValue;
+                }
 
-            dgBranchStocks.Columns["stocks_id"].Visible = false;
-            dgBranchStocks.Columns["item_id"].Visible = false;
-            dgBranchStocks.Columns["suppliers_id"].Visible = false;
-            dgBranchStocks.Columns["item_code"].Visible = false;
-            dgBranchStocks.Columns["item_name"].Visible = false;
-            dgBranchStocks.Columns["category_name"].Visible = false;
-            dgBranchStocks.Columns["categories_id"].Visible = false;
-            dgBranchStocks.Columns["abbreviation"].Visible = false;
-            dgBranchStocks.Columns["unit_measurements_name"].Visible = false;
-            dgBranchStocks.Columns["branches_id"].Visible = false;
-            dgBranchStocks.Columns["created_at"].Visible = false;
-            dgBranchStocks.Columns["created_by"].Visible = false;
-            dgBranchStocks.Columns["updated_at"].Visible = false;
-            dgBranchStocks.Columns["updated_by"].Visible = false;
-            dgBranchStocks.Columns["updated_by"].Visible = false;
+                // Fetch data
+                var dataSource = branchId == 0
+                    ? Factory.BranchStocksController().Fetch(_itemId)
+                    : Factory.BranchStocksController().Fetch(branchId, _itemId);
 
-            dgBranchStocks.Columns["branch_name"].HeaderText = "Branch";
-            dgBranchStocks.Columns["serial_number"].HeaderText = "Serial Number";
-            dgBranchStocks.Columns["model"].HeaderText = "Model";
-            dgBranchStocks.Columns["operating_system"].HeaderText = "Operating System";
-            dgBranchStocks.Columns["ram"].HeaderText = "RAM";
-            dgBranchStocks.Columns["computer_name"].HeaderText = "Computer Name";
-            dgBranchStocks.Columns["sophos_tamper"].HeaderText = "Sophos Tamper";
-            dgBranchStocks.Columns["unit_cost"].HeaderText = "Unit Cost";
-            dgBranchStocks.Columns["unit_cost"].DefaultCellStyle.Format = "N2";
-            dgBranchStocks.Columns["date_acquired"].HeaderText = "Date Acquired";
-            dgBranchStocks.Columns["date_acquired"].DefaultCellStyle.Format = "MMM dd, yyyy";
-            dgBranchStocks.Columns["suppliers_name"].HeaderText = "Supplier";
-            dgBranchStocks.Columns["suppliers_address"].HeaderText = "Supplier Address";
-            dgBranchStocks.Columns["status"].HeaderText = "Status";
-            dgBranchStocks.Columns["remarks"].HeaderText = "Remarks";
-            //dgBranchStocks.Columns["user"].HeaderText = "Current User";
-            //dgBranchStocks.Columns["remarks"].HeaderText = "Remarks";
+                dgBranchStocks.DataSource = dataSource;
 
-            lblTotalStoreStocks.Text = dgBranchStocks.Rows.Count.ToString();
+                // Check if data source is not null and has data
+                if (dataSource == null || dgBranchStocks.Columns.Count == 0)
+                {
+                    lblTotalStoreStocks.Text = "0";
+                    return;
+                }
 
-            // Auto adjust columns size
-            dgBranchStocks.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgBranchStocks.AutoResizeColumns();
+                // Hide columns - check if they exist first
+                HideColumnIfExists("stocks_id");
+                HideColumnIfExists("item_id");
+                HideColumnIfExists("suppliers_id");
+                HideColumnIfExists("item_code");
+                HideColumnIfExists("item_name");
+                HideColumnIfExists("category_name");
+                HideColumnIfExists("categories_id");
+                HideColumnIfExists("abbreviation");
+                HideColumnIfExists("unit_measurements_name");
+                HideColumnIfExists("branches_id");
+                HideColumnIfExists("created_at");
+                HideColumnIfExists("created_by");
+                HideColumnIfExists("updated_at");
+                HideColumnIfExists("updated_by");
 
-            dgBranchStocks.ClearSelection();
+                // Set headers - check if columns exist first
+                SetColumnHeaderIfExists("branch_name", "Branch");
+                SetColumnHeaderIfExists("serial_number", "Serial Number");
+                SetColumnHeaderIfExists("model", "Model");
+                SetColumnHeaderIfExists("operating_system", "Operating System");
+                SetColumnHeaderIfExists("ram", "RAM");
+                SetColumnHeaderIfExists("computer_name", "Computer Name");
+                SetColumnHeaderIfExists("sophos_tamper", "Sophos Tamper");
+                SetColumnHeaderIfExists("suppliers_name", "Supplier");
+                SetColumnHeaderIfExists("suppliers_address", "Supplier Address");
+                SetColumnHeaderIfExists("status", "Status");
+                SetColumnHeaderIfExists("remarks", "Remarks");
+
+                // Format columns if they exist
+                if (dgBranchStocks.Columns.Contains("unit_cost"))
+                {
+                    dgBranchStocks.Columns["unit_cost"].HeaderText = "Unit Cost";
+                    dgBranchStocks.Columns["unit_cost"].DefaultCellStyle.Format = "N2";
+                }
+
+                if (dgBranchStocks.Columns.Contains("date_acquired"))
+                {
+                    dgBranchStocks.Columns["date_acquired"].HeaderText = "Date Acquired";
+                    dgBranchStocks.Columns["date_acquired"].DefaultCellStyle.Format = "MMM dd, yyyy";
+                }
+
+                lblTotalStoreStocks.Text = dgBranchStocks.Rows.Count.ToString();
+
+                // Auto adjust columns size
+                dgBranchStocks.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                dgBranchStocks.AutoResizeColumns();
+                dgBranchStocks.ClearSelection();
+            }
+            catch (Exception ex)
+            {
+                // Log the actual error for debugging
+                MessageBox.Show($"Error loading branch stocks: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                // Or log to your logging system
+                // Logger.LogError(ex, "Error in LoadBranchStocks");
+            }
+
         }
 
+        // Helper methods
+        private void HideColumnIfExists(string columnName)
+        {
+            if (dgBranchStocks.Columns.Contains(columnName))
+            {
+                dgBranchStocks.Columns[columnName].Visible = false;
+            }
+        }
 
+        private void SetColumnHeaderIfExists(string columnName, string headerText)
+        {
+            if (dgBranchStocks.Columns.Contains(columnName))
+            {
+                dgBranchStocks.Columns[columnName].HeaderText = headerText;
+            }
+        }
 
         private void btnStoreStockAdd_Click(object sender, EventArgs e)
         {

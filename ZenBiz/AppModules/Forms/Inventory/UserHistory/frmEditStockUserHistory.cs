@@ -61,21 +61,84 @@ namespace PamanaWaterInventory.AppModules.Forms.Inventory.UserHistory
                 StockID = stocksId
             };
 
-            return Factory.StockUserHistoryController().Insert(stockUserHistoryModel);
-
+            return Factory.StockUserHistoryController().Update(stockUserHistoryModel);
         }
 
         private void LoadData()
         {
-            Dictionary<string, string> dict;
+            try
+            {
+                Dictionary<string, string> dict;
+                dict = Factory.StockUserHistoryController().FindById(_stockId);
 
-            dict = Factory.StockUserHistoryController().FindById(_stockId);
+                // Check if dictionary is not null and has data
+                if (dict == null)
+                {
+                    MessageBox.Show("No record found for the specified stock ID.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
 
-            uc.cmbBranch.SelectedValue = dict["branches_id"];
-            uc.txtUser.Text = dict["user"];
-            uc.dtpDateAssigned.Value = Convert.ToDateTime(dict["assigned_date"]);
-            uc.dtpDateReturned.Value = string.IsNullOrEmpty(dict["unassigned_date"]) ? DateTime.Now : Convert.ToDateTime(dict["unassigned_date"]);
-            uc.cbxCurrentUser.Checked = Convert.ToBoolean(dict["is_current_user"]); 
+                // Safe assignment with null checks
+                if (dict.ContainsKey("branches_id"))
+                    uc.cmbBranch.SelectedValue = dict["branches_id"];
+
+                if (dict.ContainsKey("user"))
+                    uc.txtUser.Text = dict["user"] ?? string.Empty;
+
+                // Safe date assignment for assigned_date
+                if (dict.ContainsKey("assigned_date") && !string.IsNullOrEmpty(dict["assigned_date"]))
+                {
+                    if (DateTime.TryParse(dict["assigned_date"], out DateTime assignedDate))
+                    {
+                        uc.dtpDateAssigned.Value = assignedDate;
+                    }
+                    else
+                    {
+                        uc.dtpDateAssigned.Value = DateTime.Now; // or some default date
+                    }
+                }
+
+                // Safe date assignment for unassigned_date (this was causing the error)
+                if (dict.ContainsKey("unassigned_date"))
+                {
+                    string unassignedDateStr = dict["unassigned_date"];
+                    if (string.IsNullOrEmpty(unassignedDateStr) ||
+                        unassignedDateStr.Equals("NULL", StringComparison.OrdinalIgnoreCase) ||
+                        !DateTime.TryParse(unassignedDateStr, out DateTime unassignedDate))
+                    {
+                        uc.dtpDateReturned.Value = DateTime.Now;
+                    }
+                    else
+                    {
+                        uc.dtpDateReturned.Value = unassignedDate;
+                    }
+                }
+                else
+                {
+                    uc.dtpDateReturned.Value = DateTime.Now;
+                }
+
+                // Safe boolean conversion
+                if (dict.ContainsKey("is_current_user"))
+                {
+                    string currentUserStr = dict["is_current_user"];
+                    if (bool.TryParse(currentUserStr, out bool isCurrentUser))
+                    {
+                        uc.cbxCurrentUser.Checked = isCurrentUser;
+                    }
+                    else
+                    {
+                        // Handle "1"/"0" or "Y"/"N" scenarios
+                        uc.cbxCurrentUser.Checked = currentUserStr == "1" ||
+                                                  currentUserStr.Equals("Y", StringComparison.OrdinalIgnoreCase) ||
+                                                  currentUserStr.Equals("True", StringComparison.OrdinalIgnoreCase);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                //MessageBox.Show($"Error loading stock user history: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void frmEditStockUserHistory_Load(object sender, EventArgs e)

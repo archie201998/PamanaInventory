@@ -80,7 +80,19 @@ namespace PamanaWaterInventory.AppModules.Controllers
 
         public bool Update(StockUserHistoryModel entity)
         {
-            throw new NotImplementedException();
+            var parameters = new object[][]
+            {
+                new object[] { "@user", DbType.String, entity.User },
+                new object[] { "@assigned_date", DbType.String, entity.AssignedDate.ToString("yyyy-MM-dd HH:mm:ss") },
+                new object[] { "@unassigned_date", DbType.String, entity.ReturnedDate.ToString("yyyy-MM-dd HH:mm:ss") },
+                new object[] { "@branches_id", DbType.Int32, entity.BranchID },
+                new object[] { "@stocks_id", DbType.Int32, entity.StockID },
+                new object[] { "@is_current_user", DbType.Int32, entity.IsCurrentUser },
+                new object[] { "@id", DbType.Int32, entity.Id }
+            };
+
+            string query = $"UPDATE {tblStocksUserHistory} SET user = @user, assigned_date = @assigned_date, unassigned_date = @unassigned_date, branches_id = @branches_id, stocks_id = @stocks_id, is_current_user = @is_current_user WHERE id = @id";
+            return _dbGenericCommands.ExecuteNonQuery(query, parameters);
         }
 
         public DataTable GetViewRecordsByStockId(int stockId)

@@ -248,7 +248,6 @@
             // 
             cmbBranches.Alignment = ToolStripItemAlignment.Right;
             cmbBranches.DropDownStyle = ComboBoxStyle.DropDownList;
-            cmbBranches.Enabled = false;
             cmbBranches.Name = "cmbBranches";
             cmbBranches.Size = new Size(200, 38);
             cmbBranches.Click += cmbBranches_Click;

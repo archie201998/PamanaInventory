@@ -1,4 +1,6 @@
-﻿using PamanaWaterInventory.AppModules.Forms.Inventory.RepairHistory;
+﻿using MySql.Data.MySqlClient;
+using PamanaWaterInventory.AppModules.Forms.Inventory.RepairHistory;
+using PamanaWaterInventory.AppModules.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -54,22 +56,60 @@ namespace PamanaWaterInventory.AppModules.Forms.Inventory.UserHistory
 
         private void LoadStockUserHistory()
         {
-            int stockId = _stockId;
+            try
+            {
+                int stockId = _stockId;
+                var dataSource = Factory.StockUserHistoryController().GetViewRecordsByStockId(stockId);
 
-            dgUserHistory.DataSource = Factory.StockUserHistoryController().GetViewRecordsByStockId(stockId);
+                dgUserHistory.DataSource = dataSource;
 
-            dgUserHistory.Columns["id"].Visible = false;
-            dgUserHistory.Columns["stocks_id"].Visible = false;
-            dgUserHistory.Columns["branches_id"].Visible = false;
+                // Check if data source is not null and has columns
+                if (dataSource == null || dgUserHistory.Columns.Count == 0)
+                {
+                    // Clear the grid and exit if no data
+                    dgUserHistory.DataSource = null;
+                    return;
+                }
 
-            dgUserHistory.Columns["user"].HeaderText = "User";
-            dgUserHistory.Columns["assigned_date"].HeaderText = "Assigned Date";
-            dgUserHistory.Columns["unassigned_date"].HeaderText = "Returned Date";
-            dgUserHistory.Columns["is_current_user"].HeaderText = "Current User";
+                // Hide columns - check if they exist first
+                HideColumnIfExists(dgUserHistory, "id");
+                HideColumnIfExists(dgUserHistory, "stocks_id");
+                HideColumnIfExists(dgUserHistory, "branches_id");
 
-            // Auto adjust columns size
-            dgUserHistory.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgUserHistory.AutoResizeColumns();
+                // Set headers - check if columns exist first
+                SetColumnHeaderIfExists(dgUserHistory, "user", "User");
+                SetColumnHeaderIfExists(dgUserHistory, "assigned_date", "Assigned Date");
+                SetColumnHeaderIfExists(dgUserHistory, "unassigned_date", "Returned Date");
+                SetColumnHeaderIfExists(dgUserHistory, "is_current_user", "Current User");
+
+                // Auto adjust columns size
+                dgUserHistory.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                dgUserHistory.AutoResizeColumns();
+            }
+            catch (Exception ex)
+            {
+                // Handle the error gracefully
+                dgUserHistory.DataSource = null;
+                // Optionally log the error
+                // MessageBox.Show($"Error loading user history: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        // Helper methods (add these to your class)
+        private void HideColumnIfExists(DataGridView grid, string columnName)
+        {
+            if (grid.Columns.Contains(columnName))
+            {
+                grid.Columns[columnName].Visible = false;
+            }
+        }
+
+        private void SetColumnHeaderIfExists(DataGridView grid, string columnName, string headerText)
+        {
+            if (grid.Columns.Contains(columnName))
+            {
+                grid.Columns[columnName].HeaderText = headerText;
+            }
         }
 
         private void dgUserHistory_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -84,7 +124,34 @@ namespace PamanaWaterInventory.AppModules.Forms.Inventory.UserHistory
 
         private void btnDeleteStoreStock_Click(object sender, EventArgs e)
         {
+            if (DeleteUserHistory(dgUserHistory)) LoadStockUserHistory();
+        }
 
+        private bool DeleteUserHistory(DataGridView dataGrid)
+        {
+            if (dataGrid.SelectedRows.Count == 0) return false;
+
+            try
+            {
+                //Dev Mode.
+                //List<UserHistoryModel> repairHistoryModelList = new();
+                //foreach (DataGridViewRow item in dataGrid.SelectedRows)
+                //    repairHistoryModelList.Add(new RepairedHistoryModel() { Id = Convert.ToInt32(item.Cells["stocks_id"].Value) });
+
+                //var messageBox = MessageBox.Show("Are you sure you want to delete this data?", "Deleting Repair History", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                //if (messageBox != DialogResult.Yes) return false;
+
+                //return Factory.RepairedHistoryController().Delete(repairHistoryModelList);
+            }
+            catch (MySqlException ex)
+            {
+                if (ex.Number == 1451)
+                    Helper.MessageBoxError("Unable to delete the record/s because it is already been referenced to other records.");
+                else
+                    Helper.MessageBoxError(ex.Message);
+            }
+
+            return false;
         }
     }
 }
